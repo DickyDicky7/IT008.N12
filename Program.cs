@@ -16,7 +16,7 @@ namespace IT008.N12_015
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new form());
         }
     }
 }
