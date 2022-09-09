@@ -19,7 +19,9 @@ namespace IT008.N12_015
 
         private void btn_load_media_Click(object sender, EventArgs e)
         {
-            MediaController.URL = "C:\\Users\\User\\Music\\Circus10529-VA-5631008.mp3";        
+            media_controller.LoadMedia(
+                "C:\\Users\\User\\Music\\Circus10529-VA-5631008.mp3"
+            );
         }
     }
 }

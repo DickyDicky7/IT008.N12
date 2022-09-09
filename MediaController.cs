@@ -17,38 +17,48 @@ namespace IT008.N12_015
             InitializeComponent();
         }
 
-        private static bool trackOn = false;
+        private void PlayMedia()
+        {
+            player.controls.play();
+            btn_play.Text = "PAUSE";
+        }
+
+        private void PauseMedia()
+        {
+            player.controls.pause();
+            btn_play.Text = "PLAY";
+        }
+
+        public void LoadMedia(string URL)
+        {
+            MediaController.URL = URL;
+        }
 
         private void btn_play_Click(object sender, EventArgs e)
         {
-            if (btn_play.Text == "PLAY")
+            if  (URL != null)
             {
-                if (trackOn)
-                {
-                    player.controls.play();
-                    btn_play.Text = "PAUSE";
-                }
-                else
-                if (URL != null)
-                {
-                    player.URL = URL;
-                    player.controls.play();
-                    // MessageBox.Show("Media found", "Info");
-                    btn_play.Text = "PAUSE";
-                    trackOn = true;
-                }
-                else
-                {
-                    player.controls.stop();
-                    MessageBox.Show("Media not found", "Error");
-                    trackOn = false;
-                }
+                player.URL = URL;
+                PlayMedia();
+                URL = null;
+            }
+            else if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                PauseMedia();
+            }
+            else if (player.playState == WMPLib.WMPPlayState.wmppsPaused)
+            {
+                PlayMedia();
+            }
+            else if (player.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
+            {
+                player.URL = null;
             }
             else
             {
-                player.controls.pause();
-                btn_play.Text = "PLAY";
+                MessageBox.Show("Media not found", "Error");
             }
+
         }
 
         private void btn_next_Click(object sender, EventArgs e)
@@ -64,6 +74,6 @@ namespace IT008.N12_015
         private static WMPLib.WindowsMediaPlayer player
                  = new WMPLib.WindowsMediaPlayer();
 
-        public static string URL { get; set; } = null;
+        private static string URL = null;
     }
 }
