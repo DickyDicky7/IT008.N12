@@ -28,30 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_load_media = new System.Windows.Forms.Button();
-            this.lbl_1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.media_controller = new IT008.N12_015.MediaController();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
-            // btn_load_media
+            // panel1
             // 
-            this.btn_load_media.Location = new System.Drawing.Point(12, 12);
-            this.btn_load_media.Name = "btn_load_media";
-            this.btn_load_media.Size = new System.Drawing.Size(75, 23);
-            this.btn_load_media.TabIndex = 2;
-            this.btn_load_media.Text = "Load media";
-            this.btn_load_media.UseVisualStyleBackColor = true;
-            this.btn_load_media.Click += new System.EventHandler(this.btn_load_media_Click);
-            // 
-            // lbl_1
-            // 
-            this.lbl_1.AutoSize = true;
-            this.lbl_1.Location = new System.Drawing.Point(12, 45);
-            this.lbl_1.Name = "lbl_1";
-            this.lbl_1.Size = new System.Drawing.Size(78, 13);
-            this.lbl_1.TabIndex = 3;
-            this.lbl_1.Text = "Text goes here";
+            this.panel1.AutoScroll = true;
+            this.panel1.Location = new System.Drawing.Point(305, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(450, 450);
+            this.panel1.TabIndex = 4;
             // 
             // media_controller
             // 
@@ -60,36 +47,22 @@
             this.media_controller.Size = new System.Drawing.Size(326, 60);
             this.media_controller.TabIndex = 1;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(348, 88);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 187);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lbl_1);
-            this.Controls.Add(this.btn_load_media);
+            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.media_controller);
             this.Name = "form";
             this.Text = "My Media Player";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private MediaController media_controller;
-        private System.Windows.Forms.Button btn_load_media;
-        private System.Windows.Forms.Label lbl_1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

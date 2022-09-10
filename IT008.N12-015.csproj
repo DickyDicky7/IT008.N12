@@ -58,6 +58,12 @@
     <Compile Include="MediaController.Designer.cs">
       <DependentUpon>MediaController.cs</DependentUpon>
     </Compile>
+    <Compile Include="MediaItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MediaItem.Designer.cs">
+      <DependentUpon>MediaItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MediaController.resx">
       <DependentUpon>MediaController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MediaItem.resx">
+      <DependentUpon>MediaItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
