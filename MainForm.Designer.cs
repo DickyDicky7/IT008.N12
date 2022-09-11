@@ -37,23 +37,24 @@
             this.panel1.AutoScroll = true;
             this.panel1.Location = new System.Drawing.Point(305, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 450);
+            this.panel1.Size = new System.Drawing.Size(450, 600);
             this.panel1.TabIndex = 4;
             // 
             // media_controller
             // 
-            this.media_controller.Location = new System.Drawing.Point(25, 255);
+            this.media_controller.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.media_controller.Location = new System.Drawing.Point(292, 305);
             this.media_controller.Name = "media_controller";
-            this.media_controller.Size = new System.Drawing.Size(326, 60);
-            this.media_controller.TabIndex = 1;
+            this.media_controller.Size = new System.Drawing.Size(400, 50);
+            this.media_controller.TabIndex = 5;
             // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.media_controller);
+            this.Controls.Add(this.panel1);
             this.Name = "form";
             this.Text = "My Media Player";
             this.ResumeLayout(false);
@@ -61,8 +62,8 @@
         }
 
         #endregion
-        private MediaController media_controller;
         private System.Windows.Forms.Panel panel1;
+        private MediaController media_controller;
     }
 }
 

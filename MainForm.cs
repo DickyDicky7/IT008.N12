@@ -16,6 +16,16 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
+            //media_controller.Top = ClientSize.Height - media_controller.Height;
+            media_controller.Location = new
+                Point(
+                (ClientSize.Width - media_controller.Width) / 2
+                , ClientSize.Height - media_controller.Height);
+            Resize += new EventHandler(form_Resize);
+
+            panel1.Location = new Point(0, 0);
+            panel1.Width = 500;
+
             string musicMediaPattern = @"\.mp3$";
             System.Text.RegularExpressions.Regex musicMediaRegex = new
             System.Text.RegularExpressions.Regex(musicMediaPattern);
@@ -27,7 +37,7 @@ namespace IT008.N12_015
 
             int y = 0;
 
-            void f (object sender, EventArgs e)
+            void f(object sender, EventArgs e)
             {
                 MessageBox.Show("Clicked", "!!!");
             }
@@ -43,5 +53,15 @@ namespace IT008.N12_015
             }
 
         }
+
+        private void form_Resize(object sender, EventArgs e)
+        {
+            media_controller.Location = new
+                Point(
+                (ClientSize.Width - media_controller.Width) / 2
+                , ClientSize.Height - media_controller.Height);
+        }
+
+
     }
 }
