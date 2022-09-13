@@ -12,7 +12,7 @@ namespace IT008.N12_015
 {
     public partial class form : Form
     {
-        public form()
+        public form(string[] args)
         {
             InitializeComponent();
 
@@ -52,6 +52,7 @@ namespace IT008.N12_015
                 y += mediaItem.Height;
             }
 
+            Load += new EventHandler(form_Load(args));
         }
 
         private void form_Resize(object sender, EventArgs e)
@@ -62,6 +63,16 @@ namespace IT008.N12_015
                 , ClientSize.Height - media_controller.Height);
         }
 
-
+        private Action<object, EventArgs> form_Load(string[] args)
+        {
+            Action<object, EventArgs> LoadHandler = new
+            Action<object, EventArgs>((sender, e) =>
+            {
+                MessageBox.Show(args.Length == 0 ? "Nothing" : args[0], "File");
+                if (args.Length > 1)
+                    media_controller.LoadMedia(args[0]);
+            });
+            return LoadHandler;
+        }
     }
 }
