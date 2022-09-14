@@ -68,9 +68,11 @@ namespace IT008.N12_015
             Action<object, EventArgs> LoadHandler = new
             Action<object, EventArgs>((sender, e) =>
             {
-                MessageBox.Show(args.Length == 0 ? "Nothing" : args[0], "File");
-                if (args.Length > 1)
+                if (args.Length != 0)
+                {
+                    MessageBox.Show(args[0], "File");
                     media_controller.LoadMedia(args[0]);
+                }
             });
             return LoadHandler;
         }
