@@ -16,6 +16,37 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
+            //av.VisMode = CSAudioVisualization.GraphMode.Mode3D;
+            av.Interval = 1;
+            av.ColorMax = ColorTranslator.FromHtml("#1D3557");
+            av.ColorBase = ColorTranslator.FromHtml("#A8DADC");
+            FormClosing += new FormClosingEventHandler(form_FormClosing);
+            //av.HighQuality = true;
+            //av.FileName = "";
+            av.Start();
+
+            t.Interval = 3000;
+
+            void g(object sender, EventArgs e)
+            {
+                if (av.ColorMax == ColorTranslator.FromHtml("#1D3557"))
+                {
+                    av.ColorMax = ColorTranslator.FromHtml("#386641");
+                    av.ColorBase = ColorTranslator.FromHtml("#A7C957");
+                }
+                else
+                {
+                    av.ColorMax = ColorTranslator.FromHtml("#1D3557");
+                    av.ColorBase = ColorTranslator.FromHtml("#A8DADC");
+                }
+            }
+
+            t.Tick += new EventHandler(g);
+            t.Start();
+
+            t1.Tick += new EventHandler((s, e) => { 
+            });
+
             //media_controller.Top = ClientSize.Height - media_controller.Height;
             media_controller.Location = new
                 Point(
@@ -75,6 +106,15 @@ namespace IT008.N12_015
                 }
             });
             return LoadHandler;
+        }
+
+        private static Timer t = new Timer();
+        private static Timer t1 = new Timer();
+
+        private void form_FormClosing(object sender, EventArgs e)
+        {
+            av.Stop();
+            t.Stop();
         }
     }
 }

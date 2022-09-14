@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSAudioVisualization">
+      <HintPath>..\visual\CSAudioVisualization\bin\Debug\CSAudioVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="CSCore">
+      <HintPath>..\visual\CSAudioVisualization\bin\Debug\CSCore.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.av = new CSAudioVisualization.AudioVisualization();
             this.media_controller = new IT008.N12_015.MediaController();
             this.SuspendLayout();
             // 
@@ -39,6 +40,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 600);
             this.panel1.TabIndex = 4;
+            // 
+            // av
+            // 
+            this.av.AudioSource = null;
+            this.av.BarCount = 50;
+            this.av.BarSpacing = 2;
+            this.av.ColorBase = System.Drawing.Color.DarkRed;
+            this.av.ColorMax = System.Drawing.Color.Snow;
+            this.av.DeviceIndex = 0;
+            this.av.FileName = null;
+            this.av.HighQuality = true;
+            this.av.Interval = 40;
+            this.av.IsXLogScale = true;
+            this.av.Location = new System.Drawing.Point(511, 12);
+            this.av.MaximumFrequency = 10000;
+            this.av.MessageArgs = null;
+            this.av.Name = "av";
+            this.av.pic3DGraph = null;
+            this.av.Size = new System.Drawing.Size(461, 310);
+            this.av.TabIndex = 0;
+            this.av.UseAverage = true;
+            this.av.UserKey = "Your registration key";
+            this.av.UserName = "Your email";
+            this.av.VisMode = CSAudioVisualization.GraphMode.ModeSpectrum;
             // 
             // media_controller
             // 
@@ -53,6 +78,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.av);
             this.Controls.Add(this.media_controller);
             this.Controls.Add(this.panel1);
             this.Name = "form";
@@ -64,6 +90,7 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private MediaController media_controller;
+        private CSAudioVisualization.AudioVisualization av;
     }
 }
 
