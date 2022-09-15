@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.av = new CSAudioVisualization.AudioVisualization();
-            this.media_controller = new IT008.N12_015.MediaController();
+            this.MediaController = new IT008.N12_015.MediaController();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,13 +65,13 @@
             this.av.UserName = "Your email";
             this.av.VisMode = CSAudioVisualization.GraphMode.ModeSpectrum;
             // 
-            // media_controller
+            // MediaController
             // 
-            this.media_controller.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.media_controller.Location = new System.Drawing.Point(292, 305);
-            this.media_controller.Name = "media_controller";
-            this.media_controller.Size = new System.Drawing.Size(400, 50);
-            this.media_controller.TabIndex = 5;
+            this.MediaController.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.MediaController.Location = new System.Drawing.Point(292, 305);
+            this.MediaController.Name = "MediaController";
+            this.MediaController.Size = new System.Drawing.Size(400, 50);
+            this.MediaController.TabIndex = 5;
             // 
             // form
             // 
@@ -79,7 +79,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.av);
-            this.Controls.Add(this.media_controller);
+            this.Controls.Add(this.MediaController);
             this.Controls.Add(this.panel1);
             this.Name = "form";
             this.Text = "My Media Player";
@@ -89,7 +89,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private MediaController media_controller;
+        private MediaController MediaController;
         private CSAudioVisualization.AudioVisualization av;
     }
 }

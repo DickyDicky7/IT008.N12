@@ -16,21 +16,14 @@ namespace IT008.N12_015
         {
             InitializeComponent();
             this.URL = URL;
-            lbl_media_title.Text = URL.Substring(20);
-            picBox_media.ImageLocation = "C:\\Users\\User\\Pictures\\music.jpg";
+            Click += new EventHandler(MediaItem_Click);
+            LabelMediaTitle.Text = URL.Substring(20);
+            PicBoxMedia.ImageLocation = "C:\\Users\\User\\Pictures\\music.jpg";
         }
 
-        public Action<object, EventArgs> MediaItem_Click
-              (in object controller)
+        private void MediaItem_Click(object sender, EventArgs e)
         {
-            MediaController media_controller = (MediaController)controller;
-
-            Action<object, EventArgs> ClickHandler =
-        new Action<object, EventArgs>((sender, e) =>
-            {
-                media_controller.LoadMedia(URL);
-            });
-            return ClickHandler;
+            MediaController.LoadMedia(URL);
         }
 
         public new event EventHandler Click
@@ -38,21 +31,23 @@ namespace IT008.N12_015
             add
             {
                 base.Click += value;
-                foreach (Control control in Controls)
+                foreach (Control Control in Controls)
                 {
-                    control.Click += value;
+                    Control.Click += value;
                 }
             }
             remove
             {
                 base.Click -= value;
-                foreach (Control control in Controls)
+                foreach (Control Control in Controls)
                 {
-                    control.Click -= value;
+                    Control.Click -= value;
                 }
             }
         }
 
         private readonly string URL;
+
+        public static MediaController MediaController { get; set; }
     }
 }

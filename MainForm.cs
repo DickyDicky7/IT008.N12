@@ -48,10 +48,10 @@ namespace IT008.N12_015
             });
 
             //media_controller.Top = ClientSize.Height - media_controller.Height;
-            media_controller.Location = new
+            MediaController.Location = new
                 Point(
-                (ClientSize.Width - media_controller.Width) / 2
-                , ClientSize.Height - media_controller.Height);
+                (ClientSize.Width - MediaController.Width) / 2
+                , ClientSize.Height - MediaController.Height);
             Resize += new EventHandler(form_Resize);
 
             panel1.Location = new Point(0, 0);
@@ -73,11 +73,10 @@ namespace IT008.N12_015
                 MessageBox.Show("Clicked", "!!!");
             }
 
+            MediaItem.MediaController = MediaController;
             foreach (string item in items)
             {
                 MediaItem mediaItem = new MediaItem(item);
-                mediaItem.Click += new EventHandler
-                    (mediaItem.MediaItem_Click(media_controller));
                 mediaItem.Location = new Point(0, y);
                 panel1.Controls.Add(mediaItem);
                 y += mediaItem.Height;
@@ -88,10 +87,10 @@ namespace IT008.N12_015
 
         private void form_Resize(object sender, EventArgs e)
         {
-            media_controller.Location = new
+            MediaController.Location = new
                 Point(
-                (ClientSize.Width - media_controller.Width) / 2
-                , ClientSize.Height - media_controller.Height);
+                (ClientSize.Width - MediaController.Width) / 2
+                , ClientSize.Height - MediaController.Height);
         }
 
         private Action<object, EventArgs> form_Load(string[] args)
@@ -102,7 +101,7 @@ namespace IT008.N12_015
                 if (args.Length != 0)
                 {
                     MessageBox.Show(args[0], "File");
-                    media_controller.LoadMedia(args[0]);
+                    MediaController.LoadMedia(args[0]);
                 }
             });
             return LoadHandler;

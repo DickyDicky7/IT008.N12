@@ -28,49 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_play = new System.Windows.Forms.Button();
-            this.btn_next = new System.Windows.Forms.Button();
-            this.btn_back = new System.Windows.Forms.Button();
+            this.BtnPlay = new System.Windows.Forms.Button();
+            this.BtnNext = new System.Windows.Forms.Button();
+            this.BtnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btn_play
+            // BtnPlay
             // 
-            this.btn_play.Location = new System.Drawing.Point(140, 0);
-            this.btn_play.Name = "btn_play";
-            this.btn_play.Size = new System.Drawing.Size(120, 50);
-            this.btn_play.TabIndex = 0;
-            this.btn_play.Text = "PLAY";
-            this.btn_play.UseVisualStyleBackColor = true;
-            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
+            this.BtnPlay.Location = new System.Drawing.Point(140, 0);
+            this.BtnPlay.Name = "BtnPlay";
+            this.BtnPlay.Size = new System.Drawing.Size(120, 50);
+            this.BtnPlay.TabIndex = 0;
+            this.BtnPlay.Text = "PLAY";
+            this.BtnPlay.UseVisualStyleBackColor = true;
+            this.BtnPlay.Click += new System.EventHandler(this.BtnPlay_Click);
             // 
-            // btn_next
+            // BtnNext
             // 
-            this.btn_next.Location = new System.Drawing.Point(280, 0);
-            this.btn_next.Name = "btn_next";
-            this.btn_next.Size = new System.Drawing.Size(120, 50);
-            this.btn_next.TabIndex = 2;
-            this.btn_next.Text = "NEXT";
-            this.btn_next.UseVisualStyleBackColor = true;
-            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            this.BtnNext.Location = new System.Drawing.Point(280, 0);
+            this.BtnNext.Name = "BtnNext";
+            this.BtnNext.Size = new System.Drawing.Size(120, 50);
+            this.BtnNext.TabIndex = 2;
+            this.BtnNext.Text = "NEXT";
+            this.BtnNext.UseVisualStyleBackColor = true;
+            this.BtnNext.Click += new System.EventHandler(this.BtnNext_Click);
             // 
-            // btn_back
+            // BtnBack
             // 
-            this.btn_back.Location = new System.Drawing.Point(0, 0);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(120, 50);
-            this.btn_back.TabIndex = 3;
-            this.btn_back.Text = "BACK";
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            this.BtnBack.Location = new System.Drawing.Point(0, 0);
+            this.BtnBack.Name = "BtnBack";
+            this.BtnBack.Size = new System.Drawing.Size(120, 50);
+            this.BtnBack.TabIndex = 3;
+            this.BtnBack.Text = "BACK";
+            this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // MediaController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.Controls.Add(this.btn_back);
-            this.Controls.Add(this.btn_next);
-            this.Controls.Add(this.btn_play);
+            this.Controls.Add(this.BtnBack);
+            this.Controls.Add(this.BtnNext);
+            this.Controls.Add(this.BtnPlay);
             this.Name = "MediaController";
             this.Size = new System.Drawing.Size(400, 50);
             this.ResumeLayout(false);
@@ -79,8 +79,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_play;
-        private System.Windows.Forms.Button btn_next;
-        private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Button BtnPlay;
+        private System.Windows.Forms.Button BtnNext;
+        private System.Windows.Forms.Button BtnBack;
     }
 }

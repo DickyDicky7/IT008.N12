@@ -19,62 +19,61 @@ namespace IT008.N12_015
 
         private void PlayMedia()
         {
-            player.controls.play();
-            btn_play.Text = "PAUSE";
+            Player.controls.play();
+            BtnPlay.Text = "PAUSE";
         }
 
         private void PauseMedia()
         {
-            player.controls.pause();
-            btn_play.Text = "PLAY";
+            Player.controls.pause();
+            BtnPlay.Text = "PLAY";
         }
 
         public void LoadMedia(string URL)
         {
-            player.currentMedia = player.newMedia(URL);
-            btn_play.Text = "PAUSE";
+            Player.currentMedia = Player.newMedia(URL);
+            BtnPlay.Text = "PAUSE";
         }
 
-        private void btn_play_Click(object sender, EventArgs e)
+        private void BtnPlay_Click(object sender, EventArgs e)
         {
-            if (player.currentMedia != null)
+            if (Player.currentMedia != null)
             {
-                MessageBox.Show(player.currentMedia.sourceURL, "Media");
-                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                MessageBox.Show(Player.currentMedia.sourceURL, "Media");
+                if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     PauseMedia();
                 }
-                else 
-                if (player.playState == WMPLib.WMPPlayState.wmppsPaused)
+                else
+                if (Player.playState == WMPLib.WMPPlayState.wmppsPaused)
                 {
                     PlayMedia();
                 }
                 else
-                if (player.controls.currentPosition == 0)
+                if (Player.controls.currentPosition == 0)
                 {
                     MessageBox.Show("Media Ended", "Info");
-                    // player.currentMedia. = null;
-                    btn_play.Text = "PLAY";
+                    BtnPlay.Text = "PLAY";
                 }
             }
             else
             {
-                btn_play.Text = "PLAY";
+                BtnPlay.Text = "PLAY";
                 MessageBox.Show("Media not found", "Error");
             }
         }
 
-        private void btn_next_Click(object sender, EventArgs e)
+        private void BtnNext_Click(object sender, EventArgs e)
         {
-            player.controls.currentPosition += 10;
+            Player.controls.currentPosition += 10;
         }
 
-        private void btn_back_Click(object sender, EventArgs e)
+        private void BtnBack_Click(object sender, EventArgs e)
         {
-            player.controls.currentPosition -= 10;
+            Player.controls.currentPosition -= 10;
         }
 
-        private static WMPLib.WindowsMediaPlayer player
-                 = new WMPLib.WindowsMediaPlayer();
+        private static readonly WMPLib.WindowsMediaPlayer Player
+                          = new WMPLib.WindowsMediaPlayer();
     }
 }

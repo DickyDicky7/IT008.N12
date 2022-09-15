@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picBox_media = new System.Windows.Forms.PictureBox();
-            this.lbl_media_title = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_media)).BeginInit();
+            this.PicBoxMedia = new System.Windows.Forms.PictureBox();
+            this.LabelMediaTitle = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxMedia)).BeginInit();
             this.SuspendLayout();
             // 
-            // picBox_media
+            // PicBoxMedia
             // 
-            this.picBox_media.Location = new System.Drawing.Point(0, 0);
-            this.picBox_media.Name = "picBox_media";
-            this.picBox_media.Size = new System.Drawing.Size(150, 150);
-            this.picBox_media.TabIndex = 0;
-            this.picBox_media.TabStop = false;
+            this.PicBoxMedia.Location = new System.Drawing.Point(0, 0);
+            this.PicBoxMedia.Name = "PicBoxMedia";
+            this.PicBoxMedia.Size = new System.Drawing.Size(150, 150);
+            this.PicBoxMedia.TabIndex = 0;
+            this.PicBoxMedia.TabStop = false;
             // 
-            // lbl_media_title
+            // LabelMediaTitle
             // 
-            this.lbl_media_title.Location = new System.Drawing.Point(150, 0);
-            this.lbl_media_title.Name = "lbl_media_title";
-            this.lbl_media_title.Size = new System.Drawing.Size(300, 150);
-            this.lbl_media_title.TabIndex = 1;
-            this.lbl_media_title.Text = "Media\'s Title Goes Here";
+            this.LabelMediaTitle.Location = new System.Drawing.Point(150, 0);
+            this.LabelMediaTitle.Name = "LabelMediaTitle";
+            this.LabelMediaTitle.Size = new System.Drawing.Size(300, 150);
+            this.LabelMediaTitle.TabIndex = 1;
+            this.LabelMediaTitle.Text = "Media\'s Title Goes Here";
             // 
             // MediaItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbl_media_title);
-            this.Controls.Add(this.picBox_media);
+            this.Controls.Add(this.LabelMediaTitle);
+            this.Controls.Add(this.PicBoxMedia);
             this.Name = "MediaItem";
             this.Size = new System.Drawing.Size(450, 150);
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_media)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxMedia)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picBox_media;
-        private System.Windows.Forms.Label lbl_media_title;
+        private System.Windows.Forms.PictureBox PicBoxMedia;
+        private System.Windows.Forms.Label LabelMediaTitle;
     }
 }
