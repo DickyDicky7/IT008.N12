@@ -30,7 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.av = new CSAudioVisualization.AudioVisualization();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MediaController = new IT008.N12_015.MediaController();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,6 +67,14 @@
             this.av.UserName = "Your email";
             this.av.VisMode = CSAudioVisualization.GraphMode.ModeSpectrum;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(818, 498);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(154, 151);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // MediaController
             // 
             this.MediaController.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -78,11 +88,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.av);
             this.Controls.Add(this.MediaController);
             this.Controls.Add(this.panel1);
             this.Name = "form";
             this.Text = "My Media Player";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -91,6 +103,7 @@
         private System.Windows.Forms.Panel panel1;
         private MediaController MediaController;
         private CSAudioVisualization.AudioVisualization av;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

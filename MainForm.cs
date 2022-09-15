@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Linq;
 
 namespace IT008.N12_015
 {
@@ -15,6 +17,16 @@ namespace IT008.N12_015
         public form(string[] args)
         {
             InitializeComponent();
+
+            var tFile = 
+            TagLib.File.Create(@"C:\Users\User\Music\Waiting-For-You-MONO-Onionn.mp3");
+            var mStream =
+            new MemoryStream();
+            byte[] d = tFile.Tag.Pictures.FirstOrDefault().Data.Data;
+            mStream.Write(d, 0, Convert.ToInt32(d.Length));
+            var bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+            pictureBox1.Image = bm;
 
             //av.VisMode = CSAudioVisualization.GraphMode.Mode3D;
             av.Interval = 1;
