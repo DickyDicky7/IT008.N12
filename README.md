@@ -6,13 +6,11 @@
 <p>Tất cà những file liên quan sẽ nằm trong folder Music</p>
 <ul>
 <li>
-<p><strong>Folder Images</strong><br>
-– Chứa tất cả các ảnh thumbnail<br>
-– Chứa 1 file database định dạng .txt (database_images.txt), mỗi dòng trong database lưu &lt;đường dẫn file nhạc&gt; - &lt; đường dẫn file image&gt;</p>
+<p><strong>Dùng thư viện taglib để lấy mã ảnh từ file media sau đó render lại</strong></p>
 </li>
 <li>
 <p><strong>Các folder bắt đầu bằng cụm Playlist_*</strong><br>
-– Chứa các file nhạc trong playlist đó</p>
+– Chứa 1 file *.m3u8 để nhận diện đây là 1 playlist cũng như chứa đường dẫn đến các file media trong playlist</p>
 </li>
 </ul>
 <h1 id="components"><strong>Components</strong></h1>
