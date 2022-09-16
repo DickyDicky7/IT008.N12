@@ -33,6 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSAudioVisualization, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,6 +69,12 @@
     <Compile Include="MediaItem.Designer.cs">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="MediaVisualizer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MediaVisualizer.Designer.cs">
+      <DependentUpon>MediaVisualizer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -77,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MediaItem.resx">
       <DependentUpon>MediaItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MediaVisualizer.resx">
+      <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,11 +134,11 @@
   <ItemGroup>
     <Content Include="..\visual\CSAudioVisualization\bin\Debug\CSAudioVisualization.dll">
       <Link>CSAudioVisualization.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\visual\CSAudioVisualization\bin\Debug\CSCore.dll">
       <Link>CSCore.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
