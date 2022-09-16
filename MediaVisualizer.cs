@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Linq;
 using System.Text;
 using System.Data;
@@ -18,12 +19,15 @@ namespace IT008.N12_015
             InitializeComponent();
         }
 
-        private static void MediaController_OnLoadMedia(string MediaURL)
+        private void MediaController_OnLoadMedia(string MediaURL)
         {
             MessageBox.Show("Load a new media");
+            PictureBox.Image =
+            Common.Common.GetImage
+            ("C:\\Users\\User\\Music\\Waiting-For-You-MONO-Onionn.mp3");
         }
 
-        public static void InteractMediaController(MediaController MediaController)
+        public void InteractMediaController(MediaController MediaController)
         {
             MediaController.OnLoadMedia +=
             new MediaController.OnLoadMediaHandler(MediaController_OnLoadMedia);
