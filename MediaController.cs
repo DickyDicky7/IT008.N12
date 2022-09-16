@@ -33,6 +33,8 @@ namespace IT008.N12_015
         {
             Player.currentMedia = Player.newMedia(URL);
             BtnPlay.Text = "PAUSE";
+
+            OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
@@ -75,5 +77,16 @@ namespace IT008.N12_015
 
         private static readonly WMPLib.WindowsMediaPlayer Player
                           = new WMPLib.WindowsMediaPlayer();
+
+        /// <summary>
+        /// Handle the user's custom event when MediaController use LoadMedia
+        /// </summary>
+        /// <param name="MediaURL">Media's file path</param>
+        public delegate void OnLoadMediaHandler(string MediaURL);
+
+        /// <summary>
+        /// Entry for a custom OnLoadMediaHandler
+        /// </summary>
+        public event OnLoadMediaHandler OnLoadMedia;
     }
 }
