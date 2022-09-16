@@ -33,11 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CSAudioVisualization">
-      <HintPath>..\visual\CSAudioVisualization\bin\Debug\CSAudioVisualization.dll</HintPath>
+    <Reference Include="CSAudioVisualization, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CSAudioVisualization.1.0.0\lib\CSAudioVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="CSCore">
-      <HintPath>..\visual\CSAudioVisualization\bin\Debug\CSCore.dll</HintPath>
+    <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL">
+      <HintPath>packages\CSAudioVisualization.1.0.0\lib\CSCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

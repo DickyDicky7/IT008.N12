@@ -18,8 +18,10 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
+            string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+
             var tFile = 
-            TagLib.File.Create(@"C:\Users\User\Music\Waiting-For-You-MONO-Onionn.mp3");
+            TagLib.File.Create(musicPath + "\\Waiting-For-You-MONO-Onionn.mp3");
             var mStream =
             new MemoryStream();
             byte[] d = tFile.Tag.Pictures.FirstOrDefault().Data.Data;
@@ -75,7 +77,7 @@ namespace IT008.N12_015
             Func<string, bool> IsMusicMedia =
                 filePath => musicMediaRegex.IsMatch(filePath);
 
-            var items = System.IO.Directory.GetFiles("C:\\Users\\User\\Music")
+            var items = System.IO.Directory.GetFiles(musicPath)
                 .Where(IsMusicMedia);
 
             int y = 0;
