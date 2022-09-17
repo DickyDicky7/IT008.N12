@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PictureBox = new System.Windows.Forms.PictureBox();
             this.Visualizer = new CSAudioVisualization.AudioVisualization();
+            this.ColorTransitionB = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
+            this.ColorTransitionM = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +68,20 @@
             this.Visualizer.UserName = "Your email";
             this.Visualizer.VisMode = CSAudioVisualization.GraphMode.ModeSpectrum;
             // 
+            // ColorTransitionB
+            // 
+            this.ColorTransitionB.ColorArray = new System.Drawing.Color[] {
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Blue,
+        System.Drawing.Color.Orange};
+            // 
+            // ColorTransitionM
+            // 
+            this.ColorTransitionM.ColorArray = new System.Drawing.Color[] {
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Blue,
+        System.Drawing.Color.Orange};
+            // 
             // MediaVisualizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -81,5 +98,7 @@
         #endregion
         private System.Windows.Forms.PictureBox PictureBox;
         private CSAudioVisualization.AudioVisualization Visualizer;
+        private Siticone.Desktop.UI.WinForms.SiticoneColorTransition ColorTransitionB;
+        private Siticone.Desktop.UI.WinForms.SiticoneColorTransition ColorTransitionM;
     }
 }
