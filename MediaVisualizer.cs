@@ -23,22 +23,24 @@ namespace IT008.N12_015
             Timer.Tick += new EventHandler(Visualizer_Tick);
             Timer.Start();
 
-            //Harley.Harley a = new Harley.Harley();
-            //a.Transition
-            //(PictureBox,
-            //Harley.Enum.Transition.RunTypes.Normal, 
-            //Harley.Enum.Transition.Types.LTR);
-            
+            siticoneColorTransition1.ColorArray = new Color[2];
+            siticoneColorTransition1.ColorArray[0] =
+            ColorTranslator.FromHtml("#fd2ea3");
+            siticoneColorTransition1.ColorArray[1] =
+            ColorTranslator.FromHtml("#03c6e3");
+            siticoneColorTransition1.AutoTransition = true;
+            siticoneColorTransition1.Interval = 2000;
         }
 
         private void Visualizer_Tick(object sender, EventArgs e)
         {
-            Visualizer.ColorBase =
-            ColorTranslator.FromHtml(ColorPalettes.Peek().Item1);
-            Visualizer.ColorMax =
-            ColorTranslator.FromHtml(ColorPalettes.Peek().Item2);
-            ColorPalettes.Enqueue(ColorPalettes.Peek());
-            ColorPalettes.Dequeue();
+            //Visualizer.ColorBase =
+            //ColorTranslator.FromHtml(ColorPalettes.Peek().Item1);
+            //Visualizer.ColorMax =
+            //ColorTranslator.FromHtml(ColorPalettes.Peek().Item2);
+            //ColorPalettes.Enqueue(ColorPalettes.Peek());
+            //ColorPalettes.Dequeue();
+            Visualizer.ColorBase = siticoneColorTransition1.Value;
         }
 
         private void MediaController_OnLoadMedia(string MediaURL)
