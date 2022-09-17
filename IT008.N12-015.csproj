@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CSAudioVisualization, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL" />
+    <Reference Include="CSAudioVisualization, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CSAudioVisualization.1.0.0\lib\CSAudioVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL">
+      <HintPath>packages\CSAudioVisualization.1.0.0\lib\CSCore.dll</HintPath>
+    </Reference>
     <Reference Include="Harley, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Harley.1.0.0.1\lib\net472\Harley.dll</HintPath>
     </Reference>
@@ -102,6 +106,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -137,14 +142,16 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\visual\CSAudioVisualization\bin\Debug\CSAudioVisualization.dll">
-      <Link>CSAudioVisualization.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\visual\CSAudioVisualization\bin\Debug\CSCore.dll">
-      <Link>CSCore.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\media-player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musical-note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mp3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

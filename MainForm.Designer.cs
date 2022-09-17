@@ -32,9 +32,10 @@
             // 
             // form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(1312, 814);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "form";
             this.Text = "My Media Player";
             this.ResumeLayout(false);
