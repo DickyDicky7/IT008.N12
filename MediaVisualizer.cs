@@ -17,6 +17,28 @@ namespace IT008.N12_015
         public MediaVisualizer()
         {
             InitializeComponent();
+            Visualizer.Interval = 1;
+            Visualizer.Start();
+            Timer.Interval = 5000;
+            Timer.Tick += new EventHandler(Visualizer_Tick);
+            Timer.Start();
+
+            //Harley.Harley a = new Harley.Harley();
+            //a.Transition
+            //(PictureBox,
+            //Harley.Enum.Transition.RunTypes.Normal, 
+            //Harley.Enum.Transition.Types.LTR);
+            
+        }
+
+        private void Visualizer_Tick(object sender, EventArgs e)
+        {
+            Visualizer.ColorBase =
+            ColorTranslator.FromHtml(ColorPalettes.Peek().Item1);
+            Visualizer.ColorMax =
+            ColorTranslator.FromHtml(ColorPalettes.Peek().Item2);
+            ColorPalettes.Enqueue(ColorPalettes.Peek());
+            ColorPalettes.Dequeue();
         }
 
         private void MediaController_OnLoadMedia(string MediaURL)
@@ -32,6 +54,26 @@ namespace IT008.N12_015
             MediaController.OnLoadMedia +=
             new MediaController.OnLoadMediaHandler(MediaController_OnLoadMedia);
         }
+
+        public void Stop()
+        {
+            Visualizer.Stop();
+            Timer.Stop();
+        }
+
+        private Timer Timer = new Timer();
+        private Queue<(string, string)> ColorPalettes =
+            new Queue<(string, string)>(
+            new (string, string)[]
+            { ("#fd2ea3", "#05eeff")
+            , ("#fd2ea3", "#03c6e3")
+
+            , ("#fe6fc5", "#05eeff")
+            , ("#fe6fc5", "#03c6e3")
+
+            , ("#fcadd8", "#05eeff")
+            , ("#fcadd8", "#03c6e3")
+            });
     }
 }
 

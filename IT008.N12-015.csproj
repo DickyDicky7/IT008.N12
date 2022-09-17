@@ -35,6 +35,10 @@
   <ItemGroup>
     <Reference Include="CSAudioVisualization, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL" />
+    <Reference Include="Harley, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Harley.1.0.0.1\lib\net472\Harley.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
