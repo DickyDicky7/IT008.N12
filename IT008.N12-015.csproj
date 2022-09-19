@@ -156,12 +156,10 @@
     <None Include="Resources\play-button.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\visual\CSAudioVisualization\bin\Debug\CSAudioVisualization.dll">
-      <Link>CSAudioVisualization.dll</Link>
+    <Content Include="external\CSAudioVisualization\bin\Debug\CSAudioVisualization.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\visual\CSAudioVisualization\bin\Debug\CSCore.dll">
-      <Link>CSCore.dll</Link>
+    <Content Include="external\CSAudioVisualization\bin\Debug\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
