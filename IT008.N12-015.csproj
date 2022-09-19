@@ -156,8 +156,12 @@
     <None Include="Resources\play-button.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lib\CSAudioVisualization.dll" />
-    <Content Include="lib\CSCore.dll" />
+    <Content Include="lib\CSAudioVisualization.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\CSCore.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
