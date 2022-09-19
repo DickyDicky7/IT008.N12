@@ -34,8 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CSAudioVisualization, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="ReaLTaiizor, Version=3.7.8.7, Culture=neutral, processorArchitecture=MSIL">
@@ -154,14 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\play-button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="external\CSAudioVisualization\bin\Debug\CSAudioVisualization.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="external\CSAudioVisualization\bin\Debug\CSCore.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
