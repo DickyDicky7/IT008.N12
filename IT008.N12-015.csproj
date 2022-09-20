@@ -36,10 +36,25 @@
   <ItemGroup>
     <Reference Include="CSAudioVisualization, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL" />
+    <Reference Include="CSharp.Winform.UI, Version=1.0.3.3, Culture=neutral, PublicKeyToken=872ff9e93c410e95, processorArchitecture=MSIL">
+      <HintPath>packages\CSharp.Winform.UI.1.0.3.3\lib\net46\CSharp.Winform.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="FSC-UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FSC-UI.1.0.0\lib\net48\FSC-UI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PowerLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PowerLib.Winform.1.0.8\lib\net45\PowerLib.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerLib.Winform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PowerLib.Winform.1.0.8\lib\net45\PowerLib.Winform.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="ReaLTaiizor, Version=3.7.8.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ReaLTaiizor.3.7.8.7\lib\net48\ReaLTaiizor.dll</HintPath>
+    </Reference>
+    <Reference Include="SaaUI, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SaaUI.Winforms.1.1.0\lib\net35\SaaUI.dll</HintPath>
     </Reference>
     <Reference Include="Siticone.Desktop.UI, Version=2.0.9.0, Culture=neutral, PublicKeyToken=422d444a8a9fa6db, processorArchitecture=MSIL">
       <HintPath>packages\Siticone.Desktop.UI.2.0.9\lib\net40\Siticone.Desktop.UI.dll</HintPath>
