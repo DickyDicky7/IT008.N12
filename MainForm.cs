@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Siticone.Desktop.UI.WinForms;
 
 namespace IT008.N12_015
 {
@@ -17,7 +18,7 @@ namespace IT008.N12_015
         public form(string[] args)
         {
             InitializeComponent();
-
+            new SiticoneDragControl(controlHeader);
             //Load += new EventHandler(form_Load(args));
         }
 

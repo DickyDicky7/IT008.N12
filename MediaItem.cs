@@ -25,37 +25,49 @@ namespace IT008.N12_015
         private String _artist;
         private String _album;
         private TimeSpan _duration;
-
+        /// <summary>
+        /// 
+        /// </summary>
         public String URL
         {
             get { return url; }
             set { url = value; }
         }
+        /// <summary>
+        /// Media length
+        /// </summary>
         public TimeSpan Duration
         {
             get { return _duration; }
             set { _duration = value; durationLB.Text = value.ToString(); }
         }
-
+        /// <summary>
+        /// Song's Album
+        /// </summary>
         public String Album
         {
             get { return _album; }
             set { _album = value; albumLB.Text = value; }
         }
-
-
+        /// <summary>
+        /// 
+        /// </summary>
         public String Artist
         {
             get { return _artist; }
             set { _artist = value; artistLB.Text = value; }
         }
-
+        /// <summary>
+        /// Media title
+        /// </summary>
         public String Title
         {
             get { return _title; }
             set { _title = value; titleLB.Text = value; }
         }
-
+        /// <summary>
+        /// Media thumbnail image
+        /// </summary>
         public Image Thumbnail
         {
             get { return _thumbnail; }
@@ -66,6 +78,13 @@ namespace IT008.N12_015
 
         #endregion
 
+        public MediaItem()
+        {
+        }
+        /// <summary>
+        /// Initialize a new MediaItem with given URL
+        /// </summary>
+        /// <param name="URL">Media Item's URL</param>
         public MediaItem(string URL)
         {
             InitializeComponent();
@@ -77,7 +96,7 @@ namespace IT008.N12_015
         /// <summary>
         /// Load media item information to control
         /// </summary>
-        /// <param name="URL">URL to media item</param>
+        /// <param name="URL">Media Item's URL</param>
         private void InitializeMediaItem(string URL)
         {
             TagLib.File file = TagLib.File.Create(URL);
