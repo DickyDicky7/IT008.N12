@@ -20,19 +20,16 @@ namespace IT008.N12_015
         private void PlayMedia()
         {
             Player.controls.play();
-            BtnPlay.Text = "PAUSE";
         }
 
         private void PauseMedia()
         {
             Player.controls.pause();
-            BtnPlay.Text = "PLAY";
         }
 
         public void LoadMedia(string URL)
         {
             Player.currentMedia = Player.newMedia(URL);
-            BtnPlay.Text = "PAUSE";
 
             OnLoadMedia(URL); // Đừng xóa dòng này
         }
@@ -88,5 +85,15 @@ namespace IT008.N12_015
         /// Entry for a custom OnLoadMediaHandler
         /// </summary>
         public event OnLoadMediaHandler OnLoadMedia;
+
+        private void Panel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GradientPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
