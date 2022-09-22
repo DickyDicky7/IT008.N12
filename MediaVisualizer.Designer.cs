@@ -56,6 +56,7 @@
             this.Visualizer.ColorMax = System.Drawing.Color.Snow;
             this.Visualizer.DeviceIndex = 0;
             this.Visualizer.FileName = null;
+            this.Visualizer.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Visualizer.HighQuality = true;
             this.Visualizer.Interval = 40;
             this.Visualizer.IsXLogScale = true;
@@ -87,7 +88,7 @@
             // 
             // MediaStatus
             // 
-            this.MediaStatus.Font = new System.Drawing.Font("Segoe UI", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.MediaStatus.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.MediaStatus.Location = new System.Drawing.Point(110, 225);
             this.MediaStatus.Name = "MediaStatus";
             this.MediaStatus.Size = new System.Drawing.Size(340, 30);
@@ -97,7 +98,7 @@
             // 
             // MediaTitle
             // 
-            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.MediaTitle.Location = new System.Drawing.Point(110, 255);
             this.MediaTitle.Name = "MediaTitle";
             this.MediaTitle.Size = new System.Drawing.Size(340, 30);
@@ -107,7 +108,7 @@
             // 
             // MediaArtist
             // 
-            this.MediaArtist.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.MediaArtist.Font = new System.Drawing.Font("Segoe UI", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.MediaArtist.Location = new System.Drawing.Point(110, 285);
             this.MediaArtist.Name = "MediaArtist";
             this.MediaArtist.Size = new System.Drawing.Size(340, 30);

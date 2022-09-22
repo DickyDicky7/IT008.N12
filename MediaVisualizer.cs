@@ -1,5 +1,4 @@
 ﻿using CSCore;
-using Common;
 using System;
 using System.Linq;
 using System.Text;
@@ -11,6 +10,7 @@ using System.Threading.Tasks;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace IT008.N12_015
 {
@@ -19,8 +19,6 @@ namespace IT008.N12_015
         public MediaVisualizer()
         {
             InitializeComponent();
-
-            //siticoneTransition1.
 
             ColorTransitionB.ColorArray = new string[]
             { "#182cd4"
@@ -51,14 +49,8 @@ namespace IT008.N12_015
             Timer.Interval = 100;
             Timer.Tick += new EventHandler(Visualizer_Tick);
 
-            MediaStatus.Text = "On Track";
-            MediaStatus.ForeColor = ColorTranslator.FromHtml("#1D3557");
-
-            MediaTitle.Text = "Some Media";
-            MediaTitle.ForeColor = ColorTranslator.FromHtml("#1D3557");
-
-            MediaArtist.Text = "-- Some Artist --";
-            MediaArtist.ForeColor = ColorTranslator.FromHtml("#1D3557");
+            foreach (Label Label in Controls.OfType<Label>())
+                Label.ForeColor = Color.Transparent;
 
             Load += new EventHandler(MediaVisualizer_Load);
         }
@@ -77,10 +69,24 @@ namespace IT008.N12_015
 
         private void MediaController_OnLoadMedia(string MediaURL)
         {
-            MessageBox.Show("Load a new media");
-            PictureBox.Image =
-            Common.Common.GetImage
-            ("C:\\Users\\User\\Music\\Waiting-For-You-MONO-Onionn.mp3");
+            if (MediaURL != null)
+            {
+                PictureBox.Image = Common.GetImage(MediaURL);
+
+                Invoke(new Action(() =>
+                {
+                    MediaStatus.Text = "On Track";
+                    MediaTitle.Text = Common.GetTitle(MediaURL);
+                    MediaArtist.Text = Common.GetPerformers(MediaURL);
+
+                    foreach (Label Label in Controls.OfType<Label>())
+                    {
+                        FluentTransitions.Transition
+                        .With(Label, nameof(ForeColor), Common._1D3557_)
+                        .EaseInEaseOut(TimeSpan.FromSeconds(2));
+                    }
+                }));
+            }
         }
 
         public void InteractMediaController(MediaController MediaController)
@@ -96,20 +102,6 @@ namespace IT008.N12_015
         }
 
         private readonly Timer Timer = new Timer();
-
-        private readonly Timer t = new Timer();
-        //private Queue<(string, string)> ColorPalettes =
-        //    new Queue<(string, string)>(
-        //    new (string, string)[]
-        //    { ("#fd2ea3", "#05eeff")
-        //    , ("#fd2ea3", "#03c6e3")
-
-        //    , ("#fe6fc5", "#05eeff")
-        //    , ("#fe6fc5", "#03c6e3")
-
-        //    , ("#fcadd8", "#05eeff")
-        //    , ("#fcadd8", "#03c6e3")
-        //    });
     }
 }
 
