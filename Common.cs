@@ -33,6 +33,16 @@ namespace Common
             return Image;
         }
 
+        public static string GetTitle(string MediaURL)
+        {
+            TagLib.File Media = TagLib.File.Create(MediaURL);
+            return Media.Tag.Title;
+        }
 
+        public static string[] GetPerformers(string MediaURL)
+        {
+            TagLib.File Media = TagLib.File.Create(MediaURL);
+            return Media.Tag.Performers;
+        }
     }
 }

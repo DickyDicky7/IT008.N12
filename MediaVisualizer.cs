@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using CSCore;
+using Common;
 using System;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
@@ -17,6 +19,8 @@ namespace IT008.N12_015
         public MediaVisualizer()
         {
             InitializeComponent();
+
+            //siticoneTransition1.
 
             ColorTransitionB.ColorArray = new string[]
             { "#182cd4"
@@ -46,6 +50,15 @@ namespace IT008.N12_015
 
             Timer.Interval = 100;
             Timer.Tick += new EventHandler(Visualizer_Tick);
+
+            MediaStatus.Text = "On Track";
+            MediaStatus.ForeColor = ColorTranslator.FromHtml("#1D3557");
+
+            MediaTitle.Text = "Some Media";
+            MediaTitle.ForeColor = ColorTranslator.FromHtml("#1D3557");
+
+            MediaArtist.Text = "-- Some Artist --";
+            MediaArtist.ForeColor = ColorTranslator.FromHtml("#1D3557");
 
             Load += new EventHandler(MediaVisualizer_Load);
         }
@@ -84,6 +97,7 @@ namespace IT008.N12_015
 
         private readonly Timer Timer = new Timer();
 
+        private readonly Timer t = new Timer();
         //private Queue<(string, string)> ColorPalettes =
         //    new Queue<(string, string)>(
         //    new (string, string)[]

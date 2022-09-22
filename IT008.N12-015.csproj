@@ -39,6 +39,12 @@
     <Reference Include="CSharp.Winform.UI, Version=1.0.3.3, Culture=neutral, PublicKeyToken=872ff9e93c410e95, processorArchitecture=MSIL">
       <HintPath>packages\CSharp.Winform.UI.1.0.3.3\lib\net46\CSharp.Winform.UI.dll</HintPath>
     </Reference>
+    <Reference Include="FluentDragDrop, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f3fa274cee9b8357, processorArchitecture=MSIL">
+      <HintPath>packages\FluentDragDrop.2.1.3\lib\net472\FluentDragDrop.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentDragDrop.Effects, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f3fa274cee9b8357, processorArchitecture=MSIL">
+      <HintPath>packages\FluentDragDrop.Effects.2.1.3\lib\net472\FluentDragDrop.Effects.dll</HintPath>
+    </Reference>
     <Reference Include="FluentTransitions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=121ceb2df72b2338, processorArchitecture=MSIL">
       <HintPath>packages\FluentTransitions.2.0.1\lib\net45\FluentTransitions.dll</HintPath>
     </Reference>
@@ -79,6 +85,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimateLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Common.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

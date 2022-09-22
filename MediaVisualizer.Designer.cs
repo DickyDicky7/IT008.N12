@@ -33,6 +33,9 @@
             this.Visualizer = new CSAudioVisualization.AudioVisualization();
             this.ColorTransitionB = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
             this.ColorTransitionM = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
+            this.MediaStatus = new CSharp.Winform.UI.Label();
+            this.MediaTitle = new CSharp.Winform.UI.Label();
+            this.MediaArtist = new CSharp.Winform.UI.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,10 +85,43 @@
         System.Drawing.Color.Blue,
         System.Drawing.Color.Orange};
             // 
+            // MediaStatus
+            // 
+            this.MediaStatus.Font = new System.Drawing.Font("Segoe UI", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.MediaStatus.Location = new System.Drawing.Point(110, 225);
+            this.MediaStatus.Name = "MediaStatus";
+            this.MediaStatus.Size = new System.Drawing.Size(340, 30);
+            this.MediaStatus.TabIndex = 3;
+            this.MediaStatus.Text = "MediaStatus";
+            this.MediaStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // MediaTitle
+            // 
+            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.MediaTitle.Location = new System.Drawing.Point(110, 255);
+            this.MediaTitle.Name = "MediaTitle";
+            this.MediaTitle.Size = new System.Drawing.Size(340, 30);
+            this.MediaTitle.TabIndex = 4;
+            this.MediaTitle.Text = "MediaTitle";
+            this.MediaTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // MediaArtist
+            // 
+            this.MediaArtist.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.MediaArtist.Location = new System.Drawing.Point(110, 285);
+            this.MediaArtist.Name = "MediaArtist";
+            this.MediaArtist.Size = new System.Drawing.Size(340, 30);
+            this.MediaArtist.TabIndex = 5;
+            this.MediaArtist.Text = "-- MediaArtist --";
+            this.MediaArtist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MediaVisualizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.MediaArtist);
+            this.Controls.Add(this.MediaTitle);
+            this.Controls.Add(this.MediaStatus);
             this.Controls.Add(this.Visualizer);
             this.Controls.Add(this.PictureBox);
             this.Name = "MediaVisualizer";
@@ -100,5 +136,8 @@
         private CSAudioVisualization.AudioVisualization Visualizer;
         private Siticone.Desktop.UI.WinForms.SiticoneColorTransition ColorTransitionB;
         private Siticone.Desktop.UI.WinForms.SiticoneColorTransition ColorTransitionM;
+        private CSharp.Winform.UI.Label MediaStatus;
+        private CSharp.Winform.UI.Label MediaTitle;
+        private CSharp.Winform.UI.Label MediaArtist;
     }
 }
