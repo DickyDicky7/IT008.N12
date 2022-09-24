@@ -49,9 +49,6 @@ namespace IT008.N12_015
             Timer.Interval = 100;
             Timer.Tick += new EventHandler(Visualizer_Tick);
 
-            foreach (Label Label in Controls.OfType<Label>())
-                Label.ForeColor = Color.Transparent;
-
             Load += new EventHandler(MediaVisualizer_Load);
         }
 
@@ -71,10 +68,17 @@ namespace IT008.N12_015
         {
             if (MediaURL != null)
             {
-                PictureBox.Image = Common.GetImage(MediaURL);
-
                 Invoke(new Action(() =>
                 {
+                    PictureBox.Left = -PictureBox.Size.Width;
+                    PictureBox.Image = Common.GetImage(MediaURL);
+                    FluentTransitions.Transition
+                    .With(PictureBox, nameof(Left), 0)
+                    .Decelerate(TimeSpan.FromSeconds(0.5));
+
+                    foreach (Label Label in Controls.OfType<Label>())
+                        Label.ForeColor = Color.Transparent;
+
                     MediaStatus.Text = "On Track";
                     MediaTitle.Text = Common.GetTitle(MediaURL);
                     MediaArtist.Text = Common.GetPerformers(MediaURL);
@@ -83,7 +87,7 @@ namespace IT008.N12_015
                     {
                         FluentTransitions.Transition
                         .With(Label, nameof(ForeColor), Common._1D3557_)
-                        .EaseInEaseOut(TimeSpan.FromSeconds(2));
+                        .EaseInEaseOut(TimeSpan.FromSeconds(1));
                     }
                 }));
             }

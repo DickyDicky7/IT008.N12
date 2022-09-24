@@ -89,6 +89,7 @@
             // MediaStatus
             // 
             this.MediaStatus.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.MediaStatus.ForeColor = System.Drawing.Color.Transparent;
             this.MediaStatus.Location = new System.Drawing.Point(110, 225);
             this.MediaStatus.Name = "MediaStatus";
             this.MediaStatus.Size = new System.Drawing.Size(340, 30);
@@ -99,6 +100,7 @@
             // MediaTitle
             // 
             this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.MediaTitle.ForeColor = System.Drawing.Color.Transparent;
             this.MediaTitle.Location = new System.Drawing.Point(110, 255);
             this.MediaTitle.Name = "MediaTitle";
             this.MediaTitle.Size = new System.Drawing.Size(340, 30);
@@ -109,6 +111,7 @@
             // MediaArtist
             // 
             this.MediaArtist.Font = new System.Drawing.Font("Segoe UI", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.MediaArtist.ForeColor = System.Drawing.Color.Transparent;
             this.MediaArtist.Location = new System.Drawing.Point(110, 285);
             this.MediaArtist.Name = "MediaArtist";
             this.MediaArtist.Size = new System.Drawing.Size(340, 30);
@@ -126,7 +129,7 @@
             this.Controls.Add(this.Visualizer);
             this.Controls.Add(this.PictureBox);
             this.Name = "MediaVisualizer";
-            this.Size = new System.Drawing.Size(450, 450);
+            this.Size = new System.Drawing.Size(450, 325);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
 
