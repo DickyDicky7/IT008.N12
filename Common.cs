@@ -26,6 +26,8 @@ namespace IT008.N12_015
             TagLib.File Media = TagLib.File.Create(MediaURL);
             MemoryStream Stream = new MemoryStream();
             TagLib.IPicture Picture = Media.Tag.Pictures.FirstOrDefault();
+            if (Picture == null)
+                return Properties.Resources.mp3;
             byte[] MetaData = Picture.Data.Data;
             Stream.Write(MetaData, 0, Convert.ToInt32(MetaData.Length));
             Image Image = new Bitmap(Stream, false);
@@ -41,6 +43,8 @@ namespace IT008.N12_015
         public static string GetTitle(string MediaURL)
         {
             TagLib.File Media = TagLib.File.Create(MediaURL);
+            if (Media.Tag.IsEmpty)
+                return MediaURL.Substring(MediaURL.LastIndexOf('\\') + 1);
             return Media.Tag.Title;
         }
 
@@ -52,6 +56,9 @@ namespace IT008.N12_015
         public static string GetPerformers(string MediaURL)
         {
             TagLib.File Media = TagLib.File.Create(MediaURL);
+            if (Media.Tag.IsEmpty)
+                return "-- Unknown --";
+            else
             if (Media.Tag.Performers.Length == 1)
                 return $"-- {Media.Tag.Performers.First()} --";
             else
