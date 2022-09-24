@@ -28,6 +28,11 @@ namespace IT008.N12_015
             , "#eeeeee"
             , "#c4fa6f"
             , "#3a3f47"
+
+            , "#f72e9d"
+            , "#06dcd4"
+            , "#a0f4bc"
+            , "#fff28f"
             }.Select(hex => ColorTranslator.FromHtml(hex)).ToArray();
             ColorTransitionB.Interval = 100;
             ColorTransitionB.AutoTransition = true;
@@ -39,6 +44,11 @@ namespace IT008.N12_015
             , "#02b3fc"
             , "#f8ce27"
             , "#063170"
+
+            , "#3433e0"
+            , "#f23de8"
+            , "#f7b054"
+            , "#f6e648"
             }.Select(hex => ColorTranslator.FromHtml(hex)).ToArray();
             ColorTransitionM.Interval = 100;
             ColorTransitionM.AutoTransition = true;
@@ -83,7 +93,7 @@ namespace IT008.N12_015
                         Label.ForeColor = Color.Transparent;
 
                     MediaStatus.Text = "On Track";
-                    MediaTitle.Text = Common.GetTitle(MediaURL);
+                    MediaTitle.Text = "   " + Common.GetTitle(MediaURL);
                     MediaArtist.Text = Common.GetPerformers(MediaURL);
 
                     foreach (Label Label in Controls.OfType<Label>())
