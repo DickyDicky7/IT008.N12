@@ -20,6 +20,9 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
+            MediaTitle.ForeColor = Common._1D3557_;
+            MediaTitle.Text = "♫♫♫ Waiting... ♪♪♪";
+
             ColorTransitionB.ColorArray = new string[]
             { "#182cd4"
             , "#eeeeee"

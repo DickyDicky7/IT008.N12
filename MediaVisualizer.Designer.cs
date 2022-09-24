@@ -34,8 +34,8 @@
             this.ColorTransitionB = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
             this.ColorTransitionM = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
             this.MediaStatus = new CSharp.Winform.UI.Label();
-            this.MediaTitle = new CSharp.Winform.UI.Label();
             this.MediaArtist = new CSharp.Winform.UI.Label();
+            this.MediaTitle = new IT008.N12_015.AnimateLabel();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,17 +98,6 @@
             this.MediaStatus.Text = "MediaStatus";
             this.MediaStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // MediaTitle
-            // 
-            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.MediaTitle.ForeColor = System.Drawing.Color.Transparent;
-            this.MediaTitle.Location = new System.Drawing.Point(110, 255);
-            this.MediaTitle.Name = "MediaTitle";
-            this.MediaTitle.Size = new System.Drawing.Size(340, 30);
-            this.MediaTitle.TabIndex = 4;
-            this.MediaTitle.Text = "MediaTitle";
-            this.MediaTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // MediaArtist
             // 
             this.MediaArtist.Font = new System.Drawing.Font("Segoe UI", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
@@ -119,6 +108,18 @@
             this.MediaArtist.TabIndex = 5;
             this.MediaArtist.Text = "-- MediaArtist --";
             this.MediaArtist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MediaTitle
+            // 
+            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.MediaTitle.ForeColor = System.Drawing.Color.Transparent;
+            this.MediaTitle.Location = new System.Drawing.Point(110, 255);
+            this.MediaTitle.Name = "MediaTitle";
+            this.MediaTitle.Size = new System.Drawing.Size(340, 30);
+            this.MediaTitle.Slide = false;
+            this.MediaTitle.SlideTime = 15;
+            this.MediaTitle.TabIndex = 4;
+            this.MediaTitle.Text = "MediaTitle";
             // 
             // MediaVisualizer
             // 
@@ -142,7 +143,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneColorTransition ColorTransitionB;
         private Siticone.Desktop.UI.WinForms.SiticoneColorTransition ColorTransitionM;
         private CSharp.Winform.UI.Label MediaStatus;
-        private CSharp.Winform.UI.Label MediaTitle;
+        private AnimateLabel MediaTitle;
         private CSharp.Winform.UI.Label MediaArtist;
     }
 }
