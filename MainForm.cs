@@ -19,6 +19,9 @@ namespace IT008.N12_015
         {
             InitializeComponent();
             new SiticoneDragControl(controlHeader);
+            nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
+            string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+            addMusic(musicPath);
             //Load += new EventHandler(form_Load(args));
         }
 
@@ -45,6 +48,28 @@ namespace IT008.N12_015
 
         private void form_FormClosing(object sender, EventArgs e)
         {
+        }
+
+        private void addMusic(string folderPath)
+        {
+            string[] fileArray = Directory.GetFiles(folderPath, "*.mp3");
+            foreach (string file in fileArray)
+            {
+                musicPanel.Controls.Add(new MediaItem(file));
+            }
+        }
+
+        private void addFolder_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    addMusic(fbd.SelectedPath);
+                }
+            }
         }
     }
 }

@@ -29,94 +29,220 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.thumbNailPTB = new System.Windows.Forms.PictureBox();
-            this.titleLB = new System.Windows.Forms.Label();
             this.artistLB = new System.Windows.Forms.Label();
             this.albumLB = new System.Windows.Forms.Label();
+            this.titleLB = new System.Windows.Forms.Label();
             this.durationLB = new System.Windows.Forms.Label();
+            this.genreLB = new System.Windows.Forms.Label();
+            this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticoneContextMenuStrip = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
+            this.playMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playQueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newPlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.propertiesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.thumbNailPTB)).BeginInit();
+            this.siticonePanel1.SuspendLayout();
+            this.siticoneContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.Controls.Add(this.thumbNailPTB, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.titleLB, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.artistLB, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.albumLB, 3, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Controls.Add(this.artistLB, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.albumLB, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.titleLB, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.durationLB, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.genreLB, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(700, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(739, 41);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // thumbNailPTB
-            // 
-            this.thumbNailPTB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.thumbNailPTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thumbNailPTB.Location = new System.Drawing.Point(3, 3);
-            this.thumbNailPTB.Name = "thumbNailPTB";
-            this.thumbNailPTB.Size = new System.Drawing.Size(94, 94);
-            this.thumbNailPTB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.thumbNailPTB.TabIndex = 0;
-            this.thumbNailPTB.TabStop = false;
-            // 
-            // titleLB
-            // 
-            this.titleLB.AutoSize = true;
-            this.titleLB.Location = new System.Drawing.Point(103, 0);
-            this.titleLB.Name = "titleLB";
-            this.titleLB.Size = new System.Drawing.Size(33, 16);
-            this.titleLB.TabIndex = 1;
-            this.titleLB.Text = "Title";
+            this.tableLayoutPanel1.Click += new System.EventHandler(this.MediaItem_Click);
+            this.tableLayoutPanel1.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
+            this.tableLayoutPanel1.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
+            this.tableLayoutPanel1.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
             // 
             // artistLB
             // 
+            this.artistLB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.artistLB.AutoEllipsis = true;
             this.artistLB.AutoSize = true;
-            this.artistLB.Location = new System.Drawing.Point(362, 0);
+            this.artistLB.Location = new System.Drawing.Point(297, 14);
+            this.artistLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.artistLB.Name = "artistLB";
-            this.artistLB.Size = new System.Drawing.Size(36, 16);
+            this.artistLB.Size = new System.Drawing.Size(30, 13);
             this.artistLB.TabIndex = 2;
             this.artistLB.Text = "Artist";
+            this.artistLB.Click += new System.EventHandler(this.MediaItem_Click);
+            this.artistLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
+            this.artistLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
+            this.artistLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
             // 
             // albumLB
             // 
+            this.albumLB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.albumLB.AutoEllipsis = true;
             this.albumLB.AutoSize = true;
-            this.albumLB.Location = new System.Drawing.Point(491, 0);
+            this.albumLB.Location = new System.Drawing.Point(444, 14);
+            this.albumLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.albumLB.Name = "albumLB";
-            this.albumLB.Size = new System.Drawing.Size(45, 16);
+            this.albumLB.Size = new System.Drawing.Size(36, 13);
             this.albumLB.TabIndex = 3;
             this.albumLB.Text = "Album";
+            this.albumLB.Click += new System.EventHandler(this.MediaItem_Click);
+            this.albumLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
+            this.albumLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
+            this.albumLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
+            // 
+            // titleLB
+            // 
+            this.titleLB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.titleLB.AutoEllipsis = true;
+            this.titleLB.AutoSize = true;
+            this.titleLB.Location = new System.Drawing.Point(2, 14);
+            this.titleLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.titleLB.Name = "titleLB";
+            this.titleLB.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.titleLB.Size = new System.Drawing.Size(42, 13);
+            this.titleLB.TabIndex = 1;
+            this.titleLB.Text = "Title";
+            this.titleLB.Click += new System.EventHandler(this.MediaItem_Click);
+            this.titleLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
+            this.titleLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
+            this.titleLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
             // 
             // durationLB
             // 
+            this.durationLB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.durationLB.AutoEllipsis = true;
             this.durationLB.AutoSize = true;
-            this.durationLB.Location = new System.Drawing.Point(620, 0);
+            this.durationLB.Location = new System.Drawing.Point(664, 14);
+            this.durationLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.durationLB.Name = "durationLB";
-            this.durationLB.Size = new System.Drawing.Size(57, 16);
+            this.durationLB.Size = new System.Drawing.Size(47, 13);
             this.durationLB.TabIndex = 4;
             this.durationLB.Text = "Duration";
+            this.durationLB.Click += new System.EventHandler(this.MediaItem_Click);
+            this.durationLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
+            this.durationLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
+            this.durationLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
+            // 
+            // genreLB
+            // 
+            this.genreLB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.genreLB.AutoSize = true;
+            this.genreLB.Location = new System.Drawing.Point(591, 14);
+            this.genreLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.genreLB.Name = "genreLB";
+            this.genreLB.Size = new System.Drawing.Size(36, 13);
+            this.genreLB.TabIndex = 5;
+            this.genreLB.Text = "Genre";
+            // 
+            // siticonePanel1
+            // 
+            this.siticonePanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
+            this.siticonePanel1.BorderRadius = 10;
+            this.siticonePanel1.BorderThickness = 1;
+            this.siticonePanel1.Controls.Add(this.tableLayoutPanel1);
+            this.siticonePanel1.CustomBorderColor = System.Drawing.Color.Black;
+            this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.siticonePanel1.Location = new System.Drawing.Point(11, 0);
+            this.siticonePanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.siticonePanel1.Name = "siticonePanel1";
+            this.siticonePanel1.ShadowDecoration.Parent = this.siticonePanel1;
+            this.siticonePanel1.Size = new System.Drawing.Size(739, 41);
+            this.siticonePanel1.TabIndex = 1;
+            // 
+            // siticoneContextMenuStrip
+            // 
+            this.siticoneContextMenuStrip.BackColor = System.Drawing.Color.White;
+            this.siticoneContextMenuStrip.ImageScalingSize = new System.Drawing.Size(15, 15);
+            this.siticoneContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playMenuItem,
+            this.addToMenuItem,
+            this.propertiesMenuItem});
+            this.siticoneContextMenuStrip.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.siticoneContextMenuStrip.Name = "siticoneContextMenuStrip";
+            this.siticoneContextMenuStrip.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.siticoneContextMenuStrip.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.siticoneContextMenuStrip.RenderStyle.ColorTable = null;
+            this.siticoneContextMenuStrip.RenderStyle.RoundedEdges = true;
+            this.siticoneContextMenuStrip.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.siticoneContextMenuStrip.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.siticoneContextMenuStrip.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.siticoneContextMenuStrip.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.siticoneContextMenuStrip.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.siticoneContextMenuStrip.Size = new System.Drawing.Size(181, 92);
+            // 
+            // playMenuItem
+            // 
+            this.playMenuItem.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
+            this.playMenuItem.Name = "playMenuItem";
+            this.playMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.playMenuItem.Text = "Play";
+            // 
+            // addToMenuItem
+            // 
+            this.addToMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playQueueToolStripMenuItem,
+            this.newPlaylistToolStripMenuItem});
+            this.addToMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
+            this.addToMenuItem.Name = "addToMenuItem";
+            this.addToMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToMenuItem.Text = "Add to";
+            // 
+            // playQueueToolStripMenuItem
+            // 
+            this.playQueueToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.playQueueToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.icons8_playlist_64;
+            this.playQueueToolStripMenuItem.Name = "playQueueToolStripMenuItem";
+            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.playQueueToolStripMenuItem.Text = "Play Queue";
+            // 
+            // newPlaylistToolStripMenuItem
+            // 
+            this.newPlaylistToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.newPlaylistToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
+            this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
+            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newPlaylistToolStripMenuItem.Text = "New Playlist";
+            // 
+            // propertiesMenuItem
+            // 
+            this.propertiesMenuItem.Image = global::IT008.N12_015.Properties.Resources.information;
+            this.propertiesMenuItem.Name = "propertiesMenuItem";
+            this.propertiesMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.propertiesMenuItem.Text = "Properties";
             // 
             // MediaItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.ContextMenuStrip = this.siticoneContextMenuStrip;
+            this.Controls.Add(this.siticonePanel1);
+            this.MinimumSize = new System.Drawing.Size(750, 41);
             this.Name = "MediaItem";
-            this.Size = new System.Drawing.Size(700, 100);
+            this.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.Size = new System.Drawing.Size(750, 41);
+            this.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
+            this.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.thumbNailPTB)).EndInit();
+            this.siticonePanel1.ResumeLayout(false);
+            this.siticoneContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -124,10 +250,17 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox thumbNailPTB;
         private System.Windows.Forms.Label titleLB;
         private System.Windows.Forms.Label artistLB;
         private System.Windows.Forms.Label albumLB;
         private System.Windows.Forms.Label durationLB;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
+        private System.Windows.Forms.Label genreLB;
+        private Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip siticoneContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem playMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playQueueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newPlaylistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem propertiesMenuItem;
     }
 }
