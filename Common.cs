@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace IT008.N12_015
 {
@@ -65,6 +66,16 @@ namespace IT008.N12_015
                 return
                 $"-- {Media.Tag.Performers.Aggregate((Performers, Performer) => $"{Performers} & Performer")} --";
         }
+        /// <summary>
+        /// Rounded control corner
+        /// </summary>
+        /// <param name="control">Control need to be rounded corner</param>
+        public static void RoundedCorner(Control control)
+        {
+            var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
+            var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+            DwmSetWindowAttribute(control.Handle, attribute, ref preference, sizeof(uint));
+        }
 
         public static async Task SetInterval(Action action, TimeSpan timeout)
         {
@@ -78,6 +89,31 @@ namespace IT008.N12_015
             await Task.Delay(timeout).ConfigureAwait(false);
             action();
         }
+
+        #region Rounded_corner
+        public enum DWMWINDOWATTRIBUTE
+        {
+            DWMWA_WINDOW_CORNER_PREFERENCE = 33
+        }
+
+        // The DWM_WINDOW_CORNER_PREFERENCE enum for DwmSetWindowAttribute's third parameter, which tells the function
+        // what value of the enum to set.
+        // Copied from dwmapi.h
+        public enum DWM_WINDOW_CORNER_PREFERENCE
+        {
+            DWMWCP_DEFAULT = 0,
+            DWMWCP_DONOTROUND = 1,
+            DWMWCP_ROUND = 2,
+            DWMWCP_ROUNDSMALL = 3
+        }
+
+        // Import dwmapi.dll and define DwmSetWindowAttribute in C# corresponding to the native function.
+        [DllImport("dwmapi.dll", CharSet = CharSet.Unicode, PreserveSig = false)]
+        internal static extern void DwmSetWindowAttribute(IntPtr hwnd,
+                                                         DWMWINDOWATTRIBUTE attribute,
+                                                         ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute,
+                                                         uint cbAttribute);
+        #endregion
 
         /// <summary>
         /// Darker Blue

@@ -101,6 +101,8 @@ namespace IT008.N12_015
         public MediaItem(string URL)
         {
             InitializeComponent();
+            Common.RoundedCorner(siticoneContextMenuStrip);
+            Common.RoundedCorner(addToMenuItem.DropDown);
             this.URL = URL;
             InitializeMediaItem(URL);
             Click += new EventHandler(MediaItem_Click);
