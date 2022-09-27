@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using WMPLib;
 
 namespace IT008.N12_015
 {
@@ -57,19 +58,19 @@ namespace IT008.N12_015
             }
             else
             {
-                BtnPlay.Text = "PLAY";
+                //BtnPlay.Text = "PLAY";
                 MessageBox.Show("Media not found", "Error");
             }
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            Player.controls.currentPosition += 10;
+            
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            Player.controls.currentPosition -= 10;
+            
         }
 
         private static readonly WMPLib.WindowsMediaPlayer Player
@@ -94,6 +95,34 @@ namespace IT008.N12_015
         private void GradientPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void TrackBar_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+        private void TrackBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            
+        }
+
+        private void siticoneRoundedGradientButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnNext10s_Click(object sender, EventArgs e)
+        {
+            Player.controls.currentPosition += 10;
+            TrackBar.Value += 1;
+
+        }
+
+        private void BtnBack10s_Click(object sender, EventArgs e)
+        {
+            Player.controls.currentPosition -= 10;
+            TrackBar.Value += 1;
+            MessageBox.Show(Player.currentMedia.durationString, "Error");
         }
     }
 }
