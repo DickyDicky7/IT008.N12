@@ -1,4 +1,4 @@
-﻿using Common;
+﻿using CSCore;
 using System;
 using System.Linq;
 using System.Text;
@@ -7,8 +7,10 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace IT008.N12_015
 {
@@ -18,11 +20,19 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
+            MediaTitle.ForeColor = Common._1D3557_;
+            MediaTitle.Text = "♫♫♫ Waiting... ♪♪♪";
+
             ColorTransitionB.ColorArray = new string[]
             { "#182cd4"
             , "#eeeeee"
             , "#c4fa6f"
             , "#3a3f47"
+
+            , "#f72e9d"
+            , "#06dcd4"
+            , "#a0f4bc"
+            , "#fff28f"
             }.Select(hex => ColorTranslator.FromHtml(hex)).ToArray();
             ColorTransitionB.Interval = 100;
             ColorTransitionB.AutoTransition = true;
@@ -34,6 +44,11 @@ namespace IT008.N12_015
             , "#02b3fc"
             , "#f8ce27"
             , "#063170"
+
+            , "#3433e0"
+            , "#f23de8"
+            , "#f7b054"
+            , "#f6e648"
             }.Select(hex => ColorTranslator.FromHtml(hex)).ToArray();
             ColorTransitionM.Interval = 100;
             ColorTransitionM.AutoTransition = true;
@@ -64,10 +79,31 @@ namespace IT008.N12_015
 
         private void MediaController_OnLoadMedia(string MediaURL)
         {
-            MessageBox.Show("Load a new media");
-            PictureBox.Image =
-            Common.Common.GetImage
-            ("C:\\Users\\User\\Music\\Waiting-For-You-MONO-Onionn.mp3");
+            if (MediaURL != null)
+            {
+                Invoke(new Action(() =>
+                {
+                    PictureBox.Left = -PictureBox.Size.Width;
+                    PictureBox.Image = Common.GetImage(MediaURL);
+                    FluentTransitions.Transition
+                    .With(PictureBox, nameof(Left), 0)
+                    .Decelerate(TimeSpan.FromSeconds(0.5));
+
+                    foreach (Label Label in Controls.OfType<Label>())
+                        Label.ForeColor = Color.Transparent;
+
+                    MediaStatus.Text = "On Track";
+                    MediaTitle.Text = "   " + Common.GetTitle(MediaURL);
+                    MediaArtist.Text = Common.GetPerformers(MediaURL);
+
+                    foreach (Label Label in Controls.OfType<Label>())
+                    {
+                        FluentTransitions.Transition
+                        .With(Label, nameof(ForeColor), Common._1D3557_)
+                        .EaseInEaseOut(TimeSpan.FromSeconds(1));
+                    }
+                }));
+            }
         }
 
         public void InteractMediaController(MediaController MediaController)
@@ -83,19 +119,6 @@ namespace IT008.N12_015
         }
 
         private readonly Timer Timer = new Timer();
-
-        //private Queue<(string, string)> ColorPalettes =
-        //    new Queue<(string, string)>(
-        //    new (string, string)[]
-        //    { ("#fd2ea3", "#05eeff")
-        //    , ("#fd2ea3", "#03c6e3")
-
-        //    , ("#fe6fc5", "#05eeff")
-        //    , ("#fe6fc5", "#03c6e3")
-
-        //    , ("#fcadd8", "#05eeff")
-        //    , ("#fcadd8", "#03c6e3")
-        //    });
     }
 }
 

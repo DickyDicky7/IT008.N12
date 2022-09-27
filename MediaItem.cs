@@ -15,6 +15,10 @@ namespace IT008.N12_015
     {
         private TimeSpan StripMilliseconds(TimeSpan time)
         {
+            if(time.Hours == 0)
+            {
+                return new TimeSpan(time.Hours, time.Minutes, time.Seconds);
+            }
             return new TimeSpan(time.Days, time.Hours, time.Minutes, time.Seconds);
         }
         #region Propreties
@@ -24,10 +28,18 @@ namespace IT008.N12_015
         private String _title;
         private String _artist;
         private String _album;
+        private String _genre;
+
+
         private TimeSpan _duration;
         /// <summary>
         /// 
         /// </summary>
+        public String Genre
+        {
+            get { return _genre; }
+            set { _genre = value; genreLB.Text = value; }
+        }
         public String URL
         {
             get { return url; }
@@ -39,7 +51,7 @@ namespace IT008.N12_015
         public TimeSpan Duration
         {
             get { return _duration; }
-            set { _duration = value; durationLB.Text = value.ToString(); }
+            set { _duration = value; durationLB.Text = value.ToString(@"mm\:ss"); }
         }
         /// <summary>
         /// Song's Album
@@ -71,7 +83,7 @@ namespace IT008.N12_015
         public Image Thumbnail
         {
             get { return _thumbnail; }
-            set { _thumbnail = value; thumbNailPTB.Image = value; }
+            set { _thumbnail = value; }
         }
 
 
@@ -80,6 +92,7 @@ namespace IT008.N12_015
 
         public MediaItem()
         {
+            
         }
         /// <summary>
         /// Initialize a new MediaItem with given URL
@@ -88,9 +101,13 @@ namespace IT008.N12_015
         public MediaItem(string URL)
         {
             InitializeComponent();
+            Common.RoundedCorner(siticoneContextMenuStrip);
+            Common.RoundedCorner(addToMenuItem.DropDown);
             this.URL = URL;
             InitializeMediaItem(URL);
             Click += new EventHandler(MediaItem_Click);
+            //MouseEnter += new EventHandler(MediaItem_MouseEnter);
+            
             
         }
         /// <summary>
@@ -99,6 +116,7 @@ namespace IT008.N12_015
         /// <param name="URL">Media Item's URL</param>
         private void InitializeMediaItem(string URL)
         {
+            //this.Size = new System.Drawing.Size(1000, 50);
             TagLib.File file = TagLib.File.Create(URL);
             var mStream = new MemoryStream();
             var firstPicture = file.Tag.Pictures.FirstOrDefault();
@@ -114,6 +132,7 @@ namespace IT008.N12_015
             {
                 this.Thumbnail = Properties.Resources.mp3;
             }
+            this.Genre = file.Tag.Genres.FirstOrDefault();
             this.Title = file.Tag.Title;
             this.Artist = file.Tag.Artists.FirstOrDefault();
             this.Album = file.Tag.Album;
@@ -122,29 +141,46 @@ namespace IT008.N12_015
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
-            MediaController.LoadMedia(URL);
-        }
-
-        public new event EventHandler Click
-        {
-            add
-            {
-                base.Click += value;
-                foreach (Control Control in Controls)
-                {
-                    Control.Click += value;
-                }
-            }
-            remove
-            {
-                base.Click -= value;
-                foreach (Control Control in Controls)
-                {
-                    Control.Click -= value;
-                }
-            }
+            MessageBox.Show("click");
+            //MediaController.LoadMedia(URL);
         }
 
         public static MediaController MediaController { get; set; }
+
+
+        //private void tableLayoutPanel1_MouseLeave(object sender, EventArgs e)
+        //{
+        //    this.BackColor = Color.White;
+        //}
+
+        //private void tableLayoutPanel1_MouseHover(object sender, EventArgs e)
+        //{
+        //    this.BackColor = Color.FromArgb(231, 235, 240);
+        //}
+
+        //private void tableLayoutPanel1_MouseEnter(object sender, EventArgs e)
+        //{
+        //    this.BackColor = Color.FromArgb(231, 235, 240);
+
+        //}
+
+        private void MediaItem_MouseEnter(object sender, EventArgs e)
+        {
+            siticonePanel1.FillColor = Color.FromArgb(239, 240, 243);
+
+        }
+
+        private void MediaItem_MouseHover(object sender, EventArgs e)
+        {
+            siticonePanel1.FillColor = Color.FromArgb(239, 240, 243);
+
+        }
+
+        private void MediaItem_MouseLeave(object sender, EventArgs e)
+        {
+            siticonePanel1.FillColor = Color.FromArgb(247, 250, 252);
+
+        }
+
     }
 }
