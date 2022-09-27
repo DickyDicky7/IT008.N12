@@ -134,7 +134,8 @@ namespace IT008.N12_015
             }
             this.Genre = file.Tag.Genres.FirstOrDefault();
             this.Title = file.Tag.Title;
-            this.Artist = file.Tag.Artists.FirstOrDefault();
+            this.Title = file.Tag.Title;
+            this.Artist = file.Tag.Performers.FirstOrDefault();
             this.Album = file.Tag.Album;
             this.Duration = StripMilliseconds(file.Properties.Duration);
         }

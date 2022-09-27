@@ -72,9 +72,14 @@ namespace IT008.N12_015
         /// <param name="control">Control need to be rounded corner</param>
         public static void RoundedCorner(Control control)
         {
-            var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
-            var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
-            DwmSetWindowAttribute(control.Handle, attribute, ref preference, sizeof(uint));
+            int buildNumber = Environment.OSVersion.Version.Build;
+            if (buildNumber > WINDOW11_BUILD_NUMBER)
+            {
+                var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
+                var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+                DwmSetWindowAttribute(control.Handle, attribute, ref preference, sizeof(uint));
+            }
+            
         }
 
         public static async Task SetInterval(Action action, TimeSpan timeout)
@@ -114,6 +119,8 @@ namespace IT008.N12_015
                                                          ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute,
                                                          uint cbAttribute);
         #endregion
+
+        public const int WINDOW11_BUILD_NUMBER = 22000;
 
         /// <summary>
         /// Darker Blue

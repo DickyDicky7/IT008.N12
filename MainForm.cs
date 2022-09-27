@@ -94,7 +94,6 @@ namespace IT008.N12_015
 
         private void addFolder_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.Width + " " + this.Height);
             using (var fbd = new FolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
