@@ -85,7 +85,7 @@ namespace IT008.N12_015
         public static void RoundedCorner(Control control)
         {
             int buildNumber = Environment.OSVersion.Version.Build;
-            if (buildNumber > WINDOW11_BUILD_NUMBER)
+            if (buildNumber >= WINDOW11_BUILD_NUMBER)
             {
                 var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
                 var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;

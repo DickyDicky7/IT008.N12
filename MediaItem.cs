@@ -94,6 +94,7 @@ namespace IT008.N12_015
         {
             
         }
+
         /// <summary>
         /// Initialize a new MediaItem with given URL
         /// </summary>
@@ -101,7 +102,7 @@ namespace IT008.N12_015
         public MediaItem(string URL)
         {
             InitializeComponent();
-            Common.RoundedCorner(siticoneContextMenuStrip);
+            Common.RoundedCorner(contextMenu);
             Common.RoundedCorner(addToMenuItem.DropDown);
             this.URL = URL;
             InitializeMediaItem(URL);
@@ -142,44 +143,42 @@ namespace IT008.N12_015
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("click");
-            //MediaController.LoadMedia(URL);
+            ChangeLabelColor(Color.FromArgb(208, 64, 12));
+            if(ClickedItem != null)
+            {
+                ClickedItem.ChangeLabelColor(Color.Black);
+            }
+            ClickedItem = this;
+            MediaController.LoadMedia(URL);
         }
 
+        private void ChangeLabelColor(Color color)
+        {
+            titleLB.ForeColor = color;
+            albumLB.ForeColor = color;
+            artistLB.ForeColor = color;
+            genreLB.ForeColor = color;
+            durationLB.ForeColor = color;
+        }
+
+        public static MediaItem ClickedItem { get; set; }
         public static MediaController MediaController { get; set; }
-
-
-        //private void tableLayoutPanel1_MouseLeave(object sender, EventArgs e)
-        //{
-        //    this.BackColor = Color.White;
-        //}
-
-        //private void tableLayoutPanel1_MouseHover(object sender, EventArgs e)
-        //{
-        //    this.BackColor = Color.FromArgb(231, 235, 240);
-        //}
-
-        //private void tableLayoutPanel1_MouseEnter(object sender, EventArgs e)
-        //{
-        //    this.BackColor = Color.FromArgb(231, 235, 240);
-
-        //}
 
         private void MediaItem_MouseEnter(object sender, EventArgs e)
         {
-            siticonePanel1.FillColor = Color.FromArgb(239, 240, 243);
+            containerPanel.FillColor = Color.FromArgb(239, 240, 243);
 
         }
 
         private void MediaItem_MouseHover(object sender, EventArgs e)
         {
-            siticonePanel1.FillColor = Color.FromArgb(239, 240, 243);
+            containerPanel.FillColor = Color.FromArgb(239, 240, 243);
 
         }
 
         private void MediaItem_MouseLeave(object sender, EventArgs e)
         {
-            siticonePanel1.FillColor = Color.FromArgb(247, 250, 252);
+            containerPanel.FillColor = Color.FromArgb(247, 250, 252);
 
         }
 

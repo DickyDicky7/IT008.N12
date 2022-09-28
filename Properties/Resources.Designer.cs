@@ -73,6 +73,16 @@ namespace IT008.N12_015.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down {
+            get {
+                object obj = ResourceManager.GetObject("down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forward_10s {
             get {
                 object obj = ResourceManager.GetObject("forward_10s", resourceCulture);
@@ -226,6 +236,16 @@ namespace IT008.N12_015.Properties {
         internal static System.Drawing.Bitmap volume {
             get {
                 object obj = ResourceManager.GetObject("volume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_suffle {
+            get {
+                object obj = ResourceManager.GetObject("white_suffle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

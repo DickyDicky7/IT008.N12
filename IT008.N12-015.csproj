@@ -236,6 +236,8 @@
     <Content Include="lib\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\white_suffle.png" />
+    <None Include="Resources\down.png" />
     <None Include="Resources\icons8-playlist-64.png" />
     <None Include="Resources\icons8-settings-64.png" />
     <None Include="Resources\plus.png" />
