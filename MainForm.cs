@@ -17,7 +17,7 @@ namespace IT008.N12_015
         public form(string[] args)
         {
             InitializeComponent();
-            //Common.RoundedCorner(this);
+            Common.RoundedCorner(this);
             string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
             addMusic(musicPath);
             
