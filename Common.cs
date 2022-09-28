@@ -66,6 +66,18 @@ namespace IT008.N12_015
                 return
                 $"-- {Media.Tag.Performers.Aggregate((Performers, Performer) => $"{Performers} & Performer")} --";
         }
+
+        /// <summary>
+        /// Get media's total duration in seconds
+        /// </summary>
+        /// <param name="MediaURL">Media's file path</param>
+        /// <returns></returns>
+        public static int GetDurationInSeconds(string MediaURL)
+        {
+            TagLib.File Media = TagLib.File.Create(MediaURL);
+            return (int)Media.Properties.Duration.TotalSeconds;
+        }
+
         /// <summary>
         /// Rounded control corner
         /// </summary>

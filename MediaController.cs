@@ -1,4 +1,5 @@
 ﻿using System;
+using WMPLib;
 using System.Linq;
 using System.Text;
 using System.Data;
@@ -7,7 +8,6 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using WMPLib;
 
 namespace IT008.N12_015
 {
@@ -16,6 +16,18 @@ namespace IT008.N12_015
         public MediaController()
         {
             InitializeComponent();
+
+            Timer.Interval = 1;
+            Timer.Tick += new EventHandler(UpdateMediaController);
+
+            TrackBar.Value = 0;
+
+            Load += new EventHandler(MediaController_Load);
+        }
+
+        private void MediaController_Load(object sender, EventArgs e)
+        {
+            Timer.Start();
         }
 
         private void PlayMedia()
@@ -32,7 +44,11 @@ namespace IT008.N12_015
         {
             Player.currentMedia = Player.newMedia(URL);
 
-            OnLoadMedia(URL); // Đừng xóa dòng này
+            TrackBar.Value = 0;
+            TrackBar.Minimum = 0;
+            TrackBar.Maximum = Common.GetDurationInSeconds(URL);
+
+            // OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
@@ -65,16 +81,53 @@ namespace IT008.N12_015
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void UpdateMediaController(object sender, EventArgs e)
+        {
+            TrackBar.Value = (int)Player.controls.currentPosition;
+        }
+
+        private void BtnNext10s_Click(object sender, EventArgs e)
+        {
+            Player.controls.currentPosition += 10;
+        }
+
+        private void BtnBack10s_Click(object sender, EventArgs e)
+        {
+            Player.controls.currentPosition -= 10;
+        }
+
+        private void TrackBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            Player.controls.currentPosition = TrackBar.Value;
+        }
+
+        private void VolumeMeter_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void VolumeMeter_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Stop()
+        {
+            Timer.Stop();
         }
 
         private static readonly WMPLib.WindowsMediaPlayer Player
                           = new WMPLib.WindowsMediaPlayer();
+
+        private static readonly Timer Timer = new Timer();
 
         /// <summary>
         /// Handle the user's custom event when MediaController use LoadMedia
@@ -86,43 +139,5 @@ namespace IT008.N12_015
         /// Entry for a custom OnLoadMediaHandler
         /// </summary>
         public event OnLoadMediaHandler OnLoadMedia;
-
-        private void Panel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GradientPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TrackBar_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-        private void TrackBar_Scroll(object sender, ScrollEventArgs e)
-        {
-            
-        }
-
-        private void siticoneRoundedGradientButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnNext10s_Click(object sender, EventArgs e)
-        {
-            Player.controls.currentPosition += 10;
-            TrackBar.Value += 1;
-
-        }
-
-        private void BtnBack10s_Click(object sender, EventArgs e)
-        {
-            Player.controls.currentPosition -= 10;
-            TrackBar.Value += 1;
-            MessageBox.Show(Player.currentMedia.durationString, "Error");
-        }
     }
 }
