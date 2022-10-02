@@ -18,10 +18,13 @@ namespace IT008.N12_015
         public form(string[] args)
         {
             InitializeComponent();
-
             string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
             addMusic(musicPath);
-          
+            Common.RoundedCorner(this.sortByMenu);
+            Common.RoundedCorner(this);
+            this.shuffleAndPlayBtn.AutoSize = true;
+            this.sortBtn.AutoSize = true;
+            MediaItem.MediaController = mediaController1;
             Responsive();
             //Load += new EventHandler(form_Load(args));
         }
@@ -51,8 +54,10 @@ namespace IT008.N12_015
         private void addMusic(string folderPath)
         {
             string[] fileArray = Directory.GetFiles(folderPath, "*.mp3");
+            int i = 0;
             foreach (string file in fileArray)
             {
+                i++;
                 MediaItem media = new MediaItem(file);
                 media.Dock = DockStyle.Top;
                 media.Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -69,7 +74,13 @@ namespace IT008.N12_015
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    addMusic(fbd.SelectedPath);
+                    if(Properties.Settings.Default.musicFolder.Contains(fbd.SelectedPath) == false)
+                    {
+                        Properties.Settings.Default.musicFolder.Add(fbd.SelectedPath);
+                        Properties.Settings.Default.Save();
+                        TestMusicFolder.Text += fbd.SelectedPath;
+                        addMusic(fbd.SelectedPath);
+                    }
                 }
             }
         }
@@ -102,6 +113,8 @@ namespace IT008.N12_015
             {
                 c.Width = this.Width - siticoneTabControl1.TabButtonSize.Width - c.Padding.Left - c.Padding.Right;
             }
+            tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width,0);
+            tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
         }
         private void form_ResizeEnd(object sender, EventArgs e)
         {

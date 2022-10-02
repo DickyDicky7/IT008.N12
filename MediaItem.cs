@@ -144,7 +144,7 @@ namespace IT008.N12_015
         private void MediaItem_Click(object sender, EventArgs e)
         {
             ChangeLabelColor(Color.FromArgb(208, 64, 12));
-            if(ClickedItem != null)
+            if(ClickedItem != null && ClickedItem != this)
             {
                 ClickedItem.ChangeLabelColor(Color.Black);
             }
@@ -182,5 +182,15 @@ namespace IT008.N12_015
 
         }
 
+        private void playMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeLabelColor(Color.FromArgb(208, 64, 12));
+            if (ClickedItem != null && ClickedItem != this)
+            {
+                ClickedItem.ChangeLabelColor(Color.Black);
+            }
+            ClickedItem = this;
+            MediaController.LoadMedia(URL);
+        }
     }
 }

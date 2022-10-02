@@ -123,7 +123,6 @@ namespace IT008.N12_015
         {
             Timer.Stop();
         }
-
         private static readonly WMPLib.WindowsMediaPlayer Player
                           = new WMPLib.WindowsMediaPlayer();
 

@@ -178,14 +178,15 @@
             this.contextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.contextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.contextMenu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.contextMenu.Size = new System.Drawing.Size(146, 76);
+            this.contextMenu.Size = new System.Drawing.Size(211, 104);
             // 
             // playMenuItem
             // 
             this.playMenuItem.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
             this.playMenuItem.Name = "playMenuItem";
-            this.playMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.playMenuItem.Size = new System.Drawing.Size(210, 24);
             this.playMenuItem.Text = "Play";
+            this.playMenuItem.Click += new System.EventHandler(this.playMenuItem_Click);
             // 
             // addToMenuItem
             // 
@@ -194,7 +195,7 @@
             this.newPlaylistToolStripMenuItem});
             this.addToMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
             this.addToMenuItem.Name = "addToMenuItem";
-            this.addToMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.addToMenuItem.Size = new System.Drawing.Size(210, 24);
             this.addToMenuItem.Text = "Add to";
             // 
             // playQueueToolStripMenuItem
@@ -202,7 +203,7 @@
             this.playQueueToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.playQueueToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.icons8_playlist_64;
             this.playQueueToolStripMenuItem.Name = "playQueueToolStripMenuItem";
-            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.playQueueToolStripMenuItem.Text = "Play Queue";
             // 
             // newPlaylistToolStripMenuItem
@@ -210,14 +211,14 @@
             this.newPlaylistToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.newPlaylistToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
-            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
             // 
             // propertiesMenuItem
             // 
             this.propertiesMenuItem.Image = global::IT008.N12_015.Properties.Resources.information;
             this.propertiesMenuItem.Name = "propertiesMenuItem";
-            this.propertiesMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.propertiesMenuItem.Size = new System.Drawing.Size(210, 24);
             this.propertiesMenuItem.Text = "Properties";
             // 
             // MediaItem
