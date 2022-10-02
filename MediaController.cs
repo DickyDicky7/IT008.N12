@@ -15,14 +15,9 @@ namespace IT008.N12_015
         public MediaController()
         {
             InitializeComponent();
-            
-            Timer =
-              new System.Threading.Timer(
-              new System.Threading.TimerCallback(UpdateMediaController)
-            , null
-            , TimeSpan.FromMilliseconds(0)
-            , TimeSpan.FromMilliseconds(1)
-            );
+
+            Timer.Interval = 1;
+            Timer.Tick += new EventHandler(UpdateMediaController);
 
             TrackBar.Value = 0;
 
@@ -31,7 +26,7 @@ namespace IT008.N12_015
 
         private void MediaController_Load(object sender, EventArgs e)
         {
-
+            Timer.Start();
         }
 
         private void PlayMedia()
@@ -93,19 +88,14 @@ namespace IT008.N12_015
 
         }
 
-        private void UpdateMediaController(object State)
+        private void UpdateMediaController(object sender, EventArgs e)
         {
             if (Player.controls.currentPosition < TrackBar.Minimum
              || Player.controls.currentPosition > TrackBar.Maximum)
-                TrackBar.BeginInvoke((MethodInvoker)delegate ()
-                {
+                
                     TrackBar.Value = 0;
-                });
             else
-                TrackBar.BeginInvoke((MethodInvoker)delegate ()
-                {
                     TrackBar.Value = (int)Player.controls.currentPosition;
-                });
         }
 
         private void BtnNext10s_Click(object sender, EventArgs e)
@@ -135,14 +125,13 @@ namespace IT008.N12_015
 
         public void Stop()
         {
-            Timer.Change(
-            System.Threading.Timeout.Infinite, 
-            System.Threading.Timeout.Infinite);
+            Timer.Stop();
         }
+
         private static readonly WMPLib.WindowsMediaPlayer Player
                           = new WMPLib.WindowsMediaPlayer();
 
-        private readonly System.Threading.Timer Timer;
+        private static readonly Timer Timer = new Timer();
 
         /// <summary>
         /// Handle the user's custom event when MediaController use LoadMedia
