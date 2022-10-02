@@ -91,7 +91,11 @@ namespace IT008.N12_015
 
         private void UpdateMediaController(object sender, EventArgs e)
         {
-            TrackBar.Value = (int)Player.controls.currentPosition;
+            if (Player.controls.currentPosition < TrackBar.Minimum
+             || Player.controls.currentPosition > TrackBar.Maximum)
+                TrackBar.Value = 0;
+            else
+                TrackBar.Value = (int)Player.controls.currentPosition;
         }
 
         private void BtnNext10s_Click(object sender, EventArgs e)
