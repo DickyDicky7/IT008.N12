@@ -1,8 +1,7 @@
 ﻿using System;
-using WMPLib;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -16,9 +15,14 @@ namespace IT008.N12_015
         public MediaController()
         {
             InitializeComponent();
-
-            Timer.Interval = 1;
-            Timer.Tick += new EventHandler(UpdateMediaController);
+            
+            Timer =
+              new System.Threading.Timer(
+              new System.Threading.TimerCallback(UpdateMediaController)
+            , null
+            , TimeSpan.FromMilliseconds(0)
+            , TimeSpan.FromMilliseconds(1)
+            );
 
             TrackBar.Value = 0;
 
@@ -27,7 +31,7 @@ namespace IT008.N12_015
 
         private void MediaController_Load(object sender, EventArgs e)
         {
-            Timer.Start();
+
         }
 
         private void PlayMedia()
@@ -89,13 +93,19 @@ namespace IT008.N12_015
 
         }
 
-        private void UpdateMediaController(object sender, EventArgs e)
+        private void UpdateMediaController(object State)
         {
             if (Player.controls.currentPosition < TrackBar.Minimum
              || Player.controls.currentPosition > TrackBar.Maximum)
-                TrackBar.Value = 0;
+                TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    TrackBar.Value = 0;
+                });
             else
-                TrackBar.Value = (int)Player.controls.currentPosition;
+                TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    TrackBar.Value = (int)Player.controls.currentPosition;
+                });
         }
 
         private void BtnNext10s_Click(object sender, EventArgs e)
@@ -125,12 +135,14 @@ namespace IT008.N12_015
 
         public void Stop()
         {
-            Timer.Stop();
+            Timer.Change(
+            System.Threading.Timeout.Infinite, 
+            System.Threading.Timeout.Infinite);
         }
         private static readonly WMPLib.WindowsMediaPlayer Player
                           = new WMPLib.WindowsMediaPlayer();
 
-        private static readonly Timer Timer = new Timer();
+        private readonly System.Threading.Timer Timer;
 
         /// <summary>
         /// Handle the user's custom event when MediaController use LoadMedia
