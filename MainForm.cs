@@ -24,6 +24,9 @@ namespace IT008.N12_015
           
             Responsive();
             //Load += new EventHandler(form_Load(args));
+
+            var sci = new SoundCloudIntegration();
+            siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
         }
 
         /// <summary>
