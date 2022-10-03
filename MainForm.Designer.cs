@@ -406,28 +406,6 @@
             this.settingLabel.Size = new System.Drawing.Size(206, 67);
             this.settingLabel.TabIndex = 1;
             this.settingLabel.Text = "Settings";
-            // 
-            // TestMusicFolder
-            // 
-            this.TestMusicFolder.Location = new System.Drawing.Point(2, 69);
-            this.TestMusicFolder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TestMusicFolder.Name = "TestMusicFolder";
-            this.TestMusicFolder.ReadOnly = true;
-            this.TestMusicFolder.Size = new System.Drawing.Size(380, 153);
-            this.TestMusicFolder.TabIndex = 2;
-            this.TestMusicFolder.Text = "";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 30F);
-            this.label2.Location = new System.Drawing.Point(22, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 54);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Settings";
-            // 
             // buttonImageList
             // 
             this.buttonImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("buttonImageList.ImageStream")));
