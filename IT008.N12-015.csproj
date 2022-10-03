@@ -147,12 +147,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Common.cs" />
-	  <Compile Include="Example.cs">
-		  <SubType>UserControl</SubType>
-	  </Compile>
-	  <Compile Include="Example.Designer.cs">
-		  <DependentUpon>Example.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="Example.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example.Designer.cs">
+      <DependentUpon>Example.cs</DependentUpon>
+    </Compile>
     <Compile Include="FolderLocation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -183,6 +183,12 @@
     <Compile Include="MediaVisualizer.Designer.cs">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlaylistItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlaylistItem.Designer.cs">
+      <DependentUpon>PlaylistItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundCloudIntegration.cs">
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MediaVisualizer.resx">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistItem.resx">
+      <DependentUpon>PlaylistItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
