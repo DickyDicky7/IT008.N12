@@ -79,6 +79,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PlaylistsNET, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PlaylistsNET.1.2.1\lib\net48\PlaylistsNET.dll</HintPath>
+    </Reference>
     <Reference Include="PowerLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\PowerLib.Winform.1.0.8\lib\net45\PowerLib.dll</HintPath>
     </Reference>
@@ -86,8 +89,8 @@
       <HintPath>packages\PowerLib.Winform.1.0.8\lib\net45\PowerLib.Winform.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="ReaLTaiizor, Version=3.7.8.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ReaLTaiizor.3.7.8.7\lib\net48\ReaLTaiizor.dll</HintPath>
+    <Reference Include="ReaLTaiizor, Version=3.7.8.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReaLTaiizor.3.7.8.8\lib\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=108.0.2.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>packages\RestSharp.108.0.2\lib\netstandard2.0\RestSharp.dll</HintPath>
