@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form));
             this.mediaControllerFooter = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.mediaController1 = new IT008.N12_015.MediaController();
             this.controlHeader = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.nameContainer = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.minimizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
@@ -63,6 +62,7 @@
             this.settingHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.musicFolderPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.musicFolderContainer = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.mediaController1 = new IT008.N12_015.MediaController();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.siticoneTabControl1.SuspendLayout();
@@ -81,22 +81,12 @@
             this.mediaControllerFooter.CustomBorderThickness = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.mediaControllerFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mediaControllerFooter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            this.mediaControllerFooter.Location = new System.Drawing.Point(0, 630);
+            this.mediaControllerFooter.Location = new System.Drawing.Point(0, 502);
+            this.mediaControllerFooter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mediaControllerFooter.Name = "mediaControllerFooter";
             this.mediaControllerFooter.ShadowDecoration.Parent = this.mediaControllerFooter;
-            this.mediaControllerFooter.Size = new System.Drawing.Size(1500, 170);
+            this.mediaControllerFooter.Size = new System.Drawing.Size(1040, 138);
             this.mediaControllerFooter.TabIndex = 0;
-            // 
-            // mediaController1
-            // 
-            this.mediaController1.BackColor = System.Drawing.Color.Transparent;
-            this.mediaController1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mediaController1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mediaController1.ForeColor = System.Drawing.Color.Transparent;
-            this.mediaController1.Location = new System.Drawing.Point(0, 0);
-            this.mediaController1.Name = "mediaController1";
-            this.mediaController1.Size = new System.Drawing.Size(1500, 170);
-            this.mediaController1.TabIndex = 0;
             // 
             // controlHeader
             // 
@@ -108,9 +98,10 @@
             this.controlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.controlHeader.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.controlHeader.Location = new System.Drawing.Point(0, 0);
+            this.controlHeader.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.controlHeader.Name = "controlHeader";
             this.controlHeader.ShadowDecoration.Parent = this.controlHeader;
-            this.controlHeader.Size = new System.Drawing.Size(1500, 38);
+            this.controlHeader.Size = new System.Drawing.Size(1040, 31);
             this.controlHeader.TabIndex = 2;
             // 
             // nameContainer
@@ -119,9 +110,10 @@
             this.nameContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.nameContainer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.nameContainer.Location = new System.Drawing.Point(0, 0);
+            this.nameContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nameContainer.Name = "nameContainer";
             this.nameContainer.ShadowDecoration.Parent = this.nameContainer;
-            this.nameContainer.Size = new System.Drawing.Size(211, 38);
+            this.nameContainer.Size = new System.Drawing.Size(158, 31);
             this.nameContainer.TabIndex = 3;
             // 
             // minimizeControlBox
@@ -133,10 +125,11 @@
             this.minimizeControlBox.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.minimizeControlBox.HoverState.Parent = this.minimizeControlBox;
             this.minimizeControlBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.minimizeControlBox.Location = new System.Drawing.Point(1320, 0);
+            this.minimizeControlBox.Location = new System.Drawing.Point(905, 0);
+            this.minimizeControlBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.minimizeControlBox.Name = "minimizeControlBox";
             this.minimizeControlBox.ShadowDecoration.Parent = this.minimizeControlBox;
-            this.minimizeControlBox.Size = new System.Drawing.Size(60, 38);
+            this.minimizeControlBox.Size = new System.Drawing.Size(45, 31);
             this.minimizeControlBox.TabIndex = 2;
             // 
             // exitControlBox
@@ -148,11 +141,12 @@
             this.exitControlBox.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(222)))), ((int)(((byte)(219)))));
             this.exitControlBox.HoverState.Parent = this.exitControlBox;
             this.exitControlBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.exitControlBox.Location = new System.Drawing.Point(1440, 0);
+            this.exitControlBox.Location = new System.Drawing.Point(995, 0);
+            this.exitControlBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.exitControlBox.Name = "exitControlBox";
             this.exitControlBox.PressedColor = System.Drawing.Color.Firebrick;
             this.exitControlBox.ShadowDecoration.Parent = this.exitControlBox;
-            this.exitControlBox.Size = new System.Drawing.Size(60, 38);
+            this.exitControlBox.Size = new System.Drawing.Size(45, 31);
             this.exitControlBox.TabIndex = 0;
             // 
             // maximizeControlBox
@@ -164,10 +158,11 @@
             this.maximizeControlBox.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.maximizeControlBox.HoverState.Parent = this.maximizeControlBox;
             this.maximizeControlBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.maximizeControlBox.Location = new System.Drawing.Point(1380, 0);
+            this.maximizeControlBox.Location = new System.Drawing.Point(950, 0);
+            this.maximizeControlBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.maximizeControlBox.Name = "maximizeControlBox";
             this.maximizeControlBox.ShadowDecoration.Parent = this.maximizeControlBox;
-            this.maximizeControlBox.Size = new System.Drawing.Size(60, 38);
+            this.maximizeControlBox.Size = new System.Drawing.Size(45, 31);
             this.maximizeControlBox.TabIndex = 1;
             // 
             // siticoneTabControl1
@@ -182,12 +177,12 @@
             this.siticoneTabControl1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneTabControl1.ImageList = this.buttonImageList;
             this.siticoneTabControl1.ItemSize = new System.Drawing.Size(210, 50);
-            this.siticoneTabControl1.Location = new System.Drawing.Point(0, 38);
+            this.siticoneTabControl1.Location = new System.Drawing.Point(0, 31);
             this.siticoneTabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.siticoneTabControl1.Name = "siticoneTabControl1";
             this.siticoneTabControl1.Padding = new System.Drawing.Point(0, 0);
             this.siticoneTabControl1.SelectedIndex = 0;
-            this.siticoneTabControl1.Size = new System.Drawing.Size(1500, 592);
+            this.siticoneTabControl1.Size = new System.Drawing.Size(1040, 471);
             this.siticoneTabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.siticoneTabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
             this.siticoneTabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -220,7 +215,7 @@
             this.tabPage1.Location = new System.Drawing.Point(214, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1282, 584);
+            this.tabPage1.Size = new System.Drawing.Size(822, 463);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Music library";
             // 
@@ -228,10 +223,10 @@
             // 
             this.mediaItemContainer.AutoScroll = true;
             this.mediaItemContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mediaItemContainer.Location = new System.Drawing.Point(0, 154);
-            this.mediaItemContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.mediaItemContainer.Location = new System.Drawing.Point(0, 125);
+            this.mediaItemContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.mediaItemContainer.Name = "mediaItemContainer";
-            this.mediaItemContainer.Size = new System.Drawing.Size(1282, 430);
+            this.mediaItemContainer.Size = new System.Drawing.Size(822, 338);
             this.mediaItemContainer.TabIndex = 0;
             // 
             // musicHeaderPanel
@@ -244,10 +239,10 @@
             this.musicHeaderPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.musicHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.musicHeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.musicHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.musicHeaderPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.musicHeaderPanel.Name = "musicHeaderPanel";
             this.musicHeaderPanel.ShadowDecoration.Parent = this.musicHeaderPanel;
-            this.musicHeaderPanel.Size = new System.Drawing.Size(1282, 154);
+            this.musicHeaderPanel.Size = new System.Drawing.Size(822, 125);
             this.musicHeaderPanel.TabIndex = 1;
             // 
             // shuffleAndPlayBtn
@@ -271,12 +266,13 @@
             this.shuffleAndPlayBtn.HoverState.Parent = this.shuffleAndPlayBtn;
             this.shuffleAndPlayBtn.Image = global::IT008.N12_015.Properties.Resources.white_suffle;
             this.shuffleAndPlayBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.shuffleAndPlayBtn.Location = new System.Drawing.Point(42, 77);
-            this.shuffleAndPlayBtn.MinimumSize = new System.Drawing.Size(0, 45);
+            this.shuffleAndPlayBtn.Location = new System.Drawing.Point(32, 63);
+            this.shuffleAndPlayBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.shuffleAndPlayBtn.MinimumSize = new System.Drawing.Size(0, 37);
             this.shuffleAndPlayBtn.Name = "shuffleAndPlayBtn";
             this.shuffleAndPlayBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(100)))), ((int)(((byte)(58)))));
             this.shuffleAndPlayBtn.ShadowDecoration.Parent = this.shuffleAndPlayBtn;
-            this.shuffleAndPlayBtn.Size = new System.Drawing.Size(168, 45);
+            this.shuffleAndPlayBtn.Size = new System.Drawing.Size(126, 37);
             this.shuffleAndPlayBtn.TabIndex = 3;
             this.shuffleAndPlayBtn.Text = "Shuffle And Play";
             this.shuffleAndPlayBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -303,11 +299,12 @@
             this.sortBtn.Image = global::IT008.N12_015.Properties.Resources.down;
             this.sortBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.sortBtn.ImageSize = new System.Drawing.Size(15, 15);
-            this.sortBtn.Location = new System.Drawing.Point(258, 77);
-            this.sortBtn.MinimumSize = new System.Drawing.Size(0, 45);
+            this.sortBtn.Location = new System.Drawing.Point(194, 63);
+            this.sortBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortBtn.MinimumSize = new System.Drawing.Size(0, 37);
             this.sortBtn.Name = "sortBtn";
             this.sortBtn.ShadowDecoration.Parent = this.sortBtn;
-            this.sortBtn.Size = new System.Drawing.Size(131, 45);
+            this.sortBtn.Size = new System.Drawing.Size(98, 37);
             this.sortBtn.TabIndex = 2;
             this.sortBtn.Text = "Sort By: A-Z";
             this.sortBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -333,10 +330,11 @@
             this.addFolder.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
             this.addFolder.HoverState.Parent = this.addFolder;
             this.addFolder.Image = global::IT008.N12_015.Properties.Resources.add_folder;
-            this.addFolder.Location = new System.Drawing.Point(1106, 22);
+            this.addFolder.Location = new System.Drawing.Point(690, 18);
+            this.addFolder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addFolder.Name = "addFolder";
             this.addFolder.ShadowDecoration.Parent = this.addFolder;
-            this.addFolder.Size = new System.Drawing.Size(140, 45);
+            this.addFolder.Size = new System.Drawing.Size(105, 37);
             this.addFolder.TabIndex = 1;
             this.addFolder.Text = "Add Folder";
             this.addFolder.Click += new System.EventHandler(this.addFolder_Click);
@@ -355,10 +353,10 @@
             // 
             this.tabPage2.ImageIndex = 4;
             this.tabPage2.Location = new System.Drawing.Point(214, 4);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1282, 584);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(822, 463);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Video library";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -367,9 +365,9 @@
             // 
             this.tabPage3.ImageIndex = 2;
             this.tabPage3.Location = new System.Drawing.Point(214, 4);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1282, 584);
+            this.tabPage3.Size = new System.Drawing.Size(822, 463);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Play queue";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -378,9 +376,9 @@
             // 
             this.tabPage4.ImageIndex = 1;
             this.tabPage4.Location = new System.Drawing.Point(214, 4);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1282, 584);
+            this.tabPage4.Size = new System.Drawing.Size(822, 463);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Playlists";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -392,7 +390,7 @@
             this.tabPage5.Controls.Add(this.settingHeaderPanel);
             this.tabPage5.ImageIndex = 3;
             this.tabPage5.Location = new System.Drawing.Point(214, 4);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(30, 0, 50, 0);
             this.tabPage5.Size = new System.Drawing.Size(1282, 584);
@@ -409,6 +407,27 @@
             this.settingLabel.TabIndex = 1;
             this.settingLabel.Text = "Settings";
             // 
+            // TestMusicFolder
+            // 
+            this.TestMusicFolder.Location = new System.Drawing.Point(2, 69);
+            this.TestMusicFolder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TestMusicFolder.Name = "TestMusicFolder";
+            this.TestMusicFolder.ReadOnly = true;
+            this.TestMusicFolder.Size = new System.Drawing.Size(380, 153);
+            this.TestMusicFolder.TabIndex = 2;
+            this.TestMusicFolder.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.label2.Location = new System.Drawing.Point(22, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(167, 54);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Settings";
+            // 
             // buttonImageList
             // 
             this.buttonImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("buttonImageList.ImageStream")));
@@ -418,6 +437,10 @@
             this.buttonImageList.Images.SetKeyName(2, "icons8-playlist-64.png");
             this.buttonImageList.Images.SetKeyName(3, "icons8-settings-64.png");
             this.buttonImageList.Images.SetKeyName(4, "icons8-video-playlist-64.png");
+            this.buttonImageList.Images.SetKeyName(5, "soundcloud (1).png");
+            this.buttonImageList.Images.SetKeyName(6, "soundcloud (2).png");
+            this.buttonImageList.Images.SetKeyName(7, "soundcloud (3).png");
+            this.buttonImageList.Images.SetKeyName(8, "soundcloud.png");
             // 
             // dragControl
             // 
@@ -448,33 +471,33 @@
             this.sortByMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.sortByMenu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.sortByMenu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.sortByMenu.Size = new System.Drawing.Size(123, 100);
+            this.sortByMenu.Size = new System.Drawing.Size(111, 92);
             // 
             // aZToolStripMenuItem
             // 
             this.aZToolStripMenuItem.Name = "aZToolStripMenuItem";
-            this.aZToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.aZToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.aZToolStripMenuItem.Text = "A-Z";
             this.aZToolStripMenuItem.Click += new System.EventHandler(this.aZToolStripMenuItem_Click);
             // 
             // artistToolStripMenuItem
             // 
             this.artistToolStripMenuItem.Name = "artistToolStripMenuItem";
-            this.artistToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.artistToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.artistToolStripMenuItem.Text = "Artist";
             this.artistToolStripMenuItem.Click += new System.EventHandler(this.artistsToolStripMenuItem_Click);
             // 
             // albumToolStripMenuItem
             // 
             this.albumToolStripMenuItem.Name = "albumToolStripMenuItem";
-            this.albumToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.albumToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.albumToolStripMenuItem.Text = "Album";
             this.albumToolStripMenuItem.Click += new System.EventHandler(this.albumToolStripMenuItem_Click);
             // 
             // genreToolStripMenuItem
             // 
             this.genreToolStripMenuItem.Name = "genreToolStripMenuItem";
-            this.genreToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.genreToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.genreToolStripMenuItem.Text = "Genre";
             this.genreToolStripMenuItem.Click += new System.EventHandler(this.genreToolStripMenuItem_Click);
             // 
@@ -483,6 +506,7 @@
             this.tabControlBorder.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.tabControlBorder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.tabControlBorder.Location = new System.Drawing.Point(0, 0);
+            this.tabControlBorder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControlBorder.Name = "tabControlBorder";
             this.tabControlBorder.ShadowDecoration.Parent = this.tabControlBorder;
             this.tabControlBorder.Size = new System.Drawing.Size(0, 0);
@@ -531,21 +555,31 @@
             this.musicFolderContainer.ShadowDecoration.Parent = this.musicFolderContainer;
             this.musicFolderContainer.Size = new System.Drawing.Size(1202, 244);
             this.musicFolderContainer.TabIndex = 6;
+            // mediaController1
+            // 
+            this.mediaController1.BackColor = System.Drawing.Color.Transparent;
+            this.mediaController1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mediaController1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mediaController1.ForeColor = System.Drawing.Color.Transparent;
+            this.mediaController1.Location = new System.Drawing.Point(0, 0);
+            this.mediaController1.Margin = new System.Windows.Forms.Padding(2);
+            this.mediaController1.Name = "mediaController1";
+            this.mediaController1.Size = new System.Drawing.Size(1040, 138);
+            this.mediaController1.TabIndex = 0;
             // 
             // form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1500, 800);
+            this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.tabControlBorder);
             this.Controls.Add(this.siticoneTabControl1);
             this.Controls.Add(this.controlHeader);
             this.Controls.Add(this.mediaControllerFooter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1125, 650);
+            this.MinimumSize = new System.Drawing.Size(844, 528);
             this.Name = "form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Media Player";
