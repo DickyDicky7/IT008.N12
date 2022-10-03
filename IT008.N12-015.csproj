@@ -194,16 +194,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SoundCloudIntegration.cs">
+    <Compile Include="src\SoundCloud\SoundCloudIntegration.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SoundCloudIntegration.Designer.cs">
+    <Compile Include="src\SoundCloud\SoundCloudIntegration.Designer.cs">
       <DependentUpon>SoundCloudIntegration.cs</DependentUpon>
     </Compile>
-    <Compile Include="SoundCloudSearchBox.cs">
+    <Compile Include="src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SoundCloudSearchBox.Designer.cs">
+    <Compile Include="src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.Designer.cs">
       <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FolderLocation.resx">
@@ -229,7 +229,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SoundCloudSearchBox.resx">
+    <EmbeddedResource Include="src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.resx">
       <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
