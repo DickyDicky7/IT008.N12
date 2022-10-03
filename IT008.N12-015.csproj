@@ -147,6 +147,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Common.cs" />
+    <Compile Include="FolderLocation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FolderLocation.Designer.cs">
+      <DependentUpon>FolderLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     <Compile Include="SoundCloudSearchBox.Designer.cs">
       <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FolderLocation.resx">
+      <DependentUpon>FolderLocation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +260,7 @@
     <Content Include="lib\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\close.png" />
     <None Include="Resources\white_suffle.png" />
     <None Include="Resources\down.png" />
     <None Include="Resources\icons8-playlist-64.png" />

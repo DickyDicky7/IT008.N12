@@ -44,11 +44,12 @@
             this.shuffleAndPlayBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.sortBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.addFolder = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.musicLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.settingLabel = new System.Windows.Forms.Label();
             this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
             this.dragControl = new Siticone.Desktop.UI.WinForms.SiticoneDragControl(this.components);
             this.borderlessForm = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
@@ -58,8 +59,10 @@
             this.albumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.genreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlBorder = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TestMusicFolder = new System.Windows.Forms.RichTextBox();
+            this.librariesLb = new System.Windows.Forms.Label();
+            this.settingHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.musicFolderPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.musicFolderContainer = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.siticoneTabControl1.SuspendLayout();
@@ -67,6 +70,8 @@
             this.musicHeaderPanel.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.sortByMenu.SuspendLayout();
+            this.settingHeaderPanel.SuspendLayout();
+            this.musicFolderContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // mediaControllerFooter
@@ -224,7 +229,7 @@
             this.mediaItemContainer.AutoScroll = true;
             this.mediaItemContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mediaItemContainer.Location = new System.Drawing.Point(0, 154);
-            this.mediaItemContainer.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.mediaItemContainer.Margin = new System.Windows.Forms.Padding(0);
             this.mediaItemContainer.Name = "mediaItemContainer";
             this.mediaItemContainer.Size = new System.Drawing.Size(1282, 430);
             this.mediaItemContainer.TabIndex = 0;
@@ -235,10 +240,11 @@
             this.musicHeaderPanel.Controls.Add(this.shuffleAndPlayBtn);
             this.musicHeaderPanel.Controls.Add(this.sortBtn);
             this.musicHeaderPanel.Controls.Add(this.addFolder);
-            this.musicHeaderPanel.Controls.Add(this.label1);
+            this.musicHeaderPanel.Controls.Add(this.musicLabel);
             this.musicHeaderPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.musicHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.musicHeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.musicHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
             this.musicHeaderPanel.Name = "musicHeaderPanel";
             this.musicHeaderPanel.ShadowDecoration.Parent = this.musicHeaderPanel;
             this.musicHeaderPanel.Size = new System.Drawing.Size(1282, 154);
@@ -335,20 +341,21 @@
             this.addFolder.Text = "Add Folder";
             this.addFolder.Click += new System.EventHandler(this.addFolder_Click);
             // 
-            // label1
+            // musicLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 30F);
-            this.label1.Location = new System.Drawing.Point(30, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 67);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Music";
+            this.musicLabel.AutoSize = true;
+            this.musicLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.musicLabel.Location = new System.Drawing.Point(30, 0);
+            this.musicLabel.Name = "musicLabel";
+            this.musicLabel.Size = new System.Drawing.Size(158, 67);
+            this.musicLabel.TabIndex = 0;
+            this.musicLabel.Text = "Music";
             // 
             // tabPage2
             // 
             this.tabPage2.ImageIndex = 4;
             this.tabPage2.Location = new System.Drawing.Point(214, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1282, 584);
@@ -360,6 +367,7 @@
             // 
             this.tabPage3.ImageIndex = 2;
             this.tabPage3.Location = new System.Drawing.Point(214, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1282, 584);
             this.tabPage3.TabIndex = 2;
@@ -370,6 +378,7 @@
             // 
             this.tabPage4.ImageIndex = 1;
             this.tabPage4.Location = new System.Drawing.Point(214, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1282, 584);
             this.tabPage4.TabIndex = 3;
@@ -378,15 +387,27 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.TestMusicFolder);
-            this.tabPage5.Controls.Add(this.label2);
+            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.tabPage5.Controls.Add(this.musicFolderContainer);
+            this.tabPage5.Controls.Add(this.settingHeaderPanel);
             this.tabPage5.ImageIndex = 3;
             this.tabPage5.Location = new System.Drawing.Point(214, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(30, 0, 50, 0);
             this.tabPage5.Size = new System.Drawing.Size(1282, 584);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Settings";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // settingLabel
+            // 
+            this.settingLabel.AutoSize = true;
+            this.settingLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.settingLabel.Location = new System.Drawing.Point(0, 0);
+            this.settingLabel.Name = "settingLabel";
+            this.settingLabel.Size = new System.Drawing.Size(206, 67);
+            this.settingLabel.TabIndex = 1;
+            this.settingLabel.Text = "Settings";
             // 
             // buttonImageList
             // 
@@ -467,24 +488,49 @@
             this.tabControlBorder.Size = new System.Drawing.Size(0, 0);
             this.tabControlBorder.TabIndex = 4;
             // 
-            // label2
+            // librariesLb
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 30F);
-            this.label2.Location = new System.Drawing.Point(30, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(206, 67);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Settings";
+            this.librariesLb.AutoSize = true;
+            this.librariesLb.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.librariesLb.Location = new System.Drawing.Point(6, 67);
+            this.librariesLb.Name = "librariesLb";
+            this.librariesLb.Size = new System.Drawing.Size(109, 35);
+            this.librariesLb.TabIndex = 3;
+            this.librariesLb.Text = "Libraries";
             // 
-            // TestMusicFolder
+            // settingHeaderPanel
             // 
-            this.TestMusicFolder.Location = new System.Drawing.Point(3, 85);
-            this.TestMusicFolder.Name = "TestMusicFolder";
-            this.TestMusicFolder.ReadOnly = true;
-            this.TestMusicFolder.Size = new System.Drawing.Size(505, 187);
-            this.TestMusicFolder.TabIndex = 2;
-            this.TestMusicFolder.Text = "";
+            this.settingHeaderPanel.Controls.Add(this.settingLabel);
+            this.settingHeaderPanel.Controls.Add(this.librariesLb);
+            this.settingHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingHeaderPanel.Location = new System.Drawing.Point(30, 0);
+            this.settingHeaderPanel.Name = "settingHeaderPanel";
+            this.settingHeaderPanel.ShadowDecoration.Parent = this.settingHeaderPanel;
+            this.settingHeaderPanel.Size = new System.Drawing.Size(1202, 123);
+            this.settingHeaderPanel.TabIndex = 4;
+            // 
+            // musicFolderPanel
+            // 
+            this.musicFolderPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.musicFolderPanel.Location = new System.Drawing.Point(10, 78);
+            this.musicFolderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.musicFolderPanel.Name = "musicFolderPanel";
+            this.musicFolderPanel.Size = new System.Drawing.Size(1182, 156);
+            this.musicFolderPanel.TabIndex = 5;
+            // 
+            // musicFolderContainer
+            // 
+            this.musicFolderContainer.BorderColor = System.Drawing.Color.Gainsboro;
+            this.musicFolderContainer.BorderRadius = 10;
+            this.musicFolderContainer.BorderThickness = 1;
+            this.musicFolderContainer.Controls.Add(this.musicFolderPanel);
+            this.musicFolderContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.musicFolderContainer.Location = new System.Drawing.Point(30, 123);
+            this.musicFolderContainer.Name = "musicFolderContainer";
+            this.musicFolderContainer.Padding = new System.Windows.Forms.Padding(10);
+            this.musicFolderContainer.ShadowDecoration.Parent = this.musicFolderContainer;
+            this.musicFolderContainer.Size = new System.Drawing.Size(1202, 244);
+            this.musicFolderContainer.TabIndex = 6;
             // 
             // form
             // 
@@ -513,8 +559,10 @@
             this.musicHeaderPanel.ResumeLayout(false);
             this.musicHeaderPanel.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
             this.sortByMenu.ResumeLayout(false);
+            this.settingHeaderPanel.ResumeLayout(false);
+            this.settingHeaderPanel.PerformLayout();
+            this.musicFolderContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -534,7 +582,7 @@
         private System.Windows.Forms.ImageList buttonImageList;
         private System.Windows.Forms.FlowLayoutPanel mediaItemContainer;
         private Siticone.Desktop.UI.WinForms.SiticonePanel musicHeaderPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label musicLabel;
         private Siticone.Desktop.UI.WinForms.SiticonePanel nameContainer;
         private Siticone.Desktop.UI.WinForms.SiticoneButton addFolder;
         private Siticone.Desktop.UI.WinForms.SiticoneDragControl dragControl;
@@ -548,8 +596,11 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton shuffleAndPlayBtn;
         private MediaController mediaController1;
         private Siticone.Desktop.UI.WinForms.SiticonePanel tabControlBorder;
-        private System.Windows.Forms.RichTextBox TestMusicFolder;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label settingLabel;
+        private System.Windows.Forms.Label librariesLb;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel settingHeaderPanel;
+        private System.Windows.Forms.FlowLayoutPanel musicFolderPanel;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel musicFolderContainer;
     }
 }
 

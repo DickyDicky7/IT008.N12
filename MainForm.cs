@@ -18,16 +18,11 @@ namespace IT008.N12_015
         public form(string[] args)
         {
             InitializeComponent();
-            string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
-            addMusic(musicPath);
-            Common.RoundedCorner(this.sortByMenu);
             Common.RoundedCorner(this);
-            this.shuffleAndPlayBtn.AutoSize = true;
-            this.sortBtn.AutoSize = true;
-            MediaItem.MediaController = mediaController1;
+            settingPageInit();
+            musicPageInit();
             Responsive();
             //Load += new EventHandler(form_Load(args));
-
             var sci = new SoundCloudIntegration();
             siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
         }
@@ -51,6 +46,35 @@ namespace IT008.N12_015
         private void form_FormClosing(object sender, EventArgs e)
         {
         }
+
+        #region Initialize
+        private void musicPageInit()
+        {
+            Common.RoundedCorner(this.sortByMenu);
+            this.shuffleAndPlayBtn.AutoSize = true;
+            this.sortBtn.AutoSize = true;
+            MediaItem.MediaController = mediaController1;
+            foreach (string URL in Properties.Settings.Default.musicFolder)
+            {
+                addMusic(URL);
+            }
+        }
+        private void settingPageInit()
+        {
+            string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+            if (Properties.Settings.Default.musicFolder.Contains(musicPath) == false)
+            {
+                Properties.Settings.Default.musicFolder.Add(musicPath);
+                Properties.Settings.Default.Save();
+            }
+            foreach (string URL in Properties.Settings.Default.musicFolder)
+            {
+                FolderLocation musicFolder = new FolderLocation(URL);
+                musicFolderPanel.Controls.Add(musicFolder);
+                
+            }
+        }
+        #endregion
 
         #region Add_Music
         List<MediaItem> mediaItems = new List<MediaItem>();
@@ -81,7 +105,8 @@ namespace IT008.N12_015
                     {
                         Properties.Settings.Default.musicFolder.Add(fbd.SelectedPath);
                         Properties.Settings.Default.Save();
-                        TestMusicFolder.Text += fbd.SelectedPath;
+                        FolderLocation folderLocation = new FolderLocation(fbd.SelectedPath);
+                        musicFolderPanel.Controls.Add(folderLocation);
                         addMusic(fbd.SelectedPath);
                     }
                 }
@@ -115,6 +140,10 @@ namespace IT008.N12_015
             foreach (Control c in mediaItemContainer.Controls)
             {
                 c.Width = this.Width - siticoneTabControl1.TabButtonSize.Width - c.Padding.Left - c.Padding.Right;
+            }
+            foreach (Control c in musicFolderPanel.Controls)
+            {
+                c.Width = musicFolderContainer.Width  - c.Padding.Left - c.Padding.Right - 100;
             }
             tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width,0);
             tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
