@@ -46,7 +46,8 @@ namespace IT008.N12_015
             TrackBar.Value = 0;
             TrackBar.Minimum = 0;
             TrackBar.Maximum = Common.GetDurationInSeconds(URL);
-
+            MediaTitle.Text = Common.GetTitle(URL);
+            
             // OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
@@ -54,7 +55,7 @@ namespace IT008.N12_015
         {
             if (Player.currentMedia != null)
             {
-                MessageBox.Show(Player.currentMedia.sourceURL, "Media");
+                //MessageBox.Show(Player.currentMedia.sourceURL, "Media");
                 if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     PauseMedia();
@@ -96,6 +97,9 @@ namespace IT008.N12_015
                     TrackBar.Value = 0;
             else
                     TrackBar.Value = (int)Player.controls.currentPosition;
+            TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
+            string currentMediaTime = $"{timeSpan.Minutes} : {timeSpan.Seconds}";
+            DurationLabel.Text = currentMediaTime;
         }
 
         private void BtnNext10s_Click(object sender, EventArgs e)
