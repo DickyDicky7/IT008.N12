@@ -67,7 +67,7 @@ namespace IT008.N12_015
             }
             else
             {
-                this.Thumbnail = Properties.Resources.icons8_video_playlist_64;
+                this.Thumbnail = Properties.Resources."icons8-video-playlist-64.png";
             }
             this.Title = file.Tag.Title;
         }
