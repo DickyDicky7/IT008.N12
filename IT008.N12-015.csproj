@@ -150,10 +150,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Common.cs" />
-    <Compile Include="Example.cs">
+    <Compile Include="src\Example\Example.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Example.Designer.cs">
+    <Compile Include="src\Example\Example.Designer.cs">
       <DependentUpon>Example.cs</DependentUpon>
     </Compile>
     <Compile Include="FolderLocation.cs">
@@ -168,10 +168,10 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MediaController.cs">
+    <Compile Include="src\MediaController\MediaController.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MediaController.Designer.cs">
+    <Compile Include="src\MediaController\MediaController.Designer.cs">
       <DependentUpon>MediaController.cs</DependentUpon>
     </Compile>
     <Compile Include="MediaItem.cs">
@@ -180,10 +180,10 @@
     <Compile Include="MediaItem.Designer.cs">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="MediaVisualizer.cs">
+    <Compile Include="src\MediaVisualizer\MediaVisualizer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MediaVisualizer.Designer.cs">
+    <Compile Include="src\MediaVisualizer\MediaVisualizer.Designer.cs">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </Compile>
     <Compile Include="PlaylistItem.cs">
@@ -212,13 +212,13 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MediaController.resx">
+    <EmbeddedResource Include="src\MediaController\MediaController.resx">
       <DependentUpon>MediaController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MediaItem.resx">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MediaVisualizer.resx">
+    <EmbeddedResource Include="src\MediaVisualizer\MediaVisualizer.resx">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlaylistItem.resx">

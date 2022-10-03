@@ -103,7 +103,7 @@ namespace IT008.N12_015
             else if (e.Button == MouseButtons.Left)
             {
                 CreatePlaylistObject();
-                MediaController.LoadPlaylist(playlistName, playlistPath);
+                //MediaController.LoadPlaylist(playlistName, playlistPath);
             }
         }
 
