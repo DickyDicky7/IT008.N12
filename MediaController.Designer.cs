@@ -50,7 +50,7 @@
             this.TrackBar.HoverState.Parent = this.TrackBar;
             this.TrackBar.Location = new System.Drawing.Point(0, 0);
             this.TrackBar.Name = "TrackBar";
-            this.TrackBar.Size = new System.Drawing.Size(600, 50);
+            this.TrackBar.Size = new System.Drawing.Size(1000, 50);
             this.TrackBar.TabIndex = 10;
             this.TrackBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
             this.TrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TrackBar_Scroll);
@@ -75,7 +75,7 @@
             this.Panel.Location = new System.Drawing.Point(0, 50);
             this.Panel.Name = "Panel";
             this.Panel.ShadowDecoration.Parent = this.Panel;
-            this.Panel.Size = new System.Drawing.Size(600, 100);
+            this.Panel.Size = new System.Drawing.Size(1000, 100);
             this.Panel.TabIndex = 11;
             // 
             // DurationLabel
@@ -84,7 +84,7 @@
             this.DurationLabel.BackColor = System.Drawing.Color.Transparent;
             this.DurationLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.DurationLabel.Location = new System.Drawing.Point(415, 40);
+            this.DurationLabel.Location = new System.Drawing.Point(655, 40);
             this.DurationLabel.Name = "DurationLabel";
             this.DurationLabel.Size = new System.Drawing.Size(50, 20);
             this.DurationLabel.TabIndex = 7;
@@ -97,7 +97,7 @@
             this.VolumeMeter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.VolumeMeter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.VolumeMeter.HoverState.Parent = this.VolumeMeter;
-            this.VolumeMeter.Location = new System.Drawing.Point(480, 40);
+            this.VolumeMeter.Location = new System.Drawing.Point(720, 40);
             this.VolumeMeter.Name = "VolumeMeter";
             this.VolumeMeter.Size = new System.Drawing.Size(100, 20);
             this.VolumeMeter.Style = Siticone.Desktop.UI.WinForms.Enums.TrackBarStyle.Metro;
@@ -113,7 +113,7 @@
             this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.MediaTitle.Location = new System.Drawing.Point(280, 28);
             this.MediaTitle.Name = "MediaTitle";
-            this.MediaTitle.Size = new System.Drawing.Size(120, 40);
+            this.MediaTitle.Size = new System.Drawing.Size(360, 40);
             this.MediaTitle.Slide = true;
             this.MediaTitle.SlideTime = 15;
             this.MediaTitle.TabIndex = 5;
@@ -271,7 +271,7 @@
             // 
             // MediaController
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Panel);
@@ -279,7 +279,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "MediaController";
-            this.Size = new System.Drawing.Size(600, 150);
+            this.Size = new System.Drawing.Size(1000, 150);
             this.Panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
