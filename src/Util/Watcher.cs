@@ -9,7 +9,7 @@ namespace IT008.N12_015.src.Util
 {
     public class Watcher
     {
-        Watcher()
+        public Watcher()
         {
 
         }
@@ -22,11 +22,11 @@ namespace IT008.N12_015.src.Util
 
         public void Stop()
         {
-            if (CancellationTokenSource != null)
+            if (cancellationTokenSource != null)
             {
-                CancellationTokenSource.Cancel();
-                CancellationTokenSource.Dispose();
-                CancellationTokenSource = null;
+                cancellationTokenSource.Cancel();
+                cancellationTokenSource.Dispose();
+                cancellationTokenSource = null;
             }
 
             if (Task != null)
@@ -36,17 +36,18 @@ namespace IT008.N12_015.src.Util
             }
         }
 
+        private CancellationTokenSource cancellationTokenSource;
         public CancellationTokenSource CancellationTokenSource
         {
-            get => CancellationTokenSource;
+            get => cancellationTokenSource;
             set
             {
-                if (CancellationTokenSource != null)
+                if (cancellationTokenSource != null)
                 {
-                    CancellationTokenSource.Cancel();
-                    CancellationTokenSource.Dispose();
+                    cancellationTokenSource.Cancel();
+                    cancellationTokenSource.Dispose();
                 }
-                CancellationTokenSource = value;
+                cancellationTokenSource = value;
             }
         }
 

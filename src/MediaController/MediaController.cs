@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using IT008.N12_015.src.Util;
 using System.Collections.Generic;
 
 namespace IT008.N12_015
@@ -16,8 +17,10 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
-            Timer.Interval = 1;
-            Timer.Tick += new EventHandler(UpdateMediaController);
+            //Timer.Interval = 100;
+            //Timer.Tick += new EventHandler(UpdateMediaController);
+            Watcher.Interval = TimeSpan.FromMilliseconds(100);
+            Watcher.Action = UpdateMediaController;
 
             TrackBar.Value = 0;
 
@@ -26,7 +29,8 @@ namespace IT008.N12_015
 
         private void MediaController_Load(object sender, EventArgs e)
         {
-            Timer.Start();
+            //Timer.Start();
+            Watcher.Start();
         }
 
         private void PlayMedia()
@@ -47,7 +51,7 @@ namespace IT008.N12_015
             TrackBar.Minimum = 0;
             TrackBar.Maximum = Common.GetDurationInSeconds(URL);
             MediaTitle.Text = Common.GetTitle(URL);
-            
+
             // OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
@@ -56,7 +60,7 @@ namespace IT008.N12_015
             if (Player.currentMedia != null)
             {
                 //MessageBox.Show(Player.currentMedia.sourceURL, "Media");
-                
+
                 if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     BtnPlay.Image = global::IT008.N12_015.Properties.Resources.play;
@@ -94,17 +98,29 @@ namespace IT008.N12_015
 
         }
 
-        private void UpdateMediaController(object sender, EventArgs e)
+        private void UpdateMediaController()
         {
             if (Player.controls.currentPosition < TrackBar.Minimum
              || Player.controls.currentPosition > TrackBar.Maximum)
-                
+                //TrackBar.Value = 0;
+                TrackBar.Invoke((MethodInvoker)delegate ()
+                {
                     TrackBar.Value = 0;
+                });
             else
+                //TrackBar.Value = (int)Player.controls.currentPosition;
+                TrackBar.Invoke((MethodInvoker)delegate ()
+                {
                     TrackBar.Value = (int)Player.controls.currentPosition;
+                });
+
             TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
             string currentMediaTime = $"{timeSpan.Minutes} : {timeSpan.Seconds}";
-            DurationLabel.Text = currentMediaTime;
+            //DurationLabel.Text = currentMediaTime;
+            DurationLabel.Invoke((MethodInvoker)delegate ()
+            {
+                DurationLabel.Text = currentMediaTime;
+            });
         }
 
         private void BtnNext10s_Click(object sender, EventArgs e)
@@ -134,13 +150,15 @@ namespace IT008.N12_015
 
         public void Stop()
         {
-            Timer.Stop();
+            //Timer.Stop();
+            Watcher.Stop();
         }
 
         private static readonly WMPLib.WindowsMediaPlayer Player
                           = new WMPLib.WindowsMediaPlayer();
 
-        private static readonly Timer Timer = new Timer();
+        //private static readonly Timer Timer = new Timer();
+        private static readonly Watcher Watcher = new Watcher();
 
         /// <summary>
         /// Handle the user's custom event when MediaController use LoadMedia
