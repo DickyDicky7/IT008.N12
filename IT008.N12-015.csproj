@@ -206,6 +206,7 @@
     <Compile Include="src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.Designer.cs">
       <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Util\Watcher.cs" />
     <EmbeddedResource Include="FolderLocation.resx">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </EmbeddedResource>
