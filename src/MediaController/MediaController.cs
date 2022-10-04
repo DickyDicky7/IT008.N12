@@ -56,13 +56,18 @@ namespace IT008.N12_015
             if (Player.currentMedia != null)
             {
                 //MessageBox.Show(Player.currentMedia.sourceURL, "Media");
+                
                 if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
+                    BtnPlay.Image = global::IT008.N12_015.Properties.Resources.play;
+                    BtnPlay.ImageSize = new System.Drawing.Size(40, 40);
                     PauseMedia();
                 }
                 else
                 if (Player.playState == WMPLib.WMPPlayState.wmppsPaused)
                 {
+                    BtnPlay.Image = global::IT008.N12_015.Properties.Resources.pause;
+                    BtnPlay.ImageSize = new System.Drawing.Size(40, 40);
                     PlayMedia();
                 }
                 else
