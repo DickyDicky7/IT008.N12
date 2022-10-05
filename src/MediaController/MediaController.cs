@@ -25,6 +25,21 @@ namespace IT008.N12_015
             TrackBar.Value = 0;
 
             Load += new EventHandler(MediaController_Load);
+
+            #region Testing
+
+            //Common.SetTimeout(() =>
+            //{
+            //    Watcher.Stop();
+            //}, TimeSpan.FromSeconds(20));
+
+            //Common.SetTimeout(() =>
+            //{
+            //    Watcher.Action = UpdateMediaController;
+            //    Watcher.Start();
+            //}, TimeSpan.FromSeconds(30));
+
+            #endregion
         }
 
         private void MediaController_Load(object sender, EventArgs e)

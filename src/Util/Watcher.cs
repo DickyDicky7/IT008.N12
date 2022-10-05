@@ -37,17 +37,15 @@ namespace IT008.N12_015.src.Util
         }
 
         private CancellationTokenSource cancellationTokenSource;
+        private CancellationToken CancellationToken;
         public CancellationTokenSource CancellationTokenSource
         {
             get => cancellationTokenSource;
             set
             {
-                if (cancellationTokenSource != null)
-                {
-                    cancellationTokenSource.Cancel();
-                    cancellationTokenSource.Dispose();
-                }
+                Stop();
                 cancellationTokenSource = value;
+                CancellationToken = cancellationTokenSource.Token;
             }
         }
 
@@ -62,9 +60,7 @@ namespace IT008.N12_015.src.Util
             {
                 CancellationTokenSource = new
                 CancellationTokenSource();
-                if (Task != null)
-                    Task.Dispose();
-                Task = new Task(Prototype(value), CancellationTokenSource.Token);
+                Task = new Task(Prototype(value), CancellationToken);
             }
         }
 
@@ -74,7 +70,7 @@ namespace IT008.N12_015.src.Util
             {
                 while (true)
                 {
-                    if (CancellationTokenSource.Token.IsCancellationRequested)
+                    if (CancellationToken.IsCancellationRequested)
                         break;
                     Task.Delay(Interval).Wait();
                     Value();
