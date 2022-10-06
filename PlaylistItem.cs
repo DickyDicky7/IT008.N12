@@ -14,6 +14,8 @@ using System.Security.Policy;
 using Siticone.Desktop.UI.WinForms;
 using System.Numerics;
 using AxWMPLib;
+using PlaylistsNET.Content;
+using PlaylistsNET.Models;
 
 namespace IT008.N12_015
 {
@@ -21,7 +23,6 @@ namespace IT008.N12_015
     {
         #region Propreties
 
-        private String url;
         private Image _thumbnail;
         private String _title;
         
@@ -37,49 +38,41 @@ namespace IT008.N12_015
             set { _thumbnail = value; }
         }
 
-        public String URL
-        {
-            get { return url; }
-            set { url = value; }
-        }
-
         #endregion
 
         public PlaylistItem(string URL)
         {
             InitializeComponent();
-            this.URL = URL;
             InitializePlaylistItem(URL);
         }
 
         private void InitializePlaylistItem(string URL)
         {
-            TagLib.File file = TagLib.File.Create(URL);
-            var mStream = new MemoryStream();
-            var firstPicture = file.Tag.Pictures.FirstOrDefault();
-            if (firstPicture != null)
-            {
-                byte[] pData = firstPicture.Data.Data;
-                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-                var bm = new Bitmap(mStream, false);
-                mStream.Dispose();
-                this.Thumbnail = bm;
-            }
-            else
-            {
-                this.Thumbnail = Properties.Resources.icons8_playlist_64;
-            }
-            this.Title = file.Tag.Title;
+            /*
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(URL);
+            writer.Flush();
+            stream.Position = 0;
+            WplContent content = new WplContent();
+            WplPlaylist playlist = content.GetFromStream(stream);
+
+            List<string> paths = playlist.GetTracksPaths();*/       
+            Stream stream = new MemoryStream();
+            stream = File.OpenRead(URL);
+            WplContent content = new WplContent();
+            WplPlaylist playlist = content.GetFromStream(stream);
+
+            //List<string> paths = playlist.GetTracksPaths();
+            titleLB.Text = playlist.Title;
+            Thumbnail = Properties.Resources.icons8_music_library_64;
         }
 
         public string playlistName;
         public string playlistPath;
 
-        //public static MediaController MediaController { get; set; }
-
         public void CreatePlaylistObject()
         {
-            playlistName = titleLB.Text;
+            playlistName = "Playlist_" + titleLB.Text;
             string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
             playlistPath = musicPath + "\\Playlists\\Playlist_" + titleLB.Text;
         }
@@ -103,24 +96,24 @@ namespace IT008.N12_015
             else if (e.Button == MouseButtons.Left)
             {
                 CreatePlaylistObject();
-                //MediaController.LoadPlaylist(playlistName, playlistPath);
+                MediaController.LoadPlaylist(playlistName, playlistPath);
             }
         }
 
         private void PlayList_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void titleLB_TextChanged(object sender, EventArgs e)
         {
-            
+                  
         }
 
         private void renameTitle(object sender, EventArgs e)
         {
             var fbd = new FolderBrowserDialog();
-            fbd.ShowDialog(); 
+            fbd.ShowDialog();
             titleLB.Text = fbd.SelectedPath;
         }
 
@@ -128,12 +121,14 @@ namespace IT008.N12_015
         {
             var fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
-            Thumnail.Image = Image.FromFile(fbd.SelectedPath);
+            var bm = new Bitmap(@fbd.SelectedPath, false);
+            fbd.Dispose();
+            Thumbnail = bm;
         }
 
         private void Thumnail_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

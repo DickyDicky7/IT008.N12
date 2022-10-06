@@ -66,11 +66,11 @@
             this.titleLB.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.titleLB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.titleLB.FocusedState.Parent = this.titleLB;
-            this.titleLB.Font = new System.Drawing.Font("Fira Code", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.titleLB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.titleLB.HoverState.Parent = this.titleLB;
-            this.titleLB.Location = new System.Drawing.Point(106, 3);
+            this.titleLB.Location = new System.Drawing.Point(74, 4);
             this.titleLB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.titleLB.Name = "titleLB";
             this.titleLB.PasswordChar = '\0';
@@ -83,20 +83,25 @@
             // 
             // Thumnail
             // 
-            this.Thumnail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Thumnail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Thumnail.BorderRadius = 15;
+            this.Thumnail.FillColor = System.Drawing.Color.Transparent;
+            this.Thumnail.Image = global::IT008.N12_015.Properties.Resources.icons8_playlist_64;
             this.Thumnail.ImageRotate = 0F;
-            this.Thumnail.Location = new System.Drawing.Point(0, 0);
+            this.Thumnail.InitialImage = null;
+            this.Thumnail.Location = new System.Drawing.Point(3, 3);
             this.Thumnail.Name = "Thumnail";
             this.Thumnail.ShadowDecoration.Parent = this.Thumnail;
-            this.Thumnail.Size = new System.Drawing.Size(100, 100);
+            this.Thumnail.Size = new System.Drawing.Size(64, 64);
             this.Thumnail.TabIndex = 0;
             this.Thumnail.TabStop = false;
             this.Thumnail.Click += new System.EventHandler(this.Thumnail_Click);
             // 
             // Menu
             // 
-            this.Menu.Font = new System.Drawing.Font("Fira Code Retina", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.renamePlaylistToolStripMenuItem,
             this.changeThumnailToolStripMenuItem});
@@ -110,19 +115,19 @@
             this.Menu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Menu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.Menu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.Menu.Size = new System.Drawing.Size(195, 70);
+            this.Menu.Size = new System.Drawing.Size(188, 48);
             // 
             // renamePlaylistToolStripMenuItem
             // 
             this.renamePlaylistToolStripMenuItem.Name = "renamePlaylistToolStripMenuItem";
-            this.renamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.renamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.renamePlaylistToolStripMenuItem.Text = "Rename Playlist";
             this.renamePlaylistToolStripMenuItem.Click += new System.EventHandler(this.renameTitle);
             // 
             // changeThumnailToolStripMenuItem
             // 
             this.changeThumnailToolStripMenuItem.Name = "changeThumnailToolStripMenuItem";
-            this.changeThumnailToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.changeThumnailToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.changeThumnailToolStripMenuItem.Text = "Change Thumnail";
             // 
             // PlaylistItem
