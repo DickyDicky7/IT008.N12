@@ -1,4 +1,5 @@
 ﻿using System;
+using AxWMPLib;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,6 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using IT008.N12_015.src.Util;
 using System.Collections.Generic;
-using AxWMPLib;
 
 namespace IT008.N12_015
 {
