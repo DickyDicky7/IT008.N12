@@ -25,7 +25,8 @@ namespace IT008.N12_015
 
         private Image _thumbnail;
         private String _title;
-        
+        private String url;
+
         public String Title
         {
             get { return _title; }
@@ -38,15 +39,22 @@ namespace IT008.N12_015
             set { _thumbnail = value; }
         }
 
+        public String URL
+        {
+            get { return url; }
+            set { url = value; }
+        }
+
         #endregion
 
         public PlaylistItem(string URL)
         {
             InitializeComponent();
+            this.URL = URL;
             InitializePlaylistItem(URL);
         }
 
-        private void InitializePlaylistItem(string URL)
+        public void InitializePlaylistItem(string URL)
         {
             /*
             StreamWriter writer = new StreamWriter(stream);
@@ -63,7 +71,9 @@ namespace IT008.N12_015
             WplPlaylist playlist = content.GetFromStream(stream);
 
             List<string> paths = playlist.GetTracksPaths();
+
             Label.Text = playlist.Title;
+            
             if (playlist.ItemCount > 0)
             {
                 if (playlist.ItemCount < 4)
@@ -75,7 +85,7 @@ namespace IT008.N12_015
                         if (file.Tag.Pictures.Length >= 1)
                         {
                             byte[] bin = file.Tag.Pictures[0].Data.Data;
-                            MemoryStream ms = new MemoryStream(bin);
+                            MemoryStream ms = new MemoryStream(bin);          // set thumnail là image của file đầu tiên trong playlist
                             Image image = Image.FromStream(ms);
                             Thumnail.Image = image;
                         }
@@ -87,13 +97,13 @@ namespace IT008.N12_015
                     Graphics graphics = Graphics.FromImage(bitmap);
                     graphics.Clear(Color.White);
                     graphics.DrawImage(Image.FromFile(paths[0]), 0, 0, 30, 30);
-                    graphics.DrawImage(Image.FromFile(paths[1]), 30, 0, 30, 30);
+                    graphics.DrawImage(Image.FromFile(paths[1]), 30, 0, 30, 30);         // merge 4 images
                     graphics.DrawImage(Image.FromFile(paths[2]), 0, 30, 30, 30);
                     graphics.DrawImage(Image.FromFile(paths[3]), 30, 30, 30, 30);
                     Thumnail.Image = bitmap;
                 }
             }
-            else Thumbnail = Properties.Resources.icons8_music_library_64;
+            else Thumbnail = Properties.Resources.icons8_music_library_64;         // nếu playlist rỗng thì set thumnail là icon music library
         }
 
         public string playlistName;
@@ -105,11 +115,6 @@ namespace IT008.N12_015
             string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
             playlistPath = musicPath + "\\Playlists\\Playlist_" + Label.Text;
         }
-   
-        public void ShowPlaylistSong(string name, string path)
-        {
-            
-        }
          
         private void PlayList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -120,7 +125,7 @@ namespace IT008.N12_015
         {
             if (e.Button == MouseButtons.Right)
             {
-                Menu.Show(this, new Point(e.X, e.Y));
+                Menu.Show(this, new Point(e.X, e.Y));           // hiện menu khi click chuột phải
             }
             else if (e.Button == MouseButtons.Left)
             {
@@ -139,12 +144,19 @@ namespace IT008.N12_015
                   
         }
 
-        private void renamePlaylist(object sender, EventArgs e)
+        public void renamePlaylist(object sender, EventArgs e)
         {
             Label.Text = InputBox();
+            
+            Stream stream = new MemoryStream();
+            stream = File.OpenRead(URL);
+            WplContent content = new WplContent();                                // đổi tên playlist
+            WplPlaylist playlist = content.GetFromStream(stream);
+            
+            playlist.Title = Label.Text;
         }
         
-        public static string InputBox()
+        public static string InputBox() // tạo dialog để nhập tên
         {
             Form form = new Form();
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
