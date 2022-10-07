@@ -29,7 +29,7 @@ namespace IT008.N12_015
         public String Title
         {
             get { return _title; }
-            set { _title = value; titleLB.Text = value; }
+            set { _title = value; Label.Text = value; }
         }
 
         public Image Thumbnail
@@ -61,10 +61,39 @@ namespace IT008.N12_015
             stream = File.OpenRead(URL);
             WplContent content = new WplContent();
             WplPlaylist playlist = content.GetFromStream(stream);
-            
-            //List<string> paths = playlist.GetTracksPaths();
-            titleLB.Text = playlist.Title;
-            Thumbnail = Properties.Resources.icons8_music_library_64;
+
+            List<string> paths = playlist.GetTracksPaths();
+            Label.Text = playlist.Title;
+            if (playlist.ItemCount > 0)
+            {
+                if (playlist.ItemCount < 4)
+                {
+                    string path = paths[0];
+                    if (File.Exists(path))
+                    {
+                        TagLib.File file = TagLib.File.Create(path);
+                        if (file.Tag.Pictures.Length >= 1)
+                        {
+                            byte[] bin = file.Tag.Pictures[0].Data.Data;
+                            MemoryStream ms = new MemoryStream(bin);
+                            Image image = Image.FromStream(ms);
+                            Thumnail.Image = image;
+                        }
+                    }
+                }
+                else 
+                {
+                    Bitmap bitmap = new Bitmap(Thumnail.Width, Thumnail.Height);
+                    Graphics graphics = Graphics.FromImage(bitmap);
+                    graphics.Clear(Color.White);
+                    graphics.DrawImage(Image.FromFile(paths[0]), 0, 0, 30, 30);
+                    graphics.DrawImage(Image.FromFile(paths[1]), 30, 0, 30, 30);
+                    graphics.DrawImage(Image.FromFile(paths[2]), 0, 30, 30, 30);
+                    graphics.DrawImage(Image.FromFile(paths[3]), 30, 30, 30, 30);
+                    Thumnail.Image = bitmap;
+                }
+            }
+            else Thumbnail = Properties.Resources.icons8_music_library_64;
         }
 
         public string playlistName;
@@ -72,9 +101,9 @@ namespace IT008.N12_015
 
         public void CreatePlaylistObject()
         {
-            playlistName = "Playlist_" + titleLB.Text;
+            playlistName = "Playlist_" + Label.Text;
             string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
-            playlistPath = musicPath + "\\Playlists\\Playlist_" + titleLB.Text;
+            playlistPath = musicPath + "\\Playlists\\Playlist_" + Label.Text;
         }
    
         public void ShowPlaylistSong(string name, string path)
@@ -96,7 +125,7 @@ namespace IT008.N12_015
             else if (e.Button == MouseButtons.Left)
             {
                 CreatePlaylistObject();
-                //MediaController.LoadPlaylist(playlistName, playlistPath);
+                MediaController.LoadPlaylist(playlistName, playlistPath);
             }
         }
 
@@ -110,25 +139,49 @@ namespace IT008.N12_015
                   
         }
 
-        private void renameTitle(object sender, EventArgs e)
+        private void renamePlaylist(object sender, EventArgs e)
         {
-            var fbd = new FolderBrowserDialog();
-            fbd.ShowDialog();
-            titleLB.Text = fbd.SelectedPath;
+            Label.Text = InputBox();
         }
-
-        private void changeThumnail(object sender, EventArgs e)
+        
+        public static string InputBox()
         {
-            var fbd = new FolderBrowserDialog();
-            fbd.ShowDialog();
-            var bm = new Bitmap(@fbd.SelectedPath, false);
-            fbd.Dispose();
-            Thumbnail = bm;
-        }
+            Form form = new Form();
+            System.Windows.Forms.Label label = new System.Windows.Forms.Label();
+            TextBox textBox = new TextBox();
+            System.Windows.Forms.Button buttonOk = new System.Windows.Forms.Button();
+            System.Windows.Forms.Button buttonCancel = new System.Windows.Forms.Button();
 
-        private void Thumnail_Click(object sender, EventArgs e)
-        {
-            
+            form.Text = "Rename Playlist";
+            label.Text = "Enter new name:";
+
+            buttonOk.Text = "OK";
+            buttonCancel.Text = "Cancel";
+            buttonOk.DialogResult = DialogResult.OK;
+            buttonCancel.DialogResult = DialogResult.Cancel;
+
+            label.SetBounds(9, 20, 372, 13);
+            textBox.SetBounds(12, 36, 372, 20);
+            buttonOk.SetBounds(228, 72, 75, 23);
+            buttonCancel.SetBounds(309, 72, 75, 23);
+
+            label.AutoSize = true;
+            textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+            buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+            form.ClientSize = new Size(396, 107);
+            form.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
+            form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
+            form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.MinimizeBox = false;
+            form.MaximizeBox = false;
+            form.AcceptButton = buttonOk;
+            form.CancelButton = buttonCancel;
+
+            DialogResult dialogResult = form.ShowDialog();
+            return dialogResult == DialogResult.OK ? textBox.Text : "";
         }
     }
 }
