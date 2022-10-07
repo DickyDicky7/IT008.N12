@@ -103,7 +103,6 @@
             this.VolumeMeter.Style = Siticone.Desktop.UI.WinForms.Enums.TrackBarStyle.Metro;
             this.VolumeMeter.TabIndex = 6;
             this.VolumeMeter.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
-            this.VolumeMeter.ValueChanged += new System.EventHandler(this.VolumeMeter_ValueChanged);
             this.VolumeMeter.Scroll += new System.Windows.Forms.ScrollEventHandler(this.VolumeMeter_Scroll);
             // 
             // MediaTitle

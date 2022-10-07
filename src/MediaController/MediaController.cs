@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using IT008.N12_015.src.Util;
 using System.Collections.Generic;
+using AxWMPLib;
 
 namespace IT008.N12_015
 {
@@ -155,18 +156,18 @@ namespace IT008.N12_015
 
         private void VolumeMeter_Scroll(object sender, ScrollEventArgs e)
         {
-
-        }
-
-        private void VolumeMeter_ValueChanged(object sender, EventArgs e)
-        {
-
+            Player.settings.volume = VolumeMeter.Value;
         }
 
         public void Stop()
         {
             //Timer.Stop();
             Watcher.Stop();
+        }
+
+        internal static void LoadPlaylist(string playlistName, string playlistPath)
+        {
+            throw new NotImplementedException();
         }
 
         private static readonly WMPLib.WindowsMediaPlayer Player
