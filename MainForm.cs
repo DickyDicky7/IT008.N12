@@ -25,6 +25,10 @@ namespace IT008.N12_015
             //Load += new EventHandler(form_Load(args));
             var sci = new SoundCloudIntegration();
             siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
+
+            //tabPage4.Controls.Add(new PlaylistItem(
+            //"C:\\Users\\User\\Music\\Playlists\\My new playlist.wpl"
+            //    ));
         }
 
         /// <summary>

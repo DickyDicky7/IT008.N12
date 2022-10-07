@@ -279,6 +279,7 @@
     <Content Include="lib\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\icons8-music-library-64.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\white_suffle.png" />
     <None Include="Resources\down.png" />

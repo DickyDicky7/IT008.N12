@@ -61,7 +61,7 @@ namespace IT008.N12_015
             stream = File.OpenRead(URL);
             WplContent content = new WplContent();
             WplPlaylist playlist = content.GetFromStream(stream);
-
+            
             //List<string> paths = playlist.GetTracksPaths();
             titleLB.Text = playlist.Title;
             Thumbnail = Properties.Resources.icons8_music_library_64;
@@ -96,7 +96,7 @@ namespace IT008.N12_015
             else if (e.Button == MouseButtons.Left)
             {
                 CreatePlaylistObject();
-                MediaController.LoadPlaylist(playlistName, playlistPath);
+                //MediaController.LoadPlaylist(playlistName, playlistPath);
             }
         }
 
