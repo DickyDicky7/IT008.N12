@@ -70,8 +70,11 @@ namespace IT008.N12_015
 
         private void UpdateVisualizer()
         {
-            Visualizer.ColorBase = ColorTransitionB.Value;
-            Visualizer.ColorMax = ColorTransitionM.Value;
+            Visualizer.Invoke((MethodInvoker)delegate ()
+            {
+                Visualizer.ColorBase = ColorTransitionB.Value;
+                Visualizer.ColorMax = ColorTransitionM.Value;
+            });
         }
 
         private void MediaController_OnLoadMedia(string MediaURL)
