@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using IT008.N12_015.src.Util;
 using System.Collections.Generic;
 
 namespace IT008.N12_015
@@ -55,8 +56,8 @@ namespace IT008.N12_015
             Visualizer.ColorBase = ColorTransitionB.ColorArray.First();
             Visualizer.ColorMax = ColorTransitionM.ColorArray.First();
 
-            Timer.Interval = 100;
-            Timer.Tick += new EventHandler(Visualizer_Tick);
+            Watcher.Interval = TimeSpan.FromMilliseconds(100);
+            Watcher.Action = UpdateVisualizer;
 
             Load += new EventHandler(MediaVisualizer_Load);
         }
@@ -64,10 +65,10 @@ namespace IT008.N12_015
         private void MediaVisualizer_Load(object sender, EventArgs e)
         {
             Visualizer.Start();
-            Timer.Start();
+            Watcher.Start();
         }
 
-        private void Visualizer_Tick(object sender, EventArgs e)
+        private void UpdateVisualizer()
         {
             Visualizer.ColorBase = ColorTransitionB.Value;
             Visualizer.ColorMax = ColorTransitionM.Value;
@@ -111,10 +112,10 @@ namespace IT008.N12_015
         public void Stop()
         {
             Visualizer.Stop();
-            Timer.Stop();
+            Watcher.Stop();
         }
 
-        private readonly Timer Timer = new Timer();
+        private readonly Watcher Watcher = new Watcher();
     }
 }
 
