@@ -23,7 +23,9 @@ namespace IT008.N12_015
             musicPageInit();
             MediaItem test = new MediaItem("heloo","test","hello","test",new TimeSpan(0,0,0));
             musicList1.addMusic(test);
-            Responsive();
+            //Responsive();
+            this.SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.SupportsTransparentBackColor, true);
+
             //Load += new EventHandler(form_Load(args));
             var sci = new SoundCloudIntegration();
             siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
@@ -82,8 +84,7 @@ namespace IT008.N12_015
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
                 FolderLocation musicFolder = new FolderLocation(URL);
-                musicFolderPanel.Controls.Add(musicFolder);
-                
+                musicFolderPanel.Controls.Add(musicFolder);                
             }
         }
         #endregion
@@ -132,13 +133,15 @@ namespace IT008.N12_015
                 tabPage5.Text = "Settings";
             }
             nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
+            musicList1.Width = tabPage1.Width;
             foreach (Control c in musicFolderPanel.Controls)
             {
-                c.Width = musicFolderContainer.Width  - c.Padding.Left - c.Padding.Right - 100;
+                c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100;
             }
             tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width,0);
             tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
         }
+
         private void form_ResizeEnd(object sender, EventArgs e)
         {
             Responsive();
@@ -148,12 +151,14 @@ namespace IT008.N12_015
         private void form_ResizeBegin(object sender, EventArgs e)
         {
             siticoneTabControl1.Visible = false;
+            //Responsive();
         }
         private void form_Resize(object sender, EventArgs e)
         {
+            //Responsive();
             if (WindowState == FormWindowState.Maximized || WindowState == FormWindowState.Normal)
             {
-                Responsive();
+                //Responsive();
             }
 
         }

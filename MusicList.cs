@@ -21,12 +21,9 @@ namespace IT008.N12_015
         public void addMusic(string folderPath)
         {
             string[] fileArray = Directory.GetFiles(folderPath, "*.mp3");
-            int i = 0;
             foreach (string file in fileArray)
             {
-                i++;
                 MediaItem media = new MediaItem(file);
-                media.Dock = DockStyle.Top;
                 media.Anchor = AnchorStyles.Top | AnchorStyles.Left;
                 mediaItems.Add(media);
                 mediaItemContainer.Controls.Add(media);
@@ -59,6 +56,12 @@ namespace IT008.N12_015
             mediaItemContainer.Controls.AddRange(sortedList.ToArray());
         }
         private void mediaItemContainer_Resize(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            test();
+            this.Visible = true;
+        }
+        public void test()
         {
             foreach (Control c in mediaItemContainer.Controls)
             {

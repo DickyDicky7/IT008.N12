@@ -34,6 +34,7 @@
             // mediaItemContainer
             // 
             this.mediaItemContainer.AutoScroll = true;
+            this.mediaItemContainer.AutoSize = true;
             this.mediaItemContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mediaItemContainer.Location = new System.Drawing.Point(0, 0);
             this.mediaItemContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
@@ -49,7 +50,9 @@
             this.Controls.Add(this.mediaItemContainer);
             this.Name = "MusicList";
             this.Size = new System.Drawing.Size(525, 450);
+            this.Resize += new System.EventHandler(this.mediaItemContainer_Resize);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -165,7 +165,7 @@ namespace IT008.N12_015
 
         private void testClick(object sender, EventArgs e)
         {
-            MessageBox.Show("clicked");
+            MessageBox.Show(this.Width + " " + this.Parent.Width);
         }
 
         private void ChangeLabelColor(Color color)

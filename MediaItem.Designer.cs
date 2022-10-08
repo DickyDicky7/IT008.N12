@@ -198,7 +198,7 @@
             this.playQueueToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.playQueueToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.icons8_playlist_64;
             this.playQueueToolStripMenuItem.Name = "playQueueToolStripMenuItem";
-            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.playQueueToolStripMenuItem.Text = "Play Queue";
             // 
             // newPlaylistToolStripMenuItem
@@ -206,7 +206,7 @@
             this.newPlaylistToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.newPlaylistToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
-            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
             // 
             // propertiesMenuItem

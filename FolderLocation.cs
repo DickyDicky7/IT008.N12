@@ -24,5 +24,6 @@ namespace IT008.N12_015
             Properties.Settings.Default.Save();
             this.Parent.Controls.Remove(this);
         }
+
     }
 }
