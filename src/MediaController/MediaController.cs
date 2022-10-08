@@ -25,6 +25,8 @@ namespace IT008.N12_015
 
             TrackBar.Value = 0;
 
+            Player.settings.volume = VolumeMeter.Value;
+
             Load += new EventHandler(MediaController_Load);
 
             #region Testing

@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using IT008.N12_015.src.Util;
 using System.Collections.Generic;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace IT008.N12_015
 {
@@ -17,28 +17,45 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
-            Timer = new System.Threading.Timer(
-                new System.Threading.TimerCallback((s) => {
-                    if (LastMod != null)
-                    {
-                        if (DateTime.Now.Subtract(LastMod.Value) >= TimeSpan.FromSeconds(3))
-                        {
-                            TextBox.BeginInvoke((MethodInvoker)delegate ()
-                            {
-                                TextBox.Text = "";
-                            });
-                                LastMod = null;
-                        }
-                    }
-                }), null,0,1);
-
-            TextBox.TextChanged += new EventHandler((s, e) =>
+            Watcher.Interval = TimeSpan.FromMilliseconds(100);
+            Watcher.Action = UpdateSoundCloudSearchBox;
+            
+            TextBox.TextChanged += new EventHandler(TextBox_TextChanged);
+            Load += new EventHandler(SoundCloudSearchBox_Load);
+        }
+        
+        private void UpdateSoundCloudSearchBox()
+        {
+            if (LastMod != null)
             {
-                LastMod = DateTime.Now;
-            });
+                if (DateTime.Now.Subtract(LastMod.Value) >= TimeSpan.FromSeconds(3))
+                {
+                    TextBox.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        TextBox.Text = "";
+                    });
+                    LastMod = null;
+                }
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            LastMod = DateTime.Now;
+        }
+
+        private void SoundCloudSearchBox_Load(object sender, EventArgs e)
+        {
+            Watcher.Start();
+        }
+
+        public void Stop()
+        {
+            Watcher.Stop();
         }
 
         private DateTime? LastMod;
-        private System.Threading.Timer Timer;
+
+        private readonly Watcher Watcher = new Watcher();
     }
 }
