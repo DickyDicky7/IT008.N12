@@ -95,6 +95,17 @@ namespace IT008.N12_015
             
         }
 
+        public MediaItem(string title, string artist, string album, string genre, TimeSpan duration)
+        {
+            InitializeComponent();
+            this.Title = title;
+            this.Artist = artist;
+            this.Album = album;
+            this.Genre = genre;
+            this.Duration = duration;
+            Click += new EventHandler(testClick);
+        }
+
         /// <summary>
         /// Initialize a new MediaItem with given URL
         /// </summary>
@@ -152,6 +163,11 @@ namespace IT008.N12_015
             MediaController.LoadMedia(URL);
         }
 
+        private void testClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("clicked");
+        }
+
         private void ChangeLabelColor(Color color)
         {
             titleLB.ForeColor = color;
@@ -159,6 +175,36 @@ namespace IT008.N12_015
             artistLB.ForeColor = color;
             genreLB.ForeColor = color;
             durationLB.ForeColor = color;
+        }
+
+        public new event EventHandler Click
+        {
+            add
+            {
+                base.Click += value;
+                void Recursive(Control control, EventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.Click += e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
+            remove
+            {
+                base.Click -= value;
+                void Recursive(Control control, EventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.Click -= e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
         }
 
         public static MediaItem ClickedItem { get; set; }

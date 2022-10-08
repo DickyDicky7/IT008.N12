@@ -68,7 +68,6 @@
             this.inforPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.inforPanel.Size = new System.Drawing.Size(965, 50);
             this.inforPanel.TabIndex = 0;
-            this.inforPanel.Click += new System.EventHandler(this.MediaItem_Click);
             this.inforPanel.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
             this.inforPanel.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
             this.inforPanel.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
@@ -83,7 +82,6 @@
             this.artistLB.Size = new System.Drawing.Size(36, 16);
             this.artistLB.TabIndex = 2;
             this.artistLB.Text = "Artist";
-            this.artistLB.Click += new System.EventHandler(this.MediaItem_Click);
             this.artistLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
             this.artistLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
             this.artistLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
@@ -98,7 +96,6 @@
             this.albumLB.Size = new System.Drawing.Size(45, 16);
             this.albumLB.TabIndex = 3;
             this.albumLB.Text = "Album";
-            this.albumLB.Click += new System.EventHandler(this.MediaItem_Click);
             this.albumLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
             this.albumLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
             this.albumLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
@@ -114,7 +111,6 @@
             this.titleLB.Size = new System.Drawing.Size(53, 16);
             this.titleLB.TabIndex = 1;
             this.titleLB.Text = "Title";
-            this.titleLB.Click += new System.EventHandler(this.MediaItem_Click);
             this.titleLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
             this.titleLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
             this.titleLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
@@ -129,7 +125,6 @@
             this.durationLB.Size = new System.Drawing.Size(57, 16);
             this.durationLB.TabIndex = 4;
             this.durationLB.Text = "Duration";
-            this.durationLB.Click += new System.EventHandler(this.MediaItem_Click);
             this.durationLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
             this.durationLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
             this.durationLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
@@ -152,7 +147,7 @@
             this.containerPanel.Controls.Add(this.inforPanel);
             this.containerPanel.CustomBorderColor = System.Drawing.Color.Black;
             this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.containerPanel.Location = new System.Drawing.Point(30, 0);
+            this.containerPanel.Location = new System.Drawing.Point(35, 0);
             this.containerPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.containerPanel.Name = "containerPanel";
             this.containerPanel.ShadowDecoration.Parent = this.containerPanel;
@@ -178,13 +173,13 @@
             this.contextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.contextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.contextMenu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.contextMenu.Size = new System.Drawing.Size(211, 104);
+            this.contextMenu.Size = new System.Drawing.Size(146, 76);
             // 
             // playMenuItem
             // 
             this.playMenuItem.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
             this.playMenuItem.Name = "playMenuItem";
-            this.playMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.playMenuItem.Size = new System.Drawing.Size(145, 24);
             this.playMenuItem.Text = "Play";
             this.playMenuItem.Click += new System.EventHandler(this.playMenuItem_Click);
             // 
@@ -195,7 +190,7 @@
             this.newPlaylistToolStripMenuItem});
             this.addToMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
             this.addToMenuItem.Name = "addToMenuItem";
-            this.addToMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.addToMenuItem.Size = new System.Drawing.Size(145, 24);
             this.addToMenuItem.Text = "Add to";
             // 
             // playQueueToolStripMenuItem
@@ -203,7 +198,7 @@
             this.playQueueToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.playQueueToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.icons8_playlist_64;
             this.playQueueToolStripMenuItem.Name = "playQueueToolStripMenuItem";
-            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.playQueueToolStripMenuItem.Text = "Play Queue";
             // 
             // newPlaylistToolStripMenuItem
@@ -211,14 +206,14 @@
             this.newPlaylistToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.newPlaylistToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
-            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
             // 
             // propertiesMenuItem
             // 
             this.propertiesMenuItem.Image = global::IT008.N12_015.Properties.Resources.information;
             this.propertiesMenuItem.Name = "propertiesMenuItem";
-            this.propertiesMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.propertiesMenuItem.Size = new System.Drawing.Size(145, 24);
             this.propertiesMenuItem.Text = "Properties";
             // 
             // MediaItem
@@ -230,7 +225,7 @@
             this.Controls.Add(this.containerPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MediaItem";
-            this.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
+            this.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Size = new System.Drawing.Size(1000, 50);
             this.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);

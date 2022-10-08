@@ -20,7 +20,7 @@ namespace IT008.N12_015
 
             //Timer.Interval = 100;
             //Timer.Tick += new EventHandler(UpdateMediaController);
-            Watcher.Interval = TimeSpan.FromMilliseconds(100);
+            Watcher.Interval = TimeSpan.FromMilliseconds(500);
             Watcher.Action = UpdateMediaController;
 
             TrackBar.Value = 0;

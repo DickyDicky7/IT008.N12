@@ -21,14 +21,16 @@ namespace IT008.N12_015
             Common.RoundedCorner(this);
             settingPageInit();
             musicPageInit();
+            MediaItem test = new MediaItem("heloo","test","hello","test",new TimeSpan(0,0,0));
+            musicList1.addMusic(test);
             Responsive();
             //Load += new EventHandler(form_Load(args));
             var sci = new SoundCloudIntegration();
             siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
 
-            tabPage4.Controls.Add(new PlaylistItem(
-            "C:\\Users\\User\\Music\\Playlists\\abc.wpl"
-                ));
+            //tabPage4.Controls.Add(new PlaylistItem(
+            //"C:\\Users\\User\\Music\\Playlists\\abc.wpl"
+            //    ));
         }
 
         /// <summary>
@@ -60,7 +62,13 @@ namespace IT008.N12_015
             MediaItem.MediaController = mediaController1;
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
-                addMusic(URL);
+                if(Directory.Exists(URL))
+                    musicList1.addMusic(URL);
+                else
+                {
+                    Properties.Settings.Default.musicFolder.Remove(URL);
+                    Properties.Settings.Default.Save();
+                }    
             }
         }
         private void settingPageInit()
@@ -81,22 +89,6 @@ namespace IT008.N12_015
         #endregion
 
         #region Add_Music
-        List<MediaItem> mediaItems = new List<MediaItem>();
-        private void addMusic(string folderPath)
-        {
-            string[] fileArray = Directory.GetFiles(folderPath, "*.mp3");
-            int i = 0;
-            foreach (string file in fileArray)
-            {
-                i++;
-                MediaItem media = new MediaItem(file);
-                media.Dock = DockStyle.Top;
-                media.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                mediaItems.Add(media);
-                mediaItemContainer.Controls.Add(media);
-            }
-        }
-
         private void addFolder_Click(object sender, EventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
@@ -111,7 +103,7 @@ namespace IT008.N12_015
                         Properties.Settings.Default.Save();
                         FolderLocation folderLocation = new FolderLocation(fbd.SelectedPath);
                         musicFolderPanel.Controls.Add(folderLocation);
-                        addMusic(fbd.SelectedPath);
+                        musicList1.addMusic(fbd.SelectedPath);
                     }
                 }
             }
@@ -129,7 +121,6 @@ namespace IT008.N12_015
                 tabPage3.Text = "";
                 tabPage4.Text = "";
                 tabPage5.Text = "";
-                
             }
             else
             {
@@ -141,10 +132,6 @@ namespace IT008.N12_015
                 tabPage5.Text = "Settings";
             }
             nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
-            foreach (Control c in mediaItemContainer.Controls)
-            {
-                c.Width = this.Width - siticoneTabControl1.TabButtonSize.Width - c.Padding.Left - c.Padding.Right;
-            }
             foreach (Control c in musicFolderPanel.Controls)
             {
                 c.Width = musicFolderContainer.Width  - c.Padding.Left - c.Padding.Right - 100;
@@ -186,33 +173,37 @@ namespace IT008.N12_015
 
         private void artistsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Artist).ToList();
-            mediaItemContainer.Controls.Clear();
-            mediaItemContainer.Controls.AddRange(sortedList.ToArray());
+            musicList1.sortBy(MusicList.SORTBY.ARTIST);
+            //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Artist).ToList();
+            //mediaItemContainer.Controls.Clear();
+            //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
             sortBtn.Text = "Sort by: Artist";
         }
 
         private void aZToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
-            mediaItemContainer.Controls.Clear();
-            mediaItemContainer.Controls.AddRange(sortedList.ToArray());
+            musicList1.sortBy(MusicList.SORTBY.AZ);
+            //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
+            //mediaItemContainer.Controls.Clear();
+            //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
             sortBtn.Text = "Sort by: A-Z";
         }
 
         private void genreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
-            mediaItemContainer.Controls.Clear();
-            mediaItemContainer.Controls.AddRange(sortedList.ToArray());
+            musicList1.sortBy(MusicList.SORTBY.GENRE);
+            //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
+            //mediaItemContainer.Controls.Clear();
+            //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
             sortBtn.Text = "Sort by: Genre";
         }
 
         private void albumToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
-            mediaItemContainer.Controls.Clear();
-            mediaItemContainer.Controls.AddRange(sortedList.ToArray());
+            musicList1.sortBy(MusicList.SORTBY.ALBUM);
+            //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
+            //mediaItemContainer.Controls.Clear();
+            //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
             sortBtn.Text = "Sort by: Album";
 
         }
