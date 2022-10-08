@@ -16,6 +16,7 @@ using System.Numerics;
 using AxWMPLib;
 using PlaylistsNET.Content;
 using PlaylistsNET.Models;
+using System.Xml.Linq;
 
 namespace IT008.N12_015
 {
@@ -85,9 +86,11 @@ namespace IT008.N12_015
                         if (file.Tag.Pictures.Length >= 1)
                         {
                             byte[] bin = file.Tag.Pictures[0].Data.Data;
-                            MemoryStream ms = new MemoryStream(bin);          // set thumnail là image của file đầu tiên trong playlist
-                            Image image = Image.FromStream(ms);
-                            Thumnail.Image = image;
+                            MemoryStream ms = new MemoryStream();          // set thumnail là image của file đầu tiên trong playlist
+                            ms.Write(bin, 0, Convert.ToInt32(bin.Length));
+                            var bm = new Bitmap(ms, false);
+                            ms.Dispose();
+                            Thumnail.Image = bm;
                         }
                     }
                 }
@@ -100,10 +103,11 @@ namespace IT008.N12_015
                     graphics.DrawImage(Image.FromFile(paths[1]), 30, 0, 30, 30);         // merge 4 images
                     graphics.DrawImage(Image.FromFile(paths[2]), 0, 30, 30, 30);
                     graphics.DrawImage(Image.FromFile(paths[3]), 30, 30, 30, 30);
-                    Thumnail.Image = bitmap;
+                    Bitmap bm = new Bitmap(60, 60 , graphics);
+                    Thumnail.Image = bm;
                 }
             }
-            else Thumbnail = Properties.Resources.icons8_music_library_64;         // nếu playlist rỗng thì set thumnail là icon music library
+            else Thumnail.Image = Properties.Resources.icons8_music_library_64;         // nếu playlist rỗng thì set thumnail là icon music library
         }
 
         public string playlistName;
@@ -148,12 +152,13 @@ namespace IT008.N12_015
         {
             Label.Text = InputBox();
             
-            Stream stream = new MemoryStream();
+            Stream stream = new MemoryStream();         // đổi tên playlist
             stream = File.OpenRead(URL);
-            WplContent content = new WplContent();                                // đổi tên playlist
+            WplContent content = new WplContent();
             WplPlaylist playlist = content.GetFromStream(stream);
-            
-            playlist.Title = Label.Text;
+            //playlist.Title.ReplaceWith = Label.Text;
+
+            playlist.FileName = Label.Text;
         }
         
         public static string InputBox() // tạo dialog để nhập tên
