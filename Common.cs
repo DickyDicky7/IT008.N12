@@ -159,7 +159,10 @@ namespace IT008.N12_015
         /// </summary>
         public static Color _E63946_ { get; } = ColorTranslator.FromHtml("#E63946");
 
-
-
+        /// <summary>
+        /// Music Folder's path: %HOMEPATH%\Music 
+        /// </summary>
+        public static string MusicFolder = 
+        Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
     }
 }
