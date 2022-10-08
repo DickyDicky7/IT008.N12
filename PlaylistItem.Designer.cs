@@ -65,7 +65,7 @@ namespace IT008.N12_015
             this.Label.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Label.DisabledState.Parent = this.Label;
             this.Label.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Label.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Label.FillColor = System.Drawing.SystemColors.ButtonFace;
             this.Label.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Label.FocusedState.Parent = this.Label;
             this.Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
