@@ -57,57 +57,63 @@ namespace IT008.N12_015
 
         public void InitializePlaylistItem(string URL)
         {
-            /*
-            StreamWriter writer = new StreamWriter(stream);
-            writer.Write(URL);
-            writer.Flush();
-            stream.Position = 0;
-            WplContent content = new WplContent();
-            WplPlaylist playlist = content.GetFromStream(stream);
+            Stream Stream = new MemoryStream();
+            Stream = File.OpenRead(URL);
 
-            List<string> paths = playlist.GetTracksPaths();*/       
-            Stream stream = new MemoryStream();
-            stream = File.OpenRead(URL);
-            WplContent content = new WplContent();
-            WplPlaylist playlist = content.GetFromStream(stream);
+            WplContent Content = new WplContent();
+            WplPlaylist Playlist = Content.GetFromStream(Stream);
 
-            List<string> paths = playlist.GetTracksPaths();
+            List<string> Paths =
+            Playlist.GetTracksPaths()
+            .Select(Path => $"{Common.MusicFolder}{Path.Substring(2)}")
+            .ToList();
 
-            Label.Text = playlist.Title;
-            
-            if (playlist.ItemCount > 0)
+            Label.Text = Playlist.Title;
+
+            if (Playlist.ItemCount == 0)
             {
-                if (playlist.ItemCount < 4)
+                SiticonePictureBox Thumbnail = new SiticonePictureBox();
+                Thumbnail.Image = Properties.Resources.icons8_music_library_64;
+                Thumbnail.Size =
+                new Size
+                (
+                  Properties.Resources.icons8_music_library_64.Width
+                , Properties.Resources.icons8_music_library_64.Height
+                );
+                Thumbnail.Location =
+                new Point
+                (
+                  (ThumbnailBox.Width - Thumbnail.Width) / 2
+                , (ThumbnailBox.Height - Thumbnail.Height) / 2
+                );
+                ThumbnailBox.Controls.Add(Thumbnail);
+            }
+            else
+            if (Playlist.ItemCount >= 1)
+            {
+                int X = 0;
+                int Y = 0;
+                for (int i = 0; i < Playlist.ItemCount; i++)
                 {
-                    string path = paths[0];
-                    if (File.Exists(path))
+                    if (i == 5)
+                        break;
+                    SiticonePictureBox Thumbnail = new SiticonePictureBox();
+                    Thumbnail.Size =
+                    new Size(ThumbnailBox.Width / 2, ThumbnailBox.Height / 2);
+                    if (X == 100)
                     {
-                        TagLib.File file = TagLib.File.Create(path);
-                        if (file.Tag.Pictures.Length >= 1)
-                        {
-                            byte[] bin = file.Tag.Pictures[0].Data.Data;
-                            MemoryStream ms = new MemoryStream();          // set thumnail là image của file đầu tiên trong playlist
-                            ms.Write(bin, 0, Convert.ToInt32(bin.Length));
-                            var bm = new Bitmap(ms, false);
-                            ms.Dispose();
-                            Thumnail.Image = bm;
-                        }
+                        X = 0;
+                        Y = 50;
                     }
-                }
-                else 
-                {
-                    Bitmap bitmap = new Bitmap(Thumnail.Width, Thumnail.Height);
-                    Graphics graphics = Graphics.FromImage(bitmap);
-                    graphics.Clear(Color.White);
-                    graphics.DrawImage(Image.FromFile(paths[0]), 0, 0, 30, 30);
-                    graphics.DrawImage(Image.FromFile(paths[1]), 30, 0, 30, 30);         // merge 4 images
-                    graphics.DrawImage(Image.FromFile(paths[2]), 0, 30, 30, 30);
-                    graphics.DrawImage(Image.FromFile(paths[3]), 30, 30, 30, 30);
-                    Bitmap bm = new Bitmap(60, 60 , graphics);
-                    Thumnail.Image = bm;
+                    Thumbnail.Location = new Point(X, Y);
+                    X += 50;
+                    Thumbnail.Image = Common.GetImage(Paths[i]);
+                    Thumbnail.SizeMode = PictureBoxSizeMode.StretchImage;
+                    ThumbnailBox.Controls.Add(Thumbnail);
                 }
             }
-            else Thumnail.Image = Properties.Resources.icons8_music_library_64;         // nếu playlist rỗng thì set thumnail là icon music library
+
+            Stream.Dispose();
         }
 
         public string playlistName;
@@ -119,7 +125,7 @@ namespace IT008.N12_015
             string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
             playlistPath = musicPath + "\\Playlists\\Playlist_" + Label.Text;
         }
-         
+
         private void PlayList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -140,18 +146,18 @@ namespace IT008.N12_015
 
         private void PlayList_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void titleLB_TextChanged(object sender, EventArgs e)
         {
-                  
+
         }
 
         public void renamePlaylist(object sender, EventArgs e)
         {
             Label.Text = InputBox();
-            
+
             Stream stream = new MemoryStream();         // đổi tên playlist
             stream = File.OpenRead(URL);
             WplContent content = new WplContent();
@@ -160,7 +166,7 @@ namespace IT008.N12_015
 
             playlist.FileName = Label.Text;
         }
-        
+
         public static string InputBox() // tạo dialog để nhập tên
         {
             Form form = new Form();

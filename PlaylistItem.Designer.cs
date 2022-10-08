@@ -31,73 +31,12 @@ namespace IT008.N12_015
         /// </summary>
         private void InitializeComponent()
         {
-            this.Playlist = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
-            this.Label = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.Thumnail = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.Menu = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.renamePlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Playlist.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Thumnail)).BeginInit();
+            this.Label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.ThumbnailBox = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Playlist
-            // 
-            this.Playlist.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Playlist.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Playlist.BorderRadius = 10;
-            this.Playlist.Controls.Add(this.Label);
-            this.Playlist.Controls.Add(this.Thumnail);
-            this.Playlist.Location = new System.Drawing.Point(0, 0);
-            this.Playlist.Name = "Playlist";
-            this.Playlist.ShadowDecoration.Parent = this.Playlist;
-            this.Playlist.Size = new System.Drawing.Size(822, 60);
-            this.Playlist.TabIndex = 0;
-            // 
-            // Label
-            // 
-            this.Label.BackColor = System.Drawing.Color.Transparent;
-            this.Label.BorderRadius = 10;
-            this.Label.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Label.DefaultText = "";
-            this.Label.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Label.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Label.DisabledState.Parent = this.Label;
-            this.Label.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Label.FillColor = System.Drawing.SystemColors.ButtonFace;
-            this.Label.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Label.FocusedState.Parent = this.Label;
-            this.Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Label.HoverState.Parent = this.Label;
-            this.Label.Location = new System.Drawing.Point(67, 4);
-            this.Label.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Label.Name = "Label";
-            this.Label.PasswordChar = '\0';
-            this.Label.PlaceholderText = "";
-            this.Label.SelectedText = "";
-            this.Label.ShadowDecoration.Parent = this.Label;
-            this.Label.Size = new System.Drawing.Size(648, 31);
-            this.Label.TabIndex = 0;
-            this.Label.TextChanged += new System.EventHandler(this.titleLB_TextChanged);
-            // 
-            // Thumnail
-            // 
-            this.Thumnail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Thumnail.BorderRadius = 10;
-            this.Thumnail.FillColor = System.Drawing.Color.Transparent;
-            this.Thumnail.ImageRotate = 0F;
-            this.Thumnail.InitialImage = null;
-            this.Thumnail.Location = new System.Drawing.Point(0, 0);
-            this.Thumnail.Name = "Thumnail";
-            this.Thumnail.ShadowDecoration.Parent = this.Thumnail;
-            this.Thumnail.Size = new System.Drawing.Size(60, 60);
-            this.Thumnail.TabIndex = 0;
-            this.Thumnail.TabStop = false;
             // 
             // Menu
             // 
@@ -123,28 +62,48 @@ namespace IT008.N12_015
             this.renamePlaylistToolStripMenuItem.Text = "Rename Playlist";
             this.renamePlaylistToolStripMenuItem.Click += new System.EventHandler(this.renamePlaylist);
             // 
+            // Label
+            // 
+            this.Label.BackColor = System.Drawing.Color.Transparent;
+            this.Label.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.Label.Location = new System.Drawing.Point(150, 35);
+            this.Label.Name = "Label";
+            this.Label.Size = new System.Drawing.Size(144, 30);
+            this.Label.TabIndex = 1;
+            this.Label.Text = "Title goes here";
+            this.Label.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ThumbnailBox
+            // 
+            this.ThumbnailBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ThumbnailBox.Location = new System.Drawing.Point(0, 0);
+            this.ThumbnailBox.Name = "ThumbnailBox";
+            this.ThumbnailBox.ShadowDecoration.Parent = this.ThumbnailBox;
+            this.ThumbnailBox.Size = new System.Drawing.Size(100, 100);
+            this.ThumbnailBox.TabIndex = 2;
+            // 
             // PlaylistItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.ContextMenuStrip = this.Menu;
-            this.Controls.Add(this.Playlist);
+            this.Controls.Add(this.ThumbnailBox);
+            this.Controls.Add(this.Label);
             this.Name = "PlaylistItem";
-            this.Size = new System.Drawing.Size(822, 60);
+            this.Size = new System.Drawing.Size(700, 100);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);
-            this.Playlist.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Thumnail)).EndInit();
             this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Siticone.Desktop.UI.WinForms.SiticoneGradientPanel Playlist;
-        private Siticone.Desktop.UI.WinForms.SiticonePictureBox Thumnail;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox Label;
         private Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem renamePlaylistToolStripMenuItem;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Label;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel ThumbnailBox;
     }
 }
