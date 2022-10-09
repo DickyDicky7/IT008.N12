@@ -18,6 +18,8 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
+            //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+
             //Timer.Interval = 100;
             //Timer.Tick += new EventHandler(UpdateMediaController);
             Watcher.Interval = TimeSpan.FromMilliseconds(500);
@@ -118,27 +120,39 @@ namespace IT008.N12_015
 
         private void UpdateMediaController()
         {
-            if (Player.controls.currentPosition < TrackBar.Minimum
-             || Player.controls.currentPosition > TrackBar.Maximum)
-                //TrackBar.Value = 0;
-                TrackBar.Invoke((MethodInvoker)delegate ()
-                {
-                    TrackBar.Value = 0;
-                });
-            else
-                //TrackBar.Value = (int)Player.controls.currentPosition;
-                TrackBar.Invoke((MethodInvoker)delegate ()
-                {
-                    TrackBar.Value = (int)Player.controls.currentPosition;
-                });
-
-            TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
-            string currentMediaTime = $"{timeSpan.Minutes} : {timeSpan.Seconds}";
-            //DurationLabel.Text = currentMediaTime;
-            DurationLabel.Invoke((MethodInvoker)delegate ()
+            try
             {
-                DurationLabel.Text = currentMediaTime;
-            });
+                //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+                
+                if (Player.controls.currentPosition < TrackBar.Minimum
+                 || Player.controls.currentPosition > TrackBar.Maximum)
+                    //TrackBar.Value = 0;
+                    TrackBar.Invoke((MethodInvoker)delegate ()
+                    {
+                        TrackBar.Value = 0;
+                    });
+                else
+                    //TrackBar.Value = (int)Player.controls.currentPosition;
+                    TrackBar.Invoke((MethodInvoker)delegate ()
+                    {
+                        TrackBar.Value = (int)Player.controls.currentPosition;
+                    });
+
+                TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
+                string currentMediaTime = $"{timeSpan.Minutes} : {timeSpan.Seconds}";
+                //DurationLabel.Text = currentMediaTime;
+                DurationLabel.Invoke((MethodInvoker)delegate ()
+                {
+
+                    //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+                    
+                    DurationLabel.Text = currentMediaTime;
+                });
+            }
+            catch
+            {
+
+            }
         }
 
         private void BtnNext10s_Click(object sender, EventArgs e)

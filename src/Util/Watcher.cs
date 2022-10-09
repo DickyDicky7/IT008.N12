@@ -66,13 +66,13 @@ namespace IT008.N12_015.src.Util
 
         private Action Prototype(Action Value)
         {
-            return () =>
+            return async () =>
             {
                 while (true)
                 {
                     if (CancellationToken.IsCancellationRequested)
                         break;
-                    Task.Delay(Interval).Wait();
+                    await Task.Delay(Interval).ConfigureAwait(false);
                     Value();
                 }
             };
