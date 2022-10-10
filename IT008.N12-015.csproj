@@ -146,14 +146,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnimateLabel.cs">
+    <Compile Include="src\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Common.cs" />
-    <Compile Include="MusicList.cs">
+    <Compile Include="src\MusicList\MusicList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MusicList.Designer.cs">
+    <Compile Include="src\MusicList\MusicList.Designer.cs">
       <DependentUpon>MusicList.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Example\Example.cs">
@@ -180,10 +180,10 @@
     <Compile Include="src\MediaController\MediaController.Designer.cs">
       <DependentUpon>MediaController.cs</DependentUpon>
     </Compile>
-    <Compile Include="MediaItem.cs">
+    <Compile Include="src\MediaItem\MediaItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MediaItem.Designer.cs">
+    <Compile Include="src\MediaItem\MediaItem.Designer.cs">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </Compile>
     <Compile Include="src\MediaVisualizer\MediaVisualizer.cs">
@@ -219,13 +219,13 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MusicList.resx">
+    <EmbeddedResource Include="src\MusicList\MusicList.resx">
       <DependentUpon>MusicList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\MediaController\MediaController.resx">
       <DependentUpon>MediaController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MediaItem.resx">
+    <EmbeddedResource Include="src\MediaItem\MediaItem.resx">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\MediaVisualizer\MediaVisualizer.resx">
