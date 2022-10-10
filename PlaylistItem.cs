@@ -121,9 +121,9 @@ namespace IT008.N12_015
 
         public void CreatePlaylistObject()
         {
-            playlistName = "Playlist_" + Label.Text;
+            playlistName = Label.Text;
             string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
-            playlistPath = musicPath + "\\Playlists\\Playlist_" + Label.Text;
+            playlistPath = $"{musicPath}\\Playlists\\{playlistName}.wpl";
         }
 
         private void PlayList_SelectedIndexChanged(object sender, EventArgs e)
@@ -206,5 +206,7 @@ namespace IT008.N12_015
             DialogResult dialogResult = form.ShowDialog();
             return dialogResult == DialogResult.OK ? textBox.Text : "";
         }
+
+        public static MediaController MediaController { get; set; }
     }
 }

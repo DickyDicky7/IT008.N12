@@ -181,9 +181,9 @@ namespace IT008.N12_015
             Watcher.Stop();
         }
 
-        internal static void LoadPlaylist(string playlistName, string playlistPath)
+        public void LoadPlaylist(string PlaylistName, string PlaylistPath)
         {
-            throw new NotImplementedException();
+            MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
         }
 
         private static readonly WMPLib.WindowsMediaPlayer Player
