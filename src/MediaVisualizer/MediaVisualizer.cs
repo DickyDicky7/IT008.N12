@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -70,11 +71,18 @@ namespace IT008.N12_015
 
         private void UpdateVisualizer()
         {
-            Visualizer.Invoke((MethodInvoker)delegate ()
+            try
             {
-                Visualizer.ColorBase = ColorTransitionB.Value;
-                Visualizer.ColorMax = ColorTransitionM.Value;
-            });
+                Visualizer.Invoke((MethodInvoker)delegate ()
+                {
+                    Visualizer.ColorBase = ColorTransitionB.Value;
+                    Visualizer.ColorMax = ColorTransitionM.Value;
+                });
+            }
+            catch
+            {
+                Thread.CurrentThread.Abort();
+            }
         }
 
         private void MediaController_OnLoadMedia(string MediaURL)

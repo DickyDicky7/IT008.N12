@@ -52,7 +52,7 @@ namespace IT008.N12_015
         //    });
         //    return LoadHandler;
         //}
-        private void form_FormClosing(object sender, EventArgs e)
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
         }
 
