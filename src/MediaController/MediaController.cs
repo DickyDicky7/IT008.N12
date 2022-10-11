@@ -139,7 +139,12 @@ namespace IT008.N12_015
                     });
 
                 TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
-                string currentMediaTime = $"{timeSpan.Minutes} : {timeSpan.Seconds}";
+                int Minutes = (int)(timeSpan.TotalSeconds / 60);
+                int Seconds = (int)(timeSpan.TotalSeconds % 60);
+                string currentMediaTime = 
+                (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
+                + " : " + 
+                (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
                 //DurationLabel.Text = currentMediaTime;
                 DurationLabel.Invoke((MethodInvoker)delegate ()
                 {
