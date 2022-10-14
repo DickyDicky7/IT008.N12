@@ -28,7 +28,7 @@ namespace IT008.N12_015
             MemoryStream Stream = new MemoryStream();
             TagLib.IPicture Picture = Media.Tag.Pictures.FirstOrDefault();
             if (Picture == null)
-                return Properties.Resources.mp3;
+                return Properties.Resources.music;
             byte[] MetaData = Picture.Data.Data;
             Stream.Write(MetaData, 0, Convert.ToInt32(MetaData.Length));
             Image Image = new Bitmap(Stream, false);
