@@ -37,7 +37,7 @@ namespace IT008.N12_015
         public void sortBy(SORTBY sort)
         {
             List<MediaItem> sortedList = new List<MediaItem>();
-            switch(sort)
+            switch (sort)
             {
                 case SORTBY.AZ:
                     sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
@@ -47,7 +47,7 @@ namespace IT008.N12_015
                     break;
                 case SORTBY.GENRE:
                     sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
-                    break; 
+                    break;
                 case SORTBY.ALBUM:
                     sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
                     break;
@@ -57,17 +57,20 @@ namespace IT008.N12_015
         }
         private void mediaItemContainer_Resize(object sender, EventArgs e)
         {
-            this.Visible = false;
+            //this.Visible = false;
             test();
-            this.Visible = true;
+            //this.Visible = true;
         }
         public void test()
         {
             foreach (Control c in mediaItemContainer.Controls)
             {
-                c.Width = this.Width - c.Padding.Left - c.Padding.Right;
+                //c.Width = this.Width - c.Padding.Left - c.Padding.Right;
+
+                c.BeginInvoke(new Action(() => c.Width = this.Width - c.Padding.Left - c.Padding.Right));
             }
         }
+
         public enum SORTBY
         {
             AZ,

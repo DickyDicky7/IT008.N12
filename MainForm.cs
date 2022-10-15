@@ -31,9 +31,9 @@ namespace IT008.N12_015
             siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
 
             PlaylistItem.MediaController = mediaController1;
-            tabPage4.Controls.Add(new PlaylistItem(
-            "C:\\Users\\User\\Music\\Playlists\\abc.wpl"
-                ));
+            //tabPage4.Controls.Add(new PlaylistItem(
+            //"C:\\Users\\User\\Music\\Playlists\\abc.wpl"
+            //    ));
         }
 
         /// <summary>
@@ -115,29 +115,28 @@ namespace IT008.N12_015
         #region Responsive
         private void Responsive()
         {
+            List<string> list = new List<string>() { "Music library", "Video library", "Play queue", "Playlists", "Settings", "SoundCloud" };
             if(this.Width <= 1000)
             {
                 siticoneTabControl1.TabButtonSize = new Size(55, 50);
-                tabPage1.Text = "";
-                tabPage2.Text = "";
-                tabPage3.Text = "";
-                tabPage4.Text = "";
-                tabPage5.Text = "";
+                foreach(TabPage tab in siticoneTabControl1.TabPages)
+                {
+                    tab.Text = "";
+                }
             }
             else
             {
                 siticoneTabControl1.TabButtonSize = new Size(210, 50);
-                tabPage1.Text = "Music library";
-                tabPage2.Text = "Video library";
-                tabPage3.Text = "Play queue";
-                tabPage4.Text = "Playlists";
-                tabPage5.Text = "Settings";
+                for(int i = 0;i<siticoneTabControl1.TabPages.Count;i++)
+                {
+                    siticoneTabControl1.TabPages[i].Text = list[i];
+                }
             }
             nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
             musicList1.Width = tabPage1.Width;
             foreach (Control c in musicFolderPanel.Controls)
             {
-                c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100;
+                c.BeginInvoke(new Action(() => c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100));
             }
             tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width,0);
             tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
