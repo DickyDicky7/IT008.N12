@@ -68,33 +68,36 @@ namespace IT008.N12_015
             // Label
             // 
             this.Label.BackColor = System.Drawing.Color.Transparent;
-            this.Label.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
-            this.Label.Location = new System.Drawing.Point(130, 35);
+            this.Label.Location = new System.Drawing.Point(90, 12);
             this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(144, 30);
+            this.Label.Size = new System.Drawing.Size(132, 27);
             this.Label.TabIndex = 1;
             this.Label.Text = "Title goes here";
             this.Label.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Panel
             // 
-            this.Panel.Controls.Add(this.Label);
+            this.Panel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.Panel.BorderRadius = 10;
+            this.Panel.BorderThickness = 1;
             this.Panel.Controls.Add(this.PictureBox);
+            this.Panel.Controls.Add(this.Label);
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
             this.Panel.ShadowDecoration.Parent = this.Panel;
-            this.Panel.Size = new System.Drawing.Size(700, 100);
+            this.Panel.Size = new System.Drawing.Size(500, 47);
             this.Panel.TabIndex = 3;
             // 
             // PictureBox
             // 
             this.PictureBox.ImageRotate = 0F;
-            this.PictureBox.Location = new System.Drawing.Point(0, 0);
+            this.PictureBox.Location = new System.Drawing.Point(20, 4);
             this.PictureBox.Name = "PictureBox";
             this.PictureBox.ShadowDecoration.Parent = this.PictureBox;
-            this.PictureBox.Size = new System.Drawing.Size(110, 100);
+            this.PictureBox.Size = new System.Drawing.Size(42, 39);
             this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBox.TabIndex = 2;
             this.PictureBox.TabStop = false;
@@ -107,7 +110,7 @@ namespace IT008.N12_015
             this.ContextMenuStrip = this.Menu;
             this.Controls.Add(this.Panel);
             this.Name = "PlaylistItem";
-            this.Size = new System.Drawing.Size(700, 100);
+            this.Size = new System.Drawing.Size(500, 47);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);
             this.Menu.ResumeLayout(false);
             this.Panel.ResumeLayout(false);

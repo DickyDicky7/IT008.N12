@@ -10,6 +10,7 @@ using PlaylistsNET.Models;
 using PlaylistsNET.Content;
 using System.Windows.Forms;
 using System.ComponentModel;
+using WinFormAnimation_NET5;
 using IT008.N12_015.src.Util;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -58,12 +59,12 @@ namespace IT008.N12_015
             this.URL = URL;
             InitializePlaylistItem(URL);
 
-            Watcher.Action = UpdatePlaylistItem;
-            Watcher.Interval = TimeSpan.FromSeconds(Random.Next(10, 20));
+            PictureBox.Image = Properties.Resources.icons8_music_library_64;
 
-            PictureBox.Image = Common.GetImage(Paths[0]);
+           
 
-            Load += new EventHandler(PlaylistItem_Load);
+
+
         }
 
         public void InitializePlaylistItem(string URL)
@@ -80,88 +81,7 @@ namespace IT008.N12_015
 
             Label.Text = Playlist.Title;
 
-            //if (Playlist.ItemCount == 0)
-            //{
-            //    SiticonePictureBox Thumbnail = new SiticonePictureBox();
-            //    Thumbnail.Image = Properties.Resources.icons8_music_library_64;
-            //    Thumbnail.Size =
-            //    new Size
-            //    (
-            //      Properties.Resources.icons8_music_library_64.Width
-            //    , Properties.Resources.icons8_music_library_64.Height
-            //    );
-            //    Thumbnail.Location =
-            //    new Point
-            //    (
-            //      (ThumbnailBox.Width - Thumbnail.Width) / 2
-            //    , (ThumbnailBox.Height - Thumbnail.Height) / 2
-            //    );
-            //    ThumbnailBox.Controls.Add(Thumbnail);
-            //}
-            //else
-            //if (Playlist.ItemCount >= 1)
-            //{
-            //    int X = 0;
-            //    int Y = 0;
-            //    for (int i = 0; i < Playlist.ItemCount; i++)
-            //    {
-            //        if (i == 5)
-            //            break;
-            //        SiticonePictureBox Thumbnail = new SiticonePictureBox();
-            //        Thumbnail.Size =
-            //        new Size(ThumbnailBox.Width / 2, ThumbnailBox.Height / 2);
-            //        if (X == 100)
-            //        {
-            //            X = 0;
-            //            Y = 50;
-            //        }
-            //        Thumbnail.Location = new Point(X, Y);
-            //        X += 50;
-            //        Thumbnail.Image = Common.GetImage(Paths[i]);
-            //        Thumbnail.SizeMode = PictureBoxSizeMode.StretchImage;
-            //        ThumbnailBox.Controls.Add(Thumbnail);
-            //    }
-            //}
-
             Stream.Dispose();
-        }
-
-        private async void UpdatePlaylistItem()
-        {
-            try
-            {
-                string Path = Paths[Random.Next(0, Paths.Count)];
-                Image Image = Common.GetImage(Path);
-                PictureBox.Invoke((MethodInvoker)delegate ()
-                {
-                    FluentTransitions.Transition
-                    .With(PictureBox, nameof(Left), -PictureBox.Size.Width)
-                    .Accelerate(TimeSpan.FromSeconds(0.5));
-                });
-                await Task.Delay(TimeSpan.FromSeconds(2)).ConfigureAwait(false);
-                PictureBox.Invoke((MethodInvoker)delegate ()
-                {
-                    PictureBox.Image = Image;
-                    FluentTransitions.Transition
-                    .With(PictureBox, nameof(Left), 0)
-                    .Decelerate(TimeSpan.FromSeconds(0.5));
-                });
-                Watcher.Interval = TimeSpan.FromSeconds(Random.Next(10, 20));
-            }
-            catch
-            {
-                Thread.CurrentThread.Abort();
-            }
-        }
-
-        private void PlaylistItem_Load(object sender, EventArgs e)
-        {
-            Watcher.Start();
-        }
-
-        public void Stop()
-        {
-            Watcher.Stop();
         }
 
         public string playlistName;

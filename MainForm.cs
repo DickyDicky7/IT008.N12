@@ -41,7 +41,7 @@ namespace IT008.N12_015
                 "C:\\Users\\User\\Music\\Playlists\\def.wpl"
                 );
             p1.Location = new Point(10, 10);
-            p2.Location = new Point(10, 120);
+            p2.Location = new Point(10, 140);
             tabPage4.Controls.Add(p1);
             tabPage4.Controls.Add(p2);
 
