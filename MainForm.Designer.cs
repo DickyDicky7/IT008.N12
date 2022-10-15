@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form));
             this.mediaControllerFooter = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.mediaController1 = new IT008.N12_015.MediaController();
             this.controlHeader = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.nameContainer = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.minimizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
@@ -38,6 +39,7 @@
             this.maximizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.musicList1 = new IT008.N12_015.MusicList();
             this.musicHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.shuffleAndPlayBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.sortBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -64,8 +66,6 @@
             this.albumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.genreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlBorder = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.musicList1 = new IT008.N12_015.MusicList();
-            this.mediaController1 = new IT008.N12_015.MediaController();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.siticoneTabControl1.SuspendLayout();
@@ -92,6 +92,18 @@
             this.mediaControllerFooter.Size = new System.Drawing.Size(1040, 150);
             this.mediaControllerFooter.TabIndex = 0;
             // 
+            // mediaController1
+            // 
+            this.mediaController1.BackColor = System.Drawing.Color.Transparent;
+            this.mediaController1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mediaController1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mediaController1.ForeColor = System.Drawing.Color.Transparent;
+            this.mediaController1.Location = new System.Drawing.Point(0, 0);
+            this.mediaController1.Margin = new System.Windows.Forms.Padding(2);
+            this.mediaController1.Name = "mediaController1";
+            this.mediaController1.Size = new System.Drawing.Size(1040, 150);
+            this.mediaController1.TabIndex = 0;
+            // 
             // controlHeader
             // 
             this.controlHeader.Controls.Add(this.nameContainer);
@@ -111,9 +123,9 @@
             // 
             // nameContainer
             // 
-            this.nameContainer.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.nameContainer.CustomBorderColor = System.Drawing.Color.White;
             this.nameContainer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.nameContainer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.nameContainer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.nameContainer.Location = new System.Drawing.Point(0, 0);
             this.nameContainer.Margin = new System.Windows.Forms.Padding(2);
             this.nameContainer.Name = "nameContainer";
@@ -189,7 +201,7 @@
             this.siticoneTabControl1.Controls.Add(this.tabPage4);
             this.siticoneTabControl1.Controls.Add(this.tabPage5);
             this.siticoneTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.siticoneTabControl1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.siticoneTabControl1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.siticoneTabControl1.ImageList = this.buttonImageList;
             this.siticoneTabControl1.ItemSize = new System.Drawing.Size(210, 50);
             this.siticoneTabControl1.Location = new System.Drawing.Point(0, 31);
@@ -199,27 +211,27 @@
             this.siticoneTabControl1.SelectedIndex = 0;
             this.siticoneTabControl1.Size = new System.Drawing.Size(1040, 459);
             this.siticoneTabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.siticoneTabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
-            this.siticoneTabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.siticoneTabControl1.TabButtonHoverState.ForeColor = System.Drawing.Color.Black;
-            this.siticoneTabControl1.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
+            this.siticoneTabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.LightGray;
+            this.siticoneTabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.siticoneTabControl1.TabButtonHoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.siticoneTabControl1.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.siticoneTabControl1.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.siticoneTabControl1.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.siticoneTabControl1.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.siticoneTabControl1.TabButtonIdleState.ForeColor = System.Drawing.Color.Black;
-            this.siticoneTabControl1.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.siticoneTabControl1.TabButtonIdleState.FillColor = System.Drawing.Color.White;
+            this.siticoneTabControl1.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.siticoneTabControl1.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.siticoneTabControl1.TabButtonIdleState.InnerColor = System.Drawing.Color.White;
             this.siticoneTabControl1.TabButtonImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneTabControl1.TabButtonImageOffset = new System.Drawing.Point(8, 0);
             this.siticoneTabControl1.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.siticoneTabControl1.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
-            this.siticoneTabControl1.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.siticoneTabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black;
-            this.siticoneTabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(63)))), ((int)(((byte)(10)))));
+            this.siticoneTabControl1.TabButtonSelectedState.FillColor = System.Drawing.Color.LightGray;
+            this.siticoneTabControl1.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.siticoneTabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.siticoneTabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(210, 50);
             this.siticoneTabControl1.TabButtonTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneTabControl1.TabButtonTextOffset = new System.Drawing.Point(13, 0);
             this.siticoneTabControl1.TabIndex = 3;
-            this.siticoneTabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.siticoneTabControl1.TabMenuBackColor = System.Drawing.Color.White;
             // 
             // tabPage1
             // 
@@ -235,6 +247,15 @@
             this.tabPage1.Size = new System.Drawing.Size(822, 451);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Music library";
+            // 
+            // musicList1
+            // 
+            this.musicList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.musicList1.Location = new System.Drawing.Point(0, 125);
+            this.musicList1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.musicList1.Name = "musicList1";
+            this.musicList1.Size = new System.Drawing.Size(822, 326);
+            this.musicList1.TabIndex = 2;
             // 
             // musicHeaderPanel
             // 
@@ -267,7 +288,7 @@
             this.shuffleAndPlayBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.shuffleAndPlayBtn.DisabledState.Parent = this.shuffleAndPlayBtn;
             this.shuffleAndPlayBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.shuffleAndPlayBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.shuffleAndPlayBtn.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.shuffleAndPlayBtn.ForeColor = System.Drawing.Color.White;
             this.shuffleAndPlayBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.shuffleAndPlayBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
@@ -300,7 +321,7 @@
             this.sortBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.sortBtn.DisabledState.Parent = this.sortBtn;
             this.sortBtn.FillColor = System.Drawing.Color.Transparent;
-            this.sortBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.sortBtn.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.sortBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.sortBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.sortBtn.HoverState.FillColor = System.Drawing.Color.Transparent;
@@ -308,7 +329,7 @@
             this.sortBtn.Image = global::IT008.N12_015.Properties.Resources.down;
             this.sortBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.sortBtn.ImageSize = new System.Drawing.Size(15, 15);
-            this.sortBtn.Location = new System.Drawing.Point(180, 63);
+            this.sortBtn.Location = new System.Drawing.Point(190, 63);
             this.sortBtn.Margin = new System.Windows.Forms.Padding(2);
             this.sortBtn.MinimumSize = new System.Drawing.Size(0, 37);
             this.sortBtn.Name = "sortBtn";
@@ -464,7 +485,7 @@
             this.musicLocationLb.Location = new System.Drawing.Point(37, 18);
             this.musicLocationLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.musicLocationLb.Name = "musicLocationLb";
-            this.musicLocationLb.Size = new System.Drawing.Size(145, 19);
+            this.musicLocationLb.Size = new System.Drawing.Size(161, 19);
             this.musicLocationLb.TabIndex = 7;
             this.musicLocationLb.Text = "Music library locations";
             // 
@@ -611,27 +632,6 @@
             this.tabControlBorder.ShadowDecoration.Parent = this.tabControlBorder;
             this.tabControlBorder.Size = new System.Drawing.Size(0, 0);
             this.tabControlBorder.TabIndex = 4;
-            // 
-            // musicList1
-            // 
-            this.musicList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.musicList1.Location = new System.Drawing.Point(0, 125);
-            this.musicList1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.musicList1.Name = "musicList1";
-            this.musicList1.Size = new System.Drawing.Size(822, 326);
-            this.musicList1.TabIndex = 2;
-            // 
-            // mediaController1
-            // 
-            this.mediaController1.BackColor = System.Drawing.Color.Transparent;
-            this.mediaController1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mediaController1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mediaController1.ForeColor = System.Drawing.Color.Transparent;
-            this.mediaController1.Location = new System.Drawing.Point(0, 0);
-            this.mediaController1.Margin = new System.Windows.Forms.Padding(2);
-            this.mediaController1.Name = "mediaController1";
-            this.mediaController1.Size = new System.Drawing.Size(1040, 150);
-            this.mediaController1.TabIndex = 0;
             // 
             // form
             // 
