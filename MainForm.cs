@@ -50,6 +50,12 @@ namespace IT008.N12_015
             //this.Opacity = 100;
             ////tabPage4.BackColor = Color.Transparent;
 
+            //Form a = new Form();
+            //a.BackColor = Color.Black;
+            //a.TransparencyKey = Color.Black;
+            //a.Opacity = 20;
+            //a.Show();
+
             #endregion
         }
 

@@ -32,12 +32,12 @@
             this.Panel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.DurationLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.VolumeMeter = new Siticone.Desktop.UI.WinForms.SiticoneTrackBar();
-            this.MediaTitle = new IT008.N12_015.AnimateLabel();
             this.BtnNext10s = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnBack10s = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnNext = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnBack = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnPlay = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.MediaTitle = new IT008.N12_015.AnimateLabel();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,19 +105,6 @@
             this.VolumeMeter.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.VolumeMeter.Scroll += new System.Windows.Forms.ScrollEventHandler(this.VolumeMeter_Scroll);
             // 
-            // MediaTitle
-            // 
-            this.MediaTitle.BackColor = System.Drawing.Color.Transparent;
-            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.MediaTitle.Location = new System.Drawing.Point(280, 28);
-            this.MediaTitle.Name = "MediaTitle";
-            this.MediaTitle.Size = new System.Drawing.Size(360, 40);
-            this.MediaTitle.Slide = true;
-            this.MediaTitle.SlideTime = 15;
-            this.MediaTitle.TabIndex = 5;
-            this.MediaTitle.Text = "MediaTitle";
-            // 
             // BtnNext10s
             // 
             this.BtnNext10s.Animated = true;
@@ -136,13 +123,13 @@
             this.BtnNext10s.FocusedColor = System.Drawing.Color.Transparent;
             this.BtnNext10s.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnNext10s.ForeColor = System.Drawing.Color.Transparent;
+            this.BtnNext10s.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnNext10s.HoverState.Parent = this.BtnNext10s;
             this.BtnNext10s.Image = global::IT008.N12_015.Properties.Resources.forward_10s;
             this.BtnNext10s.ImageSize = new System.Drawing.Size(30, 30);
             this.BtnNext10s.Location = new System.Drawing.Point(225, 30);
             this.BtnNext10s.Name = "BtnNext10s";
-            this.BtnNext10s.PressedColor = System.Drawing.Color.Transparent;
-            this.BtnNext10s.PressedDepth = 0;
+            this.BtnNext10s.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.BtnNext10s.ShadowDecoration.Parent = this.BtnNext10s;
             this.BtnNext10s.Size = new System.Drawing.Size(40, 40);
             this.BtnNext10s.TabIndex = 4;
@@ -166,13 +153,13 @@
             this.BtnBack10s.FocusedColor = System.Drawing.Color.Transparent;
             this.BtnBack10s.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnBack10s.ForeColor = System.Drawing.Color.Transparent;
+            this.BtnBack10s.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnBack10s.HoverState.Parent = this.BtnBack10s;
             this.BtnBack10s.Image = global::IT008.N12_015.Properties.Resources.replay_10s;
             this.BtnBack10s.ImageSize = new System.Drawing.Size(30, 30);
             this.BtnBack10s.Location = new System.Drawing.Point(180, 30);
             this.BtnBack10s.Name = "BtnBack10s";
-            this.BtnBack10s.PressedColor = System.Drawing.Color.Transparent;
-            this.BtnBack10s.PressedDepth = 0;
+            this.BtnBack10s.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.BtnBack10s.ShadowDecoration.Parent = this.BtnBack10s;
             this.BtnBack10s.Size = new System.Drawing.Size(40, 40);
             this.BtnBack10s.TabIndex = 3;
@@ -196,13 +183,13 @@
             this.BtnNext.FocusedColor = System.Drawing.Color.Transparent;
             this.BtnNext.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnNext.ForeColor = System.Drawing.Color.Transparent;
+            this.BtnNext.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnNext.HoverState.Parent = this.BtnNext;
             this.BtnNext.Image = global::IT008.N12_015.Properties.Resources.next_song;
             this.BtnNext.ImageSize = new System.Drawing.Size(30, 30);
             this.BtnNext.Location = new System.Drawing.Point(125, 30);
             this.BtnNext.Name = "BtnNext";
-            this.BtnNext.PressedColor = System.Drawing.Color.Transparent;
-            this.BtnNext.PressedDepth = 0;
+            this.BtnNext.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.BtnNext.ShadowDecoration.Parent = this.BtnNext;
             this.BtnNext.Size = new System.Drawing.Size(40, 40);
             this.BtnNext.TabIndex = 2;
@@ -226,13 +213,13 @@
             this.BtnBack.FocusedColor = System.Drawing.Color.Transparent;
             this.BtnBack.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnBack.ForeColor = System.Drawing.Color.Transparent;
+            this.BtnBack.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnBack.HoverState.Parent = this.BtnBack;
             this.BtnBack.Image = global::IT008.N12_015.Properties.Resources.previous_song;
             this.BtnBack.ImageSize = new System.Drawing.Size(30, 30);
             this.BtnBack.Location = new System.Drawing.Point(80, 30);
             this.BtnBack.Name = "BtnBack";
-            this.BtnBack.PressedColor = System.Drawing.Color.Transparent;
-            this.BtnBack.PressedDepth = 0;
+            this.BtnBack.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.BtnBack.ShadowDecoration.Parent = this.BtnBack;
             this.BtnBack.Size = new System.Drawing.Size(40, 40);
             this.BtnBack.TabIndex = 1;
@@ -256,17 +243,30 @@
             this.BtnPlay.FocusedColor = System.Drawing.Color.Transparent;
             this.BtnPlay.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnPlay.ForeColor = System.Drawing.Color.Transparent;
+            this.BtnPlay.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnPlay.HoverState.Parent = this.BtnPlay;
             this.BtnPlay.Image = global::IT008.N12_015.Properties.Resources.play;
             this.BtnPlay.ImageSize = new System.Drawing.Size(40, 40);
             this.BtnPlay.Location = new System.Drawing.Point(15, 25);
             this.BtnPlay.Name = "BtnPlay";
-            this.BtnPlay.PressedColor = System.Drawing.Color.Transparent;
-            this.BtnPlay.PressedDepth = 0;
+            this.BtnPlay.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.BtnPlay.ShadowDecoration.Parent = this.BtnPlay;
             this.BtnPlay.Size = new System.Drawing.Size(50, 50);
             this.BtnPlay.TabIndex = 0;
             this.BtnPlay.Click += new System.EventHandler(this.BtnPlay_Click);
+            // 
+            // MediaTitle
+            // 
+            this.MediaTitle.BackColor = System.Drawing.Color.Transparent;
+            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.MediaTitle.Location = new System.Drawing.Point(280, 28);
+            this.MediaTitle.Name = "MediaTitle";
+            this.MediaTitle.Size = new System.Drawing.Size(360, 40);
+            this.MediaTitle.Slide = true;
+            this.MediaTitle.SlideTime = 15;
+            this.MediaTitle.TabIndex = 5;
+            this.MediaTitle.Text = "MediaTitle";
             // 
             // MediaController
             // 
