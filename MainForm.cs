@@ -45,6 +45,11 @@ namespace IT008.N12_015
             tabPage4.Controls.Add(p1);
             tabPage4.Controls.Add(p2);
 
+            //this.BackColor = Color.White;
+            //this.TransparencyKey = Color.White;
+            //this.Opacity = 100;
+            ////tabPage4.BackColor = Color.Transparent;
+
             #endregion
         }
 

@@ -43,21 +43,21 @@
             // 
             // TrackBar
             // 
-            this.TrackBar.BackColor = System.Drawing.Color.Transparent;
+            this.TrackBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TrackBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TrackBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TrackBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.TrackBar.FillColor = System.Drawing.Color.LightGray;
             this.TrackBar.HoverState.Parent = this.TrackBar;
             this.TrackBar.Location = new System.Drawing.Point(0, 0);
             this.TrackBar.Name = "TrackBar";
             this.TrackBar.Size = new System.Drawing.Size(1000, 50);
             this.TrackBar.TabIndex = 10;
-            this.TrackBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.TrackBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.TrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TrackBar_Scroll);
             // 
             // Panel
             // 
-            this.Panel.BackColor = System.Drawing.Color.Transparent;
+            this.Panel.BackColor = System.Drawing.Color.White;
             this.Panel.BorderColor = System.Drawing.Color.Transparent;
             this.Panel.Controls.Add(this.DurationLabel);
             this.Panel.Controls.Add(this.VolumeMeter);
@@ -83,7 +83,7 @@
             this.DurationLabel.AutoSize = false;
             this.DurationLabel.BackColor = System.Drawing.Color.Transparent;
             this.DurationLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.DurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.DurationLabel.Location = new System.Drawing.Point(655, 40);
             this.DurationLabel.Name = "DurationLabel";
             this.DurationLabel.Size = new System.Drawing.Size(70, 20);
@@ -95,21 +95,21 @@
             // 
             this.VolumeMeter.BackColor = System.Drawing.Color.Transparent;
             this.VolumeMeter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.VolumeMeter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.VolumeMeter.FillColor = System.Drawing.Color.LightGray;
             this.VolumeMeter.HoverState.Parent = this.VolumeMeter;
             this.VolumeMeter.Location = new System.Drawing.Point(740, 40);
             this.VolumeMeter.Name = "VolumeMeter";
             this.VolumeMeter.Size = new System.Drawing.Size(100, 20);
             this.VolumeMeter.Style = Siticone.Desktop.UI.WinForms.Enums.TrackBarStyle.Metro;
             this.VolumeMeter.TabIndex = 6;
-            this.VolumeMeter.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.VolumeMeter.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.VolumeMeter.Scroll += new System.Windows.Forms.ScrollEventHandler(this.VolumeMeter_Scroll);
             // 
             // MediaTitle
             // 
             this.MediaTitle.BackColor = System.Drawing.Color.Transparent;
             this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.MediaTitle.Location = new System.Drawing.Point(280, 28);
             this.MediaTitle.Name = "MediaTitle";
             this.MediaTitle.Size = new System.Drawing.Size(360, 40);
