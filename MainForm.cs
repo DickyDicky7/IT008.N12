@@ -27,13 +27,36 @@ namespace IT008.N12_015
             this.SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.SupportsTransparentBackColor, true);
 
             //Load += new EventHandler(form_Load(args));
+
+            #region Tuan Anh Testing
+
             var sci = new SoundCloudIntegration();
             siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
 
             PlaylistItem.MediaController = mediaController1;
-            //tabPage4.Controls.Add(new PlaylistItem(
-            //"C:\\Users\\User\\Music\\Playlists\\abc.wpl"
-            //    ));
+            PlaylistItem p1 = new PlaylistItem(
+                "C:\\Users\\User\\Music\\Playlists\\abc.wpl"
+                );
+            PlaylistItem p2 = new PlaylistItem(
+                "C:\\Users\\User\\Music\\Playlists\\def.wpl"
+                );
+            p1.Location = new Point(10, 10);
+            p2.Location = new Point(10, 140);
+            tabPage4.Controls.Add(p1);
+            tabPage4.Controls.Add(p2);
+
+            //this.BackColor = Color.White;
+            //this.TransparencyKey = Color.White;
+            //this.Opacity = 100;
+            ////tabPage4.BackColor = Color.Transparent;
+
+            //Form a = new Form();
+            //a.BackColor = Color.Black;
+            //a.TransparencyKey = Color.Black;
+            //a.Opacity = 20;
+            //a.Show();
+
+            #endregion
         }
 
         /// <summary>

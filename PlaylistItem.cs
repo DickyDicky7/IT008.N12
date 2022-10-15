@@ -1,22 +1,19 @@
-﻿using WMPLib;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
+using System.IO;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
-using static ReaLTaiizor.Drawing.Poison.PoisonPaint.ForeColor;
-using System.Security.Policy;
-using Siticone.Desktop.UI.WinForms;
-using System.Numerics;
-using AxWMPLib;
-using PlaylistsNET.Content;
+using System.Drawing;
+using System.Threading;
+using PlaylistsNET.Utils;
 using PlaylistsNET.Models;
-using System.Xml.Linq;
+using PlaylistsNET.Content;
+using System.Windows.Forms;
+using System.ComponentModel;
+using WinFormAnimation_NET5;
+using IT008.N12_015.src.Util;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace IT008.N12_015
 {
@@ -46,6 +43,14 @@ namespace IT008.N12_015
             set { url = value; }
         }
 
+        private List<string> Paths;
+
+        private readonly Watcher Watcher = new Watcher();
+
+        public static MediaController MediaController { get; set; }
+
+        private readonly Random Random = new Random();
+
         #endregion
 
         public PlaylistItem(string URL)
@@ -53,6 +58,13 @@ namespace IT008.N12_015
             InitializeComponent();
             this.URL = URL;
             InitializePlaylistItem(URL);
+
+            PictureBox.Image = Properties.Resources.icons8_music_library_64;
+
+           
+
+
+
         }
 
         public void InitializePlaylistItem(string URL)
@@ -63,55 +75,11 @@ namespace IT008.N12_015
             WplContent Content = new WplContent();
             WplPlaylist Playlist = Content.GetFromStream(Stream);
 
-            List<string> Paths =
-            Playlist.GetTracksPaths()
+            Paths = Playlist.GetTracksPaths()
             .Select(Path => $"{Common.MusicFolder}{Path.Substring(2)}")
             .ToList();
 
             Label.Text = Playlist.Title;
-
-            if (Playlist.ItemCount == 0)
-            {
-                SiticonePictureBox Thumbnail = new SiticonePictureBox();
-                Thumbnail.Image = Properties.Resources.icons8_music_library_64;
-                Thumbnail.Size =
-                new Size
-                (
-                  Properties.Resources.icons8_music_library_64.Width
-                , Properties.Resources.icons8_music_library_64.Height
-                );
-                Thumbnail.Location =
-                new Point
-                (
-                  (ThumbnailBox.Width - Thumbnail.Width) / 2
-                , (ThumbnailBox.Height - Thumbnail.Height) / 2
-                );
-                ThumbnailBox.Controls.Add(Thumbnail);
-            }
-            else
-            if (Playlist.ItemCount >= 1)
-            {
-                int X = 0;
-                int Y = 0;
-                for (int i = 0; i < Playlist.ItemCount; i++)
-                {
-                    if (i == 5)
-                        break;
-                    SiticonePictureBox Thumbnail = new SiticonePictureBox();
-                    Thumbnail.Size =
-                    new Size(ThumbnailBox.Width / 2, ThumbnailBox.Height / 2);
-                    if (X == 100)
-                    {
-                        X = 0;
-                        Y = 50;
-                    }
-                    Thumbnail.Location = new Point(X, Y);
-                    X += 50;
-                    Thumbnail.Image = Common.GetImage(Paths[i]);
-                    Thumbnail.SizeMode = PictureBoxSizeMode.StretchImage;
-                    ThumbnailBox.Controls.Add(Thumbnail);
-                }
-            }
 
             Stream.Dispose();
         }
@@ -206,7 +174,5 @@ namespace IT008.N12_015
             DialogResult dialogResult = form.ShowDialog();
             return dialogResult == DialogResult.OK ? textBox.Text : "";
         }
-
-        public static MediaController MediaController { get; set; }
     }
 }

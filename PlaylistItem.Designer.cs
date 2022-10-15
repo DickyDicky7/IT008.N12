@@ -34,8 +34,11 @@ namespace IT008.N12_015
             this.Menu = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.renamePlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.ThumbnailBox = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.Panel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.PictureBox = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.Menu.SuspendLayout();
+            this.Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu
@@ -65,23 +68,39 @@ namespace IT008.N12_015
             // Label
             // 
             this.Label.BackColor = System.Drawing.Color.Transparent;
-            this.Label.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
-            this.Label.Location = new System.Drawing.Point(150, 35);
+            this.Label.Location = new System.Drawing.Point(90, 12);
             this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(144, 30);
+            this.Label.Size = new System.Drawing.Size(132, 27);
             this.Label.TabIndex = 1;
             this.Label.Text = "Title goes here";
             this.Label.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ThumbnailBox
+            // Panel
             // 
-            this.ThumbnailBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ThumbnailBox.Location = new System.Drawing.Point(0, 0);
-            this.ThumbnailBox.Name = "ThumbnailBox";
-            this.ThumbnailBox.ShadowDecoration.Parent = this.ThumbnailBox;
-            this.ThumbnailBox.Size = new System.Drawing.Size(100, 100);
-            this.ThumbnailBox.TabIndex = 2;
+            this.Panel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.Panel.BorderRadius = 10;
+            this.Panel.BorderThickness = 1;
+            this.Panel.Controls.Add(this.PictureBox);
+            this.Panel.Controls.Add(this.Label);
+            this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel.Location = new System.Drawing.Point(0, 0);
+            this.Panel.Name = "Panel";
+            this.Panel.ShadowDecoration.Parent = this.Panel;
+            this.Panel.Size = new System.Drawing.Size(500, 47);
+            this.Panel.TabIndex = 3;
+            // 
+            // PictureBox
+            // 
+            this.PictureBox.ImageRotate = 0F;
+            this.PictureBox.Location = new System.Drawing.Point(20, 4);
+            this.PictureBox.Name = "PictureBox";
+            this.PictureBox.ShadowDecoration.Parent = this.PictureBox;
+            this.PictureBox.Size = new System.Drawing.Size(42, 39);
+            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox.TabIndex = 2;
+            this.PictureBox.TabStop = false;
             // 
             // PlaylistItem
             // 
@@ -89,14 +108,15 @@ namespace IT008.N12_015
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.ContextMenuStrip = this.Menu;
-            this.Controls.Add(this.ThumbnailBox);
-            this.Controls.Add(this.Label);
+            this.Controls.Add(this.Panel);
             this.Name = "PlaylistItem";
-            this.Size = new System.Drawing.Size(700, 100);
+            this.Size = new System.Drawing.Size(500, 47);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);
             this.Menu.ResumeLayout(false);
+            this.Panel.ResumeLayout(false);
+            this.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -104,6 +124,7 @@ namespace IT008.N12_015
         private Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem renamePlaylistToolStripMenuItem;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Label;
-        private Siticone.Desktop.UI.WinForms.SiticonePanel ThumbnailBox;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel Panel;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox PictureBox;
     }
 }

@@ -154,7 +154,7 @@ namespace IT008.N12_015
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
-            ChangeLabelColor(Color.FromArgb(208, 64, 12));
+            ChangeLabelColor(Color.FromArgb(186, 24, 27));
             if(ClickedItem != null && ClickedItem != this)
             {
                 ClickedItem.ChangeLabelColor(Color.Black);
@@ -212,25 +212,22 @@ namespace IT008.N12_015
 
         private void MediaItem_MouseEnter(object sender, EventArgs e)
         {
-            containerPanel.FillColor = Color.FromArgb(239, 240, 243);
-
+            containerPanel.FillColor = Color.FromArgb(211, 211, 211);
         }
 
         private void MediaItem_MouseHover(object sender, EventArgs e)
         {
-            containerPanel.FillColor = Color.FromArgb(239, 240, 243);
-
+            containerPanel.FillColor = Color.FromArgb(211, 211, 211);
         }
 
         private void MediaItem_MouseLeave(object sender, EventArgs e)
         {
-            containerPanel.FillColor = Color.FromArgb(247, 250, 252);
-
+            containerPanel.FillColor = Color.FromArgb(255, 255, 255);
         }
 
         private void playMenuItem_Click(object sender, EventArgs e)
         {
-            ChangeLabelColor(Color.FromArgb(208, 64, 12));
+            ChangeLabelColor(Color.FromArgb(186, 24, 27));
             if (ClickedItem != null && ClickedItem != this)
             {
                 ClickedItem.ChangeLabelColor(Color.Black);
