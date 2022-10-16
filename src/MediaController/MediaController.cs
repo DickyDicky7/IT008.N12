@@ -72,6 +72,8 @@ namespace IT008.N12_015
             TrackBar.Maximum = Common.GetDurationInSeconds(URL);
             MediaTitle.Text = Common.GetTitle(URL);
 
+            BtnPlay.Image = global::IT008.N12_015.Properties.Resources.pause;
+
             // OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
