@@ -292,8 +292,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\disc.png" />
-    <None Include="Resources\music.jpg" />
-    <None Include="Resources\track.png" />
     <None Include="Resources\folder.png" />
     <None Include="Resources\icons8-music-library-64.png" />
     <None Include="Resources\close.png" />
