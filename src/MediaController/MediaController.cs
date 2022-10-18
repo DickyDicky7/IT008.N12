@@ -29,6 +29,10 @@ namespace IT008.N12_015
 
             Player.settings.volume = VolumeMeter.Value;
 
+            TimeStamp.Hide();
+            TimeStamp.BackColor = Common.Black;
+            TimeStamp.ForeColor = Common.Black;
+
             Load += new EventHandler(MediaController_Load);
 
             #region Testing
@@ -43,14 +47,6 @@ namespace IT008.N12_015
             //    Watcher.Action = UpdateMediaController;
             //    Watcher.Start();
             //}, TimeSpan.FromSeconds(30));
-
-            TimeStamp.Hide();
-            TimeStamp.BackColor = ColorTranslator.FromHtml("22, 26, 29");
-            TimeStamp.ForeColor = ColorTranslator.FromHtml("22, 26, 29");
-
-            TrackBar.MouseMove += new MouseEventHandler(TrackBar_MouseMove);
-            TrackBar.MouseHover += new EventHandler(TrackBar_MouseHover);
-            TrackBar.MouseLeave += new EventHandler(TrackBar_MouseLeave);
 
             #endregion
         }
@@ -195,13 +191,15 @@ namespace IT008.N12_015
         private void TrackBar_MouseMove(object sender, MouseEventArgs e)
         {
             float Time = (float)TrackBar.Maximum / (float)TrackBar.Size.Width;
-            TimeSpan timeSpan = TimeSpan.FromSeconds(Time * (e.X - (TimeStamp.Size.Width / 2)) + 7);
+            TimeSpan timeSpan =
+            TimeSpan.FromSeconds(Time * (e.X - (TimeStamp.Size.Width / 2)) + 7);
             int Minutes = (int)(timeSpan.TotalSeconds / 60);
             int Seconds = (int)(timeSpan.TotalSeconds % 60);
             string currentTimeStamp =
             (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
             + " : " +
             (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
+
             TimeStamp.Location = new Point
             (e.X - (TimeStamp.Size.Width / 2), 0);
             TimeStamp.Text = currentTimeStamp;
@@ -211,16 +209,16 @@ namespace IT008.N12_015
         {
             TimeStamp.Show();
             FluentTransitions.Transition
-            .With(TimeStamp, "BackColor", ColorTranslator.FromHtml("186, 24, 27"))
-            .With(TimeStamp, "ForeColor", ColorTranslator.FromHtml("255, 255, 255"))
-            .Decelerate(TimeSpan.FromSeconds(0.3));   
+            .With(TimeStamp, "BackColor", Common.LightRed)
+            .With(TimeStamp, "ForeColor", Common.White)
+            .Decelerate(TimeSpan.FromSeconds(0.3));
         }
 
         private async void TrackBar_MouseLeave(object sender, EventArgs e)
         {
             FluentTransitions.Transition
-            .With(TimeStamp, "BackColor", ColorTranslator.FromHtml("22, 26, 29"))
-            .With(TimeStamp, "ForeColor", ColorTranslator.FromHtml("22, 26, 29"))
+            .With(TimeStamp, "BackColor", Common.Black)
+            .With(TimeStamp, "ForeColor", Common.Black)
             .Decelerate(TimeSpan.FromSeconds(0.3));
             await Task.Delay(TimeSpan.FromSeconds(0.3));
             TimeStamp.Hide();

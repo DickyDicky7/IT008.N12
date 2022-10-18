@@ -32,13 +32,13 @@
             this.Panel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.DurationLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.VolumeMeter = new Siticone.Desktop.UI.WinForms.SiticoneTrackBar();
+            this.MediaTitle = new IT008.N12_015.AnimateLabel();
             this.BtnNext10s = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnBack10s = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnNext = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnBack = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnPlay = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.TimeStamp = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.MediaTitle = new IT008.N12_015.AnimateLabel();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,9 @@
             this.TrackBar.TabIndex = 10;
             this.TrackBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.TrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TrackBar_Scroll);
+            this.TrackBar.MouseLeave += new System.EventHandler(this.TrackBar_MouseLeave);
+            this.TrackBar.MouseHover += new System.EventHandler(this.TrackBar_MouseHover);
+            this.TrackBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TrackBar_MouseMove);
             // 
             // Panel
             // 
@@ -105,6 +108,19 @@
             this.VolumeMeter.TabIndex = 6;
             this.VolumeMeter.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.VolumeMeter.Scroll += new System.Windows.Forms.ScrollEventHandler(this.VolumeMeter_Scroll);
+            // 
+            // MediaTitle
+            // 
+            this.MediaTitle.BackColor = System.Drawing.Color.Transparent;
+            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.MediaTitle.Location = new System.Drawing.Point(280, 28);
+            this.MediaTitle.Name = "MediaTitle";
+            this.MediaTitle.Size = new System.Drawing.Size(360, 40);
+            this.MediaTitle.Slide = true;
+            this.MediaTitle.SlideTime = 15;
+            this.MediaTitle.TabIndex = 5;
+            this.MediaTitle.Text = "MediaTitle";
             // 
             // BtnNext10s
             // 
@@ -268,19 +284,6 @@
             this.TimeStamp.TabIndex = 8;
             this.TimeStamp.Text = "xx:yy";
             this.TimeStamp.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // MediaTitle
-            // 
-            this.MediaTitle.BackColor = System.Drawing.Color.Transparent;
-            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.MediaTitle.Location = new System.Drawing.Point(280, 28);
-            this.MediaTitle.Name = "MediaTitle";
-            this.MediaTitle.Size = new System.Drawing.Size(360, 40);
-            this.MediaTitle.Slide = true;
-            this.MediaTitle.SlideTime = 15;
-            this.MediaTitle.TabIndex = 5;
-            this.MediaTitle.Text = "MediaTitle";
             // 
             // MediaController
             // 
