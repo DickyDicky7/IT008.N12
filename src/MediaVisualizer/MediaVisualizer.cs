@@ -18,7 +18,7 @@ namespace IT008.N12_015
         {
             InitializeComponent();
 
-            MediaTitle.ForeColor = Common._1D3557_;
+            MediaTitle.ForeColor = Common.Black;
             MediaTitle.Text = "♫♫♫ Waiting... ♪♪♪";
 
             ColorTransitionB.ColorArray = new string[]
@@ -104,12 +104,11 @@ namespace IT008.N12_015
                     MediaTitle.Text = "   " + Common.GetTitle(MediaURL);
                     MediaArtist.Text = Common.GetPerformers(MediaURL);
 
-                    foreach (Label Label in Controls.OfType<Label>())
-                    {
-                        FluentTransitions.Transition
-                        .With(Label, nameof(ForeColor), Common._1D3557_)
-                        .EaseInEaseOut(TimeSpan.FromSeconds(1));
-                    }
+                    FluentTransitions.Transition
+                    .With(MediaStatus, nameof(ForeColor), Common.LightRed)
+                    .With(MediaTitle, nameof(ForeColor), Common.Black)
+                    .With(MediaArtist, nameof(ForeColor), Common.Black)
+                    .EaseInEaseOut(TimeSpan.FromSeconds(1));
                 }));
             }
         }

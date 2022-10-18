@@ -37,6 +37,7 @@
             this.BtnNext = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnBack = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnPlay = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.TimeStamp = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.MediaTitle = new IT008.N12_015.AnimateLabel();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
@@ -255,6 +256,19 @@
             this.BtnPlay.TabIndex = 0;
             this.BtnPlay.Click += new System.EventHandler(this.BtnPlay_Click);
             // 
+            // TimeStamp
+            // 
+            this.TimeStamp.AutoSize = false;
+            this.TimeStamp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.TimeStamp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeStamp.ForeColor = System.Drawing.Color.White;
+            this.TimeStamp.Location = new System.Drawing.Point(0, 0);
+            this.TimeStamp.Name = "TimeStamp";
+            this.TimeStamp.Size = new System.Drawing.Size(60, 18);
+            this.TimeStamp.TabIndex = 8;
+            this.TimeStamp.Text = "xx:yy";
+            this.TimeStamp.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MediaTitle
             // 
             this.MediaTitle.BackColor = System.Drawing.Color.Transparent;
@@ -273,6 +287,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.TimeStamp);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.TrackBar);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -295,5 +310,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton BtnPlay;
         private Siticone.Desktop.UI.WinForms.SiticoneTrackBar VolumeMeter;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel DurationLabel;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel TimeStamp;
     }
 }

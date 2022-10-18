@@ -72,6 +72,7 @@ namespace IT008.N12_015
             this.Panel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Panel.CustomImages.Parent = this.Panel;
             this.Panel.DisabledState.Parent = this.Panel;
+            this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.FillColor = System.Drawing.Color.White;
             this.Panel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.Panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
@@ -86,7 +87,7 @@ namespace IT008.N12_015
             this.Panel.Name = "Panel";
             this.Panel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.Panel.ShadowDecoration.Parent = this.Panel;
-            this.Panel.Size = new System.Drawing.Size(300, 47);
+            this.Panel.Size = new System.Drawing.Size(400, 47);
             this.Panel.TabIndex = 3;
             this.Panel.Text = "Title goes here";
             this.Panel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -99,7 +100,7 @@ namespace IT008.N12_015
             this.ContextMenuStrip = this.Menu;
             this.Controls.Add(this.Panel);
             this.Name = "PlaylistItem";
-            this.Size = new System.Drawing.Size(420, 47);
+            this.Size = new System.Drawing.Size(400, 47);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);
             this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
