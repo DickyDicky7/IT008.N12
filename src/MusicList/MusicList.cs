@@ -66,9 +66,9 @@ namespace IT008.N12_015
         {
             foreach (Control c in mediaItemContainer.Controls)
             {
-                //c.Width = this.Width - c.Padding.Left - c.Padding.Right;
+                c.Width = this.Width - c.Padding.Left - c.Padding.Right;
 
-                c.BeginInvoke(new Action(() => c.Width = this.Width - c.Padding.Left - c.Padding.Right));
+                //c.BeginInvoke(new Action(() => c.Width = this.Width - c.Padding.Left - c.Padding.Right));
             }
         }
 
