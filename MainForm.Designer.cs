@@ -87,6 +87,7 @@
             this.mediaControllerFooter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.mediaControllerFooter.Location = new System.Drawing.Point(0, 490);
             this.mediaControllerFooter.Margin = new System.Windows.Forms.Padding(2);
+            this.mediaControllerFooter.MaximumSize = new System.Drawing.Size(1040, 150);
             this.mediaControllerFooter.Name = "mediaControllerFooter";
             this.mediaControllerFooter.ShadowDecoration.Parent = this.mediaControllerFooter;
             this.mediaControllerFooter.Size = new System.Drawing.Size(1040, 150);
@@ -100,8 +101,9 @@
             this.mediaController1.ForeColor = System.Drawing.Color.Transparent;
             this.mediaController1.Location = new System.Drawing.Point(0, 0);
             this.mediaController1.Margin = new System.Windows.Forms.Padding(2);
+            this.mediaController1.MaximumSize = new System.Drawing.Size(1000, 150);
             this.mediaController1.Name = "mediaController1";
-            this.mediaController1.Size = new System.Drawing.Size(1040, 150);
+            this.mediaController1.Size = new System.Drawing.Size(1000, 150);
             this.mediaController1.TabIndex = 0;
             // 
             // controlHeader
