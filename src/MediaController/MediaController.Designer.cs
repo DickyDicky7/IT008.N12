@@ -50,7 +50,7 @@
             this.TrackBar.FillColor = System.Drawing.Color.LightGray;
             this.TrackBar.HoverState.Parent = this.TrackBar;
             this.TrackBar.Location = new System.Drawing.Point(0, 0);
-            this.TrackBar.MaximumSize = new System.Drawing.Size(1040, 50);
+            this.TrackBar.MaximumSize = new System.Drawing.Size(3000, 50);
             this.TrackBar.Name = "TrackBar";
             this.TrackBar.Size = new System.Drawing.Size(1040, 50);
             this.TrackBar.TabIndex = 10;
@@ -78,7 +78,7 @@
             this.Panel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Panel.ForeColor = System.Drawing.Color.Transparent;
             this.Panel.Location = new System.Drawing.Point(0, 50);
-            this.Panel.MaximumSize = new System.Drawing.Size(1040, 100);
+            this.Panel.MaximumSize = new System.Drawing.Size(3000, 100);
             this.Panel.Name = "Panel";
             this.Panel.ShadowDecoration.Parent = this.Panel;
             this.Panel.Size = new System.Drawing.Size(1040, 100);
@@ -297,7 +297,7 @@
             this.Controls.Add(this.TrackBar);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Transparent;
-            this.MaximumSize = new System.Drawing.Size(1040, 150);
+            this.MaximumSize = new System.Drawing.Size(3000, 150);
             this.Name = "MediaController";
             this.Size = new System.Drawing.Size(1040, 150);
             this.Panel.ResumeLayout(false);
