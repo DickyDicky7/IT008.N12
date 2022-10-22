@@ -85,9 +85,9 @@
             this.mediaControllerFooter.CustomBorderThickness = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.mediaControllerFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mediaControllerFooter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            this.mediaControllerFooter.Location = new System.Drawing.Point(0, 603);
-            this.mediaControllerFooter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mediaControllerFooter.MaximumSize = new System.Drawing.Size(1387, 185);
+            this.mediaControllerFooter.Location = new System.Drawing.Point(0, 490);
+            this.mediaControllerFooter.Margin = new System.Windows.Forms.Padding(2);
+            this.mediaControllerFooter.MaximumSize = new System.Drawing.Size(3000, 150);
             this.mediaControllerFooter.Name = "mediaControllerFooter";
             this.mediaControllerFooter.ShadowDecoration.Parent = this.mediaControllerFooter;
             this.mediaControllerFooter.Size = new System.Drawing.Size(1387, 185);
@@ -621,10 +621,10 @@
             // musicList1
             // 
             this.musicList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.musicList1.Location = new System.Drawing.Point(0, 154);
-            this.musicList1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.musicList1.Location = new System.Drawing.Point(0, 125);
+            this.musicList1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.musicList1.Name = "musicList1";
-            this.musicList1.Size = new System.Drawing.Size(1169, 403);
+            this.musicList1.Size = new System.Drawing.Size(822, 326);
             this.musicList1.TabIndex = 2;
             // 
             // mediaController1
@@ -634,10 +634,10 @@
             this.mediaController1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mediaController1.ForeColor = System.Drawing.Color.Transparent;
             this.mediaController1.Location = new System.Drawing.Point(0, 0);
-            this.mediaController1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mediaController1.MaximumSize = new System.Drawing.Size(1333, 185);
+            this.mediaController1.Margin = new System.Windows.Forms.Padding(2);
+            this.mediaController1.MaximumSize = new System.Drawing.Size(3000, 150);
             this.mediaController1.Name = "mediaController1";
-            this.mediaController1.Size = new System.Drawing.Size(1333, 185);
+            this.mediaController1.Size = new System.Drawing.Size(1040, 150);
             this.mediaController1.TabIndex = 0;
             // 
             // form
