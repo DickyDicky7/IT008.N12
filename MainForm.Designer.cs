@@ -112,7 +112,7 @@
             this.controlHeader.Controls.Add(this.maximizeControlBox);
             this.controlHeader.CustomBorderColor = System.Drawing.Color.White;
             this.controlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.controlHeader.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.controlHeader.FillColor = System.Drawing.Color.White;
             this.controlHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.controlHeader.Location = new System.Drawing.Point(0, 0);
             this.controlHeader.Margin = new System.Windows.Forms.Padding(2);
@@ -125,7 +125,7 @@
             // 
             this.nameContainer.CustomBorderColor = System.Drawing.Color.White;
             this.nameContainer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.nameContainer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.nameContainer.FillColor = System.Drawing.Color.White;
             this.nameContainer.Location = new System.Drawing.Point(0, 0);
             this.nameContainer.Margin = new System.Windows.Forms.Padding(2);
             this.nameContainer.Name = "nameContainer";

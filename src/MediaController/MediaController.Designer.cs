@@ -44,7 +44,7 @@
             // 
             // TrackBar
             // 
-            this.TrackBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.TrackBar.BackColor = System.Drawing.Color.White;
             this.TrackBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TrackBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.TrackBar.FillColor = System.Drawing.Color.LightGray;
@@ -289,7 +289,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.TimeStamp);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.TrackBar);
