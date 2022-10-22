@@ -153,7 +153,7 @@ namespace IT008.N12_015
                 for(int i = 0;i<siticoneTabControl1.TabPages.Count;i++)
                 {
                     siticoneTabControl1.TabPages[i].Text = list[i];
-                }
+                }   
             }
             nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
             musicList1.Width = tabPage1.Width;
