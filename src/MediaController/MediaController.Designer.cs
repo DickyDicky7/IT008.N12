@@ -72,7 +72,7 @@
             this.Panel.Controls.Add(this.BtnBack);
             this.Panel.Controls.Add(this.BtnPlay);
             this.Panel.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.FillColor = System.Drawing.Color.Transparent;
             this.Panel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Panel.ForeColor = System.Drawing.Color.Transparent;
