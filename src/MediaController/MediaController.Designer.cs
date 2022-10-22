@@ -90,7 +90,7 @@
             this.DurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.DurationLabel.Location = new System.Drawing.Point(655, 40);
             this.DurationLabel.Name = "DurationLabel";
-            this.DurationLabel.Size = new System.Drawing.Size(70, 20);
+            this.DurationLabel.Size = new System.Drawing.Size(100, 20);
             this.DurationLabel.TabIndex = 7;
             this.DurationLabel.Text = "xx:yy";
             this.DurationLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,7 +101,7 @@
             this.VolumeMeter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.VolumeMeter.FillColor = System.Drawing.Color.LightGray;
             this.VolumeMeter.HoverState.Parent = this.VolumeMeter;
-            this.VolumeMeter.Location = new System.Drawing.Point(740, 40);
+            this.VolumeMeter.Location = new System.Drawing.Point(770, 40);
             this.VolumeMeter.Name = "VolumeMeter";
             this.VolumeMeter.Size = new System.Drawing.Size(100, 20);
             this.VolumeMeter.Style = Siticone.Desktop.UI.WinForms.Enums.TrackBarStyle.Metro;
