@@ -13,6 +13,21 @@ namespace IT008.N12_015
 {
     public partial class MediaItem : UserControl
     {
+
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        #endregion
+
         private TimeSpan StripMilliseconds(TimeSpan time)
         {
             if(time.Hours == 0)
@@ -234,6 +249,12 @@ namespace IT008.N12_015
             }
             ClickedItem = this;
             MediaController.LoadMedia(URL);
+        }
+
+        private void MediaItem_Load(object sender, EventArgs e)
+        {
+            Common.SetDoubleBuffered(inforPanel);
+            Common.SetDoubleBuffered(containerPanel);
         }
     }
 }

@@ -106,6 +106,13 @@ namespace IT008.N12_015
             await Task.Delay(timeout).ConfigureAwait(false);
             action();
         }
+        public static void SetDoubleBuffered(System.Windows.Forms.Control c)
+        {
+            if (System.Windows.Forms.SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(System.Windows.Forms.Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
 
         #region Rounded_corner
         public enum DWMWINDOWATTRIBUTE

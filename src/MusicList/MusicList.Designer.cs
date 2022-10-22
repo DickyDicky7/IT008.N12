@@ -50,6 +50,7 @@
             this.Controls.Add(this.mediaItemContainer);
             this.Name = "MusicList";
             this.Size = new System.Drawing.Size(525, 450);
+            this.Load += new System.EventHandler(this.MusicList_Load);
             this.Resize += new System.EventHandler(this.mediaItemContainer_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
