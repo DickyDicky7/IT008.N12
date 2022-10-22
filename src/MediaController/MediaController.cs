@@ -29,6 +29,10 @@ namespace IT008.N12_015
 
             Player.settings.volume = VolumeMeter.Value;
 
+            TimeStamp.Hide();
+            TimeStamp.BackColor = Common.Black;
+            TimeStamp.ForeColor = Common.Black;
+
             Load += new EventHandler(MediaController_Load);
 
             #region Testing
@@ -72,6 +76,8 @@ namespace IT008.N12_015
             TrackBar.Maximum = Common.GetDurationInSeconds(URL);
             MediaTitle.Text = Common.GetTitle(URL);
 
+            BtnPlay.Image = global::IT008.N12_015.Properties.Resources.pause;
+
             // OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
@@ -98,7 +104,8 @@ namespace IT008.N12_015
                 if (Player.controls.currentPosition == 0)
                 {
                     MessageBox.Show("Media Ended", "Info");
-                    BtnPlay.Text = "PLAY";
+                    //BtnPlay.Text = "PLAY";
+                    BtnPlay.Image = global::IT008.N12_015.Properties.Resources.play;
                 }
             }
             else
@@ -123,7 +130,7 @@ namespace IT008.N12_015
             try
             {
                 //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
-                
+
                 if (Player.controls.currentPosition < TrackBar.Minimum
                  || Player.controls.currentPosition > TrackBar.Maximum)
                     //TrackBar.Value = 0;
@@ -141,16 +148,16 @@ namespace IT008.N12_015
                 TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
                 int Minutes = (int)(timeSpan.TotalSeconds / 60);
                 int Seconds = (int)(timeSpan.TotalSeconds % 60);
-                string currentMediaTime = 
+                string currentMediaTime =
                 (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
-                + " : " + 
+                + " : " +
                 (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
                 //DurationLabel.Text = currentMediaTime;
                 DurationLabel.Invoke((MethodInvoker)delegate ()
                 {
 
                     //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
-                    
+
                     DurationLabel.Text = currentMediaTime;
                 });
             }
@@ -172,12 +179,49 @@ namespace IT008.N12_015
 
         private void TrackBar_Scroll(object sender, ScrollEventArgs e)
         {
-            Player.controls.currentPosition = TrackBar.Value;
+            if (Player.currentMedia != null)
+                Player.controls.currentPosition = TrackBar.Value;
         }
 
         private void VolumeMeter_Scroll(object sender, ScrollEventArgs e)
         {
             Player.settings.volume = VolumeMeter.Value;
+        }
+
+        private void TrackBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            float Time = (float)TrackBar.Maximum / (float)TrackBar.Size.Width;
+            TimeSpan timeSpan =
+            TimeSpan.FromSeconds(Time * (e.X - (TimeStamp.Size.Width / 2)) + 7);
+            int Minutes = (int)(timeSpan.TotalSeconds / 60);
+            int Seconds = (int)(timeSpan.TotalSeconds % 60);
+            string currentTimeStamp =
+            (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
+            + " : " +
+            (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
+
+            TimeStamp.Location = new Point
+            (e.X - (TimeStamp.Size.Width / 2), 0);
+            TimeStamp.Text = currentTimeStamp;
+        }
+
+        private void TrackBar_MouseHover(object sender, EventArgs e)
+        {
+            TimeStamp.Show();
+            FluentTransitions.Transition
+            .With(TimeStamp, "BackColor", Common.LightRed)
+            .With(TimeStamp, "ForeColor", Common.White)
+            .Decelerate(TimeSpan.FromSeconds(0.3));
+        }
+
+        private async void TrackBar_MouseLeave(object sender, EventArgs e)
+        {
+            FluentTransitions.Transition
+            .With(TimeStamp, "BackColor", Common.Black)
+            .With(TimeStamp, "ForeColor", Common.Black)
+            .Decelerate(TimeSpan.FromSeconds(0.3));
+            await Task.Delay(TimeSpan.FromSeconds(0.3));
+            TimeStamp.Hide();
         }
 
         public void Stop()

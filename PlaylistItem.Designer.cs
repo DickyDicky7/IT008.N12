@@ -33,12 +33,8 @@ namespace IT008.N12_015
         {
             this.Menu = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.renamePlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.Panel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.PictureBox = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.Panel = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.Menu.SuspendLayout();
-            this.Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu
@@ -65,42 +61,36 @@ namespace IT008.N12_015
             this.renamePlaylistToolStripMenuItem.Text = "Rename Playlist";
             this.renamePlaylistToolStripMenuItem.Click += new System.EventHandler(this.renamePlaylist);
             // 
-            // Label
-            // 
-            this.Label.BackColor = System.Drawing.Color.Transparent;
-            this.Label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
-            this.Label.Location = new System.Drawing.Point(90, 12);
-            this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(132, 27);
-            this.Label.TabIndex = 1;
-            this.Label.Text = "Title goes here";
-            this.Label.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Panel
             // 
-            this.Panel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.Panel.Animated = true;
+            this.Panel.BackColor = System.Drawing.Color.White;
+            this.Panel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Panel.BorderRadius = 10;
             this.Panel.BorderThickness = 1;
-            this.Panel.Controls.Add(this.PictureBox);
-            this.Panel.Controls.Add(this.Label);
+            this.Panel.CheckedState.Parent = this.Panel;
+            this.Panel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Panel.CustomImages.Parent = this.Panel;
+            this.Panel.DisabledState.Parent = this.Panel;
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel.FillColor = System.Drawing.Color.White;
+            this.Panel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.Panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.Panel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.Panel.HoverState.FillColor = System.Drawing.Color.LightGray;
+            this.Panel.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.Panel.HoverState.Parent = this.Panel;
+            this.Panel.Image = global::IT008.N12_015.Properties.Resources.icons8_music_library_64;
+            this.Panel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Panel.ImageSize = new System.Drawing.Size(30, 30);
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
+            this.Panel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.Panel.ShadowDecoration.Parent = this.Panel;
-            this.Panel.Size = new System.Drawing.Size(500, 47);
+            this.Panel.Size = new System.Drawing.Size(400, 47);
             this.Panel.TabIndex = 3;
-            // 
-            // PictureBox
-            // 
-            this.PictureBox.ImageRotate = 0F;
-            this.PictureBox.Location = new System.Drawing.Point(20, 4);
-            this.PictureBox.Name = "PictureBox";
-            this.PictureBox.ShadowDecoration.Parent = this.PictureBox;
-            this.PictureBox.Size = new System.Drawing.Size(42, 39);
-            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox.TabIndex = 2;
-            this.PictureBox.TabStop = false;
+            this.Panel.Text = "Title goes here";
+            this.Panel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // PlaylistItem
             // 
@@ -110,12 +100,9 @@ namespace IT008.N12_015
             this.ContextMenuStrip = this.Menu;
             this.Controls.Add(this.Panel);
             this.Name = "PlaylistItem";
-            this.Size = new System.Drawing.Size(500, 47);
+            this.Size = new System.Drawing.Size(400, 47);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);
             this.Menu.ResumeLayout(false);
-            this.Panel.ResumeLayout(false);
-            this.Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -123,8 +110,6 @@ namespace IT008.N12_015
         #endregion
         private Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem renamePlaylistToolStripMenuItem;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Label;
-        private Siticone.Desktop.UI.WinForms.SiticonePanel Panel;
-        private Siticone.Desktop.UI.WinForms.SiticonePictureBox PictureBox;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton Panel;
     }
 }

@@ -28,7 +28,7 @@ namespace IT008.N12_015
         public String Title
         {
             get { return _title; }
-            set { _title = value; Label.Text = value; }
+            set { _title = value; Panel.Text = value; }
         }
 
         public Image Thumbnail
@@ -59,7 +59,7 @@ namespace IT008.N12_015
             this.URL = URL;
             InitializePlaylistItem(URL);
 
-            PictureBox.Image = Properties.Resources.icons8_music_library_64;
+            //PictureBox.Image = Properties.Resources.icons8_music_library_64;
 
 
 
@@ -79,7 +79,7 @@ namespace IT008.N12_015
             .Select(Path => $"{Common.MusicFolder}{Path.Substring(2)}")
             .ToList();
 
-            Label.Text = Playlist.Title;
+            Panel.Text = Playlist.Title;
 
             Stream.Dispose();
         }
@@ -89,7 +89,7 @@ namespace IT008.N12_015
 
         public void CreatePlaylistObject()
         {
-            playlistName = Label.Text;
+            playlistName = Panel.Text;
             string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
             playlistPath = $"{musicPath}\\Playlists\\{playlistName}.wpl";
         }
@@ -114,7 +114,7 @@ namespace IT008.N12_015
 
         private void PlayList_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void titleLB_TextChanged(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace IT008.N12_015
 
         public void renamePlaylist(object sender, EventArgs e)
         {
-            Label.Text = InputBox();
+            Panel.Text = InputBox();
 
             Stream stream = new MemoryStream();         // đổi tên playlist
             stream = File.OpenRead(URL);
@@ -132,7 +132,7 @@ namespace IT008.N12_015
             WplPlaylist playlist = content.GetFromStream(stream);
             //playlist.Title.ReplaceWith = Label.Text;
 
-            playlist.FileName = Label.Text;
+            playlist.FileName = Panel.Text;
         }
 
         public static string InputBox() // tạo dialog để nhập tên
@@ -173,6 +173,36 @@ namespace IT008.N12_015
 
             DialogResult dialogResult = form.ShowDialog();
             return dialogResult == DialogResult.OK ? textBox.Text : "";
+        }
+
+        public new event MouseEventHandler MouseClick
+        {
+            add
+            {
+                base.MouseClick += value;
+                void Recursive(Control control, MouseEventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.MouseClick += e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
+            remove
+            {
+                base.MouseClick -= value;
+                void Recursive(Control control, MouseEventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.MouseClick -= e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
         }
     }
 }

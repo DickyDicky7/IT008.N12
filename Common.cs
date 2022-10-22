@@ -134,30 +134,15 @@ namespace IT008.N12_015
 
         public const int WINDOW11_BUILD_NUMBER = 22000;
 
-        /// <summary>
-        /// Darker Blue
-        /// </summary>
-        public static Color _1D3557_ { get; } = ColorTranslator.FromHtml("#1D3557");
+        public static Color Black { get; } = ColorTranslator.FromHtml("#161A1D");
 
-        /// <summary>
-        /// Blue
-        /// </summary>
-        public static Color _457B9D_ { get; } = ColorTranslator.FromHtml("#457B9D");
+        public static Color White { get; } = ColorTranslator.FromHtml("#FFFFFF");
 
-        /// <summary>
-        /// Lighter Blue
-        /// </summary>
-        public static Color _A8DADC_ { get; } = ColorTranslator.FromHtml("#A8DADC");
+        public static Color LightRed { get; } = ColorTranslator.FromHtml("#BA181B");
 
-        /// <summary>
-        /// White
-        /// </summary>
-        public static Color _F1FAEE_ { get; } = ColorTranslator.FromHtml("#F1FAEE");
+        public static Color DarkRed { get; } = ColorTranslator.FromHtml("#660708");
 
-        /// <summary>
-        /// Red
-        /// </summary>
-        public static Color _E63946_ { get; } = ColorTranslator.FromHtml("#E63946");
+        public static Color Gray { get; } = ColorTranslator.FromHtml("#D3D3D3");
 
         /// <summary>
         /// Music Folder's path: %HOMEPATH%\Music 

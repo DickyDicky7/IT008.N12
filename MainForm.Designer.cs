@@ -563,6 +563,7 @@
             // 
             // borderlessForm
             // 
+            this.borderlessForm.AnimateWindow = true;
             this.borderlessForm.ContainerControl = this;
             this.borderlessForm.DockForm = false;
             this.borderlessForm.DockIndicatorColor = System.Drawing.SystemColors.Window;
