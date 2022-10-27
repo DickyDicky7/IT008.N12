@@ -30,8 +30,8 @@ namespace IT008.N12_015
             Player.settings.volume = VolumeMeter.Value;
 
             TimeStamp.Hide();
-            TimeStamp.BackColor = Common.Black;
-            TimeStamp.ForeColor = Common.Black;
+            TimeStamp.BackColor = Common.White;
+            TimeStamp.ForeColor = Common.White;
 
             Load += new EventHandler(MediaController_Load);
 
@@ -217,8 +217,8 @@ namespace IT008.N12_015
         private async void TrackBar_MouseLeave(object sender, EventArgs e)
         {
             FluentTransitions.Transition
-            .With(TimeStamp, "BackColor", Common.Black)
-            .With(TimeStamp, "ForeColor", Common.Black)
+            .With(TimeStamp, "BackColor", Common.White)
+            .With(TimeStamp, "ForeColor", Common.White)
             .Decelerate(TimeSpan.FromSeconds(0.3));
             await Task.Delay(TimeSpan.FromSeconds(0.3));
             TimeStamp.Hide();
