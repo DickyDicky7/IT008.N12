@@ -26,7 +26,7 @@ namespace IT008.N12_015
             //Responsive();
             this.SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.SupportsTransparentBackColor, true);
 
-            //Load += new EventHandler(form_Load(args));
+            Load += new EventHandler(form_Load(args));
 
             //#region Tuan Anh Testing
 
@@ -59,22 +59,21 @@ namespace IT008.N12_015
             //#endregion
         }
 
-        /// <summary>
-        /// Cần dùng sau này!
-        /// </summary>
-        //private Action<object, EventArgs> form_Load(string[] args)
-        //{
-        //    Action<object, EventArgs> LoadHandler = new
-        //    Action<object, EventArgs>((sender, e) =>
-        //    {
-        //        if (args.Length != 0)
-        //        {
-        //            MessageBox.Show(args[0], "File");
-        //            MediaController.LoadMedia(args[0]);
-        //        }
-        //    });
-        //    return LoadHandler;
-        //}
+        private Action<object, EventArgs> form_Load(string[] args)
+        {
+            Action<object, EventArgs> LoadHandler = new
+            Action<object, EventArgs>((sender, e) =>
+            {
+                if (args.Length != 0)
+                {
+                    //MessageBox.Show(args[0], "File");
+                    //MediaController.LoadMedia(args[0]);
+                    mediaController.LoadMedia(args[0]);
+                }
+            });
+            return LoadHandler;
+        }
+
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
         }
@@ -85,7 +84,7 @@ namespace IT008.N12_015
             Common.RoundedCorner(this.sortByMenu);
             this.shuffleAndPlayBtn.AutoSize = true;
             this.sortBtn.AutoSize = true;
-            MediaItem.MediaController = mediaController1;
+            MediaItem.MediaController = mediaController;
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
                 if(Directory.Exists(URL))
