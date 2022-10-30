@@ -78,7 +78,7 @@ namespace IT008.N12_015
 
             BtnPlay.Image = global::IT008.N12_015.Properties.Resources.pause;
 
-            // OnLoadMedia(URL); // Đừng xóa dòng này
+            OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
@@ -233,6 +233,11 @@ namespace IT008.N12_015
         public void LoadPlaylist(string PlaylistName, string PlaylistPath)
         {
             MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
+        }
+
+        public static void CreatePlaylist()
+        {
+
         }
 
         private static readonly WMPLib.WindowsMediaPlayer Player

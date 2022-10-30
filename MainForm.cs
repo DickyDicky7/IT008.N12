@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Siticone.Desktop.UI.WinForms;
+using IT008.N12_015.src.InputForm;
 
 namespace IT008.N12_015
 {
@@ -29,7 +30,9 @@ namespace IT008.N12_015
             Load += new EventHandler(form_Load(args));
 
             #region Tuan Anh Testing
-
+            var f = new InputForm();
+            //this.Controls.Add(f);
+            f.Show();
             //var sci = new SoundCloudIntegration();
             //siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
 
@@ -50,7 +53,7 @@ namespace IT008.N12_015
             ////this.TransparencyKey = Color.White;
             ////this.Opacity = 100;
             //////tabPage4.BackColor = Color.Transparent;
-
+            mediaVisualizer1.InteractMediaController(mediaController);
             ////Form a = new Form();
             ////a.BackColor = Color.Black;
             ////a.TransparencyKey = Color.Black;
