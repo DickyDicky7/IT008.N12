@@ -30,7 +30,7 @@ namespace IT008.N12_015
             Load += new EventHandler(form_Load(args));
 
             #region Tuan Anh Testing
-            var f = new InputForm();
+            var f = new InputForm("My title");
             //this.Controls.Add(f);
             f.Show();
             //var sci = new SoundCloudIntegration();
