@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form));
             this.mediaControllerFooter = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.mediaController = new IT008.N12_015.MediaController();
             this.controlHeader = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.nameContainer = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.minimizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
@@ -39,7 +38,6 @@
             this.maximizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.musicList1 = new IT008.N12_015.MusicList();
             this.musicHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.shuffleAndPlayBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.sortBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -66,11 +64,15 @@
             this.albumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.genreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlBorder = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.musicList1 = new IT008.N12_015.MusicList();
+            this.mediaController = new IT008.N12_015.MediaController();
+            this.playlistsPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.siticoneTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.musicHeaderPanel.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.musicFolderContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
@@ -92,19 +94,6 @@
             this.mediaControllerFooter.ShadowDecoration.Parent = this.mediaControllerFooter;
             this.mediaControllerFooter.Size = new System.Drawing.Size(1040, 150);
             this.mediaControllerFooter.TabIndex = 0;
-            // 
-            // mediaController
-            // 
-            this.mediaController.BackColor = System.Drawing.Color.Transparent;
-            this.mediaController.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mediaController.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mediaController.ForeColor = System.Drawing.Color.Transparent;
-            this.mediaController.Location = new System.Drawing.Point(0, 0);
-            this.mediaController.Margin = new System.Windows.Forms.Padding(2);
-            this.mediaController.MaximumSize = new System.Drawing.Size(3000, 150);
-            this.mediaController.Name = "mediaController";
-            this.mediaController.Size = new System.Drawing.Size(1040, 150);
-            this.mediaController.TabIndex = 0;
             // 
             // controlHeader
             // 
@@ -249,15 +238,6 @@
             this.tabPage1.Size = new System.Drawing.Size(822, 451);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Music library";
-            // 
-            // musicList1
-            // 
-            this.musicList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.musicList1.Location = new System.Drawing.Point(0, 125);
-            this.musicList1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.musicList1.Name = "musicList1";
-            this.musicList1.Size = new System.Drawing.Size(822, 326);
-            this.musicList1.TabIndex = 2;
             // 
             // musicHeaderPanel
             // 
@@ -412,6 +392,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.playlistsPanel);
             this.tabPage4.ImageIndex = 1;
             this.tabPage4.Location = new System.Drawing.Point(214, 4);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
@@ -636,6 +617,38 @@
             this.tabControlBorder.Size = new System.Drawing.Size(0, 0);
             this.tabControlBorder.TabIndex = 4;
             // 
+            // musicList1
+            // 
+            this.musicList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.musicList1.Location = new System.Drawing.Point(0, 125);
+            this.musicList1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.musicList1.Name = "musicList1";
+            this.musicList1.Size = new System.Drawing.Size(822, 326);
+            this.musicList1.TabIndex = 2;
+            // 
+            // mediaController
+            // 
+            this.mediaController.BackColor = System.Drawing.Color.Transparent;
+            this.mediaController.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mediaController.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mediaController.ForeColor = System.Drawing.Color.Transparent;
+            this.mediaController.Location = new System.Drawing.Point(0, 0);
+            this.mediaController.Margin = new System.Windows.Forms.Padding(2);
+            this.mediaController.MaximumSize = new System.Drawing.Size(3000, 150);
+            this.mediaController.Name = "mediaController";
+            this.mediaController.Size = new System.Drawing.Size(1040, 150);
+            this.mediaController.TabIndex = 0;
+            // 
+            // playlistsPanel
+            // 
+            this.playlistsPanel.AutoScroll = true;
+            this.playlistsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playlistsPanel.Location = new System.Drawing.Point(0, 0);
+            this.playlistsPanel.Name = "playlistsPanel";
+            this.playlistsPanel.ShadowDecoration.Parent = this.playlistsPanel;
+            this.playlistsPanel.Size = new System.Drawing.Size(822, 451);
+            this.playlistsPanel.TabIndex = 0;
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,6 +674,7 @@
             this.tabPage1.ResumeLayout(false);
             this.musicHeaderPanel.ResumeLayout(false);
             this.musicHeaderPanel.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.musicFolderContainer.ResumeLayout(false);
             this.musicFolderContainer.PerformLayout();
@@ -709,6 +723,7 @@
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox1;
         private System.Windows.Forms.Label musicLocationLb;
         private Siticone.Desktop.UI.WinForms.SiticoneButton addMusicFolderSTBtn;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel playlistsPanel;
     }
 }
 

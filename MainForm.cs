@@ -28,22 +28,23 @@ namespace IT008.N12_015
 
             Load += new EventHandler(form_Load(args));
 
-            //#region Tuan Anh Testing
+            #region Tuan Anh Testing
 
             //var sci = new SoundCloudIntegration();
             //siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
 
-            //PlaylistItem.MediaController = mediaController1;
-            //PlaylistItem p1 = new PlaylistItem(
-            //    "C:\\Users\\User\\Music\\Playlists\\abc.wpl"
-            //    );
-            //PlaylistItem p2 = new PlaylistItem(
-            //    "C:\\Users\\User\\Music\\Playlists\\def.wpl"
-            //    );
-            //p1.Location = new Point(10, 10);
-            //p2.Location = new Point(10, 140);
-            //tabPage4.Controls.Add(p1);
-            //tabPage4.Controls.Add(p2);
+            PlaylistItem.MediaController = mediaController;
+            PlaylistItem p1 = new PlaylistItem(
+                "C:\\Users\\User\\Music\\Playlists\\abc.wpl"
+                );
+            PlaylistItem p2 = new PlaylistItem(
+                "C:\\Users\\User\\Music\\Playlists\\def.wpl"
+                );
+            p1.AdjacentOne = p2;
+            p1.Location = new Point(10, 10);
+            p2.Location = new Point(10, 60);
+            playlistsPanel.Controls.Add(p1);
+            playlistsPanel.Controls.Add(p2);
 
             ////this.BackColor = Color.White;
             ////this.TransparencyKey = Color.White;
@@ -56,7 +57,7 @@ namespace IT008.N12_015
             ////a.Opacity = 20;
             ////a.Show();
 
-            //#endregion
+            #endregion
         }
 
         private Action<object, EventArgs> form_Load(string[] args)

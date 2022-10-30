@@ -61,10 +61,17 @@ namespace IT008.N12_015
 
             //PictureBox.Image = Properties.Resources.icons8_music_library_64;
 
+            foreach (string Path in Paths)
+            {
+                MediaItem mediaItem = new MediaItem(Path);
+                mediaItem.Height = 30;
+                musicList.addMusic(mediaItem);
+            }
+            //MessageBox.Show(musicList.Size.Height.ToString());
 
-
-
-
+            this.Size = new Size(this.Size.Width, Panel.Size.Height);
+            musicList.Hide();
+            //this.BackColor = Color.Black;
         }
 
         public void InitializePlaylistItem(string URL)
@@ -81,6 +88,7 @@ namespace IT008.N12_015
 
             Panel.Text = Playlist.Title;
 
+            //Stream.Close();
             Stream.Dispose();
         }
 
@@ -107,6 +115,27 @@ namespace IT008.N12_015
             }
             else if (e.Button == MouseButtons.Left)
             {
+                if (IsExpanded)
+                {
+                    this.Size = new Size(this.Size.Width, Panel.Size.Height);
+                    if (AdjacentOne != null)
+                        AdjacentOne.Location = new Point
+                        (AdjacentOne.Location.X,
+                         AdjacentOne.Location.Y - musicList.Size.Height);
+                    musicList.Hide();
+                    IsExpanded = false;
+                }
+                else
+                {
+                    this.Size = new Size
+                    (this.Size.Width, Panel.Size.Height + musicList.Size.Height);
+                    if (AdjacentOne != null)
+                        AdjacentOne.Location = new Point
+                        (AdjacentOne.Location.X,
+                         AdjacentOne.Location.Y + musicList.Size.Height);
+                    musicList.Show();
+                    IsExpanded = true;
+                }
                 CreatePlaylistObject();
                 MediaController.LoadPlaylist(playlistName, playlistPath);
             }
@@ -114,7 +143,7 @@ namespace IT008.N12_015
 
         private void PlayList_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void titleLB_TextChanged(object sender, EventArgs e)
@@ -204,5 +233,9 @@ namespace IT008.N12_015
                 Recursive(this, value);
             }
         }
+
+        public PlaylistItem AdjacentOne = null;
+
+        private bool IsExpanded = false;
     }
 }
