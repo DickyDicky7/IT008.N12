@@ -22,7 +22,7 @@ namespace IT008.N12_015
             Common.RoundedCorner(this);
             settingPageInit();
             musicPageInit();
-            MediaItem test = new MediaItem("heloo","test","hello","test",new TimeSpan(0,0,0));
+            MediaItem test = new MediaItem("heloo", "test", "hello", "test", new TimeSpan(0, 0, 0));
             musicList1.addMusic(test);
             //Responsive();
             this.SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.SupportsTransparentBackColor, true);
@@ -30,6 +30,7 @@ namespace IT008.N12_015
             Load += new EventHandler(form_Load(args));
 
             #region Tuan Anh Testing
+
             var f = new InputForm("My title");
             //this.Controls.Add(f);
             f.Show();
@@ -59,6 +60,14 @@ namespace IT008.N12_015
             ////a.TransparencyKey = Color.Black;
             ////a.Opacity = 20;
             ////a.Show();
+
+            if (!File.Exists($"{Common.MusicFolder}\\Playlists\\hello.wpl"))
+                MediaController.CreatePlaylist("hello");
+
+            MediaController.AddToPlaylist
+            ("hello", $"{Common.MusicFolder}\\Waiting-For-You-MONO-Onionn.mp3");
+            MediaController.AddToPlaylist
+            ("hello", $"{Common.MusicFolder}\\Waiting.mp3");
 
             #endregion
         }
@@ -91,13 +100,13 @@ namespace IT008.N12_015
             MediaItem.MediaController = mediaController;
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
-                if(Directory.Exists(URL))
+                if (Directory.Exists(URL))
                     musicList1.addMusic(URL);
                 else
                 {
                     Properties.Settings.Default.musicFolder.Remove(URL);
                     Properties.Settings.Default.Save();
-                }    
+                }
             }
         }
         private void settingPageInit()
@@ -111,7 +120,7 @@ namespace IT008.N12_015
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
                 FolderLocation musicFolder = new FolderLocation(URL);
-                musicFolderPanel.Controls.Add(musicFolder);                
+                musicFolderPanel.Controls.Add(musicFolder);
             }
         }
         #endregion
@@ -125,7 +134,7 @@ namespace IT008.N12_015
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    if(Properties.Settings.Default.musicFolder.Contains(fbd.SelectedPath) == false)
+                    if (Properties.Settings.Default.musicFolder.Contains(fbd.SelectedPath) == false)
                     {
                         Properties.Settings.Default.musicFolder.Add(fbd.SelectedPath);
                         Properties.Settings.Default.Save();
@@ -142,10 +151,10 @@ namespace IT008.N12_015
         private void Responsive()
         {
             List<string> list = new List<string>() { "Music library", "Video library", "Play queue", "Playlists", "Settings", "SoundCloud" };
-            if(this.Width <= 1000)
+            if (this.Width <= 1000)
             {
                 siticoneTabControl1.TabButtonSize = new Size(55, 50);
-                foreach(TabPage tab in siticoneTabControl1.TabPages)
+                foreach (TabPage tab in siticoneTabControl1.TabPages)
                 {
                     tab.Text = "";
                 }
@@ -153,10 +162,10 @@ namespace IT008.N12_015
             else
             {
                 siticoneTabControl1.TabButtonSize = new Size(210, 50);
-                for(int i = 0;i<siticoneTabControl1.TabPages.Count;i++)
+                for (int i = 0; i < siticoneTabControl1.TabPages.Count; i++)
                 {
                     siticoneTabControl1.TabPages[i].Text = list[i];
-                }   
+                }
             }
             nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
             musicList1.Width = tabPage1.Width;
@@ -164,7 +173,7 @@ namespace IT008.N12_015
             {
                 c.BeginInvoke(new Action(() => c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100));
             }
-            tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width,0);
+            tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width, 0);
             tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
         }
 
@@ -176,7 +185,7 @@ namespace IT008.N12_015
 
         private void form_ResizeBegin(object sender, EventArgs e)
         {
-           //siticoneTabControl1.Visible = false;
+            //siticoneTabControl1.Visible = false;
             //Responsive();
         }
         private void form_Resize(object sender, EventArgs e)

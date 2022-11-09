@@ -1,9 +1,11 @@
 ﻿using System;
-using AxWMPLib;
+using System.IO;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using PlaylistsNET.Models;
+using PlaylistsNET.Content;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -235,9 +237,29 @@ namespace IT008.N12_015
             MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
         }
 
-        public static void CreatePlaylist()
+        public static void CreatePlaylist(string PlaylistName)
         {
+            Player.playlistCollection.newPlaylist(PlaylistName);
+        }
 
+        public static void AddToPlaylist(string PlaylistName, string TrackURL)
+        {
+            if (File.Exists($"{Common.MusicFolder}\\Playlists\\{PlaylistName}.wpl"))
+            {
+                Stream Stream = File.OpenRead
+                ($"{Common.MusicFolder}\\Playlists\\{PlaylistName}.wpl");
+
+                WplContent Content = new WplContent();
+                WplPlaylist Playlist = Content.GetFromStream(Stream);
+                Playlist.PlaylistEntries
+                .Add(new WplPlaylistEntry() { Path = TrackURL });
+                string NewContent = Content.ToText(Playlist);
+
+                Stream.Dispose();
+
+                File.WriteAllText
+                ($"{Common.MusicFolder}\\Playlists\\{PlaylistName}.wpl", NewContent);
+            }
         }
 
         private static readonly WMPLib.WindowsMediaPlayer Player
