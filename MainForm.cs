@@ -22,33 +22,35 @@ namespace IT008.N12_015
             Common.RoundedCorner(this);
             settingPageInit();
             musicPageInit();
+            playlistPageInit();
             MediaItem test = new MediaItem("heloo", "test", "hello", "test", new TimeSpan(0, 0, 0));
             musicList1.addMusic(test);
             //Responsive();
             this.SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.SupportsTransparentBackColor, true);
-
+            PlaylistItem.MediaController = mediaController;
+            MediaItem.f = this;
             Load += new EventHandler(form_Load(args));
-
+            visualizeContainer.Visible = false;
             #region Tuan Anh Testing
 
-            var f = new InputForm("My title");
+            //var f = new InputForm("My title");
             //this.Controls.Add(f);
-            f.Show();
+            //f.Show();
             //var sci = new SoundCloudIntegration();
             //siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
 
-            PlaylistItem.MediaController = mediaController;
-            PlaylistItem p1 = new PlaylistItem(
-                "C:\\Users\\User\\Music\\Playlists\\abc.wpl"
-                );
-            PlaylistItem p2 = new PlaylistItem(
-                "C:\\Users\\User\\Music\\Playlists\\def.wpl"
-                );
-            p1.AdjacentOne = p2;
-            p1.Location = new Point(10, 10);
-            p2.Location = new Point(10, 60);
-            playlistsPanel.Controls.Add(p1);
-            playlistsPanel.Controls.Add(p2);
+            //PlaylistItem.MediaController = mediaController;
+            //PlaylistItem p1 = new PlaylistItem(
+            //    "C:\\Users\\Admin\\Music\\Playlists\\hello.wpl"
+            //    );
+            //PlaylistItem p2 = new PlaylistItem(
+            //    "C:\\Users\\User\\Music\\Playlists\\def.wpl"
+            //    );
+            //p1.AdjacentOne = p2;
+            //p1.Location = new Point(10, 10);
+            //p2.Location = new Point(10, 60);
+            //playlistsPanel.Controls.Add(p1);
+            //playlistsPanel.Controls.Add(p2);
 
             ////this.BackColor = Color.White;
             ////this.TransparencyKey = Color.White;
@@ -61,13 +63,13 @@ namespace IT008.N12_015
             ////a.Opacity = 20;
             ////a.Show();
 
-            if (!File.Exists($"{Common.MusicFolder}\\Playlists\\hello.wpl"))
-                MediaController.CreatePlaylist("hello");
+            //if (!File.Exists($"{Common.MusicFolder}\\Playlists\\hello.wpl"))
+            //    MediaController.CreatePlaylist("hello");
 
-            MediaController.AddToPlaylist
-            ("hello", $"{Common.MusicFolder}\\Waiting-For-You-MONO-Onionn.mp3");
-            MediaController.AddToPlaylist
-            ("hello", $"{Common.MusicFolder}\\Waiting.mp3");
+            //MediaController.AddToPlaylist
+            //("hello", $"{Common.MusicFolder}\\Waiting-For-You-MONO-Onionn.mp3");
+            //MediaController.AddToPlaylist
+            //("hello", $"{Common.MusicFolder}\\Waiting.mp3");
 
             #endregion
         }
@@ -111,7 +113,7 @@ namespace IT008.N12_015
         }
         private void settingPageInit()
         {
-            string musicPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+            string musicPath = Common.MusicFolder;
             if (Properties.Settings.Default.musicFolder.Contains(musicPath) == false)
             {
                 Properties.Settings.Default.musicFolder.Add(musicPath);
@@ -122,6 +124,26 @@ namespace IT008.N12_015
                 FolderLocation musicFolder = new FolderLocation(URL);
                 musicFolderPanel.Controls.Add(musicFolder);
             }
+        }
+        private void playlistPageInit()
+        {
+            string playlistPath = Common.MusicFolder + "//Playlists";
+            var fileArray = Directory.GetFiles(Common.MusicFolder + "//Playlists", "*.wpl");
+            foreach (string file in fileArray)
+            {
+                PlaylistItem item = new PlaylistItem(file);
+                AddPlaylistToPanel(item);
+            }    
+        }
+        public void bringVisualizeToFront()
+        {
+            visualizeContainer.Visible = true;
+            visualizeContainer.BringToFront();
+        }
+        
+        public void AddPlaylistToPanel(Control c)
+        {
+            playlistsPanel.Controls.Add(c);
         }
         #endregion
 
@@ -249,5 +271,10 @@ namespace IT008.N12_015
         }
         #endregion
 
+        private void siticoneButton1_Click(object sender, EventArgs e)
+        {
+            siticoneTabControl1.BringToFront();
+            visualizeContainer.Visible = false;
+        }
     }
 }

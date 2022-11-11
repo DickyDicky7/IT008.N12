@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.IO;
 
 namespace IT008.N12_015.src.InputForm
 {
@@ -25,8 +26,9 @@ namespace IT008.N12_015.src.InputForm
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            Result = Title.Text;
+            Result = TextBox.Text;
             Close();
         }
+
     }
 }

@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.IO;
+using IT008.N12_015.src.InputForm;
 
 namespace IT008.N12_015
 {
@@ -143,32 +144,41 @@ namespace IT008.N12_015
         /// <param name="URL">Media Item's URL</param>
         private void InitializeMediaItem(string URL)
         {
+            try
+            {
+                TagLib.File file = TagLib.File.Create(URL);
+                var mStream = new MemoryStream();
+                var firstPicture = file.Tag.Pictures.FirstOrDefault();
+                if (firstPicture != null)
+                {
+                    byte[] pData = firstPicture.Data.Data;
+                    mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                    var bm = new Bitmap(mStream, false);
+                    mStream.Dispose();
+                    this.Thumbnail = bm;
+                }
+                else
+                {
+                    this.Thumbnail = Properties.Resources.mp3;
+                }
+                this.Genre = file.Tag.Genres.FirstOrDefault();
+                this.Title = file.Tag.Title;
+                this.Title = file.Tag.Title;
+                this.Artist = file.Tag.Performers.FirstOrDefault();
+                this.Album = file.Tag.Album;
+                this.Duration = StripMilliseconds(file.Properties.Duration);
+            }
             //this.Size = new System.Drawing.Size(1000, 50);
-            TagLib.File file = TagLib.File.Create(URL);
-            var mStream = new MemoryStream();
-            var firstPicture = file.Tag.Pictures.FirstOrDefault();
-            if (firstPicture != null)
+            catch
             {
-                byte[] pData = firstPicture.Data.Data;
-                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-                var bm = new Bitmap(mStream, false);
-                mStream.Dispose();
-                this.Thumbnail = bm;
+                
             }
-            else
-            {
-                this.Thumbnail = Properties.Resources.mp3;
-            }
-            this.Genre = file.Tag.Genres.FirstOrDefault();
-            this.Title = file.Tag.Title;
-            this.Title = file.Tag.Title;
-            this.Artist = file.Tag.Performers.FirstOrDefault();
-            this.Album = file.Tag.Album;
-            this.Duration = StripMilliseconds(file.Properties.Duration);
         }
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
+            f.bringVisualizeToFront();
+
             ChangeLabelColor(Color.FromArgb(186, 24, 27));
             if(ClickedItem != null && ClickedItem != this)
             {
@@ -221,7 +231,7 @@ namespace IT008.N12_015
                 Recursive(this, value);
             }
         }
-
+        public static form f { get; set; }
         public static MediaItem ClickedItem { get; set; }
         public static MediaController MediaController { get; set; }
 
@@ -253,8 +263,56 @@ namespace IT008.N12_015
 
         private void MediaItem_Load(object sender, EventArgs e)
         {
+            addPlaylistToMenu();
             Common.SetDoubleBuffered(inforPanel);
             Common.SetDoubleBuffered(containerPanel);
+        }
+        private void addPlaylistToMenu()
+        {
+            var fileArray = Directory.GetFiles(Common.MusicFolder + "//Playlists","*.wpl").Select(filename => Path.GetFileNameWithoutExtension(filename));
+            foreach (var file in fileArray)
+            {
+                ToolStripMenuItem playlist = new ToolStripMenuItem();
+                playlist.Text = file;
+                playlist.Click += addToPlaylist;
+                addToMenuItem.DropDownItems.Add(playlist);
+            }
+        }
+        public void addDeleteMenu()
+        {
+            ToolStripMenuItem delete = new ToolStripMenuItem();
+            delete.Text = "Remove";
+            delete.Name = "delete"; ;
+            delete.ForeColor = Color.FromArgb(22, 26, 29);
+            delete.Image = Properties.Resources.close;
+            delete.Click += (object sender, EventArgs e) => { this.Parent.Controls.Remove(this); } ;
+            contextMenu.Items.Add(delete);
+        }
+        private void addToPlaylist(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)(sender);
+            MediaController.AddToPlaylist(item.Text, URL);
+
+        }
+        private void newPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var inputForm = new InputForm("Nhập tên playlist");
+            inputForm.ShowDialog();
+
+            ToolStripMenuItem playlist = new ToolStripMenuItem();
+            playlist.Text = inputForm.Result;
+            playlist.Click += addToPlaylist;
+            addToMenuItem.DropDownItems.Add(playlist);
+            if (!File.Exists($"{Common.MusicFolder}\\Playlists\\" + inputForm.Result + ".wpl"))
+            {
+                MediaController.CreatePlaylist(inputForm.Result);
+                PlaylistItem item = new PlaylistItem($"{Common.MusicFolder}\\Playlists\\" + inputForm.Result + ".wpl");
+                MediaController.AddToPlaylist(inputForm.Result, URL);
+                f.AddPlaylistToPanel(item);
+            }
+            else
+                MessageBox.Show("Playlist da ton tai");
+
         }
     }
 }

@@ -169,6 +169,7 @@
             // contextMenu
             // 
             this.contextMenu.BackColor = System.Drawing.Color.White;
+            this.contextMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.contextMenu.ImageScalingSize = new System.Drawing.Size(15, 15);
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.playMenuItem,
@@ -225,6 +226,7 @@
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
             this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
+            this.newPlaylistToolStripMenuItem.Click += new System.EventHandler(this.newPlaylistToolStripMenuItem_Click);
             // 
             // propertiesMenuItem
             // 
@@ -242,7 +244,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ContextMenuStrip = this.contextMenu;
             this.Controls.Add(this.containerPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MediaItem";
             this.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Size = new System.Drawing.Size(1000, 50);

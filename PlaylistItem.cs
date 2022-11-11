@@ -65,10 +65,11 @@ namespace IT008.N12_015
             {
                 MediaItem mediaItem = new MediaItem(Path);
                 mediaItem.Height = 30;
+                mediaItem.addDeleteMenu();
                 musicList.addMusic(mediaItem);
             }
             //MessageBox.Show(musicList.Size.Height.ToString());
-
+            Common.RoundedCorner(Menu);
             this.Size = new Size(this.Size.Width, Panel.Size.Height);
             musicList.Hide();
             //this.BackColor = Color.Black;
@@ -83,7 +84,7 @@ namespace IT008.N12_015
             WplPlaylist Playlist = Content.GetFromStream(Stream);
 
             Paths = Playlist.GetTracksPaths()
-            .Select(Path => $"{Common.MusicFolder}{Path.Substring(2)}")
+            .Select(Path => $"{Path.Substring(2)}")
             .ToList();
 
             Panel.Text = Playlist.Title;
@@ -237,5 +238,16 @@ namespace IT008.N12_015
         public PlaylistItem AdjacentOne = null;
 
         private bool IsExpanded = false;
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                File.Delete(URL);
+            }
+            catch { }
+            this.Parent.Controls.Remove(this);
+            this.Dispose();
+        }
     }
 }
