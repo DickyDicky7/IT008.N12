@@ -65,7 +65,7 @@ namespace IT008.N12_015
 
         private void MediaVisualizer_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("ok ok ok");
+            //MessageBox.Show("ok ok ok");
             Visualizer.Start();
             Watcher.Start();
         }
