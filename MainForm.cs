@@ -30,7 +30,9 @@ namespace IT008.N12_015
             PlaylistItem.MediaController = mediaController;
             MediaItem.f = this;
             Load += new EventHandler(form_Load(args));
+            FormClosing += new FormClosingEventHandler(form_FormClosing);
             visualizeContainer.Visible = false;
+
             #region Tuan Anh Testing
 
             //var f = new InputForm("My title");
@@ -91,6 +93,7 @@ namespace IT008.N12_015
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
+            mediaVisualizer1.Stop();
         }
 
         #region Initialize
