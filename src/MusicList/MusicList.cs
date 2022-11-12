@@ -85,5 +85,10 @@ namespace IT008.N12_015
             Common.SetDoubleBuffered(mediaItemContainer);
         }
 
+        public void Clear()
+        {
+            mediaItems.Clear();
+            mediaItemContainer.Controls.Clear();
+        }
     }
 }

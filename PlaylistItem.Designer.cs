@@ -33,37 +33,47 @@ namespace IT008.N12_015
         {
             this.Menu = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.renamePlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.musicList = new IT008.N12_015.MusicList();
-            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // Menu
             // 
-            this.Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.Menu.BackColor = System.Drawing.Color.White;
+            this.Menu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Menu.ImageScalingSize = new System.Drawing.Size(15, 15);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.renamePlaylistToolStripMenuItem,
             this.removeToolStripMenuItem});
             this.Menu.Name = "Menu";
-            this.Menu.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Menu.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.Menu.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.Menu.RenderStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Menu.RenderStyle.ColorTable = null;
             this.Menu.RenderStyle.RoundedEdges = true;
             this.Menu.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.Menu.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.Menu.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Menu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.Menu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.Menu.RenderStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Menu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.Menu.Size = new System.Drawing.Size(211, 76);
+            this.Menu.Size = new System.Drawing.Size(122, 48);
             // 
             // renamePlaylistToolStripMenuItem
             // 
+            this.renamePlaylistToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.renamePlaylistToolStripMenuItem.Name = "renamePlaylistToolStripMenuItem";
-            this.renamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.renamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.renamePlaylistToolStripMenuItem.Text = "Rename";
             this.renamePlaylistToolStripMenuItem.Click += new System.EventHandler(this.renamePlaylist);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // Panel
             // 
@@ -88,11 +98,10 @@ namespace IT008.N12_015
             this.Panel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Panel.ImageSize = new System.Drawing.Size(30, 30);
             this.Panel.Location = new System.Drawing.Point(0, 0);
-            this.Panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Panel.Name = "Panel";
             this.Panel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.Panel.ShadowDecoration.Parent = this.Panel;
-            this.Panel.Size = new System.Drawing.Size(733, 58);
+            this.Panel.Size = new System.Drawing.Size(550, 47);
             this.Panel.TabIndex = 3;
             this.Panel.Text = "Title goes here";
             this.Panel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -100,30 +109,22 @@ namespace IT008.N12_015
             // musicList
             // 
             this.musicList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.musicList.Location = new System.Drawing.Point(0, 58);
-            this.musicList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.musicList.Location = new System.Drawing.Point(0, 47);
+            this.musicList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.musicList.Name = "musicList";
-            this.musicList.Size = new System.Drawing.Size(733, 311);
+            this.musicList.Size = new System.Drawing.Size(550, 253);
             this.musicList.TabIndex = 4;
-            // 
-            // removeToolStripMenuItem
-            // 
-            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.removeToolStripMenuItem.Text = "Remove";
-            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // PlaylistItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.ContextMenuStrip = this.Menu;
             this.Controls.Add(this.musicList);
             this.Controls.Add(this.Panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PlaylistItem";
-            this.Size = new System.Drawing.Size(733, 369);
+            this.Size = new System.Drawing.Size(550, 300);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);
             this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);

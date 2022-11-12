@@ -59,6 +59,7 @@ namespace IT008.N12_015
             ////this.Opacity = 100;
             //////tabPage4.BackColor = Color.Transparent;
             mediaVisualizer1.InteractMediaController(mediaController);
+            MediaController.form = this;
             ////Form a = new Form();
             ////a.BackColor = Color.Black;
             ////a.TransparencyKey = Color.Black;
@@ -130,24 +131,37 @@ namespace IT008.N12_015
         }
         private void playlistPageInit()
         {
-            string playlistPath = Common.MusicFolder + "//Playlists";
-            var fileArray = Directory.GetFiles(Common.MusicFolder + "//Playlists", "*.wpl");
+            var fileArray = Directory.GetFiles(Common.PlaylistsFolder, "*.wpl");
             foreach (string file in fileArray)
             {
                 PlaylistItem item = new PlaylistItem(file);
                 AddPlaylistToPanel(item);
-            }    
+            }
         }
         public void bringVisualizeToFront()
         {
             visualizeContainer.Visible = true;
             visualizeContainer.BringToFront();
         }
-        
+
         public void AddPlaylistToPanel(Control c)
         {
+            PlaylistItem Head =
+            playlistsPanel.Controls.OfType<PlaylistItem>().LastOrDefault();
+            if (Head != null)
+            {
+                //MessageBox.Show(Head.Name);
+                Head.AdjacentOne = (PlaylistItem)c;
+            }
             playlistsPanel.Controls.Add(c);
         }
+
+        public void UpdatePlaylistItem(string PlaylistURL)
+        {
+            ((PlaylistItem)playlistsPanel.Controls
+            .Find(PlaylistURL, false).FirstOrDefault()).Reset();
+        }
+
         #endregion
 
         #region Add_Music

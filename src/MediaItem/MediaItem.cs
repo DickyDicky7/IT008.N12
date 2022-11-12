@@ -298,7 +298,7 @@ namespace IT008.N12_015
         {
             var inputForm = new InputForm("Nhập tên playlist");
             inputForm.ShowDialog();
-
+            
             ToolStripMenuItem playlist = new ToolStripMenuItem();
             playlist.Text = inputForm.Result;
             playlist.Click += addToPlaylist;
@@ -307,8 +307,8 @@ namespace IT008.N12_015
             {
                 MediaController.CreatePlaylist(inputForm.Result);
                 PlaylistItem item = new PlaylistItem($"{Common.MusicFolder}\\Playlists\\" + inputForm.Result + ".wpl");
-                MediaController.AddToPlaylist(inputForm.Result, URL);
                 f.AddPlaylistToPanel(item);
+                MediaController.AddToPlaylist(inputForm.Result, URL);
             }
             else
                 MessageBox.Show("Playlist da ton tai");

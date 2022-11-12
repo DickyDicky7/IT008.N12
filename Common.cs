@@ -156,5 +156,11 @@ namespace IT008.N12_015
         /// </summary>
         public static string MusicFolder = 
         Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+
+        /// <summary>
+        /// Music Folder's path: %HOMEPATH%\Music\Playlists
+        /// </summary>
+        public static string PlaylistsFolder =
+        $"{MusicFolder}\\Playlists";
     }
 }

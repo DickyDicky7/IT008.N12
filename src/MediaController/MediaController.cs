@@ -244,10 +244,10 @@ namespace IT008.N12_015
 
         public static void AddToPlaylist(string PlaylistName, string TrackURL)
         {
-            if (File.Exists($"{Common.MusicFolder}\\Playlists\\{PlaylistName}.wpl"))
+            if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
             {
                 Stream Stream = File.OpenRead
-                ($"{Common.MusicFolder}\\Playlists\\{PlaylistName}.wpl");
+                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
 
                 WplContent Content = new WplContent();
                 WplPlaylist Playlist = Content.GetFromStream(Stream);
@@ -258,7 +258,33 @@ namespace IT008.N12_015
                 Stream.Dispose();
 
                 File.WriteAllText
-                ($"{Common.MusicFolder}\\Playlists\\{PlaylistName}.wpl", NewContent);
+                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+
+                form.UpdatePlaylistItem
+                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
+            }
+        }
+
+        public static void RemoveFromPlaylist(string PlaylistName, string TrackURL)
+        {
+            if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
+            {
+                Stream Stream = File.OpenRead
+                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
+
+                WplContent Content = new WplContent();
+                WplPlaylist Playlist = Content.GetFromStream(Stream);
+                Playlist.PlaylistEntries
+                .Remove(new WplPlaylistEntry() { Path = TrackURL });
+                string NewContent = Content.ToText(Playlist);
+
+                Stream.Dispose();
+
+                File.WriteAllText
+                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+
+                form.UpdatePlaylistItem
+                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
             }
         }
 
@@ -278,5 +304,7 @@ namespace IT008.N12_015
         /// Entry for a custom OnLoadMediaHandler
         /// </summary>
         public event OnLoadMediaHandler OnLoadMedia;
+
+        public static form form { get; set; }
     }
 }

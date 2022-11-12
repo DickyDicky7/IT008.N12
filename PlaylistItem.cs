@@ -57,6 +57,7 @@ namespace IT008.N12_015
         {
             InitializeComponent();
             this.URL = URL;
+            this.Name = URL;
             InitializePlaylistItem(URL);
 
             //PictureBox.Image = Properties.Resources.icons8_music_library_64;
@@ -71,6 +72,7 @@ namespace IT008.N12_015
             //MessageBox.Show(musicList.Size.Height.ToString());
             Common.RoundedCorner(Menu);
             this.Size = new Size(this.Size.Width, Panel.Size.Height);
+            musicList.test();
             musicList.Hide();
             //this.BackColor = Color.Black;
         }
@@ -106,6 +108,27 @@ namespace IT008.N12_015
         private void PlayList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void Reset()
+        {
+            musicList.Clear();
+            Paths.Clear();
+            InitializePlaylistItem(URL);
+            foreach (string Path in Paths)
+            {
+                MediaItem mediaItem = new MediaItem(Path);
+                mediaItem.Height = 30;
+                mediaItem.addDeleteMenu();
+                musicList.addMusic(mediaItem);
+            }
+            //MessageBox.Show(musicList.Size.Height.ToString());
+            Common.RoundedCorner(Menu);
+            this.Size = new Size(this.Size.Width, Panel.Size.Height);
+            musicList.test();
+            musicList.Hide();
+            //this.BackColor = Color.Black;
+            IsExpanded = false;
         }
 
         public void PlaylistItem_MouseClick(object sender, MouseEventArgs e)
