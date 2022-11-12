@@ -274,8 +274,13 @@ namespace IT008.N12_015
 
                 WplContent Content = new WplContent();
                 WplPlaylist Playlist = Content.GetFromStream(Stream);
-                Playlist.PlaylistEntries
-                .Remove(new WplPlaylistEntry() { Path = TrackURL });
+                int Index = Playlist.PlaylistEntries
+                .FindIndex((Item) =>
+                {
+                    return Item.Path == TrackURL;
+                });
+                if (Index >= 0)
+                    Playlist.PlaylistEntries.RemoveAt(Index);
                 string NewContent = Content.ToText(Playlist);
 
                 Stream.Dispose();

@@ -60,6 +60,8 @@ namespace IT008.N12_015
             //////tabPage4.BackColor = Color.Transparent;
             mediaVisualizer1.InteractMediaController(mediaController);
             MediaController.form = this;
+            MediaController
+            .RemoveFromPlaylist("a", "C:\\Users\\User\\Music\\Circus10529-VA-5631008.mp3");
             ////Form a = new Form();
             ////a.BackColor = Color.Black;
             ////a.TransparencyKey = Color.Black;
