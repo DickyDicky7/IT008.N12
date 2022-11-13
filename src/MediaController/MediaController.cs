@@ -234,7 +234,7 @@ namespace IT008.N12_015
 
         public void LoadPlaylist(string PlaylistName, string PlaylistPath)
         {
-            MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
+            //MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
         }
 
         public static void CreatePlaylist(string PlaylistName)

@@ -217,7 +217,8 @@ namespace IT008.N12_015
             musicList1.Width = tabPage1.Width;
             foreach (Control c in musicFolderPanel.Controls)
             {
-                c.BeginInvoke(new Action(() => c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100));
+                //c.BeginInvoke(new Action(() => c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100));
+                c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100;
             }
             tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width, 0);
             tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);

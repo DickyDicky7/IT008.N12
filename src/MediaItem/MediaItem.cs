@@ -31,7 +31,7 @@ namespace IT008.N12_015
 
         private TimeSpan StripMilliseconds(TimeSpan time)
         {
-            if(time.Hours == 0)
+            if (time.Hours == 0)
             {
                 return new TimeSpan(time.Hours, time.Minutes, time.Seconds);
             }
@@ -116,7 +116,7 @@ namespace IT008.N12_015
 
         public MediaItem()
         {
-            
+
         }
 
         public MediaItem(string title, string artist, string album, string genre, TimeSpan duration)
@@ -179,7 +179,7 @@ namespace IT008.N12_015
             //this.Size = new System.Drawing.Size(1000, 50);
             catch
             {
-                
+
             }
         }
 
@@ -188,7 +188,7 @@ namespace IT008.N12_015
             f.bringVisualizeToFront();
 
             ChangeLabelColor(Color.FromArgb(186, 24, 27));
-            if(ClickedItem != null && ClickedItem != this)
+            if (ClickedItem != null && ClickedItem != this)
             {
                 ClickedItem.ChangeLabelColor(Color.Black);
             }
@@ -243,16 +243,16 @@ namespace IT008.N12_015
         public static void addToAllMenu(string playlistName)
         {
             var items = GetInstances();
-            foreach(var item in items)
+            foreach (var item in items)
             {
                 item.addItemToMenu(playlistName);
             }
         }
 
-        public static void removeFromAllMenu (string playlistName)
+        public static void removeFromAllMenu(string playlistName)
         {
             var instances = GetInstances();
-            foreach( var item in instances)
+            foreach (var item in instances)
             {
                 item.removeItemFromMenu(playlistName);
             }
@@ -312,7 +312,7 @@ namespace IT008.N12_015
         }
 
 
-        
+
         private void MediaItem_Load(object sender, EventArgs e)
         {
             addPlaylistToMenu();
@@ -329,7 +329,7 @@ namespace IT008.N12_015
         }
         private void addPlaylistToMenu()
         {
-            var fileArray = Directory.GetFiles(Common.PlaylistsFolder,"*.wpl").Select(filename => Path.GetFileNameWithoutExtension(filename));
+            var fileArray = Directory.GetFiles(Common.PlaylistsFolder, "*.wpl").Select(filename => Path.GetFileNameWithoutExtension(filename));
             foreach (var file in fileArray)
             {
                 addItemToMenu(file);
@@ -342,7 +342,7 @@ namespace IT008.N12_015
             delete.Name = "delete"; ;
             delete.ForeColor = Color.FromArgb(22, 26, 29);
             delete.Image = Properties.Resources.close;
-            delete.Click += (object sender, EventArgs e) => { this.Parent.Controls.Remove(this); MessageBox.Show(this.PlayListName + " " + URL); MediaController.RemoveFromPlaylist(this.PlayListName, URL); } ;
+            delete.Click += (object sender, EventArgs e) => { this.Parent.Controls.Remove(this); MessageBox.Show(this.PlayListName + " " + URL); MediaController.RemoveFromPlaylist(this.PlayListName, URL); };
             contextMenu.Items.Add(delete);
         }
         private void addToPlaylist(object sender, EventArgs e)
@@ -355,12 +355,13 @@ namespace IT008.N12_015
         {
             var inputForm = new InputForm("Nhập tên playlist");
             inputForm.ShowDialog();
-            
+
             addToAllMenu(inputForm.Result);
-            if (!File.Exists(Common.PlaylistsFolder + inputForm.Result + ".wpl"))
-            {   
+            if (!File.Exists($"{Common.PlaylistsFolder}\\{inputForm.Result}.wpl"))
+            {
                 MediaController.CreatePlaylist(inputForm.Result);
-                PlaylistItem item = new PlaylistItem(Common.PlaylistsFolder + "//" + inputForm.Result + ".wpl");
+                PlaylistItem item =
+                new PlaylistItem($"{Common.PlaylistsFolder}\\{inputForm.Result}.wpl");
                 f.AddPlaylistToPanel(item);
                 MediaController.AddToPlaylist(inputForm.Result, URL);
             }
