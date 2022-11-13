@@ -68,8 +68,8 @@
             this.genreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlBorder = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.visualizeContainer = new System.Windows.Forms.Panel();
-            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.mediaVisualizer1 = new IT008.N12_015.MediaVisualizer();
+            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.siticoneTabControl1.SuspendLayout();
@@ -95,6 +95,7 @@
             this.mediaControllerFooter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mediaControllerFooter.MaximumSize = new System.Drawing.Size(4000, 185);
             this.mediaControllerFooter.Name = "mediaControllerFooter";
+            this.mediaControllerFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.mediaControllerFooter.ShadowDecoration.Parent = this.mediaControllerFooter;
             this.mediaControllerFooter.Size = new System.Drawing.Size(1387, 185);
             this.mediaControllerFooter.TabIndex = 0;
@@ -105,11 +106,11 @@
             this.mediaController.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mediaController.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mediaController.ForeColor = System.Drawing.Color.Transparent;
-            this.mediaController.Location = new System.Drawing.Point(0, 0);
+            this.mediaController.Location = new System.Drawing.Point(0, 1);
             this.mediaController.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mediaController.MaximumSize = new System.Drawing.Size(4000, 185);
             this.mediaController.Name = "mediaController";
-            this.mediaController.Size = new System.Drawing.Size(1387, 185);
+            this.mediaController.Size = new System.Drawing.Size(1387, 184);
             this.mediaController.TabIndex = 0;
             // 
             // controlHeader
@@ -385,12 +386,12 @@
             // 
             this.musicLabel.AutoSize = true;
             this.musicLabel.BackColor = System.Drawing.Color.White;
-            this.musicLabel.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold);
+            this.musicLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
             this.musicLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.musicLabel.Location = new System.Drawing.Point(31, -2);
             this.musicLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.musicLabel.Name = "musicLabel";
-            this.musicLabel.Size = new System.Drawing.Size(167, 67);
+            this.musicLabel.Size = new System.Drawing.Size(158, 67);
             this.musicLabel.TabIndex = 0;
             this.musicLabel.Text = "Music";
             // 
@@ -432,6 +433,7 @@
             // playlistsPanel
             // 
             this.playlistsPanel.AutoScroll = true;
+            this.playlistsPanel.BackColor = System.Drawing.Color.White;
             this.playlistsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playlistsPanel.Location = new System.Drawing.Point(0, 0);
             this.playlistsPanel.Name = "playlistsPanel";
@@ -440,7 +442,7 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.tabPage5.BackColor = System.Drawing.Color.White;
             this.tabPage5.Controls.Add(this.musicFolderContainer);
             this.tabPage5.Controls.Add(this.settingHeaderPanel);
             this.tabPage5.ImageIndex = 3;
@@ -547,7 +549,7 @@
             // 
             this.settingLabel.AutoSize = true;
             this.settingLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
-            this.settingLabel.Location = new System.Drawing.Point(0, 0);
+            this.settingLabel.Location = new System.Drawing.Point(-12, 0);
             this.settingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.settingLabel.Name = "settingLabel";
             this.settingLabel.Size = new System.Drawing.Size(206, 67);
@@ -669,6 +671,15 @@
             this.visualizeContainer.Size = new System.Drawing.Size(1387, 788);
             this.visualizeContainer.TabIndex = 5;
             // 
+            // mediaVisualizer1
+            // 
+            this.mediaVisualizer1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mediaVisualizer1.Location = new System.Drawing.Point(0, 276);
+            this.mediaVisualizer1.Margin = new System.Windows.Forms.Padding(5);
+            this.mediaVisualizer1.Name = "mediaVisualizer1";
+            this.mediaVisualizer1.Size = new System.Drawing.Size(1387, 512);
+            this.mediaVisualizer1.TabIndex = 1;
+            // 
             // siticoneButton1
             // 
             this.siticoneButton1.CheckedState.Parent = this.siticoneButton1;
@@ -689,15 +700,6 @@
             this.siticoneButton1.Size = new System.Drawing.Size(52, 45);
             this.siticoneButton1.TabIndex = 2;
             this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
-            // 
-            // mediaVisualizer1
-            // 
-            this.mediaVisualizer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mediaVisualizer1.Location = new System.Drawing.Point(0, 276);
-            this.mediaVisualizer1.Margin = new System.Windows.Forms.Padding(5);
-            this.mediaVisualizer1.Name = "mediaVisualizer1";
-            this.mediaVisualizer1.Size = new System.Drawing.Size(1387, 512);
-            this.mediaVisualizer1.TabIndex = 1;
             // 
             // form
             // 

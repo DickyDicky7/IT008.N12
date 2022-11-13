@@ -23,15 +23,10 @@ namespace IT008.N12_015
             settingPageInit();
             musicPageInit();
             playlistPageInit();
-            MediaItem test = new MediaItem("heloo", "test", "hello", "test", new TimeSpan(0, 0, 0));
-            musicList1.addMusic(test);
-            //Responsive();
-            this.SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.SupportsTransparentBackColor, true);
-            PlaylistItem.MediaController = mediaController;
-            MediaItem.f = this;
+            Responsive();
+            designInit();
             Load += new EventHandler(form_Load(args));
-            FormClosing += new FormClosingEventHandler(form_FormClosing);
-            visualizeContainer.Visible = false;
+
 
             #region Tuan Anh Testing
 
@@ -100,6 +95,15 @@ namespace IT008.N12_015
         }
 
         #region Initialize
+        private void designInit()
+        {
+            this.SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.SupportsTransparentBackColor, true);
+            PlaylistItem.MediaController = mediaController;
+            MediaItem.f = this;
+            FormClosing += new FormClosingEventHandler(form_FormClosing);
+            tabControlBorder.BringToFront();
+            visualizeContainer.Visible = false;
+        }
         private void musicPageInit()
         {
             Common.RoundedCorner(this.sortByMenu);
@@ -144,6 +148,7 @@ namespace IT008.N12_015
         {
             visualizeContainer.Visible = true;
             visualizeContainer.BringToFront();
+            tabControlBorder.SendToBack();
         }
 
         public void AddPlaylistToPanel(Control c)
@@ -160,7 +165,7 @@ namespace IT008.N12_015
 
         public void UpdatePlaylistItem(string PlaylistURL)
         {
-            ((PlaylistItem)playlistsPanel.Controls
+                ((PlaylistItem)playlistsPanel.Controls
             .Find(PlaylistURL, false).FirstOrDefault()).Reset();
         }
 
@@ -294,6 +299,8 @@ namespace IT008.N12_015
         {
             siticoneTabControl1.BringToFront();
             visualizeContainer.Visible = false;
+            tabControlBorder.BringToFront();
+
         }
     }
 }

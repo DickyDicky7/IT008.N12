@@ -66,7 +66,8 @@ namespace IT008.N12_015
             {
                 MediaItem mediaItem = new MediaItem(Path);
                 mediaItem.Height = 30;
-                mediaItem.addDeleteMenu();
+                mediaItem.addDeleteToMenu();
+                mediaItem.PlayListName = Panel.Text;
                 musicList.addMusic(mediaItem);
             }
             //MessageBox.Show(musicList.Size.Height.ToString());
@@ -84,9 +85,9 @@ namespace IT008.N12_015
 
             WplContent Content = new WplContent();
             WplPlaylist Playlist = Content.GetFromStream(Stream);
-
+            // substring 2 chi the :> 
             Paths = Playlist.GetTracksPaths()
-            .Select(Path => $"{Path.Substring(2)}")
+            //.Select(Path => $"{Path.Substring(2)}")
             .ToList();
 
             Panel.Text = Playlist.Title;
@@ -119,8 +120,9 @@ namespace IT008.N12_015
             {
                 MediaItem mediaItem = new MediaItem(Path);
                 mediaItem.Height = 30;
-                mediaItem.addDeleteMenu();
+                mediaItem.addDeleteToMenu();
                 musicList.addMusic(mediaItem);
+                mediaItem.PlayListName = Panel.Text;
             }
             //MessageBox.Show(musicList.Size.Height.ToString());
             Common.RoundedCorner(Menu);
@@ -267,6 +269,7 @@ namespace IT008.N12_015
             try
             {
                 File.Delete(URL);
+                MediaItem.removeFromAllMenu(Panel.Text);
             }
             catch { }
             this.Parent.Controls.Remove(this);

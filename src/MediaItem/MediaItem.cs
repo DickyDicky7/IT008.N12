@@ -45,6 +45,14 @@ namespace IT008.N12_015
         private String _artist;
         private String _album;
         private String _genre;
+        private String playlistName;
+
+        public String PlayListName
+        {
+            get { return playlistName; }
+            set { playlistName = value; }
+        }
+
 
 
         private TimeSpan _duration;
@@ -119,7 +127,6 @@ namespace IT008.N12_015
             this.Album = album;
             this.Genre = genre;
             this.Duration = duration;
-            Click += new EventHandler(testClick);
         }
 
         /// <summary>
@@ -134,9 +141,10 @@ namespace IT008.N12_015
             this.URL = URL;
             InitializeMediaItem(URL);
             Click += new EventHandler(MediaItem_Click);
+            instances.Add(new WeakReference(this));
             //MouseEnter += new EventHandler(MediaItem_MouseEnter);
-            
-            
+
+
         }
         /// <summary>
         /// Load media item information to control
@@ -188,11 +196,6 @@ namespace IT008.N12_015
             MediaController.LoadMedia(URL);
         }
 
-        private void testClick(object sender, EventArgs e)
-        {
-            MessageBox.Show(this.Width + " " + this.Parent.Width);
-        }
-
         private void ChangeLabelColor(Color color)
         {
             titleLB.ForeColor = color;
@@ -235,6 +238,53 @@ namespace IT008.N12_015
         public static MediaItem ClickedItem { get; set; }
         public static MediaController MediaController { get; set; }
 
+        private static List<WeakReference> instances = new List<WeakReference>();
+
+        public static void addToAllMenu(string playlistName)
+        {
+            var items = GetInstances();
+            foreach(var item in items)
+            {
+                item.addItemToMenu(playlistName);
+            }
+        }
+
+        public static void removeFromAllMenu (string playlistName)
+        {
+            var instances = GetInstances();
+            foreach( var item in instances)
+            {
+                item.removeItemFromMenu(playlistName);
+            }
+        }
+
+        public void removeItemFromMenu(string playlistName)
+        {
+            addToMenuItem.DropDownItems.RemoveByKey(playlistName);
+        }
+
+        public static IList<MediaItem> GetInstances()
+        {
+            List<MediaItem> realInstances = new List<MediaItem>();
+            List<WeakReference> toDelete = new List<WeakReference>();
+
+            foreach (WeakReference reference in instances)
+            {
+                if (reference.IsAlive)
+                {
+                    realInstances.Add((MediaItem)reference.Target);
+                }
+                else
+                {
+                    toDelete.Add(reference);
+                }
+            }
+
+            foreach (WeakReference reference in toDelete) instances.Remove(reference);
+
+            return realInstances;
+        }
+
         private void MediaItem_MouseEnter(object sender, EventArgs e)
         {
             containerPanel.FillColor = Color.FromArgb(211, 211, 211);
@@ -261,31 +311,38 @@ namespace IT008.N12_015
             MediaController.LoadMedia(URL);
         }
 
+
+        
         private void MediaItem_Load(object sender, EventArgs e)
         {
             addPlaylistToMenu();
             Common.SetDoubleBuffered(inforPanel);
             Common.SetDoubleBuffered(containerPanel);
         }
+        public void addItemToMenu(string playlistName)
+        {
+            ToolStripMenuItem playlist = new ToolStripMenuItem();
+            playlist.Text = playlistName;
+            playlist.Name = playlistName;
+            playlist.Click += addToPlaylist;
+            addToMenuItem.DropDownItems.Add(playlist);
+        }
         private void addPlaylistToMenu()
         {
-            var fileArray = Directory.GetFiles(Common.MusicFolder + "//Playlists","*.wpl").Select(filename => Path.GetFileNameWithoutExtension(filename));
+            var fileArray = Directory.GetFiles(Common.PlaylistsFolder,"*.wpl").Select(filename => Path.GetFileNameWithoutExtension(filename));
             foreach (var file in fileArray)
             {
-                ToolStripMenuItem playlist = new ToolStripMenuItem();
-                playlist.Text = file;
-                playlist.Click += addToPlaylist;
-                addToMenuItem.DropDownItems.Add(playlist);
+                addItemToMenu(file);
             }
         }
-        public void addDeleteMenu()
+        public void addDeleteToMenu()
         {
             ToolStripMenuItem delete = new ToolStripMenuItem();
             delete.Text = "Remove";
             delete.Name = "delete"; ;
             delete.ForeColor = Color.FromArgb(22, 26, 29);
             delete.Image = Properties.Resources.close;
-            delete.Click += (object sender, EventArgs e) => { this.Parent.Controls.Remove(this); } ;
+            delete.Click += (object sender, EventArgs e) => { this.Parent.Controls.Remove(this); MessageBox.Show(this.PlayListName + " " + URL); MediaController.RemoveFromPlaylist(this.PlayListName, URL); } ;
             contextMenu.Items.Add(delete);
         }
         private void addToPlaylist(object sender, EventArgs e)
@@ -299,14 +356,11 @@ namespace IT008.N12_015
             var inputForm = new InputForm("Nhập tên playlist");
             inputForm.ShowDialog();
             
-            ToolStripMenuItem playlist = new ToolStripMenuItem();
-            playlist.Text = inputForm.Result;
-            playlist.Click += addToPlaylist;
-            addToMenuItem.DropDownItems.Add(playlist);
-            if (!File.Exists($"{Common.MusicFolder}\\Playlists\\" + inputForm.Result + ".wpl"))
-            {
+            addToAllMenu(inputForm.Result);
+            if (!File.Exists(Common.PlaylistsFolder + inputForm.Result + ".wpl"))
+            {   
                 MediaController.CreatePlaylist(inputForm.Result);
-                PlaylistItem item = new PlaylistItem($"{Common.MusicFolder}\\Playlists\\" + inputForm.Result + ".wpl");
+                PlaylistItem item = new PlaylistItem(Common.PlaylistsFolder + "//" + inputForm.Result + ".wpl");
                 f.AddPlaylistToPanel(item);
                 MediaController.AddToPlaylist(inputForm.Result, URL);
             }
