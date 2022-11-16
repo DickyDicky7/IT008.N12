@@ -152,7 +152,7 @@
     <Compile Include="src\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Common.cs" />
+    <Compile Include="src\Util\Common.cs" />
     <Compile Include="src\InputForm\InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,10 +201,10 @@
     <Compile Include="src\MediaVisualizer\MediaVisualizer.Designer.cs">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlaylistItem.cs">
+    <Compile Include="src\PlaylistItem\PlaylistItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PlaylistItem.Designer.cs">
+    <Compile Include="src\PlaylistItem\PlaylistItem.Designer.cs">
       <DependentUpon>PlaylistItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -243,7 +243,7 @@
     <EmbeddedResource Include="src\MediaVisualizer\MediaVisualizer.resx">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlaylistItem.resx">
+    <EmbeddedResource Include="src\PlaylistItem\PlaylistItem.resx">
       <DependentUpon>PlaylistItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
