@@ -90,5 +90,11 @@ namespace IT008.N12_015
             mediaItems.Clear();
             mediaItemContainer.Controls.Clear();
         }
+
+        public void Signal(int Index)
+        {
+            ((MediaItem)mediaItemContainer.Controls[Index])
+            .MediaItem_Click(null, null);
+        }
     }
 }

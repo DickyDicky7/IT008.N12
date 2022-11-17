@@ -61,6 +61,10 @@ namespace IT008.N12_015
             InitializePlaylistItem(URL);
 
             //PictureBox.Image = Properties.Resources.icons8_music_library_64;
+            playButton.Click += (sender, e) =>
+            {
+                MediaController.LoadPlaylist(this);
+            };
 
             foreach (string Path in Paths)
             {
@@ -163,7 +167,23 @@ namespace IT008.N12_015
                     IsExpanded = true;
                 }
                 CreatePlaylistObject();
-                MediaController.LoadPlaylist(playlistName, playlistPath);
+                //MediaController.LoadPlaylist(this);
+            }
+        }
+
+        private int CurrentIndex = -1;
+
+        public void Stop()
+        {
+            CurrentIndex = -1;
+        }
+
+        public void PlayNext()
+        {
+            CurrentIndex++;
+            if (CurrentIndex < Paths.Count)
+            {
+                musicList.Signal(CurrentIndex);
             }
         }
 

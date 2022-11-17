@@ -183,7 +183,7 @@ namespace IT008.N12_015
             }
         }
 
-        private void MediaItem_Click(object sender, EventArgs e)
+        public void MediaItem_Click(object sender, EventArgs e)
         {
             f.bringVisualizeToFront();
 

@@ -36,6 +36,8 @@ namespace IT008.N12_015
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.musicList = new IT008.N12_015.MusicList();
+            this.playButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.showButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +93,7 @@ namespace IT008.N12_015
             this.Panel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.Panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Panel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.Panel.HoverState.FillColor = System.Drawing.Color.LightGray;
+            this.Panel.HoverState.FillColor = System.Drawing.Color.White;
             this.Panel.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Panel.HoverState.Parent = this.Panel;
             this.Panel.Image = global::IT008.N12_015.Properties.Resources.icons8_music_library_64;
@@ -115,12 +117,55 @@ namespace IT008.N12_015
             this.musicList.Size = new System.Drawing.Size(550, 253);
             this.musicList.TabIndex = 4;
             // 
+            // playButton
+            // 
+            this.playButton.Animated = true;
+            this.playButton.BackColor = System.Drawing.Color.White;
+            this.playButton.CheckedState.Parent = this.playButton;
+            this.playButton.CustomImages.Parent = this.playButton;
+            this.playButton.DisabledState.Parent = this.playButton;
+            this.playButton.FillColor = System.Drawing.Color.White;
+            this.playButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.playButton.ForeColor = System.Drawing.Color.White;
+            this.playButton.HoverState.FillColor = System.Drawing.Color.White;
+            this.playButton.HoverState.Parent = this.playButton;
+            this.playButton.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
+            this.playButton.ImageSize = new System.Drawing.Size(27, 27);
+            this.playButton.Location = new System.Drawing.Point(430, 10);
+            this.playButton.Name = "playButton";
+            this.playButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
+            this.playButton.ShadowDecoration.Parent = this.playButton;
+            this.playButton.Size = new System.Drawing.Size(27, 27);
+            this.playButton.TabIndex = 5;
+            // 
+            // showButton
+            // 
+            this.showButton.Animated = true;
+            this.showButton.BackColor = System.Drawing.Color.White;
+            this.showButton.CheckedState.Parent = this.showButton;
+            this.showButton.CustomImages.Parent = this.showButton;
+            this.showButton.DisabledState.Parent = this.showButton;
+            this.showButton.FillColor = System.Drawing.Color.White;
+            this.showButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.showButton.ForeColor = System.Drawing.Color.White;
+            this.showButton.HoverState.FillColor = System.Drawing.Color.White;
+            this.showButton.HoverState.Parent = this.showButton;
+            this.showButton.Image = global::IT008.N12_015.Properties.Resources.down;
+            this.showButton.Location = new System.Drawing.Point(480, 10);
+            this.showButton.Name = "showButton";
+            this.showButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
+            this.showButton.ShadowDecoration.Parent = this.showButton;
+            this.showButton.Size = new System.Drawing.Size(27, 27);
+            this.showButton.TabIndex = 6;
+            // 
             // PlaylistItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.ContextMenuStrip = this.Menu;
+            this.Controls.Add(this.showButton);
+            this.Controls.Add(this.playButton);
             this.Controls.Add(this.musicList);
             this.Controls.Add(this.Panel);
             this.Name = "PlaylistItem";
@@ -137,5 +182,7 @@ namespace IT008.N12_015
         private Siticone.Desktop.UI.WinForms.SiticoneButton Panel;
         private MusicList musicList;
         private ToolStripMenuItem removeToolStripMenuItem;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton playButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton showButton;
     }
 }

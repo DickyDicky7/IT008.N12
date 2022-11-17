@@ -43,7 +43,17 @@ namespace IT008.N12_015
             //{
             //    Watcher.Stop();
             //}, TimeSpan.FromSeconds(20));
-
+            Timer timer = new Timer();
+            timer.Interval = 1;
+            timer.Tick += (sender, e) =>
+            {
+                if (Player.playState == WMPLib.WMPPlayState.wmppsStopped)
+                {
+                    if (CurrentPlaylistItem != null)
+                        CurrentPlaylistItem.PlayNext();
+                }
+            };
+            timer.Start();
             //Common.SetTimeout(() =>
             //{
             //    Watcher.Action = UpdateMediaController;
@@ -232,9 +242,13 @@ namespace IT008.N12_015
             Watcher.Stop();
         }
 
-        public void LoadPlaylist(string PlaylistName, string PlaylistPath)
+        public void LoadPlaylist(PlaylistItem PlaylistItem)
         {
             //MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
+            if (CurrentPlaylistItem != null)
+                CurrentPlaylistItem.Stop();
+            CurrentPlaylistItem = PlaylistItem;
+            CurrentPlaylistItem.PlayNext();
         }
 
         public static void CreatePlaylist(string PlaylistName)
@@ -311,5 +325,7 @@ namespace IT008.N12_015
         public event OnLoadMediaHandler OnLoadMedia;
 
         public static form form { get; set; }
+
+        private static PlaylistItem CurrentPlaylistItem;
     }
 }
