@@ -59,13 +59,13 @@ namespace IT008.N12_015
             this.Menu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Menu.RenderStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Menu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.Menu.Size = new System.Drawing.Size(122, 48);
+            this.Menu.Size = new System.Drawing.Size(136, 52);
             // 
             // renamePlaylistToolStripMenuItem
             // 
             this.renamePlaylistToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.renamePlaylistToolStripMenuItem.Name = "renamePlaylistToolStripMenuItem";
-            this.renamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.renamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
             this.renamePlaylistToolStripMenuItem.Text = "Rename";
             this.renamePlaylistToolStripMenuItem.Click += new System.EventHandler(this.renamePlaylist);
             // 
@@ -73,7 +73,7 @@ namespace IT008.N12_015
             // 
             this.removeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -100,10 +100,11 @@ namespace IT008.N12_015
             this.Panel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Panel.ImageSize = new System.Drawing.Size(30, 30);
             this.Panel.Location = new System.Drawing.Point(0, 0);
+            this.Panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Panel.Name = "Panel";
             this.Panel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.Panel.ShadowDecoration.Parent = this.Panel;
-            this.Panel.Size = new System.Drawing.Size(550, 47);
+            this.Panel.Size = new System.Drawing.Size(733, 58);
             this.Panel.TabIndex = 3;
             this.Panel.Text = "Title goes here";
             this.Panel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -111,10 +112,10 @@ namespace IT008.N12_015
             // musicList
             // 
             this.musicList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.musicList.Location = new System.Drawing.Point(0, 47);
-            this.musicList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.musicList.Location = new System.Drawing.Point(0, 58);
+            this.musicList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.musicList.Name = "musicList";
-            this.musicList.Size = new System.Drawing.Size(550, 253);
+            this.musicList.Size = new System.Drawing.Size(733, 311);
             this.musicList.TabIndex = 4;
             // 
             // playButton
@@ -131,11 +132,12 @@ namespace IT008.N12_015
             this.playButton.HoverState.Parent = this.playButton;
             this.playButton.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
             this.playButton.ImageSize = new System.Drawing.Size(27, 27);
-            this.playButton.Location = new System.Drawing.Point(430, 10);
+            this.playButton.Location = new System.Drawing.Point(573, 12);
+            this.playButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.playButton.Name = "playButton";
             this.playButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.playButton.ShadowDecoration.Parent = this.playButton;
-            this.playButton.Size = new System.Drawing.Size(27, 27);
+            this.playButton.Size = new System.Drawing.Size(36, 33);
             this.playButton.TabIndex = 5;
             // 
             // showButton
@@ -151,16 +153,17 @@ namespace IT008.N12_015
             this.showButton.HoverState.FillColor = System.Drawing.Color.White;
             this.showButton.HoverState.Parent = this.showButton;
             this.showButton.Image = global::IT008.N12_015.Properties.Resources.down;
-            this.showButton.Location = new System.Drawing.Point(480, 10);
+            this.showButton.Location = new System.Drawing.Point(640, 12);
+            this.showButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.showButton.Name = "showButton";
             this.showButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.showButton.ShadowDecoration.Parent = this.showButton;
-            this.showButton.Size = new System.Drawing.Size(27, 27);
+            this.showButton.Size = new System.Drawing.Size(36, 33);
             this.showButton.TabIndex = 6;
             // 
             // PlaylistItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.ContextMenuStrip = this.Menu;
@@ -168,8 +171,9 @@ namespace IT008.N12_015
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.musicList);
             this.Controls.Add(this.Panel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PlaylistItem";
-            this.Size = new System.Drawing.Size(550, 300);
+            this.Size = new System.Drawing.Size(733, 369);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);
             this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);

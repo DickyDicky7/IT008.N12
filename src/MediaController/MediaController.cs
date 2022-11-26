@@ -49,8 +49,8 @@ namespace IT008.N12_015
             {
                 if (Player.playState == WMPLib.WMPPlayState.wmppsStopped)
                 {
-                    if (CurrentPlaylistItem != null)
-                        CurrentPlaylistItem.PlayNext();
+                    if (CurrentMusicList != null)
+                        CurrentMusicList.PlayNext();
                 }
             };
             timer.Start();
@@ -242,13 +242,19 @@ namespace IT008.N12_015
             Watcher.Stop();
         }
 
-        public void LoadPlaylist(PlaylistItem PlaylistItem)
+        public void LoadMusicList(MusicList musicList, bool shuffleMode = false)
         {
+            
             //MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
-            if (CurrentPlaylistItem != null)
-                CurrentPlaylistItem.Stop();
-            CurrentPlaylistItem = PlaylistItem;
-            CurrentPlaylistItem.PlayNext();
+            if (CurrentMusicList != null)
+                CurrentMusicList.Stop();
+            CurrentMusicList = musicList;
+            if(shuffleMode == true)
+            {
+                CurrentMusicList.shuffleMode = shuffleMode;
+                CurrentMusicList.GenShuffleList();
+            }
+            CurrentMusicList.PlayNext();
         }
 
         public static void CreatePlaylist(string PlaylistName)
@@ -326,6 +332,6 @@ namespace IT008.N12_015
 
         public static form form { get; set; }
 
-        private static PlaylistItem CurrentPlaylistItem;
+        private static MusicList CurrentMusicList;
     }
 }

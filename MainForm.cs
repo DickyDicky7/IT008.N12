@@ -113,7 +113,7 @@ namespace IT008.N12_015
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
                 if (Directory.Exists(URL))
-                    musicList1.addMusic(URL);
+                    musicList1.addMusicFolder(URL);
                 else
                 {
                     Properties.Settings.Default.musicFolder.Remove(URL);
@@ -186,10 +186,14 @@ namespace IT008.N12_015
                         Properties.Settings.Default.Save();
                         FolderLocation folderLocation = new FolderLocation(fbd.SelectedPath);
                         musicFolderPanel.Controls.Add(folderLocation);
-                        musicList1.addMusic(fbd.SelectedPath);
+                        musicList1.addMusicFolder(fbd.SelectedPath);
                     }
                 }
             }
+        }
+        public void addMusicToPlayQ(MediaItem media)
+        {
+            PlayQMusicList.addMusic(media) ;
         }
         #endregion
 
@@ -214,15 +218,21 @@ namespace IT008.N12_015
                 }
             }
             nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
-            musicList1.Width = tabPage1.Width;
+            
+            tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width, 0);
+            tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
+            settingResponsive();
+        }
+
+        private void settingResponsive()
+        {
+            //musicList1.Width = tabPage1.Width;
             foreach (Control c in musicFolderPanel.Controls)
             {
                 //c.BeginInvoke(new Action(() => c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100));
                 c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100;
             }
-            tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width, 0);
-            tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
-        }
+        }   
 
         private void form_ResizeEnd(object sender, EventArgs e)
         {
@@ -302,6 +312,22 @@ namespace IT008.N12_015
             visualizeContainer.Visible = false;
             tabControlBorder.BringToFront();
 
+        }
+
+        private void shuffleAndPlayBtn_Click(object sender, EventArgs e)
+        {
+            mediaController.LoadMusicList(musicList1, true);
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (siticoneTabControl1.SelectedIndex == 1)
+                MessageBox.Show("1");   
         }
     }
 }

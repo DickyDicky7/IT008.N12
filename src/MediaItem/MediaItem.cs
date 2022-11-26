@@ -116,7 +116,12 @@ namespace IT008.N12_015
 
         public MediaItem()
         {
-
+            InitializeComponent();
+            this.Title = "test";
+            this.Artist = "test";
+            this.Album = "test";
+            this.Genre = "test";
+            this.Duration = new TimeSpan(0,0,0);
         }
 
         public MediaItem(string title, string artist, string album, string genre, TimeSpan duration)
@@ -186,7 +191,6 @@ namespace IT008.N12_015
         public void MediaItem_Click(object sender, EventArgs e)
         {
             f.bringVisualizeToFront();
-
             ChangeLabelColor(Color.FromArgb(186, 24, 27));
             if (ClickedItem != null && ClickedItem != this)
             {
@@ -368,6 +372,13 @@ namespace IT008.N12_015
             else
                 MessageBox.Show("Playlist da ton tai");
 
+        }
+
+        private void playQueueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MediaItem item = new MediaItem(URL);
+            item.Width = this.Width;
+            f.addMusicToPlayQ(item);
         }
     }
 }

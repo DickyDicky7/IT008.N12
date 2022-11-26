@@ -300,6 +300,8 @@
     <Content Include="lib\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\icons8-trash-can-50.png" />
+    <None Include="Resources\icons8-left-50.png" />
     <None Include="Resources\up.png" />
     <None Include="Resources\disc.png" />
     <None Include="Resources\folder.png" />

@@ -123,6 +123,16 @@ namespace IT008.N12_015.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_left_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-left-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_music_library_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8_music_library_64", resourceCulture);
@@ -136,6 +146,16 @@ namespace IT008.N12_015.Properties {
         internal static System.Drawing.Bitmap icons8_playlist_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-playlist-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_trash_can_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-trash-can-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

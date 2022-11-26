@@ -35,6 +35,7 @@
             // 
             this.mediaItemContainer.AutoScroll = true;
             this.mediaItemContainer.AutoSize = true;
+            this.mediaItemContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mediaItemContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mediaItemContainer.Location = new System.Drawing.Point(0, 0);
             this.mediaItemContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);

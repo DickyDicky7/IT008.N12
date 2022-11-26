@@ -63,7 +63,7 @@ namespace IT008.N12_015
             //PictureBox.Image = Properties.Resources.icons8_music_library_64;
             playButton.Click += (sender, e) =>
             {
-                MediaController.LoadPlaylist(this);
+                MediaController.LoadMusicList(this.musicList);
             };
 
             foreach (string Path in Paths)
@@ -171,21 +171,21 @@ namespace IT008.N12_015
             }
         }
 
-        private int CurrentIndex = -1;
+       // private int CurrentIndex = -1;
 
-        public void Stop()
-        {
-            CurrentIndex = -1;
-        }
+        //public void Stop()
+        //{
+        //    CurrentIndex = -1;
+        //}
 
-        public void PlayNext()
-        {
-            CurrentIndex++;
-            if (CurrentIndex < Paths.Count)
-            {
-                musicList.Signal(CurrentIndex);
-            }
-        }
+        //public void PlayNext()
+        //{
+        //    CurrentIndex++;
+        //    if (CurrentIndex < Paths.Count)
+        //    {
+        //        musicList.Signal(CurrentIndex);
+        //    }
+        //}
 
         private void PlayList_Paint(object sender, PaintEventArgs e)
         {

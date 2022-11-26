@@ -17,9 +17,12 @@ namespace IT008.N12_015
         public MusicList()
         {
             InitializeComponent();
+            
         }
         List<MediaItem> mediaItems = new List<MediaItem>();
-        public void addMusic(string folderPath)
+        public bool shuffleMode = false;
+        List<int> shuffleList = new List<int>();
+        public void addMusicFolder(string folderPath)
         {
             string[] fileArray = Directory.GetFiles(folderPath, "*.mp3");
             foreach (string file in fileArray)
@@ -34,6 +37,14 @@ namespace IT008.N12_015
         {
             mediaItems.Add(mediaItem);
             mediaItemContainer.Controls.Add(mediaItem);
+        }
+        public void addMusic(string URL)
+        {
+            if(!mediaItems.Contains(mediaItems.FirstOrDefault(media => media.URL == URL)))
+            {
+                MediaItem media = new MediaItem(URL);
+                addMusic(media);
+            }
         }
         public void sortBy(SORTBY sort)
         {
@@ -72,6 +83,12 @@ namespace IT008.N12_015
             }
         }
 
+        public void GenShuffleList()
+        {
+            Random random = new Random();
+            shuffleList = Enumerable.Range(0, mediaItems.Count-1).OrderBy(x => random.Next()).ToList();
+        }
+
         public enum SORTBY
         {
             AZ,
@@ -95,6 +112,27 @@ namespace IT008.N12_015
         {
             ((MediaItem)mediaItemContainer.Controls[Index])
             .MediaItem_Click(null, null);
+        }
+
+        private int CurrentIndex = -1;
+
+        public void Stop()
+        {
+            CurrentIndex = -1;
+        }
+
+        public void PlayNext()
+        {
+            CurrentIndex++;
+            if (CurrentIndex < mediaItems.Count)
+            {
+                if(shuffleMode == true)
+                {
+                    Signal(shuffleList[CurrentIndex]);
+                }
+                else
+                    Signal(CurrentIndex);
+            }
         }
     }
 }
