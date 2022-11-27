@@ -110,15 +110,20 @@ namespace IT008.N12_015
             this.shuffleAndPlayBtn.AutoSize = true;
             this.sortBtn.AutoSize = true;
             MediaItem.MediaController = mediaController;
+            List<string> removeL = new List<string>();
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
                 if (Directory.Exists(URL))
                     musicList1.addMusicFolder(URL);
                 else
                 {
-                    Properties.Settings.Default.musicFolder.Remove(URL);
-                    Properties.Settings.Default.Save();
+                    removeL.Add(URL);
                 }
+            }
+            foreach(string URL in removeL)
+            {
+                Properties.Settings.Default.musicFolder.Remove(URL);
+                Properties.Settings.Default.Save();
             }
         }
         private void settingPageInit()
@@ -132,6 +137,7 @@ namespace IT008.N12_015
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
                 FolderLocation musicFolder = new FolderLocation(URL);
+                musicFolder.Dock = DockStyle.Top;
                 musicFolderPanel.Controls.Add(musicFolder);
             }
         }
@@ -221,18 +227,7 @@ namespace IT008.N12_015
             
             tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width, 0);
             tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
-            settingResponsive();
         }
-
-        private void settingResponsive()
-        {
-            //musicList1.Width = tabPage1.Width;
-            foreach (Control c in musicFolderPanel.Controls)
-            {
-                //c.BeginInvoke(new Action(() => c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100));
-                c.Width = musicFolderPanel.Width - c.Padding.Left - c.Padding.Right - 100;
-            }
-        }   
 
         private void form_ResizeEnd(object sender, EventArgs e)
         {
@@ -321,13 +316,12 @@ namespace IT008.N12_015
 
         private void siticoneButton2_Click(object sender, EventArgs e)
         {
-
+            PlayQMusicList.Controls.Clear();
         }
 
         private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (siticoneTabControl1.SelectedIndex == 1)
-                MessageBox.Show("1");   
+
         }
     }
 }

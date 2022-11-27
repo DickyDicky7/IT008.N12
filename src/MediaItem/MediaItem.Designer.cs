@@ -66,7 +66,7 @@
             this.inforPanel.Name = "inforPanel";
             this.inforPanel.RowCount = 1;
             this.inforPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.inforPanel.Size = new System.Drawing.Size(965, 50);
+            this.inforPanel.Size = new System.Drawing.Size(950, 52);
             this.inforPanel.TabIndex = 0;
             this.inforPanel.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
             this.inforPanel.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
@@ -79,7 +79,7 @@
             this.artistLB.AutoSize = true;
             this.artistLB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.artistLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.artistLB.Location = new System.Drawing.Point(389, 15);
+            this.artistLB.Location = new System.Drawing.Point(383, 16);
             this.artistLB.Name = "artistLB";
             this.artistLB.Size = new System.Drawing.Size(49, 20);
             this.artistLB.TabIndex = 2;
@@ -95,7 +95,7 @@
             this.albumLB.AutoSize = true;
             this.albumLB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.albumLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.albumLB.Location = new System.Drawing.Point(582, 15);
+            this.albumLB.Location = new System.Drawing.Point(573, 16);
             this.albumLB.Name = "albumLB";
             this.albumLB.Size = new System.Drawing.Size(56, 20);
             this.albumLB.TabIndex = 3;
@@ -111,7 +111,7 @@
             this.titleLB.AutoSize = true;
             this.titleLB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.titleLB.Location = new System.Drawing.Point(3, 15);
+            this.titleLB.Location = new System.Drawing.Point(3, 16);
             this.titleLB.Name = "titleLB";
             this.titleLB.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.titleLB.Size = new System.Drawing.Size(60, 20);
@@ -128,7 +128,7 @@
             this.durationLB.AutoSize = true;
             this.durationLB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.durationLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.durationLB.Location = new System.Drawing.Point(871, 15);
+            this.durationLB.Location = new System.Drawing.Point(858, 16);
             this.durationLB.Name = "durationLB";
             this.durationLB.Size = new System.Drawing.Size(71, 20);
             this.durationLB.TabIndex = 4;
@@ -143,7 +143,7 @@
             this.genreLB.AutoSize = true;
             this.genreLB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genreLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.genreLB.Location = new System.Drawing.Point(775, 15);
+            this.genreLB.Location = new System.Drawing.Point(763, 16);
             this.genreLB.Name = "genreLB";
             this.genreLB.Size = new System.Drawing.Size(51, 20);
             this.genreLB.TabIndex = 5;
@@ -159,11 +159,11 @@
             this.containerPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.containerPanel.FillColor = System.Drawing.Color.White;
-            this.containerPanel.Location = new System.Drawing.Point(35, 0);
+            this.containerPanel.Location = new System.Drawing.Point(35, 4);
             this.containerPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.containerPanel.Name = "containerPanel";
             this.containerPanel.ShadowDecoration.Parent = this.containerPanel;
-            this.containerPanel.Size = new System.Drawing.Size(965, 50);
+            this.containerPanel.Size = new System.Drawing.Size(950, 52);
             this.containerPanel.TabIndex = 1;
             // 
             // contextMenu
@@ -186,7 +186,7 @@
             this.contextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.contextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.contextMenu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.contextMenu.Size = new System.Drawing.Size(211, 104);
+            this.contextMenu.Size = new System.Drawing.Size(151, 76);
             // 
             // playMenuItem
             // 
@@ -194,7 +194,7 @@
             this.playMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playMenuItem.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
             this.playMenuItem.Name = "playMenuItem";
-            this.playMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.playMenuItem.Size = new System.Drawing.Size(150, 24);
             this.playMenuItem.Text = "Play";
             this.playMenuItem.Click += new System.EventHandler(this.playMenuItem_Click);
             // 
@@ -208,7 +208,7 @@
             this.addToMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addToMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
             this.addToMenuItem.Name = "addToMenuItem";
-            this.addToMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.addToMenuItem.Size = new System.Drawing.Size(150, 24);
             this.addToMenuItem.Text = "Add to";
             // 
             // playQueueToolStripMenuItem
@@ -216,7 +216,7 @@
             this.playQueueToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.playQueueToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.icons8_playlist_64;
             this.playQueueToolStripMenuItem.Name = "playQueueToolStripMenuItem";
-            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.playQueueToolStripMenuItem.Text = "Play Queue";
             this.playQueueToolStripMenuItem.Click += new System.EventHandler(this.playQueueToolStripMenuItem_Click);
             // 
@@ -225,7 +225,7 @@
             this.newPlaylistToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.newPlaylistToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
-            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
             this.newPlaylistToolStripMenuItem.Click += new System.EventHandler(this.newPlaylistToolStripMenuItem_Click);
             // 
@@ -235,7 +235,7 @@
             this.propertiesMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.propertiesMenuItem.Image = global::IT008.N12_015.Properties.Resources.information;
             this.propertiesMenuItem.Name = "propertiesMenuItem";
-            this.propertiesMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.propertiesMenuItem.Size = new System.Drawing.Size(150, 24);
             this.propertiesMenuItem.Text = "Properties";
             // 
             // MediaItem
@@ -247,8 +247,8 @@
             this.Controls.Add(this.containerPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MediaItem";
-            this.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Size = new System.Drawing.Size(1000, 50);
+            this.Padding = new System.Windows.Forms.Padding(35, 4, 15, 4);
+            this.Size = new System.Drawing.Size(1000, 60);
             this.Load += new System.EventHandler(this.MediaItem_Load);
             this.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);

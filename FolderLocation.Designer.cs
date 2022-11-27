@@ -35,7 +35,7 @@
             // folderURL
             // 
             this.folderURL.AutoSize = true;
-            this.folderURL.Location = new System.Drawing.Point(33, 7);
+            this.folderURL.Location = new System.Drawing.Point(33, 11);
             this.folderURL.Name = "folderURL";
             this.folderURL.Size = new System.Drawing.Size(68, 16);
             this.folderURL.TabIndex = 0;
@@ -60,7 +60,7 @@
             this.removeBtn.HoverState.Parent = this.removeBtn;
             this.removeBtn.Image = global::IT008.N12_015.Properties.Resources.close;
             this.removeBtn.ImageSize = new System.Drawing.Size(14, 14);
-            this.removeBtn.Location = new System.Drawing.Point(745, 3);
+            this.removeBtn.Location = new System.Drawing.Point(645, 7);
             this.removeBtn.Name = "removeBtn";
             this.removeBtn.ShadowDecoration.Parent = this.removeBtn;
             this.removeBtn.Size = new System.Drawing.Size(33, 23);
@@ -74,8 +74,8 @@
             this.Controls.Add(this.removeBtn);
             this.Controls.Add(this.folderURL);
             this.Name = "FolderLocation";
-            this.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
-            this.Size = new System.Drawing.Size(800, 30);
+            this.Padding = new System.Windows.Forms.Padding(30, 4, 60, 4);
+            this.Size = new System.Drawing.Size(800, 38);
             this.ResumeLayout(false);
             this.PerformLayout();
 

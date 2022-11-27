@@ -77,7 +77,7 @@ namespace IT008.N12_015
             //MessageBox.Show(musicList.Size.Height.ToString());
             Common.RoundedCorner(Menu);
             this.Size = new Size(this.Size.Width, Panel.Size.Height);
-            musicList.test();
+            //musicList.Responsive();
             musicList.Hide();
             //this.BackColor = Color.Black;
         }
@@ -131,7 +131,7 @@ namespace IT008.N12_015
             //MessageBox.Show(musicList.Size.Height.ToString());
             Common.RoundedCorner(Menu);
             this.Size = new Size(this.Size.Width, Panel.Size.Height);
-            musicList.test();
+            //musicList.Responsive();
             musicList.Hide();
             //this.BackColor = Color.Black;
             IsExpanded = false;

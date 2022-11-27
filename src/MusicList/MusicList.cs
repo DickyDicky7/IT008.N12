@@ -28,21 +28,24 @@ namespace IT008.N12_015
             foreach (string file in fileArray)
             {
                 MediaItem media = new MediaItem(file);
-                media.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                mediaItems.Add(media);
-                mediaItemContainer.Controls.Add(media);
+                addMusic(media);
             }
         }
         public void addMusic(MediaItem mediaItem)
         {
+            mediaItem.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            mediaItem.Dock = DockStyle.Top;
+            mediaItem.ParentMusicList = this;
             mediaItems.Add(mediaItem);
             mediaItemContainer.Controls.Add(mediaItem);
+            sortBy(sortState);
         }
         public void addMusic(string URL)
         {
             if(!mediaItems.Contains(mediaItems.FirstOrDefault(media => media.URL == URL)))
             {
                 MediaItem media = new MediaItem(URL);
+                media.ParentMusicList = this;
                 addMusic(media);
             }
         }
@@ -64,23 +67,26 @@ namespace IT008.N12_015
                     sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
                     break;
             }
+            sortState = sort;
             mediaItemContainer.Controls.Clear();
+            // Reverse cause how panel add control
+            sortedList.Reverse();
             mediaItemContainer.Controls.AddRange(sortedList.ToArray());
         }
         private void mediaItemContainer_Resize(object sender, EventArgs e)
         {
             //this.Visible = false;
-            test();
+            //Responsive();
             //this.Visible = true;
         }
-        public void test()
+        public void Responsive()
         {
-            foreach (Control c in mediaItemContainer.Controls)
-            {
-                c.Width = this.Width - c.Padding.Left - c.Padding.Right;
+            //foreach (Control c in mediaItemContainer.Controls)
+            //{
+            //    c.Width = this.Width - c.Padding.Left - c.Padding.Right;
 
-                //c.BeginInvoke(new Action(() => c.Width = this.Width - c.Padding.Left - c.Padding.Right));
-            }
+            //    //c.BeginInvoke(new Action(() => c.Width = this.Width - c.Padding.Left - c.Padding.Right));
+            //}
         }
 
         public void GenShuffleList()
@@ -88,6 +94,8 @@ namespace IT008.N12_015
             Random random = new Random();
             shuffleList = Enumerable.Range(0, mediaItems.Count-1).OrderBy(x => random.Next()).ToList();
         }
+
+        SORTBY sortState = SORTBY.AZ;
 
         public enum SORTBY
         {
@@ -102,6 +110,11 @@ namespace IT008.N12_015
             Common.SetDoubleBuffered(mediaItemContainer);
         }
 
+        public int GetMediaIndex(MediaItem item)
+        {
+            return mediaItems.IndexOf(item);
+        }
+
         public void Clear()
         {
             mediaItems.Clear();
@@ -111,10 +124,10 @@ namespace IT008.N12_015
         public void Signal(int Index)
         {
             ((MediaItem)mediaItemContainer.Controls[Index])
-            .MediaItem_Click(null, null);
+            .MediaItemPlay();
         }
 
-        private int CurrentIndex = -1;
+        public int CurrentIndex = -1;
 
         public void Stop()
         {

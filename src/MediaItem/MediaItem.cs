@@ -191,13 +191,24 @@ namespace IT008.N12_015
         public void MediaItem_Click(object sender, EventArgs e)
         {
             f.bringVisualizeToFront();
-            ChangeLabelColor(Color.FromArgb(186, 24, 27));
-            if (ClickedItem != null && ClickedItem != this)
+            if (ParentMusicList != null)
             {
-                ClickedItem.ChangeLabelColor(Color.Black);
+                ParentMusicList.CurrentIndex = ParentMusicList.GetMediaIndex(this) - 1;
+                MediaController.LoadMusicList(ParentMusicList);
             }
-            ClickedItem = this;
+           
+        }
+
+        public void MediaItemPlay()
+        {
+            ChangeLabelColor(Color.FromArgb(186, 24, 27));
+            if (PlayItem != null && PlayItem != this)
+            {
+                PlayItem.ChangeLabelColor(Color.Black);
+            }
+            PlayItem = this;
             MediaController.LoadMedia(URL);
+
         }
 
         private void ChangeLabelColor(Color color)
@@ -239,8 +250,10 @@ namespace IT008.N12_015
             }
         }
         public static form f { get; set; }
-        public static MediaItem ClickedItem { get; set; }
+        public static MediaItem PlayItem { get; set; }
         public static MediaController MediaController { get; set; }
+
+        public MusicList ParentMusicList { get; set; }
 
         private static List<WeakReference> instances = new List<WeakReference>();
 
@@ -307,11 +320,11 @@ namespace IT008.N12_015
         private void playMenuItem_Click(object sender, EventArgs e)
         {
             ChangeLabelColor(Color.FromArgb(186, 24, 27));
-            if (ClickedItem != null && ClickedItem != this)
+            if (PlayItem != null && PlayItem != this)
             {
-                ClickedItem.ChangeLabelColor(Color.Black);
+                PlayItem.ChangeLabelColor(Color.Black);
             }
-            ClickedItem = this;
+            PlayItem = this;
             MediaController.LoadMedia(URL);
         }
 

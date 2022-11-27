@@ -246,7 +246,7 @@ namespace IT008.N12_015
         {
             
             //MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
-            if (CurrentMusicList != null)
+            if (CurrentMusicList != null && CurrentMusicList != musicList)
                 CurrentMusicList.Stop();
             CurrentMusicList = musicList;
             if(shuffleMode == true)
@@ -333,5 +333,10 @@ namespace IT008.N12_015
         public static form form { get; set; }
 
         private static MusicList CurrentMusicList;
+
+        private void MediaTitle_Click(object sender, EventArgs e)
+        {
+            form.bringVisualizeToFront();
+        }
     }
 }
