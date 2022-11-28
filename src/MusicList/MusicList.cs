@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
+using System.Data;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace IT008.N12_015
 {
@@ -112,7 +112,11 @@ namespace IT008.N12_015
 
         public int GetMediaIndex(MediaItem item)
         {
-            return mediaItems.IndexOf(item);
+            //Lỗi logic dòng 116, đã sửa và thay bằng dòng 119
+            //return mediaItems.IndexOf(item);
+            //Dòng 118 dùng để debug
+            //MessageBox.Show(mediaItemContainer.Controls.IndexOf(item).ToString());
+            return mediaItemContainer.Controls.IndexOf(item);
         }
 
         public void Clear()
