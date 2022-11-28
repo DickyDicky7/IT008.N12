@@ -33,11 +33,12 @@ namespace IT008.N12_015
         }
         public void addMusic(MediaItem mediaItem)
         {
-            mediaItem.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            mediaItem.Dock = DockStyle.Top;
+            //mediaItem.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             mediaItem.ParentMusicList = this;
             mediaItems.Add(mediaItem);
+            mediaItem.Dock = DockStyle.Top;
             mediaItemContainer.Controls.Add(mediaItem);
+            //mediaItem.BringToFront();
             sortBy(sortState);
         }
         public void addMusic(string URL)
@@ -51,27 +52,28 @@ namespace IT008.N12_015
         }
         public void sortBy(SORTBY sort)
         {
-            List<MediaItem> sortedList = new List<MediaItem>();
             switch (sort)
             {
                 case SORTBY.AZ:
-                    sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
+                    mediaItems = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
                     break;
                 case SORTBY.ARTIST:
-                    sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Artist).ToList();
+                    mediaItems = mediaItems.OrderBy(mediaItem => mediaItem.Artist).ToList();
                     break;
                 case SORTBY.GENRE:
-                    sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
+                    mediaItems = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
                     break;
                 case SORTBY.ALBUM:
-                    sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
+                    mediaItems = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
                     break;
             }
             sortState = sort;
+            // Reverse because how panel add controls
+            mediaItems.Reverse();
             mediaItemContainer.Controls.Clear();
-            // Reverse cause how panel add control
-            sortedList.Reverse();
-            mediaItemContainer.Controls.AddRange(sortedList.ToArray());
+            mediaItemContainer.Controls.AddRange(mediaItems.ToArray());
+            // Reverse again to match logic stupid but it work
+            mediaItems.Reverse();
         }
         private void mediaItemContainer_Resize(object sender, EventArgs e)
         {
@@ -92,7 +94,7 @@ namespace IT008.N12_015
         public void GenShuffleList()
         {
             Random random = new Random();
-            shuffleList = Enumerable.Range(0, mediaItems.Count-1).OrderBy(x => random.Next()).ToList();
+            shuffleList = Enumerable.Range(0, mediaItems.Count).OrderBy(x => random.Next()).ToList();
         }
 
         SORTBY sortState = SORTBY.AZ;
@@ -109,14 +111,14 @@ namespace IT008.N12_015
         {
             Common.SetDoubleBuffered(mediaItemContainer);
         }
-
+        
         public int GetMediaIndex(MediaItem item)
         {
             //Lỗi logic dòng 116, đã sửa và thay bằng dòng 119
             //return mediaItems.IndexOf(item);
             //Dòng 118 dùng để debug
             //MessageBox.Show(mediaItemContainer.Controls.IndexOf(item).ToString());
-            return mediaItemContainer.Controls.IndexOf(item);
+            return mediaItems.IndexOf(item);
         }
 
         public void Clear()
@@ -127,8 +129,7 @@ namespace IT008.N12_015
 
         public void Signal(int Index)
         {
-            ((MediaItem)mediaItemContainer.Controls[Index])
-            .MediaItemPlay();
+            mediaItems[Index].MediaItemPlay();
         }
 
         public int CurrentIndex = -1;

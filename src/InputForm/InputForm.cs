@@ -26,8 +26,15 @@ namespace IT008.N12_015.src.InputForm
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            Result = TextBox.Text;
-            Close();
+            if(TextBox.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên playlist");
+            }
+            else
+            {
+                Result = TextBox.Text;
+                Close();
+            }    
         }
 
     }

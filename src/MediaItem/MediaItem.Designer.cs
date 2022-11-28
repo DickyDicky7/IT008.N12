@@ -57,9 +57,9 @@
             this.inforPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.inforPanel.Controls.Add(this.artistLB, 1, 0);
             this.inforPanel.Controls.Add(this.albumLB, 2, 0);
-            this.inforPanel.Controls.Add(this.titleLB, 0, 0);
             this.inforPanel.Controls.Add(this.durationLB, 4, 0);
             this.inforPanel.Controls.Add(this.genreLB, 3, 0);
+            this.inforPanel.Controls.Add(this.titleLB, 0, 0);
             this.inforPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inforPanel.Location = new System.Drawing.Point(0, 0);
             this.inforPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -196,7 +196,7 @@
             this.playMenuItem.Name = "playMenuItem";
             this.playMenuItem.Size = new System.Drawing.Size(150, 24);
             this.playMenuItem.Text = "Play";
-            this.playMenuItem.Click += new System.EventHandler(this.playMenuItem_Click);
+            this.playMenuItem.Click += new System.EventHandler(this.MediaItem_Click);
             // 
             // addToMenuItem
             // 

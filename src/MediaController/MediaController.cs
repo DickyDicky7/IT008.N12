@@ -129,12 +129,14 @@ namespace IT008.N12_015
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            CurrentMusicList.PlayNext();
+            if(CurrentMusicList != null)
+                CurrentMusicList.PlayNext();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            CurrentMusicList.PlayBack();
+            if(CurrentMusicList != null)
+                CurrentMusicList.PlayBack();
         }
 
         private void UpdateMediaController()
@@ -246,12 +248,12 @@ namespace IT008.N12_015
         {
             
             //MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
-            if (CurrentMusicList != null && CurrentMusicList != musicList)
+            if (CurrentMusicList != null && CurrentMusicList != musicList )
                 CurrentMusicList.Stop();
             CurrentMusicList = musicList;
+            CurrentMusicList.shuffleMode = shuffleMode;
             if(shuffleMode == true)
             {
-                CurrentMusicList.shuffleMode = shuffleMode;
                 CurrentMusicList.GenShuffleList();
             }
             CurrentMusicList.PlayNext();

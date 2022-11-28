@@ -229,8 +229,15 @@ namespace IT008.N12_015
                 {
                     foreach (Control c in control.Controls)
                     {
-                        c.Click += e;
-                        Recursive(c, e);
+                        if (c is CheckBox)
+                        {
+
+                        }
+                        else
+                        {
+                            c.Click += e;
+                            Recursive(c, e);
+                        }
                     }
                 }
                 Recursive(this, value);
@@ -252,7 +259,6 @@ namespace IT008.N12_015
         public static form f { get; set; }
         public static MediaItem PlayItem { get; set; }
         public static MediaController MediaController { get; set; }
-
         public MusicList ParentMusicList { get; set; }
 
         private static List<WeakReference> instances = new List<WeakReference>();
@@ -309,26 +315,13 @@ namespace IT008.N12_015
 
         private void MediaItem_MouseHover(object sender, EventArgs e)
         {
-            containerPanel.FillColor = Color.FromArgb(211, 211, 211);
+            //containerPanel.FillColor = Color.FromArgb(211, 211, 211);
         }
 
         private void MediaItem_MouseLeave(object sender, EventArgs e)
         {
             containerPanel.FillColor = Color.FromArgb(255, 255, 255);
         }
-
-        private void playMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeLabelColor(Color.FromArgb(186, 24, 27));
-            if (PlayItem != null && PlayItem != this)
-            {
-                PlayItem.ChangeLabelColor(Color.Black);
-            }
-            PlayItem = this;
-            MediaController.LoadMedia(URL);
-        }
-
-
 
         private void MediaItem_Load(object sender, EventArgs e)
         {
