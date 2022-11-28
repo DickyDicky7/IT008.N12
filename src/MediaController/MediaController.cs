@@ -129,12 +129,12 @@ namespace IT008.N12_015
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-
+            CurrentMusicList.PlayNext();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-
+            CurrentMusicList.PlayBack();
         }
 
         private void UpdateMediaController()

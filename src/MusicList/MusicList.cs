@@ -147,5 +147,22 @@ namespace IT008.N12_015
                     Signal(CurrentIndex);
             }
         }
+        public void PlayBack()
+        {
+            if (CurrentIndex > 0)
+            {
+                CurrentIndex--;
+                if (shuffleMode == true)
+                {
+                    Signal(shuffleList[CurrentIndex]);
+                }
+                else
+                    Signal(CurrentIndex);
+            }
+            else
+            {
+
+            }
+        }
     }
 }
