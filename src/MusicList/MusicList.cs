@@ -141,14 +141,19 @@ namespace IT008.N12_015
         public void PlayNext()
         {
             CurrentIndex++;
+            //MessageBox.Show(CurrentIndex.ToString());
             if (CurrentIndex < mediaItems.Count)
             {
-                if(shuffleMode == true)
+                if (shuffleMode == true)
                 {
                     Signal(shuffleList[CurrentIndex]);
                 }
                 else
                     Signal(CurrentIndex);
+            }
+            else
+            {
+                CurrentIndex = mediaItems.Count - 1;
             }
         }
         public void PlayBack()
@@ -162,10 +167,6 @@ namespace IT008.N12_015
                 }
                 else
                     Signal(CurrentIndex);
-            }
-            else
-            {
-
             }
         }
     }
