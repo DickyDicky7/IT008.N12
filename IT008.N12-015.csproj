@@ -149,32 +149,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\AnimateLabel\AnimateLabel.cs">
+    <Compile Include="Src\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\Util\Common.cs" />
-    <Compile Include="src\InputForm\InputForm.cs">
+    <Compile Include="Src\Util\Common.cs" />
+    <Compile Include="Src\InputForm\InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\InputForm\InputForm.Designer.cs">
+    <Compile Include="Src\InputForm\InputForm.Designer.cs">
       <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\MusicList\MusicList.cs">
+    <Compile Include="Src\MusicList\MusicList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MusicList\MusicList.Designer.cs">
+    <Compile Include="Src\MusicList\MusicList.Designer.cs">
       <DependentUpon>MusicList.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Example\Example.cs">
+    <Compile Include="Src\Example\Example.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\Example\Example.Designer.cs">
+    <Compile Include="Src\Example\Example.Designer.cs">
       <DependentUpon>Example.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\FolderLocation\FolderLocation.cs">
+    <Compile Include="Src\FolderLocation\FolderLocation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\FolderLocation\FolderLocation.Designer.cs">
+    <Compile Include="Src\FolderLocation\FolderLocation.Designer.cs">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -183,67 +183,67 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\MediaController\MediaController.cs">
+    <Compile Include="Src\MediaController\MediaController.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MediaController\MediaController.Designer.cs">
+    <Compile Include="Src\MediaController\MediaController.Designer.cs">
       <DependentUpon>MediaController.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\MediaItem\MediaItem.cs">
+    <Compile Include="Src\MediaItem\MediaItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MediaItem\MediaItem.Designer.cs">
+    <Compile Include="Src\MediaItem\MediaItem.Designer.cs">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\MediaVisualizer\MediaVisualizer.cs">
+    <Compile Include="Src\MediaVisualizer\MediaVisualizer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\MediaVisualizer\MediaVisualizer.Designer.cs">
+    <Compile Include="Src\MediaVisualizer\MediaVisualizer.Designer.cs">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PlaylistItem\PlaylistItem.cs">
+    <Compile Include="Src\PlaylistItem\PlaylistItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\PlaylistItem\PlaylistItem.Designer.cs">
+    <Compile Include="Src\PlaylistItem\PlaylistItem.Designer.cs">
       <DependentUpon>PlaylistItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\SoundCloud\SoundCloudIntegration.cs">
+    <Compile Include="Src\SoundCloud\SoundCloudIntegration.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\SoundCloud\SoundCloudIntegration.Designer.cs">
+    <Compile Include="Src\SoundCloud\SoundCloudIntegration.Designer.cs">
       <DependentUpon>SoundCloudIntegration.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.cs">
+    <Compile Include="Src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.Designer.cs">
+    <Compile Include="Src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.Designer.cs">
       <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Util\Watcher.cs" />
-    <EmbeddedResource Include="src\FolderLocation\FolderLocation.resx">
+    <Compile Include="Src\Util\Watcher.cs" />
+    <EmbeddedResource Include="Src\FolderLocation\FolderLocation.resx">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\InputForm\InputForm.resx">
+    <EmbeddedResource Include="Src\InputForm\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\MusicList\MusicList.resx">
+    <EmbeddedResource Include="Src\MusicList\MusicList.resx">
       <DependentUpon>MusicList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\MediaController\MediaController.resx">
+    <EmbeddedResource Include="Src\MediaController\MediaController.resx">
       <DependentUpon>MediaController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\MediaItem\MediaItem.resx">
+    <EmbeddedResource Include="Src\MediaItem\MediaItem.resx">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\MediaVisualizer\MediaVisualizer.resx">
+    <EmbeddedResource Include="Src\MediaVisualizer\MediaVisualizer.resx">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PlaylistItem\PlaylistItem.resx">
+    <EmbeddedResource Include="Src\PlaylistItem\PlaylistItem.resx">
       <DependentUpon>PlaylistItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -251,7 +251,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.resx">
+    <EmbeddedResource Include="Src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.resx">
       <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -294,10 +294,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lib\CSAudioVisualization.dll">
+    <Content Include="Lib\CSAudioVisualization.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\CSCore.dll">
+    <Content Include="Lib\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\icons8-trash-can-50.png" />
