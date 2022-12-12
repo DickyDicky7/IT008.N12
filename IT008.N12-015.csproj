@@ -63,12 +63,6 @@
     <Reference Include="FluentTransitions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=121ceb2df72b2338, processorArchitecture=MSIL">
       <HintPath>packages\FluentTransitions.2.0.1\lib\net45\FluentTransitions.dll</HintPath>
     </Reference>
-    <Reference Include="FSC-UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\FSC-UI.1.0.0\lib\net48\FSC-UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.3.5, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
-      <HintPath>packages\Guna.UI2.WinForms.2.0.3.5\lib\net40\Guna.UI2.dll</HintPath>
-    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.11.46.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>packages\HtmlAgilityPack.1.11.46\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -82,21 +76,9 @@
     <Reference Include="PlaylistsNET, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\PlaylistsNET.1.2.1\lib\net48\PlaylistsNET.dll</HintPath>
     </Reference>
-    <Reference Include="PowerLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\PowerLib.Winform.1.0.8\lib\net45\PowerLib.dll</HintPath>
-    </Reference>
-    <Reference Include="PowerLib.Winform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\PowerLib.Winform.1.0.8\lib\net45\PowerLib.Winform.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="ReaLTaiizor, Version=3.7.8.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ReaLTaiizor.3.7.8.8\lib\net48\ReaLTaiizor.dll</HintPath>
-    </Reference>
     <Reference Include="RestSharp, Version=108.0.2.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>packages\RestSharp.108.0.2\lib\netstandard2.0\RestSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="SaaUI, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\SaaUI.Winforms.1.1.0\lib\net35\SaaUI.dll</HintPath>
     </Reference>
     <Reference Include="Siticone.Desktop.UI, Version=2.0.9.0, Culture=neutral, PublicKeyToken=422d444a8a9fa6db, processorArchitecture=MSIL">
       <HintPath>packages\Siticone.Desktop.UI.2.0.9\lib\net40\Siticone.Desktop.UI.dll</HintPath>
@@ -151,6 +133,12 @@
   <ItemGroup>
     <Compile Include="Src\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Src\MediaLyrics\MediaLyrics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\MediaLyrics\MediaLyrics.Designer.cs">
+      <DependentUpon>MediaLyrics.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Util\Common.cs" />
     <Compile Include="Src\InputForm\InputForm.cs">
@@ -230,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\InputForm\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\MediaLyrics\MediaLyrics.resx">
+      <DependentUpon>MediaLyrics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\MusicList\MusicList.resx">
       <DependentUpon>MusicList.cs</DependentUpon>

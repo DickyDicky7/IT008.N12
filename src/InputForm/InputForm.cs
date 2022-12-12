@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,8 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.IO;
 
-namespace IT008.N12_015.src.InputForm
+namespace IT008.N12_015
 {
     public partial class InputForm : Form
     {

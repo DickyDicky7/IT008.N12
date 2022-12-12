@@ -1,4 +1,4 @@
-﻿namespace IT008.N12_015.src.InputForm
+﻿namespace IT008.N12_015
 {
     partial class InputForm
     {

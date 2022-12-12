@@ -10,7 +10,6 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Siticone.Desktop.UI.WinForms;
-using IT008.N12_015.src.InputForm;
 
 namespace IT008.N12_015
 {
