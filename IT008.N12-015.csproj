@@ -171,10 +171,10 @@
     <Compile Include="src\Example\Example.Designer.cs">
       <DependentUpon>Example.cs</DependentUpon>
     </Compile>
-    <Compile Include="FolderLocation.cs">
+    <Compile Include="src\FolderLocation\FolderLocation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FolderLocation.Designer.cs">
+    <Compile Include="src\FolderLocation\FolderLocation.Designer.cs">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -222,7 +222,7 @@
       <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Util\Watcher.cs" />
-    <EmbeddedResource Include="FolderLocation.resx">
+    <EmbeddedResource Include="src\FolderLocation\FolderLocation.resx">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
