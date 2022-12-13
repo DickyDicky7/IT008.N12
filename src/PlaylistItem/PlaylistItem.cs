@@ -156,6 +156,7 @@ namespace IT008.N12_015
                 }
                 else
                 {
+                    musicList.Height = musicList.GetExpandSize(); 
                     this.Size = new Size
                     (this.Size.Width, Panel.Size.Height + musicList.Size.Height);
                     if (AdjacentOne != null)

@@ -37,16 +37,15 @@
             this.mediaItemContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mediaItemContainer.Location = new System.Drawing.Point(0, 0);
             this.mediaItemContainer.Name = "mediaItemContainer";
-            this.mediaItemContainer.Size = new System.Drawing.Size(525, 450);
+            this.mediaItemContainer.Size = new System.Drawing.Size(777, 527);
             this.mediaItemContainer.TabIndex = 0;
             // 
             // MusicList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.mediaItemContainer);
             this.Name = "MusicList";
-            this.Size = new System.Drawing.Size(525, 450);
+            this.Size = new System.Drawing.Size(777, 527);
             this.Load += new System.EventHandler(this.MusicList_Load);
             this.Resize += new System.EventHandler(this.mediaItemContainer_Resize);
             this.ResumeLayout(false);

@@ -16,7 +16,6 @@ namespace IT008.N12_015
         public MediaLyrics()
         {
             InitializeComponent();
-            GetLyrics($"{Common.MusicFolder}\\Waiting-For-You-MONO-Onionn.mp3");
             MouseWheel += new MouseEventHandler(MediaLyrics_MouseWheel);
         }
 

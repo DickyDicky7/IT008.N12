@@ -49,6 +49,7 @@ namespace IT008.N12_015
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.renamePlaylistToolStripMenuItem,
             this.removeToolStripMenuItem});
+            this.Menu.MaximumSize = new System.Drawing.Size(0, 500);
             this.Menu.Name = "Menu";
             this.Menu.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Menu.RenderStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
@@ -100,7 +101,7 @@ namespace IT008.N12_015
             this.Panel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Panel.ImageSize = new System.Drawing.Size(30, 30);
             this.Panel.Location = new System.Drawing.Point(0, 0);
-            this.Panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Panel.Margin = new System.Windows.Forms.Padding(4);
             this.Panel.Name = "Panel";
             this.Panel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.Panel.ShadowDecoration.Parent = this.Panel;
@@ -111,9 +112,11 @@ namespace IT008.N12_015
             // 
             // musicList
             // 
-            this.musicList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.musicList.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.musicList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.musicList.Location = new System.Drawing.Point(0, 58);
             this.musicList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.musicList.MaximumSize = new System.Drawing.Size(0, 311);
             this.musicList.Name = "musicList";
             this.musicList.Size = new System.Drawing.Size(733, 311);
             this.musicList.TabIndex = 4;
@@ -133,7 +136,7 @@ namespace IT008.N12_015
             this.playButton.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
             this.playButton.ImageSize = new System.Drawing.Size(27, 27);
             this.playButton.Location = new System.Drawing.Point(573, 12);
-            this.playButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.playButton.Margin = new System.Windows.Forms.Padding(4);
             this.playButton.Name = "playButton";
             this.playButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.playButton.ShadowDecoration.Parent = this.playButton;
@@ -154,7 +157,7 @@ namespace IT008.N12_015
             this.showButton.HoverState.Parent = this.showButton;
             this.showButton.Image = global::IT008.N12_015.Properties.Resources.down;
             this.showButton.Location = new System.Drawing.Point(640, 12);
-            this.showButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showButton.Margin = new System.Windows.Forms.Padding(4);
             this.showButton.Name = "showButton";
             this.showButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.showButton.ShadowDecoration.Parent = this.showButton;
@@ -171,7 +174,7 @@ namespace IT008.N12_015
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.musicList);
             this.Controls.Add(this.Panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PlaylistItem";
             this.Size = new System.Drawing.Size(733, 369);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);

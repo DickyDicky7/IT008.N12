@@ -31,9 +31,9 @@
             this.inforPanel = new System.Windows.Forms.TableLayoutPanel();
             this.artistLB = new System.Windows.Forms.Label();
             this.albumLB = new System.Windows.Forms.Label();
-            this.titleLB = new System.Windows.Forms.Label();
             this.durationLB = new System.Windows.Forms.Label();
             this.genreLB = new System.Windows.Forms.Label();
+            this.titleLB = new System.Windows.Forms.Label();
             this.containerPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.contextMenu = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.playMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,23 +104,6 @@
             this.albumLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
             this.albumLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
             // 
-            // titleLB
-            // 
-            this.titleLB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.titleLB.AutoEllipsis = true;
-            this.titleLB.AutoSize = true;
-            this.titleLB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.titleLB.Location = new System.Drawing.Point(3, 16);
-            this.titleLB.Name = "titleLB";
-            this.titleLB.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.titleLB.Size = new System.Drawing.Size(60, 20);
-            this.titleLB.TabIndex = 1;
-            this.titleLB.Text = "Title";
-            this.titleLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
-            this.titleLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
-            this.titleLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
-            // 
             // durationLB
             // 
             this.durationLB.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -148,6 +131,23 @@
             this.genreLB.Size = new System.Drawing.Size(51, 20);
             this.genreLB.TabIndex = 5;
             this.genreLB.Text = "Genre";
+            // 
+            // titleLB
+            // 
+            this.titleLB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.titleLB.AutoEllipsis = true;
+            this.titleLB.AutoSize = true;
+            this.titleLB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.titleLB.Location = new System.Drawing.Point(3, 16);
+            this.titleLB.Name = "titleLB";
+            this.titleLB.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.titleLB.Size = new System.Drawing.Size(60, 20);
+            this.titleLB.TabIndex = 1;
+            this.titleLB.Text = "Title";
+            this.titleLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
+            this.titleLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
+            this.titleLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
             // 
             // containerPanel
             // 
@@ -246,6 +246,7 @@
             this.ContextMenuStrip = this.contextMenu;
             this.Controls.Add(this.containerPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(0, 40);
             this.Name = "MediaItem";
             this.Padding = new System.Windows.Forms.Padding(35, 4, 15, 4);
             this.Size = new System.Drawing.Size(1000, 60);

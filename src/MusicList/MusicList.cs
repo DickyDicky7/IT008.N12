@@ -120,7 +120,11 @@ namespace IT008.N12_015
             //MessageBox.Show(mediaItemContainer.Controls.IndexOf(item).ToString());
             return mediaItems.IndexOf(item);
         }
-
+        public int GetExpandSize()
+        {
+            if(mediaItems.Count == 0) return 0;
+            return mediaItems.Count * mediaItems.First().Height;
+        }
         public void Clear()
         {
             mediaItems.Clear();
