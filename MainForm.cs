@@ -24,6 +24,7 @@ namespace IT008.N12_015
             playlistPageInit();
             Responsive();
             designInit();
+            MediaController.lyrics = mediaLyrics1;
             Load += new EventHandler(form_Load(args));
 
 

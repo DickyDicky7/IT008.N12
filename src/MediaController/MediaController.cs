@@ -88,7 +88,7 @@ namespace IT008.N12_015
             MediaTitle.Text = Common.GetTitle(URL);
 
             BtnPlay.Image = global::IT008.N12_015.Properties.Resources.pause;
-
+            lyrics.GetLyrics(URL);
             OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
@@ -334,6 +334,8 @@ namespace IT008.N12_015
         public static form form { get; set; }
 
         private static MusicList CurrentMusicList;
+
+        public static MediaLyrics lyrics;
 
         private void MediaTitle_Click(object sender, EventArgs e)
         {
