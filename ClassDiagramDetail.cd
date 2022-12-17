@@ -1,4 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IT008.N12_015.form">
+    <Position X="2.75" Y="3.25" Width="3" />
+    <Members>
+      <Field Name="addFolder" Hidden="true" />
+      <Field Name="addMusicFolderSTBtn" Hidden="true" />
+      <Field Name="albumToolStripMenuItem" Hidden="true" />
+      <Field Name="artistToolStripMenuItem" Hidden="true" />
+      <Field Name="aZToolStripMenuItem" Hidden="true" />
+      <Field Name="borderlessForm" Hidden="true" />
+      <Field Name="buttonImageList" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="controlHeader" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="dragControl" Hidden="true" />
+      <Field Name="exitControlBox" Hidden="true" />
+      <Field Name="genreToolStripMenuItem" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="librariesLb" Hidden="true" />
+      <Field Name="maximizeControlBox" Hidden="true" />
+      <Field Name="mediaController" Hidden="true" />
+      <Field Name="mediaControllerFooter" Hidden="true" />
+      <Field Name="mediaLyrics1" Hidden="true" />
+      <Field Name="mediaVisualizer1" Hidden="true" />
+      <Field Name="minimizeControlBox" Hidden="true" />
+      <Field Name="musicFolderContainer" Hidden="true" />
+      <Field Name="musicFolderPanel" Hidden="true" />
+      <Field Name="musicHeaderPanel" Hidden="true" />
+      <Field Name="musicLabel" Hidden="true" />
+      <Field Name="musicList1" Hidden="true" />
+      <Field Name="musicLocationLb" Hidden="true" />
+      <Field Name="nameContainer" Hidden="true" />
+      <Field Name="playlistsPanel" Hidden="true" />
+      <Field Name="PlayQMusicList" Hidden="true" />
+      <Field Name="settingHeaderPanel" Hidden="true" />
+      <Field Name="settingLabel" Hidden="true" />
+      <Field Name="shuffleAndPlayBtn" Hidden="true" />
+      <Field Name="siticoneButton1" Hidden="true" />
+      <Field Name="siticoneButton2" Hidden="true" />
+      <Field Name="siticonePanel1" Hidden="true" />
+      <Field Name="siticonePictureBox1" Hidden="true" />
+      <Field Name="siticoneTabControl1" Hidden="true" />
+      <Field Name="sortBtn" Hidden="true" />
+      <Field Name="sortByMenu" Hidden="true" />
+      <Field Name="tabControlBorder" Hidden="true" />
+      <Field Name="tabPage1" Hidden="true" />
+      <Field Name="tabPage2" Hidden="true" />
+      <Field Name="tabPage3" Hidden="true" />
+      <Field Name="tabPage4" Hidden="true" />
+      <Field Name="tabPage5" Hidden="true" />
+      <Field Name="visualizeContainer" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IASGYQAkAaoAYRFggAqACIUKAsgA9FwLEYEEgioBgAk=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
