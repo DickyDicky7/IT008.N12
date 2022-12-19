@@ -53,6 +53,9 @@ namespace IT008.N12_015
             ////this.TransparencyKey = Color.White;
             ////this.Opacity = 100;
             //////tabPage4.BackColor = Color.Transparent;
+
+            this.Icon = Properties.Resources.icon;
+
             mediaVisualizer1.InteractMediaController(mediaController);
             MediaController.form = this;
             MediaController
