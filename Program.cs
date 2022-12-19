@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     internal static class Program
     {

@@ -11,7 +11,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     public partial class MediaController : UserControl
     {
@@ -87,7 +87,7 @@ namespace IT008.N12_015
             TrackBar.Maximum = Common.GetDurationInSeconds(URL);
             MediaTitle.Text = Common.GetTitle(URL);
 
-            BtnPlay.Image = global::IT008.N12_015.Properties.Resources.pause;
+            BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.pause;
             lyrics.GetLyrics(URL);
             OnLoadMedia(URL); // Đừng xóa dòng này
         }
@@ -100,14 +100,14 @@ namespace IT008.N12_015
 
                 if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
-                    BtnPlay.Image = global::IT008.N12_015.Properties.Resources.play;
+                    BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.play;
                     BtnPlay.ImageSize = new System.Drawing.Size(40, 40);
                     PauseMedia();
                 }
                 else
                 if (Player.playState == WMPLib.WMPPlayState.wmppsPaused)
                 {
-                    BtnPlay.Image = global::IT008.N12_015.Properties.Resources.pause;
+                    BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.pause;
                     BtnPlay.ImageSize = new System.Drawing.Size(40, 40);
                     PlayMedia();
                 }
@@ -116,7 +116,7 @@ namespace IT008.N12_015
                 {
                     MessageBox.Show("Media Ended", "Info");
                     //BtnPlay.Text = "PLAY";
-                    BtnPlay.Image = global::IT008.N12_015.Properties.Resources.play;
+                    BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.play;
                 }
             }
             else

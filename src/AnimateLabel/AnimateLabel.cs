@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     public class AnimateLabel : Control
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     partial class PlaylistItem
     {
@@ -35,7 +35,7 @@ namespace IT008.N12_015
             this.renamePlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.musicList = new IT008.N12_015.MusicList();
+            this.musicList = new MyMediaPlayer.MusicList();
             this.playButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.showButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.Menu.SuspendLayout();
@@ -97,7 +97,7 @@ namespace IT008.N12_015
             this.Panel.HoverState.FillColor = System.Drawing.Color.White;
             this.Panel.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Panel.HoverState.Parent = this.Panel;
-            this.Panel.Image = global::IT008.N12_015.Properties.Resources.icons8_music_library_64;
+            this.Panel.Image = global::MyMediaPlayer.Properties.Resources.icons8_music_library_64;
             this.Panel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Panel.ImageSize = new System.Drawing.Size(30, 30);
             this.Panel.Location = new System.Drawing.Point(0, 0);
@@ -133,7 +133,7 @@ namespace IT008.N12_015
             this.playButton.ForeColor = System.Drawing.Color.White;
             this.playButton.HoverState.FillColor = System.Drawing.Color.White;
             this.playButton.HoverState.Parent = this.playButton;
-            this.playButton.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
+            this.playButton.Image = global::MyMediaPlayer.Properties.Resources.play_button__1_;
             this.playButton.ImageSize = new System.Drawing.Size(27, 27);
             this.playButton.Location = new System.Drawing.Point(573, 12);
             this.playButton.Margin = new System.Windows.Forms.Padding(4);
@@ -155,7 +155,7 @@ namespace IT008.N12_015
             this.showButton.ForeColor = System.Drawing.Color.White;
             this.showButton.HoverState.FillColor = System.Drawing.Color.White;
             this.showButton.HoverState.Parent = this.showButton;
-            this.showButton.Image = global::IT008.N12_015.Properties.Resources.down;
+            this.showButton.Image = global::MyMediaPlayer.Properties.Resources.down;
             this.showButton.Location = new System.Drawing.Point(640, 12);
             this.showButton.Margin = new System.Windows.Forms.Padding(4);
             this.showButton.Name = "showButton";

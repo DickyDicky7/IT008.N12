@@ -1,4 +1,4 @@
-﻿namespace IT008.N12_015
+﻿namespace MyMediaPlayer
 {
     partial class FolderLocation
     {
@@ -58,7 +58,7 @@
             this.removeBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.removeBtn.ForeColor = System.Drawing.Color.White;
             this.removeBtn.HoverState.Parent = this.removeBtn;
-            this.removeBtn.Image = global::IT008.N12_015.Properties.Resources.close;
+            this.removeBtn.Image = global::MyMediaPlayer.Properties.Resources.close;
             this.removeBtn.ImageSize = new System.Drawing.Size(14, 14);
             this.removeBtn.Location = new System.Drawing.Point(645, 7);
             this.removeBtn.Name = "removeBtn";

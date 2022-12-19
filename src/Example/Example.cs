@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     public partial class Example : UserControl
     {

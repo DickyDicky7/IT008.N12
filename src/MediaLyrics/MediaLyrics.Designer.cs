@@ -1,6 +1,6 @@
 ﻿using System.Security.Principal;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     partial class MediaLyrics
     {

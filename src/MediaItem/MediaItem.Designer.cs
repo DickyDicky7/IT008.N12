@@ -1,4 +1,4 @@
-﻿namespace IT008.N12_015
+﻿namespace MyMediaPlayer
 {
     partial class MediaItem
     {
@@ -192,7 +192,7 @@
             // 
             this.playMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.playMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.playMenuItem.Image = global::IT008.N12_015.Properties.Resources.play_button__1_;
+            this.playMenuItem.Image = global::MyMediaPlayer.Properties.Resources.play_button__1_;
             this.playMenuItem.Name = "playMenuItem";
             this.playMenuItem.Size = new System.Drawing.Size(150, 24);
             this.playMenuItem.Text = "Play";
@@ -206,7 +206,7 @@
             this.newPlaylistToolStripMenuItem});
             this.addToMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.addToMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.addToMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
+            this.addToMenuItem.Image = global::MyMediaPlayer.Properties.Resources.plus;
             this.addToMenuItem.Name = "addToMenuItem";
             this.addToMenuItem.Size = new System.Drawing.Size(150, 24);
             this.addToMenuItem.Text = "Add to";
@@ -214,7 +214,7 @@
             // playQueueToolStripMenuItem
             // 
             this.playQueueToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.playQueueToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.icons8_playlist_64;
+            this.playQueueToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.icons8_playlist_64;
             this.playQueueToolStripMenuItem.Name = "playQueueToolStripMenuItem";
             this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.playQueueToolStripMenuItem.Text = "Play Queue";
@@ -223,7 +223,7 @@
             // newPlaylistToolStripMenuItem
             // 
             this.newPlaylistToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.newPlaylistToolStripMenuItem.Image = global::IT008.N12_015.Properties.Resources.plus;
+            this.newPlaylistToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.plus;
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
             this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
@@ -233,7 +233,7 @@
             // 
             this.propertiesMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.propertiesMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.propertiesMenuItem.Image = global::IT008.N12_015.Properties.Resources.information;
+            this.propertiesMenuItem.Image = global::MyMediaPlayer.Properties.Resources.information;
             this.propertiesMenuItem.Name = "propertiesMenuItem";
             this.propertiesMenuItem.Size = new System.Drawing.Size(150, 24);
             this.propertiesMenuItem.Text = "Properties";

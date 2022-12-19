@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     public class Watcher
     {

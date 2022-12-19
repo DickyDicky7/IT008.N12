@@ -1,4 +1,4 @@
-﻿namespace IT008.N12_015
+﻿namespace MyMediaPlayer
 {
     partial class MediaController
     {
@@ -38,7 +38,7 @@
             this.BtnBack = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnPlay = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.TimeStamp = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.MediaTitle = new IT008.N12_015.AnimateLabel();
+            this.MediaTitle = new MyMediaPlayer.AnimateLabel();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,7 +131,7 @@
             this.BtnNext10s.ForeColor = System.Drawing.Color.Transparent;
             this.BtnNext10s.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnNext10s.HoverState.Parent = this.BtnNext10s;
-            this.BtnNext10s.Image = global::IT008.N12_015.Properties.Resources.forward_10s;
+            this.BtnNext10s.Image = global::MyMediaPlayer.Properties.Resources.forward_10s;
             this.BtnNext10s.ImageSize = new System.Drawing.Size(30, 30);
             this.BtnNext10s.Location = new System.Drawing.Point(225, 30);
             this.BtnNext10s.Name = "BtnNext10s";
@@ -161,7 +161,7 @@
             this.BtnBack10s.ForeColor = System.Drawing.Color.Transparent;
             this.BtnBack10s.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnBack10s.HoverState.Parent = this.BtnBack10s;
-            this.BtnBack10s.Image = global::IT008.N12_015.Properties.Resources.replay_10s;
+            this.BtnBack10s.Image = global::MyMediaPlayer.Properties.Resources.replay_10s;
             this.BtnBack10s.ImageSize = new System.Drawing.Size(30, 30);
             this.BtnBack10s.Location = new System.Drawing.Point(180, 30);
             this.BtnBack10s.Name = "BtnBack10s";
@@ -191,7 +191,7 @@
             this.BtnNext.ForeColor = System.Drawing.Color.Transparent;
             this.BtnNext.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnNext.HoverState.Parent = this.BtnNext;
-            this.BtnNext.Image = global::IT008.N12_015.Properties.Resources.next_song;
+            this.BtnNext.Image = global::MyMediaPlayer.Properties.Resources.next_song;
             this.BtnNext.ImageSize = new System.Drawing.Size(30, 30);
             this.BtnNext.Location = new System.Drawing.Point(125, 30);
             this.BtnNext.Name = "BtnNext";
@@ -221,7 +221,7 @@
             this.BtnBack.ForeColor = System.Drawing.Color.Transparent;
             this.BtnBack.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnBack.HoverState.Parent = this.BtnBack;
-            this.BtnBack.Image = global::IT008.N12_015.Properties.Resources.previous_song;
+            this.BtnBack.Image = global::MyMediaPlayer.Properties.Resources.previous_song;
             this.BtnBack.ImageSize = new System.Drawing.Size(30, 30);
             this.BtnBack.Location = new System.Drawing.Point(80, 30);
             this.BtnBack.Name = "BtnBack";
@@ -251,7 +251,7 @@
             this.BtnPlay.ForeColor = System.Drawing.Color.Transparent;
             this.BtnPlay.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnPlay.HoverState.Parent = this.BtnPlay;
-            this.BtnPlay.Image = global::IT008.N12_015.Properties.Resources.play;
+            this.BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.play;
             this.BtnPlay.ImageSize = new System.Drawing.Size(40, 40);
             this.BtnPlay.Location = new System.Drawing.Point(15, 25);
             this.BtnPlay.Name = "BtnPlay";

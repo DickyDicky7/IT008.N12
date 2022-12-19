@@ -1,4 +1,4 @@
-﻿namespace IT008.N12_015
+﻿namespace MyMediaPlayer
 {
     partial class form
     {
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form));
             this.mediaControllerFooter = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.mediaController = new IT008.N12_015.MediaController();
+            this.mediaController = new MyMediaPlayer.MediaController();
             this.controlHeader = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.nameContainer = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.minimizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
@@ -39,7 +39,7 @@
             this.maximizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.musicList1 = new IT008.N12_015.MusicList();
+            this.musicList1 = new MyMediaPlayer.MusicList();
             this.musicHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.shuffleAndPlayBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.sortBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -47,7 +47,7 @@
             this.musicLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.PlayQMusicList = new IT008.N12_015.MusicList();
+            this.PlayQMusicList = new MyMediaPlayer.MusicList();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,8 +73,8 @@
             this.tabControlBorder = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.visualizeContainer = new System.Windows.Forms.Panel();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.mediaVisualizer1 = new IT008.N12_015.MediaVisualizer();
-            this.mediaLyrics1 = new IT008.N12_015.MediaLyrics();
+            this.mediaVisualizer1 = new MyMediaPlayer.MediaVisualizer();
+            this.mediaLyrics1 = new MyMediaPlayer.MediaLyrics();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.siticoneTabControl1.SuspendLayout();
@@ -312,7 +312,7 @@
             this.shuffleAndPlayBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.shuffleAndPlayBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.shuffleAndPlayBtn.HoverState.Parent = this.shuffleAndPlayBtn;
-            this.shuffleAndPlayBtn.Image = global::IT008.N12_015.Properties.Resources.white_suffle;
+            this.shuffleAndPlayBtn.Image = global::MyMediaPlayer.Properties.Resources.white_suffle;
             this.shuffleAndPlayBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.shuffleAndPlayBtn.Location = new System.Drawing.Point(43, 78);
             this.shuffleAndPlayBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -346,7 +346,7 @@
             this.sortBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.sortBtn.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.sortBtn.HoverState.Parent = this.sortBtn;
-            this.sortBtn.Image = global::IT008.N12_015.Properties.Resources.down;
+            this.sortBtn.Image = global::MyMediaPlayer.Properties.Resources.down;
             this.sortBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.sortBtn.ImageSize = new System.Drawing.Size(15, 15);
             this.sortBtn.Location = new System.Drawing.Point(253, 78);
@@ -382,7 +382,7 @@
             this.addFolder.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addFolder.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.addFolder.HoverState.Parent = this.addFolder;
-            this.addFolder.Image = global::IT008.N12_015.Properties.Resources.add_folder;
+            this.addFolder.Image = global::MyMediaPlayer.Properties.Resources.add_folder;
             this.addFolder.Location = new System.Drawing.Point(993, 22);
             this.addFolder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addFolder.Name = "addFolder";
@@ -476,7 +476,7 @@
             this.siticoneButton2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.siticoneButton2.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.siticoneButton2.HoverState.Parent = this.siticoneButton2;
-            this.siticoneButton2.Image = global::IT008.N12_015.Properties.Resources.icons8_trash_can_50;
+            this.siticoneButton2.Image = global::MyMediaPlayer.Properties.Resources.icons8_trash_can_50;
             this.siticoneButton2.Location = new System.Drawing.Point(43, 87);
             this.siticoneButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.siticoneButton2.Name = "siticoneButton2";
@@ -583,7 +583,7 @@
             this.addMusicFolderSTBtn.ForeColor = System.Drawing.Color.Black;
             this.addMusicFolderSTBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
             this.addMusicFolderSTBtn.HoverState.Parent = this.addMusicFolderSTBtn;
-            this.addMusicFolderSTBtn.Image = global::IT008.N12_015.Properties.Resources.add_folder;
+            this.addMusicFolderSTBtn.Image = global::MyMediaPlayer.Properties.Resources.add_folder;
             this.addMusicFolderSTBtn.Location = new System.Drawing.Point(909, 15);
             this.addMusicFolderSTBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addMusicFolderSTBtn.Name = "addMusicFolderSTBtn";
@@ -604,7 +604,7 @@
             // 
             // siticonePictureBox1
             // 
-            this.siticonePictureBox1.Image = global::IT008.N12_015.Properties.Resources.folder;
+            this.siticonePictureBox1.Image = global::MyMediaPlayer.Properties.Resources.folder;
             this.siticonePictureBox1.ImageRotate = 0F;
             this.siticonePictureBox1.Location = new System.Drawing.Point(15, 15);
             this.siticonePictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -767,7 +767,7 @@
             this.siticoneButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
             this.siticoneButton1.HoverState.Parent = this.siticoneButton1;
-            this.siticoneButton1.Image = global::IT008.N12_015.Properties.Resources.close;
+            this.siticoneButton1.Image = global::MyMediaPlayer.Properties.Resources.close;
             this.siticoneButton1.Location = new System.Drawing.Point(0, 0);
             this.siticoneButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.siticoneButton1.Name = "siticoneButton1";

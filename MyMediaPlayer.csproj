@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6676529E-C28B-40E9-AD9D-5FB60F85A173}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>IT008.N12_015</RootNamespace>
+    <RootNamespace>MyMediaPlayer</RootNamespace>
     <AssemblyName>MyMediaPlayer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

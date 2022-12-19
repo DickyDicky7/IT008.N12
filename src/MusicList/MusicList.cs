@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     public partial class MusicList : UserControl
     {

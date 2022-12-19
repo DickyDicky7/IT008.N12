@@ -1,4 +1,4 @@
-﻿namespace IT008.N12_015
+﻿namespace MyMediaPlayer
 {
     partial class MediaVisualizer
     {
@@ -36,7 +36,7 @@
             this.MediaStatus = new CSharp.Winform.UI.Label();
             this.MediaArtist = new CSharp.Winform.UI.Label();
             this.panel1 = new CSharp.Winform.UI.Panel();
-            this.MediaTitle = new IT008.N12_015.AnimateLabel();
+            this.MediaTitle = new MyMediaPlayer.AnimateLabel();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();

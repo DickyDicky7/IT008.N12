@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Siticone.Desktop.UI.WinForms;
 
-namespace IT008.N12_015
+namespace MyMediaPlayer
 {
     public partial class form : Form
     {
