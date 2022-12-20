@@ -86,6 +86,7 @@ namespace MyMediaPlayer
                 {
                     //MessageBox.Show(args[0], "File");
                     //MediaController.LoadMedia(args[0]);
+                    bringVisualizeToFront();
                     mediaController.LoadMedia(args[0]);
                 }
             });
