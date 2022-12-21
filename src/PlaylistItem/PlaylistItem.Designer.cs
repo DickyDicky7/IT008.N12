@@ -100,12 +100,12 @@ namespace MyMediaPlayer
             this.Panel.Image = global::MyMediaPlayer.Properties.Resources.icons8_music_library_64;
             this.Panel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Panel.ImageSize = new System.Drawing.Size(30, 30);
-            this.Panel.Location = new System.Drawing.Point(0, 0);
+            this.Panel.Location = new System.Drawing.Point(35, 0);
             this.Panel.Margin = new System.Windows.Forms.Padding(4);
             this.Panel.Name = "Panel";
             this.Panel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.Panel.ShadowDecoration.Parent = this.Panel;
-            this.Panel.Size = new System.Drawing.Size(733, 58);
+            this.Panel.Size = new System.Drawing.Size(698, 58);
             this.Panel.TabIndex = 3;
             this.Panel.Text = "Title goes here";
             this.Panel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -114,11 +114,11 @@ namespace MyMediaPlayer
             // 
             this.musicList.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.musicList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.musicList.Location = new System.Drawing.Point(0, 58);
+            this.musicList.Location = new System.Drawing.Point(35, 58);
             this.musicList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.musicList.MaximumSize = new System.Drawing.Size(0, 311);
             this.musicList.Name = "musicList";
-            this.musicList.Size = new System.Drawing.Size(733, 311);
+            this.musicList.Size = new System.Drawing.Size(698, 311);
             this.musicList.TabIndex = 4;
             // 
             // playButton
@@ -176,6 +176,7 @@ namespace MyMediaPlayer
             this.Controls.Add(this.Panel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PlaylistItem";
+            this.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Size = new System.Drawing.Size(733, 369);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlaylistItem_MouseClick);
             this.Menu.ResumeLayout(false);
