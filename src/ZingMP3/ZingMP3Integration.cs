@@ -10,9 +10,9 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public partial class SoundCloudIntegration : UserControl
+    public partial class ZingMP3Integration : UserControl
     {
-        public SoundCloudIntegration()
+        public ZingMP3Integration()
         {
             InitializeComponent();
 
@@ -20,7 +20,7 @@ namespace MyMediaPlayer
             SoundCloudTabPage.Text = "SoundCloud";
 
             SoundCloudTabPage.BackColor = Color.Gray;
-            SoundCloudTabPage.Controls.Add(new SoundCloudSearchBox());
+            SoundCloudTabPage.Controls.Add(new SearchBox());
         }
 
         public TabPage SoundCloudTabPage = new TabPage();

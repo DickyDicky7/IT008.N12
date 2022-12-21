@@ -201,17 +201,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Src\SoundCloud\SoundCloudIntegration.cs">
+    <Compile Include="Src\ZingMP3\ZingMP3Integration.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\SoundCloud\SoundCloudIntegration.Designer.cs">
-      <DependentUpon>SoundCloudIntegration.cs</DependentUpon>
+    <Compile Include="Src\ZingMP3\ZingMP3Integration.Designer.cs">
+      <DependentUpon>ZingMP3Integration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.cs">
+    <Compile Include="Src\SearchBox\SearchBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.Designer.cs">
-      <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
+    <Compile Include="Src\SearchBox\SearchBox.Designer.cs">
+      <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Util\Watcher.cs" />
     <EmbeddedResource Include="Src\FolderLocation\FolderLocation.resx">
@@ -246,8 +246,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\SoundCloud\SoundCloudSearchBox\SoundCloudSearchBox.resx">
-      <DependentUpon>SoundCloudSearchBox.cs</DependentUpon>
+    <EmbeddedResource Include="Src\SearchBox\SearchBox.resx">
+      <DependentUpon>SearchBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagramDetail.cd" />

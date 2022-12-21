@@ -10,9 +10,9 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public partial class SoundCloudSearchBox : UserControl
+    public partial class SearchBox : UserControl
     {
-        public SoundCloudSearchBox()
+        public SearchBox()
         {
             InitializeComponent();
 

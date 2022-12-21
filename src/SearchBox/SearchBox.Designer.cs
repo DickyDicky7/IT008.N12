@@ -1,6 +1,6 @@
 ﻿namespace MyMediaPlayer
 {
-    partial class SoundCloudSearchBox
+    partial class SearchBox
     {
         /// <summary> 
         /// Required designer variable.

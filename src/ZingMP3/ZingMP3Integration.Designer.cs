@@ -1,6 +1,6 @@
 ﻿namespace MyMediaPlayer
 {
-    partial class SoundCloudIntegration
+    partial class ZingMP3Integration
     {
         /// <summary> 
         /// Required designer variable.
