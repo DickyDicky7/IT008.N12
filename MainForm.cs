@@ -48,7 +48,10 @@ namespace MyMediaPlayer
             //p2.Location = new Point(10, 60);
             //playlistsPanel.Controls.Add(p1);
             //playlistsPanel.Controls.Add(p2);
+            ZingMP3Integration a = new ZingMP3Integration();
 
+            //a.Search("@");
+            
             ////this.BackColor = Color.White;
             ////this.TransparencyKey = Color.White;
             ////this.Opacity = 100;
@@ -124,7 +127,7 @@ namespace MyMediaPlayer
                     removeL.Add(URL);
                 }
             }
-            foreach(string URL in removeL)
+            foreach (string URL in removeL)
             {
                 Properties.Settings.Default.musicFolder.Remove(URL);
                 Properties.Settings.Default.Save();
@@ -175,8 +178,8 @@ namespace MyMediaPlayer
 
         public void UpdatePlaylistItem(string PlaylistURL)
         {
-                ((PlaylistItem)playlistsPanel.Controls
-            .Find(PlaylistURL, false).FirstOrDefault()).Reset();
+            ((PlaylistItem)playlistsPanel.Controls
+        .Find(PlaylistURL, false).FirstOrDefault()).Reset();
         }
 
         #endregion
@@ -203,7 +206,7 @@ namespace MyMediaPlayer
         }
         public void addMusicToPlayQ(MediaItem media)
         {
-            PlayQMusicList.addMusic(media) ;
+            PlayQMusicList.addMusic(media);
         }
         #endregion
 
@@ -228,7 +231,7 @@ namespace MyMediaPlayer
                 }
             }
             nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
-            
+
             tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width, 0);
             tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
         }

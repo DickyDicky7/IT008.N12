@@ -17,13 +17,13 @@ namespace MyMediaPlayer
             InitializeComponent();
 
             Watcher.Interval = TimeSpan.FromMilliseconds(100);
-            Watcher.Action = UpdateSoundCloudSearchBox;
+            Watcher.Action = UpdateSearchBox;
             
             TextBox.TextChanged += new EventHandler(TextBox_TextChanged);
-            Load += new EventHandler(SoundCloudSearchBox_Load);
+            Load += new EventHandler(SearchBox_Load);
         }
         
-        private void UpdateSoundCloudSearchBox()
+        private void UpdateSearchBox()
         {
             if (LastMod != null)
             {
@@ -43,7 +43,7 @@ namespace MyMediaPlayer
             LastMod = DateTime.Now;
         }
 
-        private void SoundCloudSearchBox_Load(object sender, EventArgs e)
+        private void SearchBox_Load(object sender, EventArgs e)
         {
             Watcher.Start();
         }
