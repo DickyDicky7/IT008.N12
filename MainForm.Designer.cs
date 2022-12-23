@@ -691,6 +691,7 @@
             // 
             // searchBox1
             // 
+            this.searchBox1.Integration = null;
             this.searchBox1.Location = new System.Drawing.Point(113, 37);
             this.searchBox1.Margin = new System.Windows.Forms.Padding(4);
             this.searchBox1.Name = "searchBox1";
