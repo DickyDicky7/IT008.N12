@@ -17,7 +17,6 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_FluentDragDrop.Effects.dll" Value="..\packages\FluentDragDrop.Effects.2.1.3\lib\net472"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_FluentDragDrop.dll" Value="..\packages\FluentDragDrop.2.1.3\lib\net472"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_FluentTransitions.dll" Value="..\packages\FluentTransitions.2.0.1\lib\net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_HtmlAgilityPack.dll" Value="..\packages\HtmlAgilityPack.1.11.46\lib\Net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Interop.WMPLib.dll" Value="..\obj\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Value="..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_MyMediaPlayer.exe" Value="..\bin\Debug"/>
@@ -27,7 +26,6 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_PlaylistsNET.dll" Value="..\packages\PlaylistsNET.1.2.1\lib\net48"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_RestSharp.dll" Value="..\packages\RestSharp.108.0.2\lib\netstandard2.0"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Siticone.Desktop.UI.dll" Value="..\packages\Siticone.Desktop.UI.2.0.9\lib\net40"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SoundCloudExplode.dll" Value="..\packages\SoundCloudExplode.1.3.1\lib\net461"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Buffers.dll" Value="..\packages\System.Buffers.4.5.1\lib\net461"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Memory.dll" Value="..\packages\System.Memory.4.5.5\lib\net461"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Numerics.Vectors.dll" Value="..\packages\System.Numerics.Vectors.4.5.0\lib\net46"/>
@@ -48,7 +46,6 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_FluentDragDrop.Effects.dll" Value="FluentDragDrop.Effects.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_FluentDragDrop.dll" Value="FluentDragDrop.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_FluentTransitions.dll" Value="FluentTransitions.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_HtmlAgilityPack.dll" Value="HtmlAgilityPack.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Interop.WMPLib.dll" Value="Interop.WMPLib.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Value="Microsoft.Bcl.AsyncInterfaces.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MyMediaPlayer.exe" Value="MyMediaPlayer.exe"/>
@@ -58,7 +55,6 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_PlaylistsNET.dll" Value="PlaylistsNET.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_RestSharp.dll" Value="RestSharp.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Siticone.Desktop.UI.dll" Value="Siticone.Desktop.UI.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SoundCloudExplode.dll" Value="SoundCloudExplode.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll" Value="System.Buffers.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll" Value="System.Memory.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll" Value="System.Numerics.Vectors.dll"/>
@@ -118,13 +114,11 @@
     <ROW File="FluentDragDrop.dll" Component_="MyMediaPlayer_References" FileName="FLUENT~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FluentDragDrop.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FluentDragDrop.dll&gt;" SelfReg="false"/>
     <ROW File="FluentDragDrop.Effects.dll" Component_="MyMediaPlayer_References" FileName="FLUENT~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FluentDragDrop.Effects.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FluentDragDrop.Effects.dll&gt;" SelfReg="false"/>
     <ROW File="FluentTransitions.dll" Component_="MyMediaPlayer_References" FileName="FLUENT~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FluentTransitions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FluentTransitions.dll&gt;" SelfReg="false"/>
-    <ROW File="HtmlAgilityPack.dll" Component_="MyMediaPlayer_References" FileName="HTMLAG~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_HtmlAgilityPack.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_HtmlAgilityPack.dll&gt;" SelfReg="false"/>
     <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="MyMediaPlayer_References" FileName="MICROS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll&gt;" SelfReg="false"/>
     <ROW File="Newtonsoft.Json.dll" Component_="MyMediaPlayer_References" FileName="NEWTON~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Newtonsoft.Json.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Newtonsoft.Json.dll&gt;" SelfReg="false"/>
     <ROW File="PlaylistsNET.dll" Component_="MyMediaPlayer_References" FileName="PLAYLI~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_PlaylistsNET.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_PlaylistsNET.dll&gt;" SelfReg="false"/>
     <ROW File="RestSharp.dll" Component_="MyMediaPlayer_References" FileName="RESTSH~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_RestSharp.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_RestSharp.dll&gt;" SelfReg="false"/>
     <ROW File="Siticone.Desktop.UI.dll" Component_="MyMediaPlayer_References" FileName="SITICO~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Siticone.Desktop.UI.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Siticone.Desktop.UI.dll&gt;" SelfReg="false"/>
-    <ROW File="SoundCloudExplode.dll" Component_="MyMediaPlayer_References" FileName="SOUNDC~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SoundCloudExplode.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SoundCloudExplode.dll&gt;" SelfReg="false"/>
     <ROW File="System.Buffers.dll" Component_="MyMediaPlayer_References" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Buffers.dll&gt;" SelfReg="false"/>
     <ROW File="System.Memory.dll" Component_="MyMediaPlayer_References" FileName="SYSTEM~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Memory.dll&gt;" SelfReg="false"/>
     <ROW File="System.Numerics.Vectors.dll" Component_="MyMediaPlayer_References" FileName="SYSTEM~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Numerics.Vectors.dll&gt;" SelfReg="false"/>
@@ -152,7 +146,6 @@
     <ROW Name="AI_APPPATH_PERBUILD_FluentDragDrop.Effects.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_FluentDragDrop.Effects.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_FluentDragDrop.Effects.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_FluentDragDrop.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_FluentDragDrop.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_FluentDragDrop.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_FluentTransitions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_FluentTransitions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_FluentTransitions.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_HtmlAgilityPack.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_HtmlAgilityPack.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_HtmlAgilityPack.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Interop.WMPLib.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Interop.WMPLib.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Interop.WMPLib.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_MyMediaPlayer.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_MyMediaPlayer.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_MyMediaPlayer.exe]" Type="2" Content="0"/>
@@ -162,7 +155,6 @@
     <ROW Name="AI_APPPATH_PERBUILD_PlaylistsNET.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_PlaylistsNET.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_PlaylistsNET.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_RestSharp.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_RestSharp.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_RestSharp.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Siticone.Desktop.UI.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Siticone.Desktop.UI.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Siticone.Desktop.UI.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_SoundCloudExplode.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SoundCloudExplode.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SoundCloudExplode.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Buffers.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Buffers.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Memory.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Memory.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Numerics.Vectors.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Numerics.Vectors.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll]" Type="2" Content="0"/>
@@ -305,13 +297,11 @@
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="FluentDragDrop.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="FluentDragDrop.Effects.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="FluentTransitions.dll"/>
-    <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="HtmlAgilityPack.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="Microsoft.Bcl.AsyncInterfaces.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="Newtonsoft.Json.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="PlaylistsNET.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="RestSharp.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="Siticone.Desktop.UI.dll"/>
-    <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="SoundCloudExplode.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="System.Buffers.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="System.Memory.dll"/>
     <ROW ProjectId="{6676529e-c28b-40e9-ad9d-5fb60f85a173}" ProjectName="MyMediaPlayer" OutputGroup="References" OutputFile="System.Numerics.Vectors.dll"/>
