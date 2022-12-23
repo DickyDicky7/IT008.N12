@@ -201,6 +201,11 @@ namespace MyMediaPlayer
             Player.settings.volume = VolumeMeter.Value;
         }
 
+        private void VolumeMeter_ValueChanged(object sender, EventArgs e)
+        {
+            Player.settings.volume = VolumeMeter.Value;
+        }
+
         private void TrackBar_MouseMove(object sender, MouseEventArgs e)
         {
             float Time = (float)TrackBar.Maximum / (float)TrackBar.Size.Width;
