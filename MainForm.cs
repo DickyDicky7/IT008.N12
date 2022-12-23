@@ -49,7 +49,7 @@ namespace MyMediaPlayer
             //playlistsPanel.Controls.Add(p1);
             //playlistsPanel.Controls.Add(p2);
             ZingMP3Integration a = new ZingMP3Integration();
-
+            searchBox1.Integration = a;
             //a.Search("@");
             
             ////this.BackColor = Color.White;
@@ -213,7 +213,7 @@ namespace MyMediaPlayer
         #region Responsive
         private void Responsive()
         {
-            List<string> list = new List<string>() { "Music library", "Video library", "Play queue", "Playlists", "Settings", "SoundCloud" };
+            List<string> list = new List<string>() { "Music library", "Video library", "Play queue", "Playlists", "Settings", "Online Store" };
             if (this.Width <= 1000)
             {
                 siticoneTabControl1.TabButtonSize = new Size(55, 50);

@@ -18,19 +18,24 @@ namespace MyMediaPlayer
 
             Watcher.Interval = TimeSpan.FromMilliseconds(100);
             Watcher.Action = UpdateSearchBox;
-            
+
             TextBox.TextChanged += new EventHandler(TextBox_TextChanged);
             Load += new EventHandler(SearchBox_Load);
         }
-        
+
         private void UpdateSearchBox()
         {
             if (LastMod != null)
             {
                 if (DateTime.Now.Subtract(LastMod.Value) >= TimeSpan.FromSeconds(3))
                 {
-                    TextBox.BeginInvoke((MethodInvoker)delegate ()
+                    TextBox.BeginInvoke((MethodInvoker)async delegate ()
                     {
+                        if (Integration != null)
+                        {
+                            MessageBox.Show
+                            (await Integration.Search(TextBox.Text, true));
+                        }
                         TextBox.Text = "";
                     });
                     LastMod = null;
@@ -56,5 +61,7 @@ namespace MyMediaPlayer
         private DateTime? LastMod;
 
         private readonly Watcher Watcher = new Watcher();
+
+        public IIntegration Integration { get; set; }
     }
 }

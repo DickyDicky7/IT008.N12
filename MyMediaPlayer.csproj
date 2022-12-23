@@ -132,6 +132,7 @@
     <Compile Include="Src\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Src\Interfaces\IIntegration.cs" />
     <Compile Include="Src\MediaLyrics\MediaLyrics.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,12 +196,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Src\ZingMP3\ZingMP3Integration.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Src\ZingMP3\ZingMP3Integration.Designer.cs">
-      <DependentUpon>ZingMP3Integration.cs</DependentUpon>
-    </Compile>
     <Compile Include="Src\SearchBox\SearchBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -208,6 +203,7 @@
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Util\Watcher.cs" />
+    <Compile Include="Src\ZingMP3\ZingMP3Integration.cs" />
     <EmbeddedResource Include="Src\FolderLocation\FolderLocation.resx">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </EmbeddedResource>
