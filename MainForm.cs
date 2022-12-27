@@ -30,12 +30,14 @@ namespace MyMediaPlayer
 
             #region Tuan Anh Testing
 
-            //var f = new InputForm("My title");
-            //this.Controls.Add(f);
-            //f.Show();
-            //var sci = new SoundCloudIntegration();
-            //siticoneTabControl1.TabPages.Add(sci.SoundCloudTabPage);
-
+            this.DoubleBuffered = true;
+            Common.SetDoubleBuffered_v2(this);
+            Common.SetDoubleBuffered_v2(tabPage1);
+            Common.SetDoubleBuffered_v2(tabPage2);
+            Common.SetDoubleBuffered_v2(tabPage3);
+            Common.SetDoubleBuffered_v2(tabPage4);
+            Common.SetDoubleBuffered_v2(tabPage5);
+            Common.SetDoubleBuffered_v2(tabPage6);
             //PlaylistItem.MediaController = mediaController;
             //PlaylistItem p1 = new PlaylistItem(
             //    "C:\\Users\\Admin\\Music\\Playlists\\hello.wpl"
@@ -50,8 +52,9 @@ namespace MyMediaPlayer
             //playlistsPanel.Controls.Add(p2);
             ZingMP3Integration a = new ZingMP3Integration();
             searchBox1.Integration = a;
+            searchBox1.SearchResultList = searchResultList1;
             //a.Search("@");
-            
+
             ////this.BackColor = Color.White;
             ////this.TransparencyKey = Color.White;
             ////this.Opacity = 100;

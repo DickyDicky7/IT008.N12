@@ -139,6 +139,18 @@
     <Compile Include="Src\MediaLyrics\MediaLyrics.Designer.cs">
       <DependentUpon>MediaLyrics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\SearchResultList\SearchResultList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\SearchResultList\SearchResultList.Designer.cs">
+      <DependentUpon>SearchResultList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\SearchResult\SearchResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\SearchResult\SearchResult.Designer.cs">
+      <DependentUpon>SearchResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Src\Util\Common.cs" />
     <Compile Include="Src\InputForm\InputForm.cs">
       <SubType>Form</SubType>

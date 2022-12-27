@@ -71,12 +71,12 @@
             this.TextBox.TabIndex = 0;
             this.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // SoundCloudSearchBox
+            // SearchBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TextBox);
-            this.Name = "SoundCloudSearchBox";
+            this.Name = "SearchBox";
             this.Size = new System.Drawing.Size(500, 30);
             this.ResumeLayout(false);
 

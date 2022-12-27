@@ -65,6 +65,7 @@
             this.settingLabel = new System.Windows.Forms.Label();
             this.librariesLb = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.searchResultList1 = new MyMediaPlayer.SearchResultList();
             this.searchBox1 = new MyMediaPlayer.SearchBox();
             this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
             this.dragControl = new Siticone.Desktop.UI.WinForms.SiticoneDragControl(this.components);
@@ -159,7 +160,7 @@
             // 
             this.minimizeControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimizeControlBox.Animated = true;
-            this.minimizeControlBox.BackColor = System.Drawing.Color.Transparent;
+            this.minimizeControlBox.BackColor = System.Drawing.Color.White;
             this.minimizeControlBox.BorderColor = System.Drawing.Color.Transparent;
             this.minimizeControlBox.ControlBoxType = Siticone.Desktop.UI.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.minimizeControlBox.FillColor = System.Drawing.Color.Transparent;
@@ -179,7 +180,7 @@
             // 
             this.exitControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exitControlBox.Animated = true;
-            this.exitControlBox.BackColor = System.Drawing.Color.Transparent;
+            this.exitControlBox.BackColor = System.Drawing.Color.White;
             this.exitControlBox.BorderColor = System.Drawing.Color.Transparent;
             this.exitControlBox.FillColor = System.Drawing.Color.Transparent;
             this.exitControlBox.HoverState.FillColor = System.Drawing.Color.Transparent;
@@ -198,7 +199,7 @@
             // 
             this.maximizeControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maximizeControlBox.Animated = true;
-            this.maximizeControlBox.BackColor = System.Drawing.Color.Transparent;
+            this.maximizeControlBox.BackColor = System.Drawing.Color.White;
             this.maximizeControlBox.BorderColor = System.Drawing.Color.Transparent;
             this.maximizeControlBox.ControlBoxType = Siticone.Desktop.UI.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.maximizeControlBox.FillColor = System.Drawing.Color.Transparent;
@@ -302,7 +303,7 @@
             // shuffleAndPlayBtn
             // 
             this.shuffleAndPlayBtn.Animated = true;
-            this.shuffleAndPlayBtn.BackColor = System.Drawing.Color.Transparent;
+            this.shuffleAndPlayBtn.BackColor = System.Drawing.Color.White;
             this.shuffleAndPlayBtn.BorderColor = System.Drawing.Color.Transparent;
             this.shuffleAndPlayBtn.BorderRadius = 5;
             this.shuffleAndPlayBtn.BorderThickness = 1;
@@ -336,7 +337,7 @@
             // sortBtn
             // 
             this.sortBtn.Animated = true;
-            this.sortBtn.BackColor = System.Drawing.Color.Transparent;
+            this.sortBtn.BackColor = System.Drawing.Color.White;
             this.sortBtn.BorderColor = System.Drawing.Color.Transparent;
             this.sortBtn.BorderRadius = 5;
             this.sortBtn.BorderThickness = 1;
@@ -372,7 +373,7 @@
             // 
             this.addFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addFolder.Animated = true;
-            this.addFolder.BackColor = System.Drawing.Color.Transparent;
+            this.addFolder.BackColor = System.Drawing.Color.White;
             this.addFolder.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addFolder.BorderRadius = 5;
             this.addFolder.BorderThickness = 1;
@@ -465,7 +466,7 @@
             // siticoneButton2
             // 
             this.siticoneButton2.Animated = true;
-            this.siticoneButton2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneButton2.BackColor = System.Drawing.Color.White;
             this.siticoneButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.siticoneButton2.BorderRadius = 5;
             this.siticoneButton2.BorderThickness = 1;
@@ -507,6 +508,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.White;
             this.tabPage4.Controls.Add(this.playlistsPanel);
             this.tabPage4.Controls.Add(this.siticonePanel2);
             this.tabPage4.ImageIndex = 1;
@@ -516,7 +518,6 @@
             this.tabPage4.Size = new System.Drawing.Size(822, 451);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Playlists";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // playlistsPanel
             // 
@@ -598,7 +599,7 @@
             // addMusicFolderSTBtn
             // 
             this.addMusicFolderSTBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addMusicFolderSTBtn.BackColor = System.Drawing.Color.Transparent;
+            this.addMusicFolderSTBtn.BackColor = System.Drawing.Color.White;
             this.addMusicFolderSTBtn.BorderColor = System.Drawing.Color.Gainsboro;
             this.addMusicFolderSTBtn.BorderRadius = 5;
             this.addMusicFolderSTBtn.BorderThickness = 1;
@@ -680,19 +681,31 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.BackColor = System.Drawing.Color.White;
+            this.tabPage6.Controls.Add(this.searchResultList1);
             this.tabPage6.Controls.Add(this.searchBox1);
             this.tabPage6.Location = new System.Drawing.Point(214, 4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(822, 451);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabPage6.Text = "Online Store";
+            // 
+            // searchResultList1
+            // 
+            this.searchResultList1.AutoScroll = true;
+            this.searchResultList1.BackColor = System.Drawing.Color.White;
+            this.searchResultList1.Location = new System.Drawing.Point(22, 122);
+            this.searchResultList1.Margin = new System.Windows.Forms.Padding(4);
+            this.searchResultList1.Name = "searchResultList1";
+            this.searchResultList1.Size = new System.Drawing.Size(600, 120);
+            this.searchResultList1.TabIndex = 2;
             // 
             // searchBox1
             // 
+            this.searchBox1.BackColor = System.Drawing.Color.White;
             this.searchBox1.Integration = null;
-            this.searchBox1.Location = new System.Drawing.Point(113, 37);
+            this.searchBox1.Location = new System.Drawing.Point(84, 39);
             this.searchBox1.Margin = new System.Windows.Forms.Padding(4);
             this.searchBox1.Name = "searchBox1";
             this.searchBox1.Size = new System.Drawing.Size(500, 30);
@@ -837,7 +850,7 @@
             // mediaLyrics1
             // 
             this.mediaLyrics1.AutoScroll = true;
-            this.mediaLyrics1.BackColor = System.Drawing.Color.Transparent;
+            this.mediaLyrics1.BackColor = System.Drawing.Color.White;
             this.mediaLyrics1.Dock = System.Windows.Forms.DockStyle.Right;
             this.mediaLyrics1.Location = new System.Drawing.Point(640, 0);
             this.mediaLyrics1.Margin = new System.Windows.Forms.Padding(4);
@@ -859,6 +872,7 @@
             this.Controls.Add(this.tabControlBorder);
             this.Controls.Add(this.controlHeader);
             this.Controls.Add(this.mediaControllerFooter);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(600, 528);
             this.Name = "form";
@@ -944,6 +958,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage6;
         private SearchBox searchBox1;
+        private SearchResultList searchResultList1;
     }
 }
 

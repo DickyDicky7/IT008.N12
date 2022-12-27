@@ -91,7 +91,7 @@ namespace MyMediaPlayer
                 var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
                 DwmSetWindowAttribute(control.Handle, attribute, ref preference, sizeof(uint));
             }
-            
+
         }
 
         public static async Task SetInterval(Action action, TimeSpan timeout)
@@ -111,6 +111,22 @@ namespace MyMediaPlayer
             if (System.Windows.Forms.SystemInformation.TerminalServerSession)
                 return;
             System.Reflection.PropertyInfo aProp = typeof(System.Windows.Forms.Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        public static void SetDoubleBuffered_v2(System.Windows.Forms.Control c)
+        {
+            //Taxes: Remote Desktop Connection and painting
+            //http://blogs.msdn.com/oldnewthing/archive/2006/01/03/508694.aspx
+            if (System.Windows.Forms.SystemInformation.TerminalServerSession)
+                return;
+
+            System.Reflection.PropertyInfo aProp =
+                  typeof(System.Windows.Forms.Control).GetProperty(
+                        "DoubleBuffered",
+                        System.Reflection.BindingFlags.NonPublic |
+                        System.Reflection.BindingFlags.Instance);
+
             aProp.SetValue(c, true, null);
         }
 
@@ -154,7 +170,7 @@ namespace MyMediaPlayer
         /// <summary>
         /// Music Folder's path: %HOMEPATH%\Music 
         /// </summary>
-        public static string MusicFolder = 
+        public static string MusicFolder =
         Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
 
         /// <summary>

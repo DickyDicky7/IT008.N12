@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+//using Newtonsoft.Json.Linq;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -33,8 +34,16 @@ namespace MyMediaPlayer
                     {
                         if (Integration != null)
                         {
-                            MessageBox.Show
+                            //o = JObject
+                            //.Parse(await Integration.Search(TextBox.Text, true));
+                            //IList<string> l =
+                            //o["data"]["songs"].Select(t => t["title"].ToString())
+                            //.ToList();
+                            //MessageBox.Show(l.Aggregate((acc,s) => $"{acc};{s}"));
+                            SearchResultList.LoadSearchResults
                             (await Integration.Search(TextBox.Text, true));
+                            //MessageBox.Show
+                            //(await Integration.Search(TextBox.Text, true));
                         }
                         TextBox.Text = "";
                     });
@@ -62,6 +71,10 @@ namespace MyMediaPlayer
 
         private readonly Watcher Watcher = new Watcher();
 
-        public IIntegration Integration { get; set; }
+        public IIntegration Integration { get; set; } = null;
+
+        //JObject o;
+
+        public SearchResultList SearchResultList;
     }
 }
