@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form));
             this.mediaControllerFooter = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.mediaController = new MyMediaPlayer.MediaController();
@@ -70,9 +69,9 @@
             this.onlineStoreSearchBox = new MyMediaPlayer.SearchBox();
             this.onlineStoreHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.onlineStoreHeaderLabel = new System.Windows.Forms.Label();
-            this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
-            this.dragControl = new Siticone.Desktop.UI.WinForms.SiticoneDragControl(this.components);
-            this.borderlessForm = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
+            this.buttonImageList = new System.Windows.Forms.ImageList();
+            this.dragControl = new Siticone.Desktop.UI.WinForms.SiticoneDragControl();
+            this.borderlessForm = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm();
             this.sortByMenu = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.aZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.artistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
