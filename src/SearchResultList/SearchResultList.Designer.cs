@@ -34,8 +34,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.Name = "SearchResultList";
-            this.Size = new System.Drawing.Size(600, 120);
+            this.Size = new System.Drawing.Size(400, 400);
             this.ResumeLayout(false);
 
         }

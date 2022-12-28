@@ -35,19 +35,18 @@
             this.ColorTransitionM = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
             this.MediaStatus = new CSharp.Winform.UI.Label();
             this.MediaArtist = new CSharp.Winform.UI.Label();
-            this.panel1 = new CSharp.Winform.UI.Panel();
+            this.Panel = new CSharp.Winform.UI.Panel();
             this.MediaTitle = new MyMediaPlayer.AnimateLabel();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // PictureBox
             // 
             this.PictureBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.PictureBox.Location = new System.Drawing.Point(0, 0);
-            this.PictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(133, 123);
+            this.PictureBox.Size = new System.Drawing.Size(100, 100);
             this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBox.TabIndex = 1;
             this.PictureBox.TabStop = false;
@@ -67,12 +66,12 @@
             this.Visualizer.Interval = 40;
             this.Visualizer.IsXLogScale = true;
             this.Visualizer.Location = new System.Drawing.Point(0, 0);
-            this.Visualizer.Margin = new System.Windows.Forms.Padding(5);
+            this.Visualizer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Visualizer.MaximumFrequency = 10000;
             this.Visualizer.MessageArgs = null;
             this.Visualizer.Name = "Visualizer";
             this.Visualizer.pic3DGraph = null;
-            this.Visualizer.Size = new System.Drawing.Size(600, 277);
+            this.Visualizer.Size = new System.Drawing.Size(450, 225);
             this.Visualizer.TabIndex = 2;
             this.Visualizer.UseAverage = true;
             this.Visualizer.UserKey = "Your registration key";
@@ -98,10 +97,9 @@
             this.MediaStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.MediaStatus.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.MediaStatus.ForeColor = System.Drawing.Color.Transparent;
-            this.MediaStatus.Location = new System.Drawing.Point(133, 0);
-            this.MediaStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MediaStatus.Location = new System.Drawing.Point(100, 0);
             this.MediaStatus.Name = "MediaStatus";
-            this.MediaStatus.Size = new System.Drawing.Size(467, 32);
+            this.MediaStatus.Size = new System.Drawing.Size(350, 26);
             this.MediaStatus.TabIndex = 3;
             this.MediaStatus.Text = "MediaStatus";
             this.MediaStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -111,36 +109,35 @@
             this.MediaArtist.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.MediaArtist.Font = new System.Drawing.Font("Segoe UI", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.MediaArtist.ForeColor = System.Drawing.Color.Transparent;
-            this.MediaArtist.Location = new System.Drawing.Point(133, 86);
-            this.MediaArtist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MediaArtist.Location = new System.Drawing.Point(100, 70);
             this.MediaArtist.Name = "MediaArtist";
-            this.MediaArtist.Size = new System.Drawing.Size(467, 37);
+            this.MediaArtist.Size = new System.Drawing.Size(350, 30);
             this.MediaArtist.TabIndex = 5;
             this.MediaArtist.Text = "-- MediaArtist --";
             this.MediaArtist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // Panel
             // 
-            this.panel1.Controls.Add(this.MediaTitle);
-            this.panel1.Controls.Add(this.MediaStatus);
-            this.panel1.Controls.Add(this.MediaArtist);
-            this.panel1.Controls.Add(this.PictureBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.panel1.Location = new System.Drawing.Point(0, 277);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 123);
-            this.panel1.TabIndex = 6;
+            this.Panel.Controls.Add(this.MediaTitle);
+            this.Panel.Controls.Add(this.MediaStatus);
+            this.Panel.Controls.Add(this.MediaArtist);
+            this.Panel.Controls.Add(this.PictureBox);
+            this.Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Panel.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.Panel.Location = new System.Drawing.Point(0, 225);
+            this.Panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Panel.Name = "Panel";
+            this.Panel.Size = new System.Drawing.Size(450, 100);
+            this.Panel.TabIndex = 6;
             // 
             // MediaTitle
             // 
             this.MediaTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.MediaTitle.ForeColor = System.Drawing.Color.Transparent;
-            this.MediaTitle.Location = new System.Drawing.Point(133, 32);
-            this.MediaTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.MediaTitle.Location = new System.Drawing.Point(100, 26);
             this.MediaTitle.Name = "MediaTitle";
-            this.MediaTitle.Size = new System.Drawing.Size(467, 54);
+            this.MediaTitle.Size = new System.Drawing.Size(350, 44);
             this.MediaTitle.Slide = true;
             this.MediaTitle.SlideTime = 15;
             this.MediaTitle.TabIndex = 4;
@@ -148,15 +145,14 @@
             // 
             // MediaVisualizer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Visualizer);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Controls.Add(this.Panel);
             this.Name = "MediaVisualizer";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(450, 325);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.Panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -169,6 +165,6 @@
         private CSharp.Winform.UI.Label MediaStatus;
         private AnimateLabel MediaTitle;
         private CSharp.Winform.UI.Label MediaArtist;
-        private CSharp.Winform.UI.Panel panel1;
+        private CSharp.Winform.UI.Panel Panel;
     }
 }

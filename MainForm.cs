@@ -24,7 +24,7 @@ namespace MyMediaPlayer
             playlistPageInit();
             Responsive();
             designInit();
-            MediaController.lyrics = mediaLyrics1;
+            MediaController.lyrics = mediaLyrics;
             Load += new EventHandler(form_Load(args));
 
 
@@ -32,12 +32,14 @@ namespace MyMediaPlayer
 
             this.DoubleBuffered = true;
             Common.SetDoubleBuffered_v2(this);
-            Common.SetDoubleBuffered_v2(tabPage1);
-            Common.SetDoubleBuffered_v2(tabPage2);
-            Common.SetDoubleBuffered_v2(tabPage3);
-            Common.SetDoubleBuffered_v2(tabPage4);
-            Common.SetDoubleBuffered_v2(tabPage5);
-            Common.SetDoubleBuffered_v2(tabPage6);
+            Common.SetDoubleBuffered_v2(musicLibraryTabPage);
+            Common.SetDoubleBuffered_v2(videoLibraryTabPage);
+            Common.SetDoubleBuffered_v2(playQueueTabPage);
+            Common.SetDoubleBuffered_v2(playlistsTabPage);
+            Common.SetDoubleBuffered_v2(settingsTabPage);
+            Common.SetDoubleBuffered_v2(onlineStoreTabPage);
+
+            Common.SetDoubleBuffered_v2(searchResultList);
             //PlaylistItem.MediaController = mediaController;
             //PlaylistItem p1 = new PlaylistItem(
             //    "C:\\Users\\Admin\\Music\\Playlists\\hello.wpl"
@@ -51,8 +53,8 @@ namespace MyMediaPlayer
             //playlistsPanel.Controls.Add(p1);
             //playlistsPanel.Controls.Add(p2);
             ZingMP3Integration a = new ZingMP3Integration();
-            searchBox1.Integration = a;
-            searchBox1.SearchResultList = searchResultList1;
+            onlineStoreSearchBox.Integration = a;
+            onlineStoreSearchBox.SearchResultList = searchResultList;
             //a.Search("@");
 
             ////this.BackColor = Color.White;
@@ -62,7 +64,7 @@ namespace MyMediaPlayer
 
             this.Icon = Properties.Resources.icon;
 
-            mediaVisualizer1.InteractMediaController(mediaController);
+            mediaVisualizer.InteractMediaController(mediaController);
             MediaController.form = this;
             MediaController
             .RemoveFromPlaylist("a", "C:\\Users\\User\\Music\\Circus10529-VA-5631008.mp3");
@@ -101,7 +103,7 @@ namespace MyMediaPlayer
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mediaVisualizer1.Stop();
+            mediaVisualizer.Stop();
         }
 
         #region Initialize
@@ -124,7 +126,7 @@ namespace MyMediaPlayer
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
                 if (Directory.Exists(URL))
-                    musicList1.addMusicFolder(URL);
+                    musicList.addMusicFolder(URL);
                 else
                 {
                     removeL.Add(URL);
@@ -202,7 +204,7 @@ namespace MyMediaPlayer
                         Properties.Settings.Default.Save();
                         FolderLocation folderLocation = new FolderLocation(fbd.SelectedPath);
                         musicFolderPanel.Controls.Add(folderLocation);
-                        musicList1.addMusicFolder(fbd.SelectedPath);
+                        musicList.addMusicFolder(fbd.SelectedPath);
                     }
                 }
             }
@@ -219,24 +221,24 @@ namespace MyMediaPlayer
             List<string> list = new List<string>() { "Music library", "Video library", "Play queue", "Playlists", "Settings", "Online Store" };
             if (this.Width <= 1000)
             {
-                siticoneTabControl1.TabButtonSize = new Size(55, 50);
-                foreach (TabPage tab in siticoneTabControl1.TabPages)
+                tabControl.TabButtonSize = new Size(55, 50);
+                foreach (TabPage tab in tabControl.TabPages)
                 {
                     tab.Text = "";
                 }
             }
             else
             {
-                siticoneTabControl1.TabButtonSize = new Size(210, 50);
-                for (int i = 0; i < siticoneTabControl1.TabPages.Count; i++)
+                tabControl.TabButtonSize = new Size(210, 50);
+                for (int i = 0; i < tabControl.TabPages.Count; i++)
                 {
-                    siticoneTabControl1.TabPages[i].Text = list[i];
+                    tabControl.TabPages[i].Text = list[i];
                 }
             }
-            nameContainer.Width = siticoneTabControl1.TabButtonSize.Width;
+            nameContainer.Width = tabControl.TabButtonSize.Width;
 
-            tabControlBorder.Location = new Point(siticoneTabControl1.TabButtonSize.Width, 0);
-            tabControlBorder.Size = new Size(1, nameContainer.Height + siticoneTabControl1.Height);
+            tabControlBorder.Location = new Point(tabControl.TabButtonSize.Width, 0);
+            tabControlBorder.Size = new Size(1, nameContainer.Height + tabControl.Height);
         }
 
         private void form_ResizeEnd(object sender, EventArgs e)
@@ -275,7 +277,7 @@ namespace MyMediaPlayer
 
         private void artistsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList1.sortBy(MusicList.SORTBY.ARTIST);
+            musicList.sortBy(MusicList.SORTBY.ARTIST);
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Artist).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
@@ -284,7 +286,7 @@ namespace MyMediaPlayer
 
         private void aZToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList1.sortBy(MusicList.SORTBY.AZ);
+            musicList.sortBy(MusicList.SORTBY.AZ);
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
@@ -293,7 +295,7 @@ namespace MyMediaPlayer
 
         private void genreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList1.sortBy(MusicList.SORTBY.GENRE);
+            musicList.sortBy(MusicList.SORTBY.GENRE);
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
@@ -302,7 +304,7 @@ namespace MyMediaPlayer
 
         private void albumToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList1.sortBy(MusicList.SORTBY.ALBUM);
+            musicList.sortBy(MusicList.SORTBY.ALBUM);
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
@@ -313,7 +315,7 @@ namespace MyMediaPlayer
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            siticoneTabControl1.BringToFront();
+            tabControl.BringToFront();
             visualizeContainer.Visible = false;
             tabControlBorder.BringToFront();
 
@@ -321,7 +323,7 @@ namespace MyMediaPlayer
 
         private void shuffleAndPlayBtn_Click(object sender, EventArgs e)
         {
-            mediaController.LoadMusicList(musicList1, true);
+            mediaController.LoadMusicList(musicList, true);
         }
 
         private void siticoneButton2_Click(object sender, EventArgs e)

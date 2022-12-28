@@ -164,12 +164,6 @@
     <Compile Include="Src\MusicList\MusicList.Designer.cs">
       <DependentUpon>MusicList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Example\Example.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Src\Example\Example.Designer.cs">
-      <DependentUpon>Example.cs</DependentUpon>
-    </Compile>
     <Compile Include="Src\FolderLocation\FolderLocation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -252,6 +246,9 @@
     <EmbeddedResource Include="Src\SearchBox\SearchBox.resx">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\SearchResultList\SearchResultList.resx">
+      <DependentUpon>SearchResultList.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagramDetail.cd" />
     <None Include="packages.config" />
@@ -301,6 +298,8 @@
     <Content Include="Lib\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\streaming.png" />
+    <None Include="Resources\searching.png" />
     <None Include="Resources\icon.ico" />
     <None Include="Resources\icons8-trash-can-50.png" />
     <None Include="Resources\icons8-left-50.png" />
