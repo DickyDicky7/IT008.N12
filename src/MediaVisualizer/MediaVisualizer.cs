@@ -79,8 +79,9 @@ namespace MyMediaPlayer
                     Visualizer.ColorMax = ColorTransitionM.Value;
                 });
             }
-            catch
+            catch //(Exception err)
             {
+                //MessageBox.Show(err.Message);
                 Thread.CurrentThread.Abort();
             }
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form));
             this.mediaControllerFooter = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.mediaController = new MyMediaPlayer.MediaController();
@@ -65,13 +66,13 @@
             this.librariesLb = new System.Windows.Forms.Label();
             this.onlineStoreTabPage = new System.Windows.Forms.TabPage();
             this.onlineStoreBodyPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.searchResultList = new MyMediaPlayer.SearchResultList();
             this.onlineStoreSearchBox = new MyMediaPlayer.SearchBox();
+            this.searchResultList = new MyMediaPlayer.SearchResultList();
             this.onlineStoreHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.onlineStoreHeaderLabel = new System.Windows.Forms.Label();
-            this.buttonImageList = new System.Windows.Forms.ImageList();
-            this.dragControl = new Siticone.Desktop.UI.WinForms.SiticoneDragControl();
-            this.borderlessForm = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm();
+            this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
+            this.dragControl = new Siticone.Desktop.UI.WinForms.SiticoneDragControl(this.components);
+            this.borderlessForm = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
             this.sortByMenu = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.aZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.artistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -324,7 +325,7 @@
             this.shuffleAndPlayBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.shuffleAndPlayBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.shuffleAndPlayBtn.HoverState.Parent = this.shuffleAndPlayBtn;
-            this.shuffleAndPlayBtn.Image = global::MyMediaPlayer.Properties.Resources.white_suffle;
+            this.shuffleAndPlayBtn.Image = ((System.Drawing.Image)(resources.GetObject("shuffleAndPlayBtn.Image")));
             this.shuffleAndPlayBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.shuffleAndPlayBtn.Location = new System.Drawing.Point(32, 63);
             this.shuffleAndPlayBtn.Margin = new System.Windows.Forms.Padding(2);
@@ -394,7 +395,7 @@
             this.addFolder.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addFolder.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.addFolder.HoverState.Parent = this.addFolder;
-            this.addFolder.Image = global::MyMediaPlayer.Properties.Resources.add_folder;
+            this.addFolder.Image = ((System.Drawing.Image)(resources.GetObject("addFolder.Image")));
             this.addFolder.Location = new System.Drawing.Point(690, 18);
             this.addFolder.Margin = new System.Windows.Forms.Padding(2);
             this.addFolder.Name = "addFolder";
@@ -487,7 +488,7 @@
             this.playQueueClearButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playQueueClearButton.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.playQueueClearButton.HoverState.Parent = this.playQueueClearButton;
-            this.playQueueClearButton.Image = global::MyMediaPlayer.Properties.Resources.icons8_trash_can_50;
+            this.playQueueClearButton.Image = global::MyMediaPlayer.Properties.Resources.trash_can;
             this.playQueueClearButton.Location = new System.Drawing.Point(32, 71);
             this.playQueueClearButton.Margin = new System.Windows.Forms.Padding(2);
             this.playQueueClearButton.Name = "playQueueClearButton";
@@ -619,7 +620,7 @@
             this.addMusicFolderSTBtn.ForeColor = System.Drawing.Color.Black;
             this.addMusicFolderSTBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
             this.addMusicFolderSTBtn.HoverState.Parent = this.addMusicFolderSTBtn;
-            this.addMusicFolderSTBtn.Image = global::MyMediaPlayer.Properties.Resources.add_folder;
+            this.addMusicFolderSTBtn.Image = ((System.Drawing.Image)(resources.GetObject("addMusicFolderSTBtn.Image")));
             this.addMusicFolderSTBtn.Location = new System.Drawing.Point(627, 12);
             this.addMusicFolderSTBtn.Margin = new System.Windows.Forms.Padding(2);
             this.addMusicFolderSTBtn.Name = "addMusicFolderSTBtn";
@@ -698,8 +699,8 @@
             // 
             // onlineStoreBodyPanel
             // 
-            this.onlineStoreBodyPanel.Controls.Add(this.searchResultList);
             this.onlineStoreBodyPanel.Controls.Add(this.onlineStoreSearchBox);
+            this.onlineStoreBodyPanel.Controls.Add(this.searchResultList);
             this.onlineStoreBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onlineStoreBodyPanel.Location = new System.Drawing.Point(3, 66);
             this.onlineStoreBodyPanel.Name = "onlineStoreBodyPanel";
@@ -707,24 +708,26 @@
             this.onlineStoreBodyPanel.Size = new System.Drawing.Size(816, 382);
             this.onlineStoreBodyPanel.TabIndex = 6;
             // 
+            // onlineStoreSearchBox
+            // 
+            this.onlineStoreSearchBox.BackColor = System.Drawing.Color.White;
+            this.onlineStoreSearchBox.Integration = null;
+            this.onlineStoreSearchBox.Location = new System.Drawing.Point(83, 0);
+            this.onlineStoreSearchBox.Margin = new System.Windows.Forms.Padding(4);
+            this.onlineStoreSearchBox.Name = "onlineStoreSearchBox";
+            this.onlineStoreSearchBox.Size = new System.Drawing.Size(650, 35);
+            this.onlineStoreSearchBox.TabIndex = 2;
+            // 
             // searchResultList
             // 
             this.searchResultList.AutoScroll = true;
             this.searchResultList.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.searchResultList.Location = new System.Drawing.Point(108, 69);
+            this.searchResultList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchResultList.Location = new System.Drawing.Point(0, 62);
             this.searchResultList.Margin = new System.Windows.Forms.Padding(4);
             this.searchResultList.Name = "searchResultList";
-            this.searchResultList.Size = new System.Drawing.Size(400, 400);
+            this.searchResultList.Size = new System.Drawing.Size(816, 320);
             this.searchResultList.TabIndex = 1;
-            // 
-            // onlineStoreSearchBox
-            // 
-            this.onlineStoreSearchBox.Integration = null;
-            this.onlineStoreSearchBox.Location = new System.Drawing.Point(69, 26);
-            this.onlineStoreSearchBox.Margin = new System.Windows.Forms.Padding(4);
-            this.onlineStoreSearchBox.Name = "onlineStoreSearchBox";
-            this.onlineStoreSearchBox.Size = new System.Drawing.Size(500, 35);
-            this.onlineStoreSearchBox.TabIndex = 0;
             // 
             // onlineStoreHeaderPanel
             // 
@@ -1001,8 +1004,8 @@
         private Siticone.Desktop.UI.WinForms.SiticonePanel onlineStoreHeaderPanel;
         private System.Windows.Forms.Label onlineStoreHeaderLabel;
         private Siticone.Desktop.UI.WinForms.SiticonePanel onlineStoreBodyPanel;
-        private SearchBox onlineStoreSearchBox;
         private SearchResultList searchResultList;
+        private SearchBox onlineStoreSearchBox;
     }
 }
 

@@ -266,7 +266,7 @@
             this.BtnPlay.ForeColor = System.Drawing.Color.Transparent;
             this.BtnPlay.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.BtnPlay.HoverState.Parent = this.BtnPlay;
-            this.BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.play;
+            this.BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.black_play;
             this.BtnPlay.ImageSize = new System.Drawing.Size(40, 40);
             this.BtnPlay.Location = new System.Drawing.Point(15, 25);
             this.BtnPlay.Name = "BtnPlay";

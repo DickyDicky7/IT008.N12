@@ -192,7 +192,7 @@
             // 
             this.playMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.playMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.playMenuItem.Image = global::MyMediaPlayer.Properties.Resources.play_button__1_;
+            this.playMenuItem.Image = global::MyMediaPlayer.Properties.Resources.white_play;
             this.playMenuItem.Name = "playMenuItem";
             this.playMenuItem.Size = new System.Drawing.Size(150, 24);
             this.playMenuItem.Text = "Play";
@@ -214,7 +214,7 @@
             // playQueueToolStripMenuItem
             // 
             this.playQueueToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.playQueueToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.icons8_playlist_64;
+            this.playQueueToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.playlist;
             this.playQueueToolStripMenuItem.Name = "playQueueToolStripMenuItem";
             this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.playQueueToolStripMenuItem.Text = "Play Queue";

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public partial class SearchResultList : UserControl
+    public partial class SearchResultList : UserControl, ISearchResultList
     {
         public SearchResultList()
         {
@@ -42,6 +42,11 @@ namespace MyMediaPlayer
                     }));
                 }
             });
+        }
+
+        public void LoadSearchResults()
+        {
+            this.Controls.Clear();
         }
 
         private JObject JSONResultObject;

@@ -133,6 +133,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Src\Interfaces\IIntegration.cs" />
+    <Compile Include="Src\Interfaces\ISearchResultList.cs" />
     <Compile Include="Src\MediaLyrics\MediaLyrics.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -298,6 +299,9 @@
     <Content Include="Lib\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\soundcloud %282%29.png" />
+    <None Include="Resources\zingmp3.jpg" />
+    <None Include="Resources\spotify.png" />
     <None Include="Resources\streaming.png" />
     <None Include="Resources\searching.png" />
     <None Include="Resources\icon.ico" />

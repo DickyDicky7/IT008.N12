@@ -3,11 +3,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Drawing;
-//using Newtonsoft.Json.Linq;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Siticone.Desktop.UI.WinForms;
 
 namespace MyMediaPlayer
 {
@@ -32,18 +32,14 @@ namespace MyMediaPlayer
                 {
                     TextBox.BeginInvoke((MethodInvoker)async delegate ()
                     {
-                        if (Integration != null)
+                        if (Integration == null)
                         {
-                            //o = JObject
-                            //.Parse(await Integration.Search(TextBox.Text, true));
-                            //IList<string> l =
-                            //o["data"]["songs"].Select(t => t["title"].ToString())
-                            //.ToList();
-                            //MessageBox.Show(l.Aggregate((acc,s) => $"{acc};{s}"));
-                            SearchResultList.LoadSearchResults
+                            SearchResultList?.LoadSearchResults();
+                        }
+                        else
+                        {
+                            SearchResultList?.LoadSearchResults
                             (await Integration.Search(TextBox.Text, true));
-                            //MessageBox.Show
-                            //(await Integration.Search(TextBox.Text, true));
                         }
                         TextBox.Text = "";
                     });
@@ -73,8 +69,61 @@ namespace MyMediaPlayer
 
         public IIntegration Integration { get; set; } = null;
 
-        //JObject o;
+        public ISearchResultList SearchResultList = null;
 
-        public SearchResultList SearchResultList;
+        private void IntegrationButton_Click(object sender, EventArgs e)
+        {
+            SiticoneButton SenderButton = (SiticoneButton)sender;
+            Point Point = new Point(0, SenderButton.Height);
+            Point = SenderButton.PointToScreen(Point);
+            ContextMenuStrip.Width = SenderButton.Width;
+            ContextMenuStrip.Show(Point);
+        }
+
+        private void ZingMP3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IntegrationButton.Text = "ZingMP3";
+            Integration = new ZingMP3Integration();
+            IntegrationButton.TextAlign = HorizontalAlignment.Left;
+            IntegrationButton.Image = Properties.Resources.zing_mp3;
+            IntegrationButton.ImageAlign = HorizontalAlignment.Right;
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Task.Factory.StartNew(async () =>
+                {
+                    if (Integration == null)
+                    {
+                        SearchResultList?.LoadSearchResults();
+                    }
+                    else
+                    {
+                        SearchResultList?.LoadSearchResults
+                        (await Integration.Search(TextBox.Text, true));
+                    }
+                });
+            }
+        }
+
+        private void SoundCloudToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Integration = null;
+            IntegrationButton.Text = "SoundCloud";
+            IntegrationButton.TextAlign = HorizontalAlignment.Left;
+            IntegrationButton.ImageAlign = HorizontalAlignment.Right;
+            IntegrationButton.Image = Properties.Resources.sound_cloud;
+        }
+
+        private void SpotifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Integration = null;
+            IntegrationButton.Text = "Spotify";
+            IntegrationButton.TextAlign = HorizontalAlignment.Left;
+            IntegrationButton.Image = Properties.Resources.spotify;
+            IntegrationButton.ImageAlign = HorizontalAlignment.Right;
+        }
     }
 }

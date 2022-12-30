@@ -97,7 +97,7 @@ namespace MyMediaPlayer
             this.Panel.HoverState.FillColor = System.Drawing.Color.White;
             this.Panel.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Panel.HoverState.Parent = this.Panel;
-            this.Panel.Image = global::MyMediaPlayer.Properties.Resources.icons8_music_library_64;
+            this.Panel.Image = global::MyMediaPlayer.Properties.Resources.music_library;
             this.Panel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Panel.ImageSize = new System.Drawing.Size(30, 30);
             this.Panel.Location = new System.Drawing.Point(35, 0);
@@ -133,7 +133,7 @@ namespace MyMediaPlayer
             this.playButton.ForeColor = System.Drawing.Color.White;
             this.playButton.HoverState.FillColor = System.Drawing.Color.White;
             this.playButton.HoverState.Parent = this.playButton;
-            this.playButton.Image = global::MyMediaPlayer.Properties.Resources.play_button__1_;
+            this.playButton.Image = global::MyMediaPlayer.Properties.Resources.white_play;
             this.playButton.ImageSize = new System.Drawing.Size(27, 27);
             this.playButton.Location = new System.Drawing.Point(573, 12);
             this.playButton.Margin = new System.Windows.Forms.Padding(4);

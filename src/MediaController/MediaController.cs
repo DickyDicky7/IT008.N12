@@ -42,6 +42,7 @@ namespace MyMediaPlayer
             //{
             //    Watcher.Stop();
             //}, TimeSpan.FromSeconds(20));
+
             Timer timer = new Timer();
             timer.Interval = 1;
             timer.Tick += (sender, e) =>
@@ -53,6 +54,19 @@ namespace MyMediaPlayer
                 }
             };
             timer.Start();
+
+            //Watcher watcher = new Watcher();
+            //watcher.Interval = TimeSpan.FromMilliseconds(100);
+            //watcher.Action = () =>
+            //{
+            //    if (Player.playState == WMPLib.WMPPlayState.wmppsStopped)
+            //    {
+            //        if (CurrentMusicList != null)
+            //            CurrentMusicList.PlayNext();
+            //    }
+            //};
+            //watcher.Start();
+
             //Common.SetTimeout(() =>
             //{
             //    Watcher.Action = UpdateMediaController;
@@ -100,7 +114,7 @@ namespace MyMediaPlayer
 
                 if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
-                    BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.play;
+                    BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.black_play;
                     BtnPlay.ImageSize = new System.Drawing.Size(40, 40);
                     PauseMedia();
                 }
@@ -116,7 +130,7 @@ namespace MyMediaPlayer
                 {
                     MessageBox.Show("Media Ended", "Info");
                     //BtnPlay.Text = "PLAY";
-                    BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.play;
+                    BtnPlay.Image = global::MyMediaPlayer.Properties.Resources.black_play;
                 }
             }
             else
@@ -128,13 +142,13 @@ namespace MyMediaPlayer
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            if(CurrentMusicList != null)
+            if (CurrentMusicList != null)
                 CurrentMusicList.PlayNext();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            if(CurrentMusicList != null)
+            if (CurrentMusicList != null)
                 CurrentMusicList.PlayBack();
         }
 
@@ -174,9 +188,10 @@ namespace MyMediaPlayer
                     DurationLabel.Text = currentMediaTime;
                 });
             }
-            catch
+            catch //(Exception Error)
             {
-
+                //if (Error.HResult != unchecked((int)0x8001010A))
+                //    MessageBox.Show(Error.Message);
             }
         }
 
@@ -250,13 +265,13 @@ namespace MyMediaPlayer
 
         public void LoadMusicList(MusicList musicList, bool shuffleMode = false)
         {
-            
+
             //MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
-            if (CurrentMusicList != null && CurrentMusicList != musicList )
+            if (CurrentMusicList != null && CurrentMusicList != musicList)
                 CurrentMusicList.Stop();
             CurrentMusicList = musicList;
             CurrentMusicList.shuffleMode = shuffleMode;
-            if(shuffleMode == true)
+            if (shuffleMode == true)
             {
                 CurrentMusicList.GenShuffleList();
             }

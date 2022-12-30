@@ -52,11 +52,15 @@ namespace MyMediaPlayer
             //p2.Location = new Point(10, 60);
             //playlistsPanel.Controls.Add(p1);
             //playlistsPanel.Controls.Add(p2);
-            ZingMP3Integration a = new ZingMP3Integration();
-            onlineStoreSearchBox.Integration = a;
             onlineStoreSearchBox.SearchResultList = searchResultList;
+            //onlineStoreSearchBox.Location = new Point(,0);
+            //MessageBox.Show(ZingMP3Integration.MakeHashSHA256("ctime=1671601473641version=1.6.34"));
+            //Console.WriteLine
+            //(ZingMP3Integration.MakeHashHMACSHA512($"/api/v2/search/multi{ZingMP3Integration.MakeHashSHA256("ctime=1671601473641version=1.6.34")}", "2aa2d1c561e809b267f3638c4a307aab"));
+            //Console.WriteLine
+            //($"/api/v2/search/multi{ZingMP3Integration.MakeHashSHA256("ctime=1671601473641version=1.6.34")}");
             //a.Search("@");
-
+            //MessageBox.Show(TimeSt)
             ////this.BackColor = Color.White;
             ////this.TransparencyKey = Color.White;
             ////this.Opacity = 100;

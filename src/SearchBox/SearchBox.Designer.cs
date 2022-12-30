@@ -28,8 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Panel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.IntegrationButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.ContextMenuStrip = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
+            this.ZingMP3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SoundCloudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SpotifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.Panel.SuspendLayout();
+            this.ContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // Panel
+            // 
+            this.Panel.Controls.Add(this.IntegrationButton);
+            this.Panel.Controls.Add(this.TextBox);
+            this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel.Location = new System.Drawing.Point(0, 0);
+            this.Panel.Name = "Panel";
+            this.Panel.ShadowDecoration.Parent = this.Panel;
+            this.Panel.Size = new System.Drawing.Size(520, 35);
+            this.Panel.TabIndex = 2;
+            // 
+            // IntegrationButton
+            // 
+            this.IntegrationButton.Animated = true;
+            this.IntegrationButton.BorderColor = System.Drawing.Color.White;
+            this.IntegrationButton.BorderRadius = 5;
+            this.IntegrationButton.BorderThickness = 1;
+            this.IntegrationButton.CheckedState.Parent = this.IntegrationButton;
+            this.IntegrationButton.ContextMenuStrip = this.ContextMenuStrip;
+            this.IntegrationButton.CustomImages.Parent = this.IntegrationButton;
+            this.IntegrationButton.DisabledState.Parent = this.IntegrationButton;
+            this.IntegrationButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.IntegrationButton.FillColor = System.Drawing.Color.White;
+            this.IntegrationButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.IntegrationButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.IntegrationButton.HoverState.BorderColor = System.Drawing.Color.White;
+            this.IntegrationButton.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.IntegrationButton.HoverState.FillColor = System.Drawing.Color.White;
+            this.IntegrationButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.IntegrationButton.HoverState.Parent = this.IntegrationButton;
+            this.IntegrationButton.Image = global::MyMediaPlayer.Properties.Resources.down;
+            this.IntegrationButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.IntegrationButton.Location = new System.Drawing.Point(420, 0);
+            this.IntegrationButton.Name = "IntegrationButton";
+            this.IntegrationButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
+            this.IntegrationButton.ShadowDecoration.Parent = this.IntegrationButton;
+            this.IntegrationButton.Size = new System.Drawing.Size(100, 35);
+            this.IntegrationButton.TabIndex = 1;
+            this.IntegrationButton.Click += new System.EventHandler(this.IntegrationButton_Click);
+            // 
+            // ContextMenuStrip
+            // 
+            this.ContextMenuStrip.BackColor = System.Drawing.Color.White;
+            this.ContextMenuStrip.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.ContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ZingMP3ToolStripMenuItem,
+            this.SoundCloudToolStripMenuItem,
+            this.SpotifyToolStripMenuItem});
+            this.ContextMenuStrip.Name = "ContextMenuStrip";
+            this.ContextMenuStrip.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ContextMenuStrip.RenderStyle.BorderColor = System.Drawing.Color.White;
+            this.ContextMenuStrip.RenderStyle.ColorTable = null;
+            this.ContextMenuStrip.RenderStyle.RoundedEdges = true;
+            this.ContextMenuStrip.RenderStyle.SelectionArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ContextMenuStrip.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ContextMenuStrip.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.ContextMenuStrip.RenderStyle.SeparatorColor = System.Drawing.Color.White;
+            this.ContextMenuStrip.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.ContextMenuStrip.Size = new System.Drawing.Size(180, 82);
+            // 
+            // ZingMP3ToolStripMenuItem
+            // 
+            this.ZingMP3ToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.ZingMP3ToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ZingMP3ToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.zing_mp3;
+            this.ZingMP3ToolStripMenuItem.Name = "ZingMP3ToolStripMenuItem";
+            this.ZingMP3ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.ZingMP3ToolStripMenuItem.Text = "      ZingMP3";
+            this.ZingMP3ToolStripMenuItem.Click += new System.EventHandler(this.ZingMP3ToolStripMenuItem_Click);
+            // 
+            // SoundCloudToolStripMenuItem
+            // 
+            this.SoundCloudToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.SoundCloudToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.SoundCloudToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.sound_cloud;
+            this.SoundCloudToolStripMenuItem.Name = "SoundCloudToolStripMenuItem";
+            this.SoundCloudToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.SoundCloudToolStripMenuItem.Text = "      SoundCloud";
+            this.SoundCloudToolStripMenuItem.Click += new System.EventHandler(this.SoundCloudToolStripMenuItem_Click);
+            // 
+            // SpotifyToolStripMenuItem
+            // 
+            this.SpotifyToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.SpotifyToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.SpotifyToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.spotify;
+            this.SpotifyToolStripMenuItem.Name = "SpotifyToolStripMenuItem";
+            this.SpotifyToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.SpotifyToolStripMenuItem.Text = "      Spotify";
+            this.SpotifyToolStripMenuItem.Click += new System.EventHandler(this.SpotifyToolStripMenuItem_Click);
             // 
             // TextBox
             // 
@@ -40,7 +139,7 @@
             this.TextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.TextBox.DefaultText = "";
             this.TextBox.DisabledState.Parent = this.TextBox;
-            this.TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.TextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.FocusedState.FillColor = System.Drawing.Color.LightGray;
             this.TextBox.FocusedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
@@ -67,17 +166,21 @@
             this.TextBox.PlaceholderText = "What will it be? ...";
             this.TextBox.SelectedText = "";
             this.TextBox.ShadowDecoration.Parent = this.TextBox;
-            this.TextBox.Size = new System.Drawing.Size(500, 35);
+            this.TextBox.Size = new System.Drawing.Size(380, 35);
             this.TextBox.TabIndex = 0;
             this.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // SearchBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.TextBox);
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.Panel);
             this.Name = "SearchBox";
-            this.Size = new System.Drawing.Size(500, 35);
+            this.Size = new System.Drawing.Size(520, 35);
+            this.Panel.ResumeLayout(false);
+            this.ContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -85,5 +188,11 @@
         #endregion
 
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox TextBox;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton IntegrationButton;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel Panel;
+        private Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip ContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem ZingMP3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SoundCloudToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SpotifyToolStripMenuItem;
     }
 }
