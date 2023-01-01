@@ -8,6 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MyMediaPlayer</RootNamespace>
     <AssemblyName>MyMediaPlayer</AssemblyName>
+    <LangVersion>8.0</LangVersion>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -55,9 +56,6 @@
     </Reference>
     <Reference Include="CSAudioVisualization, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL" />
-    <Reference Include="CSharp.Winform.UI, Version=1.0.3.3, Culture=neutral, PublicKeyToken=872ff9e93c410e95, processorArchitecture=MSIL">
-      <HintPath>packages\CSharp.Winform.UI.1.0.3.3\lib\net46\CSharp.Winform.UI.dll</HintPath>
-    </Reference>
     <Reference Include="FluentDragDrop, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f3fa274cee9b8357, processorArchitecture=MSIL">
       <HintPath>packages\FluentDragDrop.2.1.3\lib\net472\FluentDragDrop.dll</HintPath>
     </Reference>
@@ -129,114 +127,115 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Src\AnimateLabel\AnimateLabel.cs">
+    <Compile Include="Source\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Src\Interfaces\IIntegration.cs" />
-    <Compile Include="Src\Interfaces\ISearchResultList.cs" />
-    <Compile Include="Src\MediaLyrics\MediaLyrics.cs">
+    <Compile Include="Source\Util\GlobalReferences.cs" />
+    <Compile Include="Source\Interfaces\IIntegration.cs" />
+    <Compile Include="Source\Interfaces\ISearchResultList.cs" />
+    <Compile Include="Source\MediaLyrics\MediaLyrics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\MediaLyrics\MediaLyrics.Designer.cs">
+    <Compile Include="Source\MediaLyrics\MediaLyrics.Designer.cs">
       <DependentUpon>MediaLyrics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\SearchResultList\SearchResultList.cs">
+    <Compile Include="Source\ZingMP3SearchResultList\ZingMP3SearchResultList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\SearchResultList\SearchResultList.Designer.cs">
-      <DependentUpon>SearchResultList.cs</DependentUpon>
+    <Compile Include="Source\ZingMP3SearchResultList\ZingMP3SearchResultList.Designer.cs">
+      <DependentUpon>ZingMP3SearchResultList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\SearchResult\SearchResult.cs">
+    <Compile Include="Source\ZingMP3SearchResult\ZingMP3SearchResult.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\SearchResult\SearchResult.Designer.cs">
-      <DependentUpon>SearchResult.cs</DependentUpon>
+    <Compile Include="Source\ZingMP3SearchResult\ZingMP3SearchResult.Designer.cs">
+      <DependentUpon>ZingMP3SearchResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Util\Common.cs" />
-    <Compile Include="Src\InputForm\InputForm.cs">
+    <Compile Include="Source\Util\Common.cs" />
+    <Compile Include="Source\InputForm\InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Src\InputForm\InputForm.Designer.cs">
+    <Compile Include="Source\InputForm\InputForm.Designer.cs">
       <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\MusicList\MusicList.cs">
+    <Compile Include="Source\MusicList\MusicList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\MusicList\MusicList.Designer.cs">
+    <Compile Include="Source\MusicList\MusicList.Designer.cs">
       <DependentUpon>MusicList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\FolderLocation\FolderLocation.cs">
+    <Compile Include="Source\FolderLocation\FolderLocation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\FolderLocation\FolderLocation.Designer.cs">
+    <Compile Include="Source\FolderLocation\FolderLocation.Designer.cs">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Main\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Main\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\MediaController\MediaController.cs">
+    <Compile Include="Source\MediaController\MediaController.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\MediaController\MediaController.Designer.cs">
+    <Compile Include="Source\MediaController\MediaController.Designer.cs">
       <DependentUpon>MediaController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\MediaItem\MediaItem.cs">
+    <Compile Include="Source\MediaItem\MediaItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\MediaItem\MediaItem.Designer.cs">
+    <Compile Include="Source\MediaItem\MediaItem.Designer.cs">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\MediaVisualizer\MediaVisualizer.cs">
+    <Compile Include="Source\MediaVisualizer\MediaVisualizer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\MediaVisualizer\MediaVisualizer.Designer.cs">
+    <Compile Include="Source\MediaVisualizer\MediaVisualizer.Designer.cs">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\PlaylistItem\PlaylistItem.cs">
+    <Compile Include="Source\PlaylistItem\PlaylistItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\PlaylistItem\PlaylistItem.Designer.cs">
+    <Compile Include="Source\PlaylistItem\PlaylistItem.Designer.cs">
       <DependentUpon>PlaylistItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Src\SearchBox\SearchBox.cs">
+    <Compile Include="Source\SearchBox\SearchBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\SearchBox\SearchBox.Designer.cs">
+    <Compile Include="Source\SearchBox\SearchBox.Designer.cs">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Util\Watcher.cs" />
-    <Compile Include="Src\ZingMP3\ZingMP3Integration.cs" />
-    <EmbeddedResource Include="Src\FolderLocation\FolderLocation.resx">
+    <Compile Include="Source\Util\Watcher.cs" />
+    <Compile Include="Source\ZingMP3Integration\ZingMP3Integration.cs" />
+    <EmbeddedResource Include="Source\FolderLocation\FolderLocation.resx">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\InputForm\InputForm.resx">
+    <EmbeddedResource Include="Source\InputForm\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\MediaLyrics\MediaLyrics.resx">
+    <EmbeddedResource Include="Source\MediaLyrics\MediaLyrics.resx">
       <DependentUpon>MediaLyrics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\MusicList\MusicList.resx">
+    <EmbeddedResource Include="Source\MusicList\MusicList.resx">
       <DependentUpon>MusicList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\MediaController\MediaController.resx">
+    <EmbeddedResource Include="Source\MediaController\MediaController.resx">
       <DependentUpon>MediaController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\MediaItem\MediaItem.resx">
+    <EmbeddedResource Include="Source\MediaItem\MediaItem.resx">
       <DependentUpon>MediaItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\MediaVisualizer\MediaVisualizer.resx">
+    <EmbeddedResource Include="Source\MediaVisualizer\MediaVisualizer.resx">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\PlaylistItem\PlaylistItem.resx">
+    <EmbeddedResource Include="Source\PlaylistItem\PlaylistItem.resx">
       <DependentUpon>PlaylistItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -244,11 +243,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\SearchBox\SearchBox.resx">
+    <EmbeddedResource Include="Source\SearchBox\SearchBox.resx">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Src\SearchResultList\SearchResultList.resx">
-      <DependentUpon>SearchResultList.cs</DependentUpon>
+    <EmbeddedResource Include="Source\ZingMP3SearchResultList\ZingMP3SearchResultList.resx">
+      <DependentUpon>ZingMP3SearchResultList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\ZingMP3SearchResult\ZingMP3SearchResult.resx">
+      <DependentUpon>ZingMP3SearchResult.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagramDetail.cd" />
@@ -299,6 +301,7 @@
     <Content Include="Lib\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\zingmp3_bg.png" />
     <None Include="Resources\soundcloud %282%29.png" />
     <None Include="Resources\zingmp3.jpg" />
     <None Include="Resources\spotify.png" />
