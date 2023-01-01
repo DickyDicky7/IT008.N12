@@ -30,7 +30,8 @@ namespace MyMediaPlayer
                 IList<ZingMP3SearchResult> SearchResults = JSONResultObject["data"]["songs"]
                 .Select(Item => new ZingMP3SearchResult(Item["encodeId"].ToString()
                 , Item["title"].ToString(), Item["artistsNames"].ToString()
-                , Item["thumbnailM"].ToString())).ToList();
+                , Item["thumbnailM"].ToString(), int.Parse(Item["duration"]
+                .ToString()))).ToList();
 
                 this.Invoke(new Action(() =>
                 {

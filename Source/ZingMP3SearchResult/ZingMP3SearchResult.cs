@@ -13,10 +13,14 @@ namespace MyMediaPlayer
     public partial class ZingMP3SearchResult : UserControl
     {
         public ZingMP3SearchResult
-        (string EncodeId, string Title, string ArtistsNames, string ImageURL)
+        (string EncodeId, string Title, string ArtistsNames, string ImageURL, int Duration)
         {
             InitializeComponent();
             this.EncodeId = EncodeId;
+            this.Title = Title;
+            this.ArtistsNames = ArtistsNames;
+            this.ImageURL = ImageURL;
+            this.Duration = Duration;
             PictureBox.ImageLocation = ImageURL;
             Panel.Text = $"{ArtistsNames} - {Title}";
             ImagePanel.BackgroundImage = PictureBox.Image;
@@ -24,9 +28,14 @@ namespace MyMediaPlayer
 
         private void Panel_Click(object sender, EventArgs e)
         {
-            GlobalReferences.MediaController.LoadStreaming(EncodeId);
+            GlobalReferences.MediaController.LoadStreaming
+            (EncodeId, Title, ArtistsNames, ImageURL, Duration);
         }
 
         private readonly string EncodeId;
+        private readonly string Title;
+        private readonly string ArtistsNames;
+        private readonly string ImageURL;
+        private readonly int Duration;
     }
 }

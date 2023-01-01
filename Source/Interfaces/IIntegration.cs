@@ -11,6 +11,7 @@ namespace MyMediaPlayer
         string GetBetterStreamingURL(string EncodeId);
         Task<string> Search(string Query, bool ReturnResult = false);
         Task<string> GetLyrics(string EncodeId, bool ReturnResult = false);
+        Task<string> GetInformation(string EncodeId, bool ReturnResult = false);
         Task<string> GetStreaming(string EncodeId, bool ReturnResult = false);
     }
 }

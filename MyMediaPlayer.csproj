@@ -130,7 +130,7 @@
     <Compile Include="Source\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Source\Util\GlobalReferences.cs" />
+    <Compile Include="Source\Utilities\GlobalReferences.cs" />
     <Compile Include="Source\Interfaces\IIntegration.cs" />
     <Compile Include="Source\Interfaces\ISearchResultList.cs" />
     <Compile Include="Source\MediaLyrics\MediaLyrics.cs">
@@ -151,7 +151,7 @@
     <Compile Include="Source\ZingMP3SearchResult\ZingMP3SearchResult.Designer.cs">
       <DependentUpon>ZingMP3SearchResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Util\Common.cs" />
+    <Compile Include="Source\Utilities\Common.cs" />
     <Compile Include="Source\InputForm\InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,7 +208,7 @@
     <Compile Include="Source\SearchBox\SearchBox.Designer.cs">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Util\Watcher.cs" />
+    <Compile Include="Source\Utilities\Watcher.cs" />
     <Compile Include="Source\ZingMP3Integration\ZingMP3Integration.cs" />
     <EmbeddedResource Include="Source\FolderLocation\FolderLocation.resx">
       <DependentUpon>FolderLocation.cs</DependentUpon>

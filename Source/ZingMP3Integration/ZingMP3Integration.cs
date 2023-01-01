@@ -66,6 +66,21 @@ namespace MyMediaPlayer
             });
         }
 
+        public Task<string> GetInformation(string EncodeId, bool ReturnResult = false)
+        {
+            return Task<string>.Factory.StartNew(() =>
+            {
+                Requests["GetInformation"].AddOrUpdateParameter("id", EncodeId);
+                CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                Requests["GetInformation"].AddOrUpdateParameter("ctime", CTime.ToString());
+                Requests["GetInformation"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
+                (Requests["GetInformation"].Resource + MakeHashSHA256
+                ($"ctime={CTime}id={EncodeId}version={Version}"), SecretKey));
+                string Result = (Client.Get(Requests["GetInformation"])).Content;
+                return ReturnResult ? Result : null;
+            });
+        }
+
         public Task<string> GetStreaming(string EncodeId, bool ReturnResult = false)
         {
             return Task<string>.Factory.StartNew(() =>
@@ -99,6 +114,7 @@ namespace MyMediaPlayer
             {
                 { "Search", new RestRequest("/api/v2/search/multi", Method.Get) }
             ,   { "GetLyrics", new RestRequest("/api/v2/lyric/get/lyric", Method.Get) }
+            ,   { "GetInformation", new RestRequest("/api/v2/song/get/info", Method.Get) }
             ,   { "GetStreaming", new RestRequest("/api/v2/song/get/streaming", Method.Get) }
             };
 

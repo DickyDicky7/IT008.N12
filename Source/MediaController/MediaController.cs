@@ -52,6 +52,13 @@ namespace MyMediaPlayer
                     if (CurrentMusicList != null)
                         CurrentMusicList.PlayNext();
                 }
+
+                #region do not touch
+                if (Player.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
+                {
+                    MessageBox.Show("oh yeah");
+                }
+                #endregion
             };
             timer.Start();
 
@@ -106,14 +113,20 @@ namespace MyMediaPlayer
             OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
-        public async void LoadStreaming(string EncodeId)
+        public async void LoadStreaming
+        (string EncodeId, string Title, string ArtistsNames, string ImageURL, int Duration)
         {
-            //MessageBox.Show
-            //(GlobalReferences.OnlineStoreIntegration.GetStreamingURL(EncodeId));
             Player.currentMedia = Player.newMedia
             (GlobalReferences.OnlineStoreIntegration.GetBetterStreamingURL(EncodeId));
-            Console.WriteLine(await GlobalReferences.OnlineStoreIntegration.GetLyrics
-            (EncodeId, true));
+
+            TrackBar.Value = 0;
+            TrackBar.Minimum = 0;
+            TrackBar.Maximum = Duration;
+            MediaTitle.Text = $"{ArtistsNames} - {Title}";
+
+            BtnPlay.Image = Properties.Resources.pause;
+            //GlobalReferences.MediaLyrics.GetLyrics(URL);
+            //OnLoadMedia(URL); // Đừng xóa dòng này
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
