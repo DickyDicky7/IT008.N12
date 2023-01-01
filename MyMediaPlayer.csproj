@@ -170,10 +170,10 @@
     <Compile Include="Source\FolderLocation\FolderLocation.Designer.cs">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\MainForm.cs">
+    <Compile Include="Main\MainForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\MainForm.Designer.cs">
+    <Compile Include="Main\MainForm\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\MediaController\MediaController.cs">
@@ -213,7 +213,7 @@
     <EmbeddedResource Include="Source\FolderLocation\FolderLocation.resx">
       <DependentUpon>FolderLocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\MainForm.resx">
+    <EmbeddedResource Include="Main\MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -295,10 +295,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <Content Include="Lib\CSAudioVisualization.dll">
+    <Content Include="Libraries\CSAudioVisualization.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Lib\CSCore.dll">
+    <Content Include="Libraries\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\zingmp3_bg.png" />
