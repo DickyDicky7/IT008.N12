@@ -86,14 +86,14 @@ namespace MyMediaPlayer
             }
         }
 
-        private void MediaController_OnLoadMedia(string MediaURL)
+        private void MediaController_OnLoadMedia(MediaControllerArgs MediaControllerArgs)
         {
-            if (MediaURL != null)
+            if (MediaControllerArgs.URL != null)
             {
                 Invoke(new Action(() =>
                 {
                     PictureBox.Left = -PictureBox.Size.Width;
-                    PictureBox.Image = Common.GetImage(MediaURL);
+                    PictureBox.Image = Common.GetImage(MediaControllerArgs.URL);
                     FluentTransitions.Transition
                     .With(PictureBox, nameof(Left), 0)
                     .Decelerate(TimeSpan.FromSeconds(0.5));
@@ -102,8 +102,35 @@ namespace MyMediaPlayer
                         Label.ForeColor = Color.Transparent;
 
                     MediaStatus.Text = "On Track";
-                    MediaTitle.Text = "   " + Common.GetTitle(MediaURL);
-                    MediaArtist.Text = Common.GetPerformers(MediaURL);
+                    MediaTitle.Text = "   " + Common.GetTitle(MediaControllerArgs.URL);
+                    MediaArtist.Text = Common.GetPerformers(MediaControllerArgs.URL);
+
+                    FluentTransitions.Transition
+                    .With(MediaStatus, nameof(ForeColor), Common.LightRed)
+                    .With(MediaTitle, nameof(ForeColor), Common.Black)
+                    .With(MediaArtist, nameof(ForeColor), Common.Black)
+                    .EaseInEaseOut(TimeSpan.FromSeconds(1));
+                }));
+            }
+            else
+            if (MediaControllerArgs.EncodeId != null || MediaControllerArgs.Title != null ||
+            MediaControllerArgs.ArtistsNames != null || MediaControllerArgs.ImageURL != null ||
+            MediaControllerArgs.Duration != null)
+            {
+                Invoke(new Action(() =>
+                {
+                    PictureBox.Left = -PictureBox.Size.Width;
+                    PictureBox.ImageLocation = MediaControllerArgs.ImageURL;
+                    FluentTransitions.Transition
+                    .With(PictureBox, nameof(Left), 0)
+                    .Decelerate(TimeSpan.FromSeconds(0.5));
+
+                    foreach (Label Label in Controls.OfType<Label>())
+                        Label.ForeColor = Color.Transparent;
+
+                    MediaStatus.Text = "On Track";
+                    MediaTitle.Text = "   " + MediaControllerArgs.Title;
+                    MediaArtist.Text = MediaControllerArgs.ArtistsNames;
 
                     FluentTransitions.Transition
                     .With(MediaStatus, nameof(ForeColor), Common.LightRed)

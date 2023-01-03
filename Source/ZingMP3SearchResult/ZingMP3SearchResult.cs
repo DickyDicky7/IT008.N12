@@ -30,6 +30,7 @@ namespace MyMediaPlayer
         {
             GlobalReferences.MediaController.LoadStreaming
             (EncodeId, Title, ArtistsNames, ImageURL, Duration);
+            GlobalReferences.MainForm.bringVisualizeToFront();
         }
 
         private readonly string EncodeId;

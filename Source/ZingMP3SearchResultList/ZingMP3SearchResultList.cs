@@ -23,15 +23,19 @@ namespace MyMediaPlayer
 
         public void LoadSearchResults(string JSONResult)
         {
+            //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+
             Task.Factory.StartNew(() =>
             {
+                //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+
                 JSONResultObject = JObject.Parse(JSONResult);
 
-                IList<ZingMP3SearchResult> SearchResults = JSONResultObject["data"]["songs"]
-                .Select(Item => new ZingMP3SearchResult(Item["encodeId"].ToString()
-                , Item["title"].ToString(), Item["artistsNames"].ToString()
-                , Item["thumbnailM"].ToString(), int.Parse(Item["duration"]
-                .ToString()))).ToList();
+                List<ZingMP3SearchResult> SearchResults = JSONResultObject["data"]?["songs"]
+                .Select(Item => new ZingMP3SearchResult(Item["encodeId"].Value<string>()
+                , Item["title"].Value<string>(), Item["artistsNames"].Value<string>()
+                , Item["thumbnailM"].Value<string>(), Item["duration"].Value<int>()))
+                .ToList();
 
                 this.Invoke(new Action(() =>
                 {
@@ -39,7 +43,7 @@ namespace MyMediaPlayer
                 }));
 
                 CurrentLocationY = 0;
-                foreach (ZingMP3SearchResult SearchResult in SearchResults)
+                SearchResults?.ForEach(SearchResult =>
                 {
                     SearchResult.Location = new Point(20, CurrentLocationY);
                     CurrentLocationY += SearchResult.Size.Height;
@@ -54,7 +58,23 @@ namespace MyMediaPlayer
                         this.Controls.Add(SearchResult);
                         this.Controls.Add(Separator);
                     }));
-                }
+                });
+                //foreach (ZingMP3SearchResult SearchResult in SearchResults)
+                //{
+                //    SearchResult.Location = new Point(20, CurrentLocationY);
+                //    CurrentLocationY += SearchResult.Size.Height;
+                //    SiticoneSeparator Separator = new SiticoneSeparator();
+                //    Separator.Size = new Size(SearchResult.Size.Width, 10);
+                //    Separator.Location = new Point(20, CurrentLocationY);
+                //    CurrentLocationY += Separator.Size.Height;
+                //    Separator.BackColor = Color.White;
+                //    Separator.FillColor = Color.White;
+                //    this.Invoke(new Action(() =>
+                //    {
+                //        this.Controls.Add(SearchResult);
+                //        this.Controls.Add(Separator);
+                //    }));
+                //}
             });
         }
 

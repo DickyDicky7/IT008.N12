@@ -110,7 +110,7 @@ namespace MyMediaPlayer
 
             BtnPlay.Image = Properties.Resources.pause;
             GlobalReferences.MediaLyrics.GetLyrics(URL);
-            OnLoadMedia(URL); // Đừng xóa dòng này
+            OnLoadMedia(new MediaControllerArgs() { URL = URL }); // Đừng xóa dòng này
         }
 
         public async void LoadStreaming
@@ -125,8 +125,15 @@ namespace MyMediaPlayer
             MediaTitle.Text = $"{ArtistsNames} - {Title}";
 
             BtnPlay.Image = Properties.Resources.pause;
-            //GlobalReferences.MediaLyrics.GetLyrics(URL);
-            //OnLoadMedia(URL); // Đừng xóa dòng này
+
+            GlobalReferences.MediaLyrics.ParseStreamingLyrics
+            (await GlobalReferences.OnlineStoreIntegration.GetLyrics(EncodeId, true));
+
+            OnLoadMedia(new MediaControllerArgs()
+            {
+                EncodeId = EncodeId, Title = Title, ArtistsNames = ArtistsNames,
+                ImageURL = ImageURL, Duration = Duration
+            }); // Đừng xóa dòng này
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
@@ -364,10 +371,10 @@ namespace MyMediaPlayer
         private static readonly Watcher Watcher = new Watcher();
 
         /// <summary>
-        /// Handle the user's custom event when MediaController use LoadMedia
+        /// Handle the user's custom event when MediaController use LoadMedia or LoadStreaming
         /// </summary>
-        /// <param name="MediaURL">Media's file path</param>
-        public delegate void OnLoadMediaHandler(string MediaURL);
+        /// <param name="MediaControllerArgs">Consist of URL; EncodeId; Title; ArtistsNames; ImageURL; Duration</param>
+        public delegate void OnLoadMediaHandler(MediaControllerArgs MediaControllerArgs);
 
         /// <summary>
         /// Entry for a custom OnLoadMediaHandler
@@ -380,5 +387,11 @@ namespace MyMediaPlayer
         {
             GlobalReferences.MainForm.bringVisualizeToFront();
         }
+    }
+
+    public class MediaControllerArgs
+    {
+        public string URL; public string EncodeId; public string Title;
+        public string ArtistsNames; public string ImageURL; public int? Duration;
     }
 }
