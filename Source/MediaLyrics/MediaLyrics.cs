@@ -17,12 +17,18 @@ namespace MyMediaPlayer
         public MediaLyrics()
         {
             InitializeComponent();
+
             MouseWheel += new MouseEventHandler(MediaLyrics_MouseWheel);
+
+            foreach (Label Line in Controls.OfType<Label>())
+                Line.Text = String.Empty;
         }
 
         private void MediaLyrics_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (e.Delta > 0 && HasLyrics)
+            if (IsSync) return;
+
+            if (e?.Delta > 0 && HasLyrics)
             {
                 if (FstIndex - 9 >= 0)
                 {
@@ -41,7 +47,7 @@ namespace MyMediaPlayer
                 }
             }
 
-            if (e.Delta < 0 && HasLyrics)
+            if (e?.Delta < 0 && HasLyrics)
             {
                 if (LstIndex + 9 <= Lyrics.Count - 1)
                 {
@@ -63,7 +69,7 @@ namespace MyMediaPlayer
 
         private void Render(bool FirstTime = false)
         {
-            for (i = FstIndex; i <= LstIndex; i++)
+            for (CurrentIndex = FstIndex; CurrentIndex <= LstIndex; CurrentIndex++)
             {
                 if (!FirstTime)
                 {
@@ -78,7 +84,7 @@ namespace MyMediaPlayer
                     .FirstOrDefault()).Text = String.Empty;
                 else
                     ((Label)Controls.Find($"Line{LineNumber}", false)
-                    .FirstOrDefault()).Text = Lyrics[i].Item2;
+                    .FirstOrDefault()).Text = Lyrics[CurrentIndex].Item2;
 
                 if (!FirstTime)
                 {
@@ -99,22 +105,21 @@ namespace MyMediaPlayer
                 HasLyrics = false;
             else
             {
+                IsSync = false;
+                Watcher.Stop();
+
+                FstIndex = 0;
+                LstIndex = Controls.OfType<Label>().Count() - 1;
+
                 Lyrics = File.Tag.Lyrics
                 .Split(new string[] { "\n", "," }, StringSplitOptions.None)
                 .Select<string, (int?, string)>(Lyric => (null, Lyric)).ToList();
+
                 HasLyrics = true;
             }
             Render(true);
             File.Dispose();
         }
-
-        private int i;
-        private int FstIndex = 0;
-        private int LstIndex = 8;
-        private int LineNumber = 1;
-        private bool HasLyrics = false;
-        private JObject JSONResultObject;
-        private List<(int?, string)> Lyrics;
 
         public async void ParseStreamingLyrics(string JSONResult)
         {
@@ -122,17 +127,76 @@ namespace MyMediaPlayer
             {
                 JSONResultObject = JObject.Parse(JSONResult);
 
-                Lyrics = JSONResultObject["data"]?["sentences"]?.Children().Select(Child =>
-                (Child["words"].Children().First()["startTime"].Value<int?>(),
-                Child["words"].Children().Select(Item =>
-                Item["data"].Value<string>()).Aggregate
-                ((Word, Lyric) => $"{Word} {Lyric}")))
-                .ToList();
+                Lyrics = JSONResultObject["data"]?["sentences"]?
+                .Children().Select(Child =>
+                (Child["words"].Children().First()["startTime"].Value<int?>() / 1000
+                , Child["words"].Children().Select(Item => Item["data"].Value<string>())
+                .Aggregate((Word, Lyric) => $"{Word} {Lyric}"))).ToList();
 
-                HasLyrics = Lyrics != null;
+                IsSync = HasLyrics = Lyrics != null;
             });
 
-            Render(true);
+            if (IsSync)
+            {
+                foreach (Label Line in Controls.OfType<Label>())
+                    Line.Text = String.Empty;
+
+                CurrentIndex = -1;
+
+                Watcher.Interval = TimeSpan.FromMilliseconds(100);
+                Watcher.Action = OnStreaming;
+                Watcher.Start();
+            }
         }
+
+        private async void OnStreaming()
+        {
+
+            if (IsSync)
+            {
+                if (await GlobalReferences.MediaController?.CheckIfRightTime
+                (Lyrics[CurrentIndex + 1].Item1.Value))
+                {
+                    CurrentIndex++;
+                    Console.WriteLine(Lyrics[CurrentIndex].Item2);
+                    Task.Factory.StartNew(() =>
+                    {
+                        Line5.Invoke((MethodInvoker)delegate ()
+                        {
+                            Line5.Text = Lyrics[CurrentIndex].Item2;
+                            if (CurrentIndex >= 1 && CurrentIndex <= Lyrics.Count - 2)
+                            {
+                                Line4.Text = Lyrics[CurrentIndex - 1].Item2;
+                                Line6.Text = Lyrics[CurrentIndex + 1].Item2;
+                            }
+                        });
+                    });
+                }
+            }
+        }
+
+        public void SkipCurrentIndex(int CurrentTime)
+        {
+            if (IsSync)
+                while (CurrentIndex < Lyrics.Count &&
+                Lyrics[CurrentIndex + 1].Item1 < CurrentTime) CurrentIndex++;
+        }
+
+        public void BackCurrentIndex(int CurrentTime)
+        {
+            if (IsSync)
+                while (CurrentIndex >= 0 &&
+                Lyrics[CurrentIndex - 1].Item1 > CurrentTime) CurrentIndex--;
+        }
+
+        private int FstIndex;
+        private int LstIndex;
+        private int CurrentIndex;
+        private int LineNumber = 1;
+        private bool IsSync = false;
+        private bool HasLyrics = false;
+        private JObject JSONResultObject;
+        private List<(int?, string)> Lyrics;
+        private Watcher Watcher = new Watcher();
     }
 }

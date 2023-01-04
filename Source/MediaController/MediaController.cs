@@ -228,17 +228,30 @@ namespace MyMediaPlayer
         private void BtnNext10s_Click(object sender, EventArgs e)
         {
             Player.controls.currentPosition += 10;
+
+            #region Testing
+            GlobalReferences.MediaLyrics.SkipCurrentIndex((int)Player.controls.currentPosition);
+            #endregion
         }
 
         private void BtnBack10s_Click(object sender, EventArgs e)
         {
             Player.controls.currentPosition -= 10;
+
+            #region Testing
+            GlobalReferences.MediaLyrics.BackCurrentIndex((int)Player.controls.currentPosition);
+            #endregion
         }
 
         private void TrackBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (Player.currentMedia != null)
                 Player.controls.currentPosition = TrackBar.Value;
+
+            #region Testing
+            GlobalReferences.MediaLyrics.SkipCurrentIndex((int)Player.controls.currentPosition);
+            GlobalReferences.MediaLyrics.BackCurrentIndex((int)Player.controls.currentPosition);
+            #endregion
         }
 
         private void VolumeMeter_Scroll(object sender, ScrollEventArgs e)
@@ -387,6 +400,29 @@ namespace MyMediaPlayer
         {
             GlobalReferences.MainForm.bringVisualizeToFront();
         }
+
+        public Task<bool> CheckIfRightTime(int TimeInSeconds)
+        {
+            return Task<bool>.Factory.StartNew(() =>
+            {
+                try
+                {
+                    Console.WriteLine($"{TimeInSeconds} - {Player.controls.currentPosition}");
+                    return TimeInSeconds == (int)Player.controls.currentPosition;
+                }
+                catch
+                {
+                    return false;
+                }
+            });
+        }
+
+        //public enum Ordering
+        //{
+        //    EQ, 
+        //    LT, 
+        //    GT,
+        //}
     }
 
     public class MediaControllerArgs
