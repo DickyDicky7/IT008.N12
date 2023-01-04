@@ -301,6 +301,9 @@
     <Content Include="Libraries\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\spotify_bg.png" />
+    <None Include="Resources\soundcloud_bg.png" />
+    <None Include="Resources\not_found.png" />
     <None Include="Resources\zingmp3_bg.png" />
     <None Include="Resources\soundcloud %282%29.png" />
     <None Include="Resources\zingmp3.jpg" />

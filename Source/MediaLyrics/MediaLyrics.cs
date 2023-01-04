@@ -102,7 +102,10 @@ namespace MyMediaPlayer
         {
             TagLib.File File = TagLib.File.Create(MediaURL);
             if (File.Tag.Lyrics == null)
+            {
                 HasLyrics = false;
+                BackgroundImage = Properties.Resources.not_found;
+            }
             else
             {
                 IsSync = false;
@@ -116,6 +119,8 @@ namespace MyMediaPlayer
                 .Select<string, (int?, string)>(Lyric => (null, Lyric)).ToList();
 
                 HasLyrics = true;
+
+                BackgroundImage = null;
             }
             Render(true);
             File.Dispose();
@@ -146,15 +151,24 @@ namespace MyMediaPlayer
                 Watcher.Interval = TimeSpan.FromMilliseconds(100);
                 Watcher.Action = OnStreaming;
                 Watcher.Start();
+
+                BackgroundImage = null;
+            }
+            else
+            {
+                foreach (Label Line in Controls.OfType<Label>())
+                    Line.Text = String.Empty;
+
+                BackgroundImage = Properties.Resources.not_found;
             }
         }
 
         private async void OnStreaming()
         {
-
             if (IsSync)
             {
-                if (await GlobalReferences.MediaController?.CheckIfRightTime
+                if (CurrentIndex + 1 < Lyrics.Count &&
+                await GlobalReferences.MediaController?.CheckIfRightTime
                 (Lyrics[CurrentIndex + 1].Item1.Value))
                 {
                     CurrentIndex++;
@@ -177,16 +191,30 @@ namespace MyMediaPlayer
 
         public void SkipCurrentIndex(int CurrentTime)
         {
-            if (IsSync)
-                while (CurrentIndex < Lyrics.Count &&
-                Lyrics[CurrentIndex + 1].Item1 < CurrentTime) CurrentIndex++;
+            try
+            {
+                if (IsSync)
+                    while (CurrentIndex + 1 < Lyrics.Count &&
+                    Lyrics[CurrentIndex + 1].Item1 < CurrentTime) CurrentIndex++;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
 
         public void BackCurrentIndex(int CurrentTime)
         {
-            if (IsSync)
-                while (CurrentIndex >= 0 &&
-                Lyrics[CurrentIndex - 1].Item1 > CurrentTime) CurrentIndex--;
+            try
+            {
+                if (IsSync)
+                    while (CurrentIndex - 1 >= 0 &&
+                    Lyrics[CurrentIndex - 1].Item1 > CurrentTime) CurrentIndex--;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
 
         private int FstIndex;
