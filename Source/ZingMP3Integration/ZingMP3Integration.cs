@@ -36,6 +36,20 @@ namespace MyMediaPlayer
             return $"http://api.mp3.zing.vn/api/streaming/audio/{EncodeId}/320";
         }
 
+        //public Task<string> Search(string Query, bool ReturnResult = false)
+        //{
+        //    return Task<string>.Factory.StartNew(() =>
+        //    {
+        //        Requests["Search"].AddOrUpdateParameter("q", Query);
+        //        CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        //        Requests["Search"].AddOrUpdateParameter("ctime", CTime.ToString());
+        //        Requests["Search"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
+        //        (Requests["Search"].Resource + MakeHashSHA256
+        //        ($"ctime={CTime}version={Version}"), SecretKey));
+        //        string Result = (Client.Get(Requests["Search"])).Content;
+        //        return ReturnResult ? Result : null;
+        //    });
+        //}
         public Task<string> Search(string Query, bool ReturnResult = false)
         {
             return Task<string>.Factory.StartNew(() =>
@@ -43,9 +57,12 @@ namespace MyMediaPlayer
                 Requests["Search"].AddOrUpdateParameter("q", Query);
                 CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
                 Requests["Search"].AddOrUpdateParameter("ctime", CTime.ToString());
+                Requests["Search"].AddOrUpdateParameter("page", "1");
+                Requests["Search"].AddOrUpdateParameter("count", "18");
+                Requests["Search"].AddOrUpdateParameter("type", "song");
                 Requests["Search"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
                 (Requests["Search"].Resource + MakeHashSHA256
-                ($"ctime={CTime}version={Version}"), SecretKey));
+                ($"count=18ctime={CTime}page=1type=songversion={Version}"), SecretKey));
                 string Result = (Client.Get(Requests["Search"])).Content;
                 return ReturnResult ? Result : null;
             });
@@ -112,7 +129,8 @@ namespace MyMediaPlayer
         private Dictionary<string, RestRequest> Requests =
             new Dictionary<string, RestRequest>()
             {
-                { "Search", new RestRequest("/api/v2/search/multi", Method.Get) }
+                //{ "Search", new RestRequest("/api/v2/search/multi", Method.Get) }
+                { "Search", new RestRequest("/api/v2/search", Method.Get) }
             ,   { "GetLyrics", new RestRequest("/api/v2/lyric/get/lyric", Method.Get) }
             ,   { "GetInformation", new RestRequest("/api/v2/song/get/info", Method.Get) }
             ,   { "GetStreaming", new RestRequest("/api/v2/song/get/streaming", Method.Get) }

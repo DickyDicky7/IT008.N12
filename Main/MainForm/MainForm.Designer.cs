@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mediaControllerFooter = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.mediaController = new MyMediaPlayer.MediaController();
             this.controlHeader = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.nameContainer = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.minimizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
@@ -39,7 +38,6 @@
             this.maximizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.tabControl = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.musicLibraryTabPage = new System.Windows.Forms.TabPage();
-            this.musicList = new MyMediaPlayer.MusicList();
             this.musicHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.shuffleAndPlayBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.sortBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -47,7 +45,6 @@
             this.musicLabel = new System.Windows.Forms.Label();
             this.videoLibraryTabPage = new System.Windows.Forms.TabPage();
             this.playQueueTabPage = new System.Windows.Forms.TabPage();
-            this.PlayQMusicList = new MyMediaPlayer.MusicList();
             this.playQueueHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.playQueueClearButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.playQueueHeaderLabel = new System.Windows.Forms.Label();
@@ -66,8 +63,6 @@
             this.librariesLb = new System.Windows.Forms.Label();
             this.onlineStoreTabPage = new System.Windows.Forms.TabPage();
             this.onlineStoreBodyPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.onlineStoreSearchBox = new MyMediaPlayer.SearchBox();
-            this.searchResultList = new MyMediaPlayer.ZingMP3SearchResultList();
             this.onlineStoreHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.onlineStoreHeaderLabel = new System.Windows.Forms.Label();
             this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
@@ -81,8 +76,13 @@
             this.tabControlBorder = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.visualizeContainer = new System.Windows.Forms.Panel();
             this.exitButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.musicList = new MyMediaPlayer.MusicList();
+            this.PlayQMusicList = new MyMediaPlayer.MusicList();
+            this.onlineStoreSearchBox = new MyMediaPlayer.SearchBox();
+            this.searchResultList = new MyMediaPlayer.ZingMP3SearchResultList();
             this.mediaVisualizer = new MyMediaPlayer.MediaVisualizer();
             this.mediaLyrics = new MyMediaPlayer.MediaLyrics();
+            this.mediaController = new MyMediaPlayer.MediaController();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -118,19 +118,6 @@
             this.mediaControllerFooter.ShadowDecoration.Parent = this.mediaControllerFooter;
             this.mediaControllerFooter.Size = new System.Drawing.Size(1040, 150);
             this.mediaControllerFooter.TabIndex = 0;
-            // 
-            // mediaController
-            // 
-            this.mediaController.BackColor = System.Drawing.Color.White;
-            this.mediaController.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mediaController.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mediaController.ForeColor = System.Drawing.Color.Transparent;
-            this.mediaController.Location = new System.Drawing.Point(0, 1);
-            this.mediaController.Margin = new System.Windows.Forms.Padding(2);
-            this.mediaController.MaximumSize = new System.Drawing.Size(3000, 150);
-            this.mediaController.Name = "mediaController";
-            this.mediaController.Size = new System.Drawing.Size(1040, 149);
-            this.mediaController.TabIndex = 0;
             // 
             // controlHeader
             // 
@@ -277,17 +264,6 @@
             this.musicLibraryTabPage.Size = new System.Drawing.Size(822, 451);
             this.musicLibraryTabPage.TabIndex = 0;
             this.musicLibraryTabPage.Text = "Music library";
-            // 
-            // musicList
-            // 
-            this.musicList.AutoSize = true;
-            this.musicList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.musicList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.musicList.Location = new System.Drawing.Point(0, 125);
-            this.musicList.Margin = new System.Windows.Forms.Padding(2);
-            this.musicList.Name = "musicList";
-            this.musicList.Size = new System.Drawing.Size(822, 326);
-            this.musicList.TabIndex = 2;
             // 
             // musicHeaderPanel
             // 
@@ -442,17 +418,6 @@
             this.playQueueTabPage.Size = new System.Drawing.Size(822, 451);
             this.playQueueTabPage.TabIndex = 2;
             this.playQueueTabPage.Text = "Play queue";
-            // 
-            // PlayQMusicList
-            // 
-            this.PlayQMusicList.AutoSize = true;
-            this.PlayQMusicList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.PlayQMusicList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlayQMusicList.Location = new System.Drawing.Point(0, 125);
-            this.PlayQMusicList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PlayQMusicList.Name = "PlayQMusicList";
-            this.PlayQMusicList.Size = new System.Drawing.Size(822, 326);
-            this.PlayQMusicList.TabIndex = 4;
             // 
             // playQueueHeaderPanel
             // 
@@ -708,28 +673,6 @@
             this.onlineStoreBodyPanel.Size = new System.Drawing.Size(816, 382);
             this.onlineStoreBodyPanel.TabIndex = 6;
             // 
-            // onlineStoreSearchBox
-            // 
-            this.onlineStoreSearchBox.BackColor = System.Drawing.Color.White;
-            this.onlineStoreSearchBox.Integration = null;
-            this.onlineStoreSearchBox.Location = new System.Drawing.Point(83, 0);
-            this.onlineStoreSearchBox.Margin = new System.Windows.Forms.Padding(4);
-            this.onlineStoreSearchBox.Name = "onlineStoreSearchBox";
-            this.onlineStoreSearchBox.SearchResultList = null;
-            this.onlineStoreSearchBox.Size = new System.Drawing.Size(650, 35);
-            this.onlineStoreSearchBox.TabIndex = 2;
-            // 
-            // searchResultList
-            // 
-            this.searchResultList.AutoScroll = true;
-            this.searchResultList.BackColor = System.Drawing.Color.White;
-            this.searchResultList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchResultList.Location = new System.Drawing.Point(0, 62);
-            this.searchResultList.Margin = new System.Windows.Forms.Padding(4);
-            this.searchResultList.Name = "searchResultList";
-            this.searchResultList.Size = new System.Drawing.Size(816, 320);
-            this.searchResultList.TabIndex = 1;
-            // 
             // onlineStoreHeaderPanel
             // 
             this.onlineStoreHeaderPanel.BackColor = System.Drawing.Color.White;
@@ -880,6 +823,50 @@
             this.exitButton.TabIndex = 2;
             this.exitButton.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
+            // musicList
+            // 
+            this.musicList.AutoSize = true;
+            this.musicList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.musicList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.musicList.Location = new System.Drawing.Point(0, 125);
+            this.musicList.Margin = new System.Windows.Forms.Padding(2);
+            this.musicList.Name = "musicList";
+            this.musicList.Size = new System.Drawing.Size(822, 326);
+            this.musicList.TabIndex = 2;
+            // 
+            // PlayQMusicList
+            // 
+            this.PlayQMusicList.AutoSize = true;
+            this.PlayQMusicList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PlayQMusicList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlayQMusicList.Location = new System.Drawing.Point(0, 125);
+            this.PlayQMusicList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PlayQMusicList.Name = "PlayQMusicList";
+            this.PlayQMusicList.Size = new System.Drawing.Size(822, 326);
+            this.PlayQMusicList.TabIndex = 4;
+            // 
+            // onlineStoreSearchBox
+            // 
+            this.onlineStoreSearchBox.BackColor = System.Drawing.Color.White;
+            this.onlineStoreSearchBox.Integration = null;
+            this.onlineStoreSearchBox.Location = new System.Drawing.Point(83, 0);
+            this.onlineStoreSearchBox.Margin = new System.Windows.Forms.Padding(4);
+            this.onlineStoreSearchBox.Name = "onlineStoreSearchBox";
+            this.onlineStoreSearchBox.SearchResultList = null;
+            this.onlineStoreSearchBox.Size = new System.Drawing.Size(650, 35);
+            this.onlineStoreSearchBox.TabIndex = 2;
+            // 
+            // searchResultList
+            // 
+            this.searchResultList.AutoScroll = true;
+            this.searchResultList.BackColor = System.Drawing.Color.White;
+            this.searchResultList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchResultList.Location = new System.Drawing.Point(0, 82);
+            this.searchResultList.Margin = new System.Windows.Forms.Padding(4);
+            this.searchResultList.Name = "searchResultList";
+            this.searchResultList.Size = new System.Drawing.Size(816, 300);
+            this.searchResultList.TabIndex = 1;
+            // 
             // mediaVisualizer
             // 
             this.mediaVisualizer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -893,6 +880,7 @@
             // 
             this.mediaLyrics.AutoScroll = true;
             this.mediaLyrics.BackColor = System.Drawing.Color.White;
+            this.mediaLyrics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mediaLyrics.Dock = System.Windows.Forms.DockStyle.Right;
             this.mediaLyrics.Location = new System.Drawing.Point(640, 0);
             this.mediaLyrics.Margin = new System.Windows.Forms.Padding(4);
@@ -901,6 +889,19 @@
             this.mediaLyrics.Name = "mediaLyrics";
             this.mediaLyrics.Size = new System.Drawing.Size(400, 353);
             this.mediaLyrics.TabIndex = 3;
+            // 
+            // mediaController
+            // 
+            this.mediaController.BackColor = System.Drawing.Color.White;
+            this.mediaController.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mediaController.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mediaController.ForeColor = System.Drawing.Color.Transparent;
+            this.mediaController.Location = new System.Drawing.Point(0, 1);
+            this.mediaController.Margin = new System.Windows.Forms.Padding(2);
+            this.mediaController.MaximumSize = new System.Drawing.Size(3000, 150);
+            this.mediaController.Name = "mediaController";
+            this.mediaController.Size = new System.Drawing.Size(1040, 149);
+            this.mediaController.TabIndex = 0;
             // 
             // MainForm
             // 

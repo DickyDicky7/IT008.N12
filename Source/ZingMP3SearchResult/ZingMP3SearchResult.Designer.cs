@@ -67,7 +67,7 @@
             this.Panel.Name = "Panel";
             this.Panel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.Panel.ShadowDecoration.Parent = this.Panel;
-            this.Panel.Size = new System.Drawing.Size(550, 70);
+            this.Panel.Size = new System.Drawing.Size(550, 60);
             this.Panel.TabIndex = 1;
             this.Panel.Text = "Helooooooooo";
             this.Panel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -86,10 +86,10 @@
             this.ImagePanel.Location = new System.Drawing.Point(0, 0);
             this.ImagePanel.Name = "ImagePanel";
             this.ImagePanel.ShadowDecoration.Parent = this.ImagePanel;
-            this.ImagePanel.Size = new System.Drawing.Size(70, 70);
+            this.ImagePanel.Size = new System.Drawing.Size(60, 60);
             this.ImagePanel.TabIndex = 2;
             // 
-            // SearchResult
+            // ZingMP3SearchResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,8 +97,8 @@
             this.Controls.Add(this.ImagePanel);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.PictureBox);
-            this.Name = "SearchResult";
-            this.Size = new System.Drawing.Size(550, 70);
+            this.Name = "ZingMP3SearchResult";
+            this.Size = new System.Drawing.Size(550, 60);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
 

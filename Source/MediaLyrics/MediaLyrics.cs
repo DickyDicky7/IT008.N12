@@ -148,7 +148,7 @@ namespace MyMediaPlayer
 
                 CurrentIndex = -1;
 
-                Watcher.Interval = TimeSpan.FromMilliseconds(100);
+                Watcher.Interval = TimeSpan.FromMilliseconds(10);
                 Watcher.Action = OnStreaming;
                 Watcher.Start();
 
