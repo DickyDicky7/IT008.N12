@@ -22,6 +22,9 @@ namespace MyMediaPlayer
 
             TextBox.TextChanged += new EventHandler(TextBox_TextChanged);
             Load += new EventHandler(SearchBox_Load);
+
+            Pagination.BackPageButton_Click = new EventHandler(Pagination_BackPageButton_Click);
+            Pagination.NextPageButton_Click = new EventHandler(Pagination_NextPageButton_Click);
         }
 
         private void UpdateSearchBox()
@@ -39,10 +42,11 @@ namespace MyMediaPlayer
                         else
                         {
                             SearchResultList?.LoadSearchResults
-                            (await Integration.Search(TextBox.Text, true));
+                            (await Integration.Search(TextBox.Text, 1, true));
                         }
                         TextBox.Text = "";
                     });
+                    Pagination.CurrentPageNumber = 1;
                     LastMod = null;
                 }
             }
@@ -61,12 +65,13 @@ namespace MyMediaPlayer
                     else
                     {
                         SearchResultList?.LoadSearchResults
-                        (await Integration.Search(TextBox.Text, true));
+                        (await Integration.Search(TextBox.Text, 1, true));
                     }
                     TextBox.BeginInvoke((MethodInvoker)delegate ()
                     {
                         TextBox.Text = "";
                     });
+                    Pagination.CurrentPageNumber = 1;
                     LastMod = null;
                 });
             }
@@ -138,6 +143,33 @@ namespace MyMediaPlayer
             IntegrationButton.TextAlign = HorizontalAlignment.Left;
             IntegrationButton.Image = Properties.Resources.spotify;
             IntegrationButton.ImageAlign = HorizontalAlignment.Right;
+        }
+
+        private void Pagination_BackPageButton_Click(object sender, EventArgs e)
+        {
+            if (Pagination.CurrentPageNumber - 1 >= 1)
+            {
+                Pagination.CurrentPageNumber -= 1;
+                Task.Factory.StartNew(async () =>
+                {
+                    SearchResultList?.LoadSearchResults(await Integration.Search
+                    (Integration.SearchQueryHistory, Pagination.CurrentPageNumber, true));
+                });
+            }
+        }
+
+        private void Pagination_NextPageButton_Click(object sender, EventArgs e)
+        {
+            if (SearchResultList.NumberOfItems != null)
+                if (Pagination.CurrentPageNumber * 18 <= SearchResultList.NumberOfItems)
+                {
+                    Pagination.CurrentPageNumber += 1;
+                    Task.Factory.StartNew(async () =>
+                    {
+                        SearchResultList?.LoadSearchResults(await Integration.Search
+                        (Integration.SearchQueryHistory, Pagination.CurrentPageNumber, true));
+                    });
+                }
         }
     }
 }

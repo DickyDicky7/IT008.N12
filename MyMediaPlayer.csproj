@@ -130,6 +130,12 @@
     <Compile Include="Source\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Source\Pagination\Pagination.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Pagination\Pagination.Designer.cs">
+      <DependentUpon>Pagination.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Utilities\GlobalReferences.cs" />
     <Compile Include="Source\Interfaces\IIntegration.cs" />
     <Compile Include="Source\Interfaces\ISearchResultList.cs" />
@@ -235,6 +241,9 @@
     <EmbeddedResource Include="Source\MediaVisualizer\MediaVisualizer.resx">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Pagination\Pagination.resx">
+      <DependentUpon>Pagination.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\PlaylistItem\PlaylistItem.resx">
       <DependentUpon>PlaylistItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +310,8 @@
     <Content Include="Libraries\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\arrow_right.png" />
+    <None Include="Resources\arrow_left.png" />
     <None Include="Resources\spotify_bg.png" />
     <None Include="Resources\soundcloud_bg.png" />
     <None Include="Resources\not_found.png" />

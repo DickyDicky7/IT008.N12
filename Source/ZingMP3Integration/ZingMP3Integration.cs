@@ -28,7 +28,7 @@ namespace MyMediaPlayer
             //GetLyricsRequest.AddParameter("apiKey", ApiKey);
             //GetLyricsRequest.AddParameter("version", Version);
 
-            Search("@");
+            Search("@", 1);
         }
 
         public string GetBetterStreamingURL(string EncodeId)
@@ -50,19 +50,21 @@ namespace MyMediaPlayer
         //        return ReturnResult ? Result : null;
         //    });
         //}
-        public Task<string> Search(string Query, bool ReturnResult = false)
+        public Task<string> Search(string Query, int PageNumber, bool ReturnResult = false)
         {
             return Task<string>.Factory.StartNew(() =>
             {
+                SearchQueryHistory = Query;
                 Requests["Search"].AddOrUpdateParameter("q", Query);
                 CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                Requests["Search"].AddOrUpdateParameter("ctime", CTime.ToString());
-                Requests["Search"].AddOrUpdateParameter("page", "1");
                 Requests["Search"].AddOrUpdateParameter("count", "18");
                 Requests["Search"].AddOrUpdateParameter("type", "song");
-                Requests["Search"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
-                (Requests["Search"].Resource + MakeHashSHA256
-                ($"count=18ctime={CTime}page=1type=songversion={Version}"), SecretKey));
+                Requests["Search"].AddOrUpdateParameter("ctime", CTime.ToString());
+                Requests["Search"].AddOrUpdateParameter("page", PageNumber.ToString());
+                Requests["Search"].AddOrUpdateParameter("sig", MakeHashHMACSHA512(
+                Requests["Search"].Resource + MakeHashSHA256
+                ($"count=18ctime={CTime}page={PageNumber}type=songversion={Version}")
+                , SecretKey));
                 string Result = (Client.Get(Requests["Search"])).Content;
                 return ReturnResult ? Result : null;
             });
@@ -135,6 +137,8 @@ namespace MyMediaPlayer
             ,   { "GetInformation", new RestRequest("/api/v2/song/get/info", Method.Get) }
             ,   { "GetStreaming", new RestRequest("/api/v2/song/get/streaming", Method.Get) }
             };
+
+        public string SearchQueryHistory { get; set; }
 
         public static string MakeHashSHA256(string Input)
         {

@@ -8,10 +8,11 @@ namespace MyMediaPlayer
 {
     public interface IIntegration
     {
-        string GetBetterStreamingURL(string EncodeId);
-        Task<string> Search(string Query, bool ReturnResult = false);
-        Task<string> GetLyrics(string EncodeId, bool ReturnResult = false);
-        Task<string> GetInformation(string EncodeId, bool ReturnResult = false);
-        Task<string> GetStreaming(string EncodeId, bool ReturnResult = false);
+        public string GetBetterStreamingURL(string EncodeId);
+        public Task<string> Search(string Query, int PageNumber, bool ReturnResult = false);
+        public Task<string> GetLyrics(string EncodeId, bool ReturnResult = false);
+        public Task<string> GetInformation(string EncodeId, bool ReturnResult = false);
+        public Task<string> GetStreaming(string EncodeId, bool ReturnResult = false);
+        public string SearchQueryHistory { get; set; }
     }
 }

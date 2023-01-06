@@ -37,6 +37,8 @@ namespace MyMediaPlayer
                 , Item["thumbnailM"].Value<string>(), Item["duration"].Value<int>()))
                 .ToList();
 
+                NumberOfItems = JSONResultObject["data"]?["total"]?.Value<int?>();
+
                 this.Invoke(new Action(() =>
                 {
                     this.Controls.Clear();
@@ -86,5 +88,7 @@ namespace MyMediaPlayer
         private JObject JSONResultObject;
 
         private int CurrentLocationY = 0;
+
+        public int? NumberOfItems { get; set; } = null;
     }
 }
