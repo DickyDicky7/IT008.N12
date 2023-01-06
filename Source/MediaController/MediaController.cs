@@ -406,7 +406,7 @@ namespace MyMediaPlayer
 
         private void MediaTitle_Click(object sender, EventArgs e)
         {
-            GlobalReferences.MainForm.bringVisualizeToFront();
+            GlobalReferences.MainForm.BringVisualizeToFront();
         }
 
         public Task<bool> CheckIfRightTime(int TimeInSeconds)

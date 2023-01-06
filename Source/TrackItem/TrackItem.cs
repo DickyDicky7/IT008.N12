@@ -196,7 +196,7 @@ namespace MyMediaPlayer
 
         private void TrackItem_Click(object sender, EventArgs e)
         {
-            GlobalReferences.MainForm.bringVisualizeToFront();
+            GlobalReferences.MainForm.BringVisualizeToFront();
             if (ParentMusicList != null)
             {
                 ParentMusicList.CurrentIndex = ParentMusicList.GetMediaIndex(this) - 1;
@@ -395,7 +395,7 @@ namespace MyMediaPlayer
             {
                 Width = this.Width
             };
-            GlobalReferences.MainForm.addMusicToPlayQ(item);
+            GlobalReferences.MainForm.AddMusicToPlayQ(item);
         }
     }
 }

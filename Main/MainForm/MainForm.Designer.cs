@@ -261,7 +261,7 @@
             this.tabControl.TabButtonTextOffset = new System.Drawing.Point(13, 0);
             this.tabControl.TabIndex = 3;
             this.tabControl.TabMenuBackColor = System.Drawing.Color.White;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.siticoneTabControl1_SelectedIndexChanged);
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
             // 
             // musicLibraryTabPage
             // 
@@ -337,7 +337,7 @@
             this.shuffleAndPlayBtn.TabIndex = 3;
             this.shuffleAndPlayBtn.Text = "Shuffle And Play";
             this.shuffleAndPlayBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.shuffleAndPlayBtn.Click += new System.EventHandler(this.shuffleAndPlayBtn_Click);
+            this.shuffleAndPlayBtn.Click += new System.EventHandler(this.ShuffleAndPlayBtn_Click);
             // 
             // sortBtn
             // 
@@ -372,7 +372,7 @@
             this.sortBtn.TabIndex = 2;
             this.sortBtn.Text = "Sort By: A-Z";
             this.sortBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.sortBtn.Click += new System.EventHandler(this.sortBtn_Click);
+            this.sortBtn.Click += new System.EventHandler(this.SortBtn_Click);
             // 
             // addFolder
             // 
@@ -404,7 +404,7 @@
             this.addFolder.Size = new System.Drawing.Size(105, 37);
             this.addFolder.TabIndex = 1;
             this.addFolder.Text = "Add Folder";
-            this.addFolder.Click += new System.EventHandler(this.addFolder_Click);
+            this.addFolder.Click += new System.EventHandler(this.AddFolder_Click);
             // 
             // musicLabel
             // 
@@ -497,7 +497,7 @@
             this.playQueueClearButton.Size = new System.Drawing.Size(65, 32);
             this.playQueueClearButton.TabIndex = 2;
             this.playQueueClearButton.Text = "Clear";
-            this.playQueueClearButton.Click += new System.EventHandler(this.siticoneButton2_Click);
+            this.playQueueClearButton.Click += new System.EventHandler(this.PlayQueueClearButton_Click);
             // 
             // playQueueHeaderLabel
             // 
@@ -628,7 +628,7 @@
             this.addMusicFolderSTBtn.Size = new System.Drawing.Size(98, 32);
             this.addMusicFolderSTBtn.TabIndex = 8;
             this.addMusicFolderSTBtn.Text = "Add Folder";
-            this.addMusicFolderSTBtn.Click += new System.EventHandler(this.addFolder_Click);
+            this.addMusicFolderSTBtn.Click += new System.EventHandler(this.AddFolder_Click);
             // 
             // musicLocationLb
             // 
@@ -810,7 +810,7 @@
             this.aZToolStripMenuItem.Name = "aZToolStripMenuItem";
             this.aZToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.aZToolStripMenuItem.Text = "A-Z";
-            this.aZToolStripMenuItem.Click += new System.EventHandler(this.aZToolStripMenuItem_Click);
+            this.aZToolStripMenuItem.Click += new System.EventHandler(this.AZToolStripMenuItem_Click);
             // 
             // artistToolStripMenuItem
             // 
@@ -818,7 +818,7 @@
             this.artistToolStripMenuItem.Name = "artistToolStripMenuItem";
             this.artistToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.artistToolStripMenuItem.Text = "Artist";
-            this.artistToolStripMenuItem.Click += new System.EventHandler(this.artistsToolStripMenuItem_Click);
+            this.artistToolStripMenuItem.Click += new System.EventHandler(this.ArtistsToolStripMenuItem_Click);
             // 
             // albumToolStripMenuItem
             // 
@@ -826,7 +826,7 @@
             this.albumToolStripMenuItem.Name = "albumToolStripMenuItem";
             this.albumToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.albumToolStripMenuItem.Text = "Album";
-            this.albumToolStripMenuItem.Click += new System.EventHandler(this.albumToolStripMenuItem_Click);
+            this.albumToolStripMenuItem.Click += new System.EventHandler(this.AlbumToolStripMenuItem_Click);
             // 
             // genreToolStripMenuItem
             // 
@@ -834,7 +834,7 @@
             this.genreToolStripMenuItem.Name = "genreToolStripMenuItem";
             this.genreToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.genreToolStripMenuItem.Text = "Genre";
-            this.genreToolStripMenuItem.Click += new System.EventHandler(this.genreToolStripMenuItem_Click);
+            this.genreToolStripMenuItem.Click += new System.EventHandler(this.GenreToolStripMenuItem_Click);
             // 
             // tabControlBorder
             // 
@@ -879,7 +879,7 @@
             this.exitButton.ShadowDecoration.Parent = this.exitButton;
             this.exitButton.Size = new System.Drawing.Size(39, 37);
             this.exitButton.TabIndex = 2;
-            this.exitButton.Click += new System.EventHandler(this.siticoneButton1_Click);
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // mediaVisualizer
             // 
@@ -922,9 +922,9 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Media Player";
-            this.ResizeBegin += new System.EventHandler(this.form_ResizeBegin);
-            this.ResizeEnd += new System.EventHandler(this.form_ResizeEnd);
-            this.Resize += new System.EventHandler(this.form_Resize);
+            this.ResizeBegin += new System.EventHandler(this.MainForm_ResizeBegin);
+            this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.mediaControllerFooter.ResumeLayout(false);
             this.controlHeader.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
