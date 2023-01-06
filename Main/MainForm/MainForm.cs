@@ -216,7 +216,7 @@ namespace MyMediaPlayer
                 }
             }
         }
-        public void addMusicToPlayQ(MediaItem media)
+        public void addMusicToPlayQ(TrackItem media)
         {
             PlayQMusicList.addMusic(media);
         }

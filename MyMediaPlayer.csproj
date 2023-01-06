@@ -130,6 +130,7 @@
     <Compile Include="Source\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Source\Interfaces\IMediaItem.cs" />
     <Compile Include="Source\Pagination\Pagination.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,11 +189,11 @@
     <Compile Include="Source\MediaController\MediaController.Designer.cs">
       <DependentUpon>MediaController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MediaItem\MediaItem.cs">
+    <Compile Include="Source\TrackItem\TrackItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\MediaItem\MediaItem.Designer.cs">
-      <DependentUpon>MediaItem.cs</DependentUpon>
+    <Compile Include="Source\TrackItem\TrackItem.Designer.cs">
+      <DependentUpon>TrackItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\MediaVisualizer\MediaVisualizer.cs">
       <SubType>UserControl</SubType>
@@ -235,8 +236,8 @@
     <EmbeddedResource Include="Source\MediaController\MediaController.resx">
       <DependentUpon>MediaController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MediaItem\MediaItem.resx">
-      <DependentUpon>MediaItem.cs</DependentUpon>
+    <EmbeddedResource Include="Source\TrackItem\TrackItem.resx">
+      <DependentUpon>TrackItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MediaVisualizer\MediaVisualizer.resx">
       <DependentUpon>MediaVisualizer.cs</DependentUpon>

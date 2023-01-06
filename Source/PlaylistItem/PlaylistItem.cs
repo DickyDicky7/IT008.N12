@@ -65,10 +65,10 @@ namespace MyMediaPlayer
 
             foreach (string Path in Paths)
             {
-                MediaItem mediaItem = new MediaItem(Path);
+                TrackItem mediaItem = new TrackItem(Path);
                 mediaItem.Height = 30;
-                mediaItem.addDeleteToMenu();
-                mediaItem.PlayListName = Panel.Text;
+                mediaItem.AddDeleteToMenu();
+                mediaItem.PlaylistName = Panel.Text;
                 musicList.addMusic(mediaItem);
             }
             //MessageBox.Show(musicList.Size.Height.ToString());
@@ -119,11 +119,11 @@ namespace MyMediaPlayer
             InitializePlaylistItem(URL);
             foreach (string Path in Paths)
             {
-                MediaItem mediaItem = new MediaItem(Path);
+                TrackItem mediaItem = new TrackItem(Path);
                 mediaItem.Height = 30;
-                mediaItem.addDeleteToMenu();
+                mediaItem.AddDeleteToMenu();
                 musicList.addMusic(mediaItem);
-                mediaItem.PlayListName = Panel.Text;
+                mediaItem.PlaylistName = Panel.Text;
             }
             //MessageBox.Show(musicList.Size.Height.ToString());
             Common.RoundedCorner(Menu);
@@ -287,7 +287,7 @@ namespace MyMediaPlayer
             try
             {
                 File.Delete(URL);
-                MediaItem.removeFromAllMenu(Panel.Text);
+                TrackItem.RemoveFromAllMenu(Panel.Text);
             }
             catch { }
             this.Parent.Controls.Remove(this);

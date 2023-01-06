@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public partial class MediaItem : UserControl
+    public partial class TrackItem : UserControl, IMediaItem
     {
 
         #region .. code for Flucuring ..
@@ -39,82 +39,70 @@ namespace MyMediaPlayer
 
         #region Propreties
 
-        private String url;
-        private Image _thumbnail;
-        private String _title;
-        private String _artist;
-        private String _album;
-        private String _genre;
-        private String playlistName;
+        private string url;
+        private Image thumbnail;
+        private string title;
+        private string artist;
+        private string album;
+        private string genre;
+        private string playlistName;
+        private TimeSpan duration;
 
-        public String PlayListName
+        public TimeSpan? Duration
         {
-            get { return playlistName; }
-            set { playlistName = value; }
+            get => duration;
+            set
+            {
+                duration = value.Value;
+                durationLB.Text = value.Value.ToString(@"mm\:ss");
+            }
         }
 
+        public string PlaylistName
+        {
+            get => playlistName;
+            set => playlistName = value;
+        }
 
+        public string Genre
+        {
+            get => genre;
+            set => genre = genreLB.Text = value;
+        }
 
-        private TimeSpan _duration;
-        /// <summary>
-        /// 
-        /// </summary>
-        public String Genre
+        public string URL
         {
-            get { return _genre; }
-            set { _genre = value; genreLB.Text = value; }
+            get => url;
+            set => url = value;
         }
-        public String URL
+
+        public string Album
         {
-            get { return url; }
-            set { url = value; }
+            get => album;
+            set => album = albumLB.Text = value;
         }
-        /// <summary>
-        /// Media length
-        /// </summary>
-        public TimeSpan Duration
+
+        public string Artist
         {
-            get { return _duration; }
-            set { _duration = value; durationLB.Text = value.ToString(@"mm\:ss"); }
+            get => artist;
+            set => artist = artistLB.Text = value;
         }
-        /// <summary>
-        /// Song's Album
-        /// </summary>
-        public String Album
+
+        public string Title
         {
-            get { return _album; }
-            set { _album = value; albumLB.Text = value; }
+            get => title;
+            set => title = titleLB.Text = value;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public String Artist
-        {
-            get { return _artist; }
-            set { _artist = value; artistLB.Text = value; }
-        }
-        /// <summary>
-        /// Media title
-        /// </summary>
-        public String Title
-        {
-            get { return _title; }
-            set { _title = value; titleLB.Text = value; }
-        }
-        /// <summary>
-        /// Media thumbnail image
-        /// </summary>
+
         public Image Thumbnail
         {
-            get { return _thumbnail; }
-            set { _thumbnail = value; }
+            get => thumbnail;
+            set => thumbnail = value;
         }
-
-
 
         #endregion
 
-        public MediaItem()
+        public TrackItem()
         {
             InitializeComponent();
             this.Title = "test";
@@ -124,7 +112,8 @@ namespace MyMediaPlayer
             this.Duration = new TimeSpan(0, 0, 0);
         }
 
-        public MediaItem(string title, string artist, string album, string genre, TimeSpan duration)
+        public TrackItem
+        (string title, string artist, string album, string genre, TimeSpan duration)
         {
             InitializeComponent();
             this.Title = title;
@@ -135,27 +124,29 @@ namespace MyMediaPlayer
         }
 
         /// <summary>
-        /// Initialize a new MediaItem with given URL
+        /// Initialize a new TrackItem with a given URL
         /// </summary>
-        /// <param name="URL">Media Item's URL</param>
-        public MediaItem(string URL)
+        /// <param name="URL">Track's URL</param>
+        public TrackItem(string URL)
         {
             InitializeComponent();
+
             Common.RoundedCorner(contextMenu);
             Common.RoundedCorner(addToMenuItem.DropDown);
+
             this.URL = URL;
-            InitializeMediaItem(URL);
-            Click += new EventHandler(MediaItem_Click);
+
+            InitializeTrackItem(URL);
+            this.Click += new EventHandler(TrackItem_Click);
+
             instances.Add(new WeakReference(this));
-            //MouseEnter += new EventHandler(MediaItem_MouseEnter);
-
-
         }
+
         /// <summary>
-        /// Load media item information to control
+        /// Load track's information to TrackItem
         /// </summary>
-        /// <param name="URL">Media Item's URL</param>
-        private void InitializeMediaItem(string URL)
+        /// <param name="URL">Track's URL</param>
+        private void InitializeTrackItem(string URL)
         {
             try
             {
@@ -182,14 +173,28 @@ namespace MyMediaPlayer
                 this.Album = file.Tag.Album;
                 this.Duration = StripMilliseconds(file.Properties.Duration);
             }
-            //this.Size = new System.Drawing.Size(1000, 50);
             catch
             {
 
             }
         }
 
-        public void MediaItem_Click(object sender, EventArgs e)
+        public EventHandler IMediaItem_Click
+        {
+            get => TrackItem_Click;
+        }
+
+        public Action Play
+        {
+            get => TrackItem_Play;
+        }
+
+        public UserControl UserControl
+        {
+            get => this;
+        }
+
+        private void TrackItem_Click(object sender, EventArgs e)
         {
             GlobalReferences.MainForm.bringVisualizeToFront();
             if (ParentMusicList != null)
@@ -197,10 +202,9 @@ namespace MyMediaPlayer
                 ParentMusicList.CurrentIndex = ParentMusicList.GetMediaIndex(this) - 1;
                 GlobalReferences.MediaController.LoadMusicList(ParentMusicList);
             }
-
         }
 
-        public void MediaItemPlay()
+        private void TrackItem_Play()
         {
             ChangeLabelColor(Color.FromArgb(186, 24, 27));
             if (PlayItem != null && PlayItem != this)
@@ -209,7 +213,6 @@ namespace MyMediaPlayer
             }
             PlayItem = this;
             GlobalReferences.MediaController.LoadMedia(URL);
-
         }
 
         private void ChangeLabelColor(Color color)
@@ -226,7 +229,7 @@ namespace MyMediaPlayer
             add
             {
                 base.Click += value;
-                void Recursive(Control control, EventHandler e)
+                static void Recursive(Control control, EventHandler e)
                 {
                     foreach (Control c in control.Controls)
                     {
@@ -246,7 +249,7 @@ namespace MyMediaPlayer
             remove
             {
                 base.Click -= value;
-                void Recursive(Control control, EventHandler e)
+                static void Recursive(Control control, EventHandler e)
                 {
                     foreach (Control c in control.Controls)
                     {
@@ -258,45 +261,45 @@ namespace MyMediaPlayer
             }
         }
 
-        public static MediaItem PlayItem { get; set; }
+        public static TrackItem PlayItem { get; set; }
 
         public MusicList ParentMusicList { get; set; }
 
-        private static List<WeakReference> instances = new List<WeakReference>();
+        private static readonly List<WeakReference> instances = new List<WeakReference>();
 
-        public static void addToAllMenu(string playlistName)
+        public static void AddToAllMenu(string playlistName)
         {
             var items = GetInstances();
             foreach (var item in items)
             {
-                item.addItemToMenu(playlistName);
+                item.AddItemToMenu(playlistName);
             }
         }
 
-        public static void removeFromAllMenu(string playlistName)
+        public static void RemoveFromAllMenu(string playlistName)
         {
             var instances = GetInstances();
             foreach (var item in instances)
             {
-                item.removeItemFromMenu(playlistName);
+                item.RemoveItemFromMenu(playlistName);
             }
         }
 
-        public void removeItemFromMenu(string playlistName)
+        public void RemoveItemFromMenu(string playlistName)
         {
             addToMenuItem.DropDownItems.RemoveByKey(playlistName);
         }
 
-        public static IList<MediaItem> GetInstances()
+        public static IList<TrackItem> GetInstances()
         {
-            List<MediaItem> realInstances = new List<MediaItem>();
+            List<TrackItem> realInstances = new List<TrackItem>();
             List<WeakReference> toDelete = new List<WeakReference>();
 
             foreach (WeakReference reference in instances)
             {
                 if (reference.IsAlive)
                 {
-                    realInstances.Add((MediaItem)reference.Target);
+                    realInstances.Add((TrackItem)reference.Target);
                 }
                 else
                 {
@@ -309,87 +312,89 @@ namespace MyMediaPlayer
             return realInstances;
         }
 
-        private void MediaItem_MouseEnter(object sender, EventArgs e)
+        private void TrackItem_MouseEnter(object sender, EventArgs e)
         {
             containerPanel.FillColor = Color.FromArgb(211, 211, 211);
         }
 
-        private void MediaItem_MouseHover(object sender, EventArgs e)
-        {
-            //containerPanel.FillColor = Color.FromArgb(211, 211, 211);
-        }
-
-        private void MediaItem_MouseLeave(object sender, EventArgs e)
+        private void TrackItem_MouseLeave(object sender, EventArgs e)
         {
             containerPanel.FillColor = Color.FromArgb(255, 255, 255);
         }
 
-        private void MediaItem_Load(object sender, EventArgs e)
+        private void TrackItem_Load(object sender, EventArgs e)
         {
-            addPlaylistToMenu();
+            AddPlaylistToMenu();
             Common.SetDoubleBuffered(inforPanel);
             Common.SetDoubleBuffered(containerPanel);
         }
 
-        public void addItemToMenu(string playlistName)
+        public void AddItemToMenu(string playlistName)
         {
             ToolStripMenuItem playlist = new ToolStripMenuItem();
             playlist.Text = playlistName;
             playlist.Name = playlistName;
-            playlist.Click += addToPlaylist;
+            playlist.Click += AddToPlaylist;
             addToMenuItem.DropDownItems.Add(playlist);
         }
 
-        private void addPlaylistToMenu()
+        private void AddPlaylistToMenu()
         {
-            var fileArray = Directory.GetFiles(Common.PlaylistsFolder, "*.wpl").Select(filename => Path.GetFileNameWithoutExtension(filename));
+            var fileArray = Directory.GetFiles(Common.PlaylistsFolder, "*.wpl")
+            .Select(filename => Path.GetFileNameWithoutExtension(filename));
             foreach (var file in fileArray)
             {
-                addItemToMenu(file);
+                AddItemToMenu(file);
             }
         }
 
-        public void addDeleteToMenu()
+        public void AddDeleteToMenu()
         {
             ToolStripMenuItem delete = new ToolStripMenuItem();
             delete.Text = "Remove";
             delete.Name = "delete"; ;
             delete.ForeColor = Color.FromArgb(22, 26, 29);
             delete.Image = Properties.Resources.close;
-            delete.Click += (object sender, EventArgs e) => { this.Parent.Controls.Remove(this); MessageBox.Show(this.PlayListName + " " + URL); MediaController.RemoveFromPlaylist(this.PlayListName, URL); };
+            delete.Click += (object sender, EventArgs e) =>
+            {
+                this.Parent.Controls.Remove(this);
+                MessageBox.Show(this.PlaylistName + " " + URL);
+                MediaController.RemoveFromPlaylist(this.PlaylistName, URL);
+            };
             contextMenu.Items.Add(delete);
         }
 
-        private void addToPlaylist(object sender, EventArgs e)
+        private void AddToPlaylist(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)(sender);
             MediaController.AddToPlaylist(item.Text, URL);
 
         }
 
-        private void newPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var inputForm = new InputForm("Nhập tên playlist");
+            var inputForm = new InputForm("Enter playlist's name");
             inputForm.ShowDialog();
 
-            addToAllMenu(inputForm.Result);
+            AddToAllMenu(inputForm.Result);
             if (!File.Exists($"{Common.PlaylistsFolder}\\{inputForm.Result}.wpl"))
             {
                 MediaController.CreatePlaylist(inputForm.Result);
-                PlaylistItem item =
-                new PlaylistItem($"{Common.PlaylistsFolder}\\{inputForm.Result}.wpl");
+                PlaylistItem item = new PlaylistItem
+                ($"{Common.PlaylistsFolder}\\{inputForm.Result}.wpl");
                 GlobalReferences.MainForm.AddPlaylistToPanel(item);
                 MediaController.AddToPlaylist(inputForm.Result, URL);
             }
             else
-                MessageBox.Show("Playlist da ton tai");
-
+                MessageBox.Show("Playlist exists!");
         }
 
-        private void playQueueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PlayQueueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MediaItem item = new MediaItem(URL);
-            item.Width = this.Width;
+            TrackItem item = new TrackItem(URL)
+            {
+                Width = this.Width
+            };
             GlobalReferences.MainForm.addMusicToPlayQ(item);
         }
     }

@@ -19,7 +19,7 @@ namespace MyMediaPlayer
             InitializeComponent();
             
         }
-        List<MediaItem> mediaItems = new List<MediaItem>();
+        List<IMediaItem> mediaItems = new List<IMediaItem>();
         public bool shuffleMode = false;
         List<int> shuffleList = new List<int>();
         public void addMusicFolder(string folderPath)
@@ -27,11 +27,11 @@ namespace MyMediaPlayer
             string[] fileArray = Directory.GetFiles(folderPath, "*.mp3");
             foreach (string file in fileArray)
             {
-                MediaItem media = new MediaItem(file);
+                TrackItem media = new TrackItem(file);
                 addMusic(media);
             }
         }
-        public void addMusic(MediaItem mediaItem)
+        public void addMusic(TrackItem mediaItem)
         {
             //mediaItem.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             mediaItem.ParentMusicList = this;
@@ -45,7 +45,7 @@ namespace MyMediaPlayer
         {
             if(!mediaItems.Contains(mediaItems.FirstOrDefault(media => media.URL == URL)))
             {
-                MediaItem media = new MediaItem(URL);
+                TrackItem media = new TrackItem(URL);
                 media.ParentMusicList = this;
                 addMusic(media);
             }
@@ -71,7 +71,7 @@ namespace MyMediaPlayer
             // Reverse because how panel add controls
             mediaItems.Reverse();
             mediaItemContainer.Controls.Clear();
-            mediaItemContainer.Controls.AddRange(mediaItems.ToArray());
+            mediaItemContainer.Controls.AddRange(mediaItems.Select(Item => Item.UserControl).ToArray());
             // Reverse again to match logic stupid but it work
             mediaItems.Reverse();
         }
@@ -112,7 +112,7 @@ namespace MyMediaPlayer
             Common.SetDoubleBuffered(mediaItemContainer);
         }
         
-        public int GetMediaIndex(MediaItem item)
+        public int GetMediaIndex(TrackItem item)
         {
             //Lỗi logic dòng 116, đã sửa và thay bằng dòng 119
             //return mediaItems.IndexOf(item);
@@ -123,7 +123,7 @@ namespace MyMediaPlayer
         public int GetExpandSize()
         {
             if(mediaItems.Count == 0) return 0;
-            return mediaItems.Count * mediaItems.First().Height;
+            return mediaItems.Count * mediaItems.First().UserControl.Height;
         }
         public void Clear()
         {
@@ -133,7 +133,7 @@ namespace MyMediaPlayer
 
         public void Signal(int Index)
         {
-            mediaItems[Index].MediaItemPlay();
+            mediaItems[Index].Play();
         }
 
         public int CurrentIndex = -1;

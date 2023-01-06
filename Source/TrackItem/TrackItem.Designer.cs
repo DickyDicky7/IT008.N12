@@ -1,6 +1,6 @@
 ﻿namespace MyMediaPlayer
 {
-    partial class MediaItem
+    partial class TrackItem
     {
         /// <summary> 
         /// Required designer variable.
@@ -68,9 +68,8 @@
             this.inforPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.inforPanel.Size = new System.Drawing.Size(950, 52);
             this.inforPanel.TabIndex = 0;
-            this.inforPanel.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
-            this.inforPanel.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
-            this.inforPanel.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
+            this.inforPanel.MouseEnter += new System.EventHandler(this.TrackItem_MouseEnter);
+            this.inforPanel.MouseLeave += new System.EventHandler(this.TrackItem_MouseLeave);
             // 
             // artistLB
             // 
@@ -84,9 +83,8 @@
             this.artistLB.Size = new System.Drawing.Size(49, 20);
             this.artistLB.TabIndex = 2;
             this.artistLB.Text = "Artist";
-            this.artistLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
-            this.artistLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
-            this.artistLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
+            this.artistLB.MouseEnter += new System.EventHandler(this.TrackItem_MouseEnter);
+            this.artistLB.MouseLeave += new System.EventHandler(this.TrackItem_MouseLeave);
             // 
             // albumLB
             // 
@@ -100,9 +98,8 @@
             this.albumLB.Size = new System.Drawing.Size(56, 20);
             this.albumLB.TabIndex = 3;
             this.albumLB.Text = "Album";
-            this.albumLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
-            this.albumLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
-            this.albumLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
+            this.albumLB.MouseEnter += new System.EventHandler(this.TrackItem_MouseEnter);
+            this.albumLB.MouseLeave += new System.EventHandler(this.TrackItem_MouseLeave);
             // 
             // durationLB
             // 
@@ -116,9 +113,8 @@
             this.durationLB.Size = new System.Drawing.Size(71, 20);
             this.durationLB.TabIndex = 4;
             this.durationLB.Text = "Duration";
-            this.durationLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
-            this.durationLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
-            this.durationLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
+            this.durationLB.MouseEnter += new System.EventHandler(this.TrackItem_MouseEnter);
+            this.durationLB.MouseLeave += new System.EventHandler(this.TrackItem_MouseLeave);
             // 
             // genreLB
             // 
@@ -145,9 +141,8 @@
             this.titleLB.Size = new System.Drawing.Size(60, 20);
             this.titleLB.TabIndex = 1;
             this.titleLB.Text = "Title";
-            this.titleLB.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
-            this.titleLB.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
-            this.titleLB.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
+            this.titleLB.MouseEnter += new System.EventHandler(this.TrackItem_MouseEnter);
+            this.titleLB.MouseLeave += new System.EventHandler(this.TrackItem_MouseLeave);
             // 
             // containerPanel
             // 
@@ -196,7 +191,7 @@
             this.playMenuItem.Name = "playMenuItem";
             this.playMenuItem.Size = new System.Drawing.Size(150, 24);
             this.playMenuItem.Text = "Play";
-            this.playMenuItem.Click += new System.EventHandler(this.MediaItem_Click);
+            this.playMenuItem.Click += new System.EventHandler(this.TrackItem_Click);
             // 
             // addToMenuItem
             // 
@@ -218,7 +213,7 @@
             this.playQueueToolStripMenuItem.Name = "playQueueToolStripMenuItem";
             this.playQueueToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.playQueueToolStripMenuItem.Text = "Play Queue";
-            this.playQueueToolStripMenuItem.Click += new System.EventHandler(this.playQueueToolStripMenuItem_Click);
+            this.playQueueToolStripMenuItem.Click += new System.EventHandler(this.PlayQueueToolStripMenuItem_Click);
             // 
             // newPlaylistToolStripMenuItem
             // 
@@ -227,7 +222,7 @@
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
             this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
-            this.newPlaylistToolStripMenuItem.Click += new System.EventHandler(this.newPlaylistToolStripMenuItem_Click);
+            this.newPlaylistToolStripMenuItem.Click += new System.EventHandler(this.NewPlaylistToolStripMenuItem_Click);
             // 
             // propertiesMenuItem
             // 
@@ -250,10 +245,9 @@
             this.Name = "MediaItem";
             this.Padding = new System.Windows.Forms.Padding(35, 4, 15, 4);
             this.Size = new System.Drawing.Size(1000, 60);
-            this.Load += new System.EventHandler(this.MediaItem_Load);
-            this.MouseEnter += new System.EventHandler(this.MediaItem_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.MediaItem_MouseLeave);
-            this.MouseHover += new System.EventHandler(this.MediaItem_MouseHover);
+            this.Load += new System.EventHandler(this.TrackItem_Load);
+            this.MouseEnter += new System.EventHandler(this.TrackItem_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.TrackItem_MouseLeave);
             this.inforPanel.ResumeLayout(false);
             this.inforPanel.PerformLayout();
             this.containerPanel.ResumeLayout(false);
