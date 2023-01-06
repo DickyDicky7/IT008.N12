@@ -716,7 +716,7 @@
             this.onlineStoreSearchBox.Margin = new System.Windows.Forms.Padding(4);
             this.onlineStoreSearchBox.Name = "onlineStoreSearchBox";
             this.onlineStoreSearchBox.SearchResultList = null;
-            this.onlineStoreSearchBox.Size = new System.Drawing.Size(600, 77);
+            this.onlineStoreSearchBox.Size = new System.Drawing.Size(600, 78);
             this.onlineStoreSearchBox.TabIndex = 2;
             // 
             // searchResultList
@@ -724,11 +724,11 @@
             this.searchResultList.AutoScroll = true;
             this.searchResultList.BackColor = System.Drawing.Color.White;
             this.searchResultList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchResultList.Location = new System.Drawing.Point(0, 82);
+            this.searchResultList.Location = new System.Drawing.Point(0, 83);
             this.searchResultList.Margin = new System.Windows.Forms.Padding(4);
             this.searchResultList.Name = "searchResultList";
             this.searchResultList.NumberOfItems = null;
-            this.searchResultList.Size = new System.Drawing.Size(816, 300);
+            this.searchResultList.Size = new System.Drawing.Size(816, 299);
             this.searchResultList.TabIndex = 1;
             // 
             // onlineStoreHeaderPanel

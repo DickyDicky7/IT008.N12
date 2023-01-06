@@ -86,19 +86,21 @@
             // DisplayPanel
             // 
             this.DisplayPanel.Animated = true;
-            this.DisplayPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.DisplayPanel.BackColor = System.Drawing.Color.White;
             this.DisplayPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.DisplayPanel.CheckedState.Parent = this.DisplayPanel;
+            this.DisplayPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.DisplayPanel.CustomBorderThickness = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.DisplayPanel.CustomImages.Parent = this.DisplayPanel;
             this.DisplayPanel.DisabledState.Parent = this.DisplayPanel;
             this.DisplayPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DisplayPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.DisplayPanel.FillColor = System.Drawing.Color.White;
             this.DisplayPanel.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.DisplayPanel.ForeColor = System.Drawing.Color.White;
+            this.DisplayPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.DisplayPanel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.DisplayPanel.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.DisplayPanel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.DisplayPanel.HoverState.ForeColor = System.Drawing.Color.White;
+            this.DisplayPanel.HoverState.FillColor = System.Drawing.Color.White;
+            this.DisplayPanel.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.DisplayPanel.HoverState.Parent = this.DisplayPanel;
             this.DisplayPanel.Location = new System.Drawing.Point(50, 0);
             this.DisplayPanel.Name = "DisplayPanel";
