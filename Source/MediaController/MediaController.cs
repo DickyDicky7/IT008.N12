@@ -109,7 +109,9 @@ namespace MyMediaPlayer
             MediaTitle.Text = Common.GetTitle(URL);
 
             BtnPlay.Image = Properties.Resources.pause;
+
             GlobalReferences.MediaLyrics.GetLyrics(URL);
+
             OnLoadMedia(new MediaControllerArgs() { URL = URL }); // Đừng xóa dòng này
         }
 
@@ -227,20 +229,26 @@ namespace MyMediaPlayer
 
         private void BtnNext10s_Click(object sender, EventArgs e)
         {
-            Player.controls.currentPosition += 10;
+            if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                Player.controls.currentPosition += 10;
 
-            #region Testing
-            GlobalReferences.MediaLyrics.SkipCurrentIndex((int)Player.controls.currentPosition);
-            #endregion
+                #region Testing
+                GlobalReferences.MediaLyrics.SkipCurrentIndex((int)Player.controls.currentPosition);
+                #endregion
+            }
         }
 
         private void BtnBack10s_Click(object sender, EventArgs e)
         {
-            Player.controls.currentPosition -= 10;
-
-            #region Testing
-            GlobalReferences.MediaLyrics.BackCurrentIndex((int)Player.controls.currentPosition);
-            #endregion
+            if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                Player.controls.currentPosition -= 10;
+                
+                #region Testing
+                GlobalReferences.MediaLyrics.BackCurrentIndex((int)Player.controls.currentPosition);
+                #endregion
+            }
         }
 
         private void TrackBar_Scroll(object sender, ScrollEventArgs e)
