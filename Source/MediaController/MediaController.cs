@@ -192,17 +192,27 @@ namespace MyMediaPlayer
 
                 if (Player.controls.currentPosition < TrackBar.Minimum
                  || Player.controls.currentPosition > TrackBar.Maximum)
-                    //TrackBar.Value = 0;
-                    TrackBar.Invoke((MethodInvoker)delegate ()
+                {
+                    if (IsHandleCreated)
                     {
-                        TrackBar.Value = 0;
-                    });
+                        //TrackBar.Value = 0;
+                        TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            TrackBar.Value = 0;
+                        });
+                    }
+                }
                 else
-                    //TrackBar.Value = (int)Player.controls.currentPosition;
-                    TrackBar.Invoke((MethodInvoker)delegate ()
+                {
+                    if (IsHandleCreated)
                     {
-                        TrackBar.Value = (int)Player.controls.currentPosition;
-                    });
+                        //TrackBar.Value = (int)Player.controls.currentPosition;
+                        TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            TrackBar.Value = (int)Player.controls.currentPosition;
+                        });
+                    }
+                }
 
                 TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
                 int Minutes = (int)(timeSpan.TotalSeconds / 60);
@@ -212,13 +222,16 @@ namespace MyMediaPlayer
                 + " : " +
                 (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
                 //DurationLabel.Text = currentMediaTime;
-                DurationLabel.Invoke((MethodInvoker)delegate ()
+                if (IsHandleCreated)
                 {
+                    DurationLabel.BeginInvoke((MethodInvoker)delegate ()
+                    {
 
-                    //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+                        //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
 
-                    DurationLabel.Text = currentMediaTime;
-                });
+                        DurationLabel.Text = currentMediaTime;
+                    });
+                }
             }
             catch //(Exception Error)
             {
@@ -244,7 +257,7 @@ namespace MyMediaPlayer
             if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 Player.controls.currentPosition -= 10;
-                
+
                 #region Testing
                 GlobalReferences.MediaLyrics.BackCurrentIndex((int)Player.controls.currentPosition);
                 #endregion

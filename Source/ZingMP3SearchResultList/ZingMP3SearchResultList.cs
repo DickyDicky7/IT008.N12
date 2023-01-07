@@ -54,10 +54,13 @@ namespace MyMediaPlayer
 
                 NumberOfItems = JSONResultObject["data"]?["total"]?.Value<int?>();
 
-                this.Invoke(new Action(() =>
+                if (IsHandleCreated)
                 {
-                    this.Controls.Clear();
-                }));
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        this.Controls.Clear();
+                    }));
+                }
 
                 CurrentLocationY = 0;
                 SearchResults?.ForEach(SearchResult =>
@@ -70,11 +73,14 @@ namespace MyMediaPlayer
                     CurrentLocationY += Separator.Size.Height;
                     Separator.BackColor = Color.White;
                     Separator.FillColor = Color.White;
-                    this.Invoke(new Action(() =>
+                    if (IsHandleCreated)
                     {
-                        this.Controls.Add(SearchResult);
-                        this.Controls.Add(Separator);
-                    }));
+                        this.BeginInvoke(new Action(() =>
+                        {
+                            this.Controls.Add(SearchResult);
+                            this.Controls.Add(Separator);
+                        }));
+                    }
                 });
                 //foreach (ZingMP3SearchResult SearchResult in SearchResults)
                 //{

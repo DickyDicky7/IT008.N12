@@ -38,7 +38,6 @@
             // BorderlessForm
             // 
             this.BorderlessForm.AnimateWindow = true;
-            this.BorderlessForm.AnimationType = Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm.AnimateWindowType.AW_HOR_POSITIVE;
             this.BorderlessForm.ContainerControl = this;
             // 
             // Title

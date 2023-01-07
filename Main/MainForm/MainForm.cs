@@ -49,7 +49,7 @@ namespace MyMediaPlayer
             this.Icon = Properties.Resources.icon;
 
             mediaVisualizer.InteractMediaController(mediaController);
-
+            (new ModalBox()).Show();
             #endregion
         }
 
@@ -259,7 +259,7 @@ namespace MyMediaPlayer
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Artist).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
-            sortBtn.Text = "Sort by: Artist";
+            sortBtn.Text = "Sort By: Artist";
         }
 
         private void AZToolStripMenuItem_Click(object sender, EventArgs e)
@@ -268,7 +268,7 @@ namespace MyMediaPlayer
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
-            sortBtn.Text = "Sort by: A-Z";
+            sortBtn.Text = "Sort By: A-Z";
         }
 
         private void GenreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -277,7 +277,7 @@ namespace MyMediaPlayer
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
-            sortBtn.Text = "Sort by: Genre";
+            sortBtn.Text = "Sort By: Genre";
         }
 
         private void AlbumToolStripMenuItem_Click(object sender, EventArgs e)
@@ -286,7 +286,7 @@ namespace MyMediaPlayer
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
-            sortBtn.Text = "Sort by: Album";
+            sortBtn.Text = "Sort By: Album";
         }
 
         #endregion

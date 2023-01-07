@@ -73,15 +73,18 @@ namespace MyMediaPlayer
         {
             try
             {
-                Visualizer.Invoke((MethodInvoker)delegate ()
+                if (IsHandleCreated)
                 {
-                    Visualizer.ColorBase = ColorTransitionB.Value;
-                    Visualizer.ColorMax = ColorTransitionM.Value;
-                });
+                    Visualizer.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        Visualizer.ColorBase = ColorTransitionB.Value;
+                        Visualizer.ColorMax = ColorTransitionM.Value;
+                    });
+                }
             }
-            catch //(Exception err)
+            catch (Exception err)
             {
-                //MessageBox.Show(err.Message);
+                MessageBox.Show(err.Message);
                 Thread.CurrentThread.Abort();
             }
         }

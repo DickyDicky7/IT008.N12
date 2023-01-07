@@ -95,7 +95,7 @@
             this.DisplayPanel.DisabledState.Parent = this.DisplayPanel;
             this.DisplayPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DisplayPanel.FillColor = System.Drawing.Color.White;
-            this.DisplayPanel.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.DisplayPanel.Font = new System.Drawing.Font("Segoe UI Semibold", 13F);
             this.DisplayPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.DisplayPanel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.DisplayPanel.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));

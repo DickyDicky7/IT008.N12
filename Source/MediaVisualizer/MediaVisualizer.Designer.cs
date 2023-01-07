@@ -66,7 +66,7 @@
             this.Visualizer.Interval = 40;
             this.Visualizer.IsXLogScale = true;
             this.Visualizer.Location = new System.Drawing.Point(0, 0);
-            this.Visualizer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Visualizer.Margin = new System.Windows.Forms.Padding(4);
             this.Visualizer.MaximumFrequency = 10000;
             this.Visualizer.MessageArgs = null;
             this.Visualizer.Name = "Visualizer";
@@ -95,7 +95,7 @@
             // MediaStatus
             // 
             this.MediaStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MediaStatus.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.MediaStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Italic);
             this.MediaStatus.ForeColor = System.Drawing.Color.Transparent;
             this.MediaStatus.Location = new System.Drawing.Point(100, 0);
             this.MediaStatus.Name = "MediaStatus";
@@ -107,7 +107,7 @@
             // MediaArtist
             // 
             this.MediaArtist.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MediaArtist.Font = new System.Drawing.Font("Segoe UI", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.MediaArtist.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Underline);
             this.MediaArtist.ForeColor = System.Drawing.Color.Transparent;
             this.MediaArtist.Location = new System.Drawing.Point(100, 70);
             this.MediaArtist.Name = "MediaArtist";
@@ -125,7 +125,7 @@
             this.Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Panel.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.Panel.Location = new System.Drawing.Point(0, 225);
-            this.Panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Panel.Margin = new System.Windows.Forms.Padding(2);
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(450, 100);
             this.Panel.TabIndex = 6;
@@ -133,7 +133,7 @@
             // MediaTitle
             // 
             this.MediaTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 13F);
             this.MediaTitle.ForeColor = System.Drawing.Color.Transparent;
             this.MediaTitle.Location = new System.Drawing.Point(100, 26);
             this.MediaTitle.Name = "MediaTitle";

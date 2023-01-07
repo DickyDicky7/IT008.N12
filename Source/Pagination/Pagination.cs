@@ -20,8 +20,14 @@ namespace MyMediaPlayer
         public int CurrentPageNumber
         {
             get => int.Parse(DisplayPanel.Text);
-            set => DisplayPanel.Invoke
-            ((MethodInvoker)delegate () { DisplayPanel.Text = value.ToString(); });
+            set
+            {
+                if (IsHandleCreated)
+                {
+                    DisplayPanel.BeginInvoke
+                    ((MethodInvoker)delegate () { DisplayPanel.Text = value.ToString(); });
+                }
+            }
         }
 
         public EventHandler BackPageButton_Click

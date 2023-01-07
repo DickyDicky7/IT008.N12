@@ -131,6 +131,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Interfaces\IMediaItem.cs" />
+    <Compile Include="Source\ModalBox\ModalBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\ModalBox\ModalBox.Designer.cs">
+      <DependentUpon>ModalBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Pagination\Pagination.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MediaLyrics\MediaLyrics.resx">
       <DependentUpon>MediaLyrics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\ModalBox\ModalBox.resx">
+      <DependentUpon>ModalBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MusicList\MusicList.resx">
       <DependentUpon>MusicList.cs</DependentUpon>

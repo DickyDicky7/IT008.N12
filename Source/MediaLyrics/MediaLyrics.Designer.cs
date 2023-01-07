@@ -45,10 +45,10 @@ namespace MyMediaPlayer
             // 
             this.Line5.BackColor = System.Drawing.Color.Transparent;
             this.Line5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line5.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line5.Location = new System.Drawing.Point(0, 120);
-            this.Line5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line5.Margin = new System.Windows.Forms.Padding(4);
             this.Line5.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line5.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line5.Name = "Line5";
@@ -61,10 +61,10 @@ namespace MyMediaPlayer
             // 
             this.Line1.BackColor = System.Drawing.Color.Transparent;
             this.Line1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line1.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line1.Location = new System.Drawing.Point(0, 0);
-            this.Line1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line1.Margin = new System.Windows.Forms.Padding(4);
             this.Line1.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line1.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line1.Name = "Line1";
@@ -77,10 +77,10 @@ namespace MyMediaPlayer
             // 
             this.Line3.BackColor = System.Drawing.Color.Transparent;
             this.Line3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line3.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line3.Location = new System.Drawing.Point(0, 60);
-            this.Line3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line3.Margin = new System.Windows.Forms.Padding(4);
             this.Line3.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line3.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line3.Name = "Line3";
@@ -93,10 +93,10 @@ namespace MyMediaPlayer
             // 
             this.Line4.BackColor = System.Drawing.Color.Transparent;
             this.Line4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line4.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line4.Location = new System.Drawing.Point(0, 90);
-            this.Line4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line4.Margin = new System.Windows.Forms.Padding(4);
             this.Line4.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line4.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line4.Name = "Line4";
@@ -109,10 +109,10 @@ namespace MyMediaPlayer
             // 
             this.Line2.BackColor = System.Drawing.Color.Transparent;
             this.Line2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line2.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line2.Location = new System.Drawing.Point(0, 30);
-            this.Line2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line2.Margin = new System.Windows.Forms.Padding(4);
             this.Line2.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line2.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line2.Name = "Line2";
@@ -125,10 +125,10 @@ namespace MyMediaPlayer
             // 
             this.Line6.BackColor = System.Drawing.Color.Transparent;
             this.Line6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line6.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line6.Location = new System.Drawing.Point(0, 150);
-            this.Line6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line6.Margin = new System.Windows.Forms.Padding(4);
             this.Line6.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line6.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line6.Name = "Line6";
@@ -141,10 +141,10 @@ namespace MyMediaPlayer
             // 
             this.Line7.BackColor = System.Drawing.Color.Transparent;
             this.Line7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line7.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line7.Location = new System.Drawing.Point(0, 180);
-            this.Line7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line7.Margin = new System.Windows.Forms.Padding(4);
             this.Line7.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line7.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line7.Name = "Line7";
@@ -157,10 +157,10 @@ namespace MyMediaPlayer
             // 
             this.Line8.BackColor = System.Drawing.Color.Transparent;
             this.Line8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line8.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line8.Location = new System.Drawing.Point(0, 210);
-            this.Line8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line8.Margin = new System.Windows.Forms.Padding(4);
             this.Line8.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line8.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line8.Name = "Line8";
@@ -173,10 +173,10 @@ namespace MyMediaPlayer
             // 
             this.Line9.BackColor = System.Drawing.Color.Transparent;
             this.Line9.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Line9.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Line9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Line9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Line9.Location = new System.Drawing.Point(0, 240);
-            this.Line9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Line9.Margin = new System.Windows.Forms.Padding(4);
             this.Line9.MaximumSize = new System.Drawing.Size(300, 30);
             this.Line9.MinimumSize = new System.Drawing.Size(300, 30);
             this.Line9.Name = "Line9";

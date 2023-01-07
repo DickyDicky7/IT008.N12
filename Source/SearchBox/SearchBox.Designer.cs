@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.Panel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.Pagination = new MyMediaPlayer.Pagination();
+            this.IntegrationButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.ContextMenuStrip = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.ZingMP3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SoundCloudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SpotifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.IntegrationButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.Pagination = new MyMediaPlayer.Pagination();
             this.Panel.SuspendLayout();
             this.ContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -52,10 +52,48 @@
             this.Panel.Size = new System.Drawing.Size(520, 60);
             this.Panel.TabIndex = 2;
             // 
+            // Pagination
+            // 
+            this.Pagination.CurrentPageNumber = 1;
+            this.Pagination.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pagination.Location = new System.Drawing.Point(0, 30);
+            this.Pagination.Name = "Pagination";
+            this.Pagination.Size = new System.Drawing.Size(420, 30);
+            this.Pagination.TabIndex = 4;
+            // 
+            // IntegrationButton
+            // 
+            this.IntegrationButton.Animated = true;
+            this.IntegrationButton.BorderColor = System.Drawing.Color.White;
+            this.IntegrationButton.BorderRadius = 5;
+            this.IntegrationButton.BorderThickness = 1;
+            this.IntegrationButton.CheckedState.Parent = this.IntegrationButton;
+            this.IntegrationButton.ContextMenuStrip = this.ContextMenuStrip;
+            this.IntegrationButton.CustomImages.Parent = this.IntegrationButton;
+            this.IntegrationButton.DisabledState.Parent = this.IntegrationButton;
+            this.IntegrationButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.IntegrationButton.FillColor = System.Drawing.Color.White;
+            this.IntegrationButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.IntegrationButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.IntegrationButton.HoverState.BorderColor = System.Drawing.Color.White;
+            this.IntegrationButton.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            this.IntegrationButton.HoverState.FillColor = System.Drawing.Color.White;
+            this.IntegrationButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.IntegrationButton.HoverState.Parent = this.IntegrationButton;
+            this.IntegrationButton.Image = global::MyMediaPlayer.Properties.Resources.down;
+            this.IntegrationButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.IntegrationButton.Location = new System.Drawing.Point(420, 30);
+            this.IntegrationButton.Name = "IntegrationButton";
+            this.IntegrationButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
+            this.IntegrationButton.ShadowDecoration.Parent = this.IntegrationButton;
+            this.IntegrationButton.Size = new System.Drawing.Size(100, 30);
+            this.IntegrationButton.TabIndex = 3;
+            this.IntegrationButton.Click += new System.EventHandler(this.IntegrationButton_Click);
+            // 
             // ContextMenuStrip
             // 
             this.ContextMenuStrip.BackColor = System.Drawing.Color.White;
-            this.ContextMenuStrip.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.ContextMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
             this.ContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ZingMP3ToolStripMenuItem,
@@ -71,7 +109,7 @@
             this.ContextMenuStrip.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.ContextMenuStrip.RenderStyle.SeparatorColor = System.Drawing.Color.White;
             this.ContextMenuStrip.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.ContextMenuStrip.Size = new System.Drawing.Size(180, 82);
+            this.ContextMenuStrip.Size = new System.Drawing.Size(179, 82);
             // 
             // ZingMP3ToolStripMenuItem
             // 
@@ -79,7 +117,7 @@
             this.ZingMP3ToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ZingMP3ToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.zing_mp3;
             this.ZingMP3ToolStripMenuItem.Name = "ZingMP3ToolStripMenuItem";
-            this.ZingMP3ToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.ZingMP3ToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.ZingMP3ToolStripMenuItem.Text = "      ZingMP3";
             this.ZingMP3ToolStripMenuItem.Click += new System.EventHandler(this.ZingMP3ToolStripMenuItem_Click);
             // 
@@ -89,7 +127,7 @@
             this.SoundCloudToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.SoundCloudToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.sound_cloud;
             this.SoundCloudToolStripMenuItem.Name = "SoundCloudToolStripMenuItem";
-            this.SoundCloudToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.SoundCloudToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.SoundCloudToolStripMenuItem.Text = "      SoundCloud";
             this.SoundCloudToolStripMenuItem.Click += new System.EventHandler(this.SoundCloudToolStripMenuItem_Click);
             // 
@@ -99,7 +137,7 @@
             this.SpotifyToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.SpotifyToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.spotify;
             this.SpotifyToolStripMenuItem.Name = "SpotifyToolStripMenuItem";
-            this.SpotifyToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.SpotifyToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.SpotifyToolStripMenuItem.Text = "      Spotify";
             this.SpotifyToolStripMenuItem.Click += new System.EventHandler(this.SpotifyToolStripMenuItem_Click);
             // 
@@ -118,7 +156,7 @@
             this.TextBox.FocusedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.FocusedState.Parent = this.TextBox;
             this.TextBox.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.TextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic);
             this.TextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.HoverState.FillColor = System.Drawing.Color.LightGray;
@@ -143,43 +181,6 @@
             this.TextBox.TabIndex = 2;
             this.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            // 
-            // IntegrationButton
-            // 
-            this.IntegrationButton.Animated = true;
-            this.IntegrationButton.BorderColor = System.Drawing.Color.White;
-            this.IntegrationButton.BorderRadius = 5;
-            this.IntegrationButton.BorderThickness = 1;
-            this.IntegrationButton.CheckedState.Parent = this.IntegrationButton;
-            this.IntegrationButton.ContextMenuStrip = this.ContextMenuStrip;
-            this.IntegrationButton.CustomImages.Parent = this.IntegrationButton;
-            this.IntegrationButton.DisabledState.Parent = this.IntegrationButton;
-            this.IntegrationButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.IntegrationButton.FillColor = System.Drawing.Color.White;
-            this.IntegrationButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.IntegrationButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.IntegrationButton.HoverState.BorderColor = System.Drawing.Color.White;
-            this.IntegrationButton.HoverState.CustomBorderColor = System.Drawing.Color.White;
-            this.IntegrationButton.HoverState.FillColor = System.Drawing.Color.White;
-            this.IntegrationButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.IntegrationButton.HoverState.Parent = this.IntegrationButton;
-            this.IntegrationButton.Image = global::MyMediaPlayer.Properties.Resources.down;
-            this.IntegrationButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.IntegrationButton.Location = new System.Drawing.Point(420, 30);
-            this.IntegrationButton.Name = "IntegrationButton";
-            this.IntegrationButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.IntegrationButton.ShadowDecoration.Parent = this.IntegrationButton;
-            this.IntegrationButton.Size = new System.Drawing.Size(100, 30);
-            this.IntegrationButton.TabIndex = 3;
-            this.IntegrationButton.Click += new System.EventHandler(this.IntegrationButton_Click);
-            // 
-            // Pagination
-            // 
-            this.Pagination.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pagination.Location = new System.Drawing.Point(0, 30);
-            this.Pagination.Name = "Pagination";
-            this.Pagination.Size = new System.Drawing.Size(420, 30);
-            this.Pagination.TabIndex = 4;
             // 
             // SearchBox
             // 

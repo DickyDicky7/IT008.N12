@@ -230,7 +230,7 @@
             this.tabControl.Controls.Add(this.settingsTabPage);
             this.tabControl.Controls.Add(this.onlineStoreTabPage);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tabControl.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.tabControl.ImageList = this.buttonImageList;
             this.tabControl.ItemSize = new System.Drawing.Size(210, 50);
             this.tabControl.Location = new System.Drawing.Point(0, 31);
@@ -320,7 +320,7 @@
             this.shuffleAndPlayBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.shuffleAndPlayBtn.DisabledState.Parent = this.shuffleAndPlayBtn;
             this.shuffleAndPlayBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.shuffleAndPlayBtn.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.shuffleAndPlayBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
             this.shuffleAndPlayBtn.ForeColor = System.Drawing.Color.White;
             this.shuffleAndPlayBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.shuffleAndPlayBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
@@ -354,7 +354,7 @@
             this.sortBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.sortBtn.DisabledState.Parent = this.sortBtn;
             this.sortBtn.FillColor = System.Drawing.Color.Transparent;
-            this.sortBtn.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.sortBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
             this.sortBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.sortBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.sortBtn.HoverState.FillColor = System.Drawing.Color.Transparent;
@@ -368,7 +368,7 @@
             this.sortBtn.Name = "sortBtn";
             this.sortBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.sortBtn.ShadowDecoration.Parent = this.sortBtn;
-            this.sortBtn.Size = new System.Drawing.Size(98, 37);
+            this.sortBtn.Size = new System.Drawing.Size(101, 37);
             this.sortBtn.TabIndex = 2;
             this.sortBtn.Text = "Sort By: A-Z";
             this.sortBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -390,7 +390,7 @@
             this.addFolder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.addFolder.DisabledState.Parent = this.addFolder;
             this.addFolder.FillColor = System.Drawing.Color.Transparent;
-            this.addFolder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.addFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.addFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addFolder.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addFolder.HoverState.FillColor = System.Drawing.Color.Transparent;
@@ -410,11 +410,11 @@
             // 
             this.musicLabel.AutoSize = true;
             this.musicLabel.BackColor = System.Drawing.Color.White;
-            this.musicLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.musicLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
             this.musicLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.musicLabel.Location = new System.Drawing.Point(23, -2);
             this.musicLabel.Name = "musicLabel";
-            this.musicLabel.Size = new System.Drawing.Size(127, 54);
+            this.musicLabel.Size = new System.Drawing.Size(129, 54);
             this.musicLabel.TabIndex = 0;
             this.musicLabel.Text = "Music";
             // 
@@ -483,18 +483,19 @@
             this.playQueueClearButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.playQueueClearButton.DisabledState.Parent = this.playQueueClearButton;
             this.playQueueClearButton.FillColor = System.Drawing.Color.Transparent;
-            this.playQueueClearButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.playQueueClearButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
             this.playQueueClearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playQueueClearButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playQueueClearButton.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.playQueueClearButton.HoverState.Parent = this.playQueueClearButton;
             this.playQueueClearButton.Image = global::MyMediaPlayer.Properties.Resources.trash_can;
+            this.playQueueClearButton.ImageSize = new System.Drawing.Size(25, 25);
             this.playQueueClearButton.Location = new System.Drawing.Point(32, 71);
             this.playQueueClearButton.Margin = new System.Windows.Forms.Padding(2);
             this.playQueueClearButton.Name = "playQueueClearButton";
             this.playQueueClearButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.playQueueClearButton.ShadowDecoration.Parent = this.playQueueClearButton;
-            this.playQueueClearButton.Size = new System.Drawing.Size(65, 32);
+            this.playQueueClearButton.Size = new System.Drawing.Size(70, 35);
             this.playQueueClearButton.TabIndex = 2;
             this.playQueueClearButton.Text = "Clear";
             this.playQueueClearButton.Click += new System.EventHandler(this.PlayQueueClearButton_Click);
@@ -503,11 +504,11 @@
             // 
             this.playQueueHeaderLabel.AutoSize = true;
             this.playQueueHeaderLabel.BackColor = System.Drawing.Color.White;
-            this.playQueueHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.playQueueHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
             this.playQueueHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playQueueHeaderLabel.Location = new System.Drawing.Point(23, -2);
             this.playQueueHeaderLabel.Name = "playQueueHeaderLabel";
-            this.playQueueHeaderLabel.Size = new System.Drawing.Size(223, 54);
+            this.playQueueHeaderLabel.Size = new System.Drawing.Size(226, 54);
             this.playQueueHeaderLabel.TabIndex = 0;
             this.playQueueHeaderLabel.Text = "Play Queue";
             // 
@@ -553,11 +554,11 @@
             // 
             this.playlistsHeaderLabel.AutoSize = true;
             this.playlistsHeaderLabel.BackColor = System.Drawing.Color.White;
-            this.playlistsHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.playlistsHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
             this.playlistsHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playlistsHeaderLabel.Location = new System.Drawing.Point(23, -2);
             this.playlistsHeaderLabel.Name = "playlistsHeaderLabel";
-            this.playlistsHeaderLabel.Size = new System.Drawing.Size(162, 54);
+            this.playlistsHeaderLabel.Size = new System.Drawing.Size(165, 54);
             this.playlistsHeaderLabel.TabIndex = 0;
             this.playlistsHeaderLabel.Text = "Playlists";
             // 
@@ -604,8 +605,9 @@
             // addMusicFolderSTBtn
             // 
             this.addMusicFolderSTBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addMusicFolderSTBtn.Animated = true;
             this.addMusicFolderSTBtn.BackColor = System.Drawing.Color.White;
-            this.addMusicFolderSTBtn.BorderColor = System.Drawing.Color.Gainsboro;
+            this.addMusicFolderSTBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addMusicFolderSTBtn.BorderRadius = 5;
             this.addMusicFolderSTBtn.BorderThickness = 1;
             this.addMusicFolderSTBtn.CheckedState.Parent = this.addMusicFolderSTBtn;
@@ -615,15 +617,19 @@
             this.addMusicFolderSTBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.addMusicFolderSTBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.addMusicFolderSTBtn.DisabledState.Parent = this.addMusicFolderSTBtn;
-            this.addMusicFolderSTBtn.FillColor = System.Drawing.Color.Transparent;
-            this.addMusicFolderSTBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addMusicFolderSTBtn.ForeColor = System.Drawing.Color.Black;
-            this.addMusicFolderSTBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
+            this.addMusicFolderSTBtn.FillColor = System.Drawing.Color.White;
+            this.addMusicFolderSTBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.addMusicFolderSTBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.addMusicFolderSTBtn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.addMusicFolderSTBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.addMusicFolderSTBtn.HoverState.FillColor = System.Drawing.Color.White;
+            this.addMusicFolderSTBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addMusicFolderSTBtn.HoverState.Parent = this.addMusicFolderSTBtn;
             this.addMusicFolderSTBtn.Image = ((System.Drawing.Image)(resources.GetObject("addMusicFolderSTBtn.Image")));
             this.addMusicFolderSTBtn.Location = new System.Drawing.Point(627, 12);
             this.addMusicFolderSTBtn.Margin = new System.Windows.Forms.Padding(2);
             this.addMusicFolderSTBtn.Name = "addMusicFolderSTBtn";
+            this.addMusicFolderSTBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.addMusicFolderSTBtn.ShadowDecoration.Parent = this.addMusicFolderSTBtn;
             this.addMusicFolderSTBtn.Size = new System.Drawing.Size(98, 32);
             this.addMusicFolderSTBtn.TabIndex = 8;
@@ -633,10 +639,11 @@
             // musicLocationLb
             // 
             this.musicLocationLb.AutoSize = true;
+            this.musicLocationLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.musicLocationLb.Location = new System.Drawing.Point(37, 18);
             this.musicLocationLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.musicLocationLb.Name = "musicLocationLb";
-            this.musicLocationLb.Size = new System.Drawing.Size(161, 19);
+            this.musicLocationLb.Size = new System.Drawing.Size(153, 19);
             this.musicLocationLb.TabIndex = 7;
             this.musicLocationLb.Text = "Music library locations";
             // 
@@ -648,7 +655,7 @@
             this.settingsIconPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.settingsIconPictureBox.Name = "settingsIconPictureBox";
             this.settingsIconPictureBox.ShadowDecoration.Parent = this.settingsIconPictureBox;
-            this.settingsIconPictureBox.Size = new System.Drawing.Size(21, 24);
+            this.settingsIconPictureBox.Size = new System.Drawing.Size(24, 26);
             this.settingsIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.settingsIconPictureBox.TabIndex = 6;
             this.settingsIconPictureBox.TabStop = false;
@@ -667,20 +674,22 @@
             // settingLabel
             // 
             this.settingLabel.AutoSize = true;
-            this.settingLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.settingLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
+            this.settingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.settingLabel.Location = new System.Drawing.Point(-9, 0);
             this.settingLabel.Name = "settingLabel";
-            this.settingLabel.Size = new System.Drawing.Size(167, 54);
+            this.settingLabel.Size = new System.Drawing.Size(168, 54);
             this.settingLabel.TabIndex = 1;
             this.settingLabel.Text = "Settings";
             // 
             // librariesLb
             // 
             this.librariesLb.AutoSize = true;
-            this.librariesLb.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.librariesLb.Font = new System.Drawing.Font("Segoe UI Semibold", 15F);
+            this.librariesLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.librariesLb.Location = new System.Drawing.Point(6, 67);
             this.librariesLb.Name = "librariesLb";
-            this.librariesLb.Size = new System.Drawing.Size(85, 28);
+            this.librariesLb.Size = new System.Drawing.Size(88, 28);
             this.librariesLb.TabIndex = 3;
             this.librariesLb.Text = "Libraries";
             // 
@@ -749,11 +758,11 @@
             // 
             this.onlineStoreHeaderLabel.AutoSize = true;
             this.onlineStoreHeaderLabel.BackColor = System.Drawing.Color.White;
-            this.onlineStoreHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.onlineStoreHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
             this.onlineStoreHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.onlineStoreHeaderLabel.Location = new System.Drawing.Point(23, -2);
             this.onlineStoreHeaderLabel.Name = "onlineStoreHeaderLabel";
-            this.onlineStoreHeaderLabel.Size = new System.Drawing.Size(243, 54);
+            this.onlineStoreHeaderLabel.Size = new System.Drawing.Size(246, 54);
             this.onlineStoreHeaderLabel.TabIndex = 0;
             this.onlineStoreHeaderLabel.Text = "Online Store";
             // 
@@ -778,13 +787,11 @@
             this.borderlessForm.AnimationType = Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm.AnimateWindowType.AW_HOR_POSITIVE;
             this.borderlessForm.ContainerControl = this;
             this.borderlessForm.DockIndicatorColor = System.Drawing.SystemColors.Window;
-            this.borderlessForm.HasFormShadow = false;
-            this.borderlessForm.ShadowColor = System.Drawing.Color.Transparent;
             // 
             // sortByMenu
             // 
             this.sortByMenu.BackColor = System.Drawing.Color.White;
-            this.sortByMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.sortByMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.sortByMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.sortByMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aZToolStripMenuItem,
