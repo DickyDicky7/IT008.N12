@@ -54,19 +54,27 @@ namespace MyMediaPlayer
         {
             return Task<string>.Factory.StartNew(() =>
             {
-                SearchQueryHistory = Query;
-                Requests["Search"].AddOrUpdateParameter("q", Query);
-                CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                Requests["Search"].AddOrUpdateParameter("count", "18");
-                Requests["Search"].AddOrUpdateParameter("type", "song");
-                Requests["Search"].AddOrUpdateParameter("ctime", CTime.ToString());
-                Requests["Search"].AddOrUpdateParameter("page", PageNumber.ToString());
-                Requests["Search"].AddOrUpdateParameter("sig", MakeHashHMACSHA512(
-                Requests["Search"].Resource + MakeHashSHA256
-                ($"count=18ctime={CTime}page={PageNumber}type=songversion={Version}")
-                , SecretKey));
-                string Result = (Client.Get(Requests["Search"])).Content;
-                return ReturnResult ? Result : null;
+                try
+                {
+                    SearchQueryHistory = Query;
+                    Requests["Search"].AddOrUpdateParameter("q", Query);
+                    CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    Requests["Search"].AddOrUpdateParameter("count", "18");
+                    Requests["Search"].AddOrUpdateParameter("type", "song");
+                    Requests["Search"].AddOrUpdateParameter("ctime", CTime.ToString());
+                    Requests["Search"].AddOrUpdateParameter("page", PageNumber.ToString());
+                    Requests["Search"].AddOrUpdateParameter("sig", MakeHashHMACSHA512(
+                    Requests["Search"].Resource + MakeHashSHA256
+                    ($"count=18ctime={CTime}page={PageNumber}type=songversion={Version}")
+                    , SecretKey));
+                    string Result = (Client.Get(Requests["Search"])).Content;
+                    return ReturnResult ? Result : null;
+                }
+                catch (Exception Error)
+                {
+                    System.Windows.Forms.MessageBox.Show(Error.Message);
+                    return null;
+                }
             });
         }
 
@@ -74,14 +82,22 @@ namespace MyMediaPlayer
         {
             return Task<string>.Factory.StartNew(() =>
             {
-                Requests["GetLyrics"].AddOrUpdateParameter("id", EncodeId);
-                CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                Requests["GetLyrics"].AddOrUpdateParameter("ctime", CTime.ToString());
-                Requests["GetLyrics"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
-                (Requests["GetLyrics"].Resource + MakeHashSHA256
-                ($"ctime={CTime}id={EncodeId}version={Version}"), SecretKey));
-                string Result = (Client.Get(Requests["GetLyrics"])).Content;
-                return ReturnResult ? Result : null;
+                try
+                {
+                    Requests["GetLyrics"].AddOrUpdateParameter("id", EncodeId);
+                    CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    Requests["GetLyrics"].AddOrUpdateParameter("ctime", CTime.ToString());
+                    Requests["GetLyrics"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
+                    (Requests["GetLyrics"].Resource + MakeHashSHA256
+                    ($"ctime={CTime}id={EncodeId}version={Version}"), SecretKey));
+                    string Result = (Client.Get(Requests["GetLyrics"])).Content;
+                    return ReturnResult ? Result : null;
+                }
+                catch (Exception Error)
+                {
+                    System.Windows.Forms.MessageBox.Show(Error.Message);
+                    return null;
+                }
             });
         }
 
@@ -89,14 +105,22 @@ namespace MyMediaPlayer
         {
             return Task<string>.Factory.StartNew(() =>
             {
-                Requests["GetInformation"].AddOrUpdateParameter("id", EncodeId);
-                CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                Requests["GetInformation"].AddOrUpdateParameter("ctime", CTime.ToString());
-                Requests["GetInformation"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
-                (Requests["GetInformation"].Resource + MakeHashSHA256
-                ($"ctime={CTime}id={EncodeId}version={Version}"), SecretKey));
-                string Result = (Client.Get(Requests["GetInformation"])).Content;
-                return ReturnResult ? Result : null;
+                try
+                {
+                    Requests["GetInformation"].AddOrUpdateParameter("id", EncodeId);
+                    CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    Requests["GetInformation"].AddOrUpdateParameter("ctime", CTime.ToString());
+                    Requests["GetInformation"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
+                    (Requests["GetInformation"].Resource + MakeHashSHA256
+                    ($"ctime={CTime}id={EncodeId}version={Version}"), SecretKey));
+                    string Result = (Client.Get(Requests["GetInformation"])).Content;
+                    return ReturnResult ? Result : null;
+                }
+                catch (Exception Error)
+                {
+                    System.Windows.Forms.MessageBox.Show(Error.Message);
+                    return null;
+                }
             });
         }
 
@@ -104,14 +128,22 @@ namespace MyMediaPlayer
         {
             return Task<string>.Factory.StartNew(() =>
             {
-                Requests["GetStreaming"].AddOrUpdateParameter("id", EncodeId);
-                CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                Requests["GetStreaming"].AddOrUpdateParameter("ctime", CTime.ToString());
-                Requests["GetStreaming"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
-                (Requests["GetStreaming"].Resource + MakeHashSHA256
-                ($"ctime={CTime}id={EncodeId}version={Version}"), SecretKey));
-                string Result = (Client.Get(Requests["GetStreaming"])).Content;
-                return ReturnResult ? Result : null;
+                try
+                {
+                    Requests["GetStreaming"].AddOrUpdateParameter("id", EncodeId);
+                    CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    Requests["GetStreaming"].AddOrUpdateParameter("ctime", CTime.ToString());
+                    Requests["GetStreaming"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
+                    (Requests["GetStreaming"].Resource + MakeHashSHA256
+                    ($"ctime={CTime}id={EncodeId}version={Version}"), SecretKey));
+                    string Result = (Client.Get(Requests["GetStreaming"])).Content;
+                    return ReturnResult ? Result : null;
+                }
+                catch (Exception Error)
+                {
+                    System.Windows.Forms.MessageBox.Show(Error.Message);
+                    return null;
+                }
             });
         }
 

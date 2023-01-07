@@ -35,6 +35,18 @@ namespace MyMediaPlayer
                 {
                     TextBox.BeginInvoke((MethodInvoker)async delegate ()
                     {
+                        #region Testing
+
+                        if (string.IsNullOrEmpty(TextBox.Text)
+                         || string.IsNullOrWhiteSpace(TextBox.Text))
+                        {
+                            //MessageBox.Show("ok");
+                            TextBox.Text = "";
+                            return;
+                        }
+
+                        #endregion
+
                         if (Integration == null)
                         {
                             SearchResultList?.LoadSearchResults();
@@ -56,6 +68,18 @@ namespace MyMediaPlayer
         {
             if (e.KeyCode == Keys.Enter)
             {
+                #region Testing
+
+                if (string.IsNullOrEmpty(TextBox.Text)
+                 || string.IsNullOrWhiteSpace(TextBox.Text))
+                {
+                    //MessageBox.Show("ok");
+                    TextBox.Text = "";
+                    return;
+                }
+
+                #endregion
+
                 Task.Factory.StartNew(async () =>
                 {
                     if (Integration == null)
@@ -64,6 +88,13 @@ namespace MyMediaPlayer
                     }
                     else
                     {
+                        #region Testing
+
+                        //Console.WriteLine
+                        //(await Integration.Search(TextBox.Text, 1, true));
+
+                        #endregion
+
                         SearchResultList?.LoadSearchResults
                         (await Integration.Search(TextBox.Text, 1, true));
                     }

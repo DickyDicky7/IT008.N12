@@ -19,10 +19,25 @@ namespace MyMediaPlayer
             InitializeComponent();
 
             this.AutoScroll = true;
+
+            //this.Scroll += (s, e) =>
+            //{
+            //    if (e.ScrollOrientation == ScrollOrientation.VerticalScroll)
+            //    {
+            //        this.VerticalScroll.Value = e.NewValue;
+            //    }
+            //    this.Refresh();
+            //    MessageBox.Show("2");
+            //};
         }
 
         public void LoadSearchResults(string JSONResult)
         {
+            if (JSONResult == null)
+            {
+                return;
+            }
+
             //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
 
             Task.Factory.StartNew(() =>
