@@ -19,15 +19,6 @@ namespace MyMediaPlayer
                 Request.AddParameter("version", Version);
             }
 
-            //SearchRequest.AddParameter("apiKey", ApiKey);
-            //SearchRequest.AddParameter("version", Version);
-
-            //GetLyricsRequest.AddParameter("apiKey", ApiKey);
-            //GetLyricsRequest.AddParameter("version", Version);
-
-            //GetLyricsRequest.AddParameter("apiKey", ApiKey);
-            //GetLyricsRequest.AddParameter("version", Version);
-
             Search("@", 1);
         }
 
@@ -36,20 +27,6 @@ namespace MyMediaPlayer
             return $"http://api.mp3.zing.vn/api/streaming/audio/{EncodeId}/320";
         }
 
-        //public Task<string> Search(string Query, bool ReturnResult = false)
-        //{
-        //    return Task<string>.Factory.StartNew(() =>
-        //    {
-        //        Requests["Search"].AddOrUpdateParameter("q", Query);
-        //        CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        //        Requests["Search"].AddOrUpdateParameter("ctime", CTime.ToString());
-        //        Requests["Search"].AddOrUpdateParameter("sig", MakeHashHMACSHA512
-        //        (Requests["Search"].Resource + MakeHashSHA256
-        //        ($"ctime={CTime}version={Version}"), SecretKey));
-        //        string Result = (Client.Get(Requests["Search"])).Content;
-        //        return ReturnResult ? Result : null;
-        //    });
-        //}
         public Task<string> Search(string Query, int PageNumber, bool ReturnResult = false)
         {
             return Task<string>.Factory.StartNew(() =>
@@ -72,7 +49,7 @@ namespace MyMediaPlayer
                 }
                 catch (Exception Error)
                 {
-                    System.Windows.Forms.MessageBox.Show(Error.Message);
+                    ModalBox.Show("Error", Error.Message);
                     return null;
                 }
             });
@@ -95,7 +72,7 @@ namespace MyMediaPlayer
                 }
                 catch (Exception Error)
                 {
-                    System.Windows.Forms.MessageBox.Show(Error.Message);
+                    ModalBox.Show("Error", Error.Message);
                     return null;
                 }
             });
@@ -118,7 +95,7 @@ namespace MyMediaPlayer
                 }
                 catch (Exception Error)
                 {
-                    System.Windows.Forms.MessageBox.Show(Error.Message);
+                    ModalBox.Show("Error", Error.Message);
                     return null;
                 }
             });
@@ -141,7 +118,7 @@ namespace MyMediaPlayer
                 }
                 catch (Exception Error)
                 {
-                    System.Windows.Forms.MessageBox.Show(Error.Message);
+                    ModalBox.Show("Error", Error.Message);
                     return null;
                 }
             });
@@ -153,12 +130,6 @@ namespace MyMediaPlayer
         private readonly string SecretKey = "2aa2d1c561e809b267f3638c4a307aab";
 
         private RestClient Client = new RestClient("https://zingmp3.vn");
-        //private RestRequest SearchRequest =
-        //    new RestRequest("/api/v2/search/multi", Method.Get);
-        //private RestRequest GetLyricsRequest =
-        //    new RestRequest("/api/v2/lyric/get/lyric", Method.Get);
-        //private RestRequest GetStreamingRequest =
-        //    new RestRequest("/api/v2/song/get/streaming", Method.Get);
 
         private Dictionary<string, RestRequest> Requests =
             new Dictionary<string, RestRequest>()

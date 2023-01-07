@@ -49,7 +49,7 @@ namespace MyMediaPlayer
             this.Icon = Properties.Resources.icon;
 
             mediaVisualizer.InteractMediaController(mediaController);
-            (new ModalBox()).Show();
+
             #endregion
         }
 

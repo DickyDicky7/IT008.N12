@@ -376,6 +376,12 @@ namespace MyMediaPlayer
             var inputForm = new InputForm("Enter playlist's name");
             inputForm.ShowDialog();
 
+            if (string.IsNullOrEmpty(inputForm.Result)
+             || string.IsNullOrWhiteSpace(inputForm.Result)) 
+            {
+                return;
+            }
+
             AddToAllMenu(inputForm.Result);
             if (!File.Exists($"{Common.PlaylistsFolder}\\{inputForm.Result}.wpl"))
             {

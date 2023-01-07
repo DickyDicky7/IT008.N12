@@ -33,20 +33,20 @@
             this.Title = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.TextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.OkButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.ExitControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.SuspendLayout();
             // 
             // BorderlessForm
             // 
-            this.BorderlessForm.AnimateWindow = true;
             this.BorderlessForm.ContainerControl = this;
             // 
             // Title
             // 
             this.Title.BackColor = System.Drawing.Color.Transparent;
-            this.Title.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.Location = new System.Drawing.Point(129, 30);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(132, 27);
+            this.Title.Size = new System.Drawing.Size(128, 27);
             this.Title.TabIndex = 0;
             this.Title.Text = "Title goes here";
             this.Title.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,7 +55,6 @@
             // 
             this.TextBox.Animated = true;
             this.TextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.BorderThickness = 2;
             this.TextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TextBox.DefaultText = "";
             this.TextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -68,7 +67,7 @@
             this.TextBox.FocusedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.FocusedState.Parent = this.TextBox;
             this.TextBox.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.TextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.TextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.HoverState.FillColor = System.Drawing.Color.LightGray;
@@ -101,7 +100,7 @@
             this.OkButton.DisabledState.Parent = this.OkButton;
             this.OkButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.OkButton.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.OkButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.OkButton.ForeColor = System.Drawing.Color.White;
             this.OkButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.OkButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
@@ -116,12 +115,32 @@
             this.OkButton.Text = "♫ OK ♪";
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
+            // ExitControlBox
+            // 
+            this.ExitControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ExitControlBox.Animated = true;
+            this.ExitControlBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ExitControlBox.FillColor = System.Drawing.Color.White;
+            this.ExitControlBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitControlBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ExitControlBox.HoverState.FillColor = System.Drawing.Color.White;
+            this.ExitControlBox.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.ExitControlBox.HoverState.Parent = this.ExitControlBox;
+            this.ExitControlBox.IconColor = System.Drawing.Color.LightGray;
+            this.ExitControlBox.Location = new System.Drawing.Point(350, 0);
+            this.ExitControlBox.Name = "ExitControlBox";
+            this.ExitControlBox.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
+            this.ExitControlBox.ShadowDecoration.Parent = this.ExitControlBox;
+            this.ExitControlBox.Size = new System.Drawing.Size(50, 30);
+            this.ExitControlBox.TabIndex = 3;
+            // 
             // InputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(400, 250);
+            this.Controls.Add(this.ExitControlBox);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.Title);
@@ -143,5 +162,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton OkButton;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox TextBox;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Title;
+        private Siticone.Desktop.UI.WinForms.SiticoneControlBox ExitControlBox;
     }
 }
