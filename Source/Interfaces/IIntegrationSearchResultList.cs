@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public interface ISearchResultList
+    public interface IIntegrationSearchResultList
     {
-        public void LoadSearchResults(string JSONResult);
-        public void LoadSearchResults();
+        public void LoadIntegrationSearchResults(string JSONResult);
+        public void LoadIntegrationSearchResults();
         public int? NumberOfItems { get; set; }
     }
 }

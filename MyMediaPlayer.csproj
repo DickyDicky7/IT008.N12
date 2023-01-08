@@ -145,24 +145,24 @@
     </Compile>
     <Compile Include="Source\Utilities\GlobalReferences.cs" />
     <Compile Include="Source\Interfaces\IIntegration.cs" />
-    <Compile Include="Source\Interfaces\ISearchResultList.cs" />
-    <Compile Include="Source\MediaLyrics\MediaLyrics.cs">
+    <Compile Include="Source\Interfaces\IIntegrationSearchResultList.cs" />
+    <Compile Include="Source\TrackLyrics\TrackLyrics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\MediaLyrics\MediaLyrics.Designer.cs">
-      <DependentUpon>MediaLyrics.cs</DependentUpon>
+    <Compile Include="Source\TrackLyrics\TrackLyrics.Designer.cs">
+      <DependentUpon>TrackLyrics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\ZingMP3SearchResultList\ZingMP3SearchResultList.cs">
+    <Compile Include="Source\ZingMP3IntegrationSearchResultList\ZingMP3IntegrationSearchResultList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\ZingMP3SearchResultList\ZingMP3SearchResultList.Designer.cs">
-      <DependentUpon>ZingMP3SearchResultList.cs</DependentUpon>
+    <Compile Include="Source\ZingMP3IntegrationSearchResultList\ZingMP3IntegrationSearchResultList.Designer.cs">
+      <DependentUpon>ZingMP3IntegrationSearchResultList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\ZingMP3SearchResult\ZingMP3SearchResult.cs">
+    <Compile Include="Source\ZingMP3IntegrationSearchResult\ZingMP3IntegrationSearchResult.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\ZingMP3SearchResult\ZingMP3SearchResult.Designer.cs">
-      <DependentUpon>ZingMP3SearchResult.cs</DependentUpon>
+    <Compile Include="Source\ZingMP3IntegrationSearchResult\ZingMP3IntegrationSearchResult.Designer.cs">
+      <DependentUpon>ZingMP3IntegrationSearchResult.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Utilities\Common.cs" />
     <Compile Include="Source\InputForm\InputForm.cs">
@@ -201,11 +201,11 @@
     <Compile Include="Source\TrackItem\TrackItem.Designer.cs">
       <DependentUpon>TrackItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MediaVisualizer\MediaVisualizer.cs">
+    <Compile Include="Source\TrackVisualizer\TrackVisualizer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\MediaVisualizer\MediaVisualizer.Designer.cs">
-      <DependentUpon>MediaVisualizer.cs</DependentUpon>
+    <Compile Include="Source\TrackVisualizer\TrackVisualizer.Designer.cs">
+      <DependentUpon>TrackVisualizer.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\PlaylistItem\PlaylistItem.cs">
       <SubType>UserControl</SubType>
@@ -215,11 +215,11 @@
     </Compile>
     <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\SearchBox\SearchBox.cs">
+    <Compile Include="Source\IntegrationSearchBox\IntegrationSearchBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\SearchBox\SearchBox.Designer.cs">
-      <DependentUpon>SearchBox.cs</DependentUpon>
+    <Compile Include="Source\IntegrationSearchBox\IntegrationSearchBox.Designer.cs">
+      <DependentUpon>IntegrationSearchBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Utilities\Watcher.cs" />
     <Compile Include="Source\ZingMP3Integration\ZingMP3Integration.cs" />
@@ -233,8 +233,8 @@
     <EmbeddedResource Include="Source\InputForm\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MediaLyrics\MediaLyrics.resx">
-      <DependentUpon>MediaLyrics.cs</DependentUpon>
+    <EmbeddedResource Include="Source\TrackLyrics\TrackLyrics.resx">
+      <DependentUpon>TrackLyrics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\ModalBox\ModalBox.resx">
       <DependentUpon>ModalBox.cs</DependentUpon>
@@ -248,8 +248,8 @@
     <EmbeddedResource Include="Source\TrackItem\TrackItem.resx">
       <DependentUpon>TrackItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MediaVisualizer\MediaVisualizer.resx">
-      <DependentUpon>MediaVisualizer.cs</DependentUpon>
+    <EmbeddedResource Include="Source\TrackVisualizer\TrackVisualizer.resx">
+      <DependentUpon>TrackVisualizer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Pagination\Pagination.resx">
       <DependentUpon>Pagination.cs</DependentUpon>
@@ -262,14 +262,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\SearchBox\SearchBox.resx">
-      <DependentUpon>SearchBox.cs</DependentUpon>
+    <EmbeddedResource Include="Source\IntegrationSearchBox\IntegrationSearchBox.resx">
+      <DependentUpon>IntegrationSearchBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\ZingMP3SearchResultList\ZingMP3SearchResultList.resx">
-      <DependentUpon>ZingMP3SearchResultList.cs</DependentUpon>
+    <EmbeddedResource Include="Source\ZingMP3IntegrationSearchResultList\ZingMP3IntegrationSearchResultList.resx">
+      <DependentUpon>ZingMP3IntegrationSearchResultList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\ZingMP3SearchResult\ZingMP3SearchResult.resx">
-      <DependentUpon>ZingMP3SearchResult.cs</DependentUpon>
+    <EmbeddedResource Include="Source\ZingMP3IntegrationSearchResult\ZingMP3IntegrationSearchResult.resx">
+      <DependentUpon>ZingMP3IntegrationSearchResult.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagramDetail.cd" />

@@ -32,23 +32,24 @@ namespace MyMediaPlayer
 
             this.DoubleBuffered = true;
             Common.SetDoubleBuffered_v2(this);
+            Common.SetDoubleBuffered_v2(integrationSearchResultList);
             Common.SetDoubleBuffered_v2(musicLibraryTabPage);
             Common.SetDoubleBuffered_v2(videoLibraryTabPage);
             Common.SetDoubleBuffered_v2(onlineStoreTabPage);
             Common.SetDoubleBuffered_v2(playQueueTabPage);
             Common.SetDoubleBuffered_v2(playlistsTabPage);
-            Common.SetDoubleBuffered_v2(searchResultList);
             Common.SetDoubleBuffered_v2(settingsTabPage);
 
-            onlineStoreSearchBox.SearchResultList = searchResultList;
+            onlineStoreIntegrationSearchBox.IntegrationSearchResultList =
+            integrationSearchResultList;
 
             GlobalReferences.MainForm = this;
-            GlobalReferences.MediaLyrics = mediaLyrics;
+            GlobalReferences.TrackLyrics = trackLyrics;
             GlobalReferences.MediaController = mediaController;
 
             this.Icon = Properties.Resources.icon;
 
-            mediaVisualizer.InteractMediaController(mediaController);
+            trackVisualizer.InteractMediaController(mediaController);
 
             #endregion
         }
@@ -69,7 +70,7 @@ namespace MyMediaPlayer
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mediaVisualizer.Stop();
+            trackVisualizer.Stop();
         }
 
         #region Initialize

@@ -2,7 +2,7 @@
 
 namespace MyMediaPlayer
 {
-    partial class MediaLyrics
+    partial class TrackLyrics
     {
         /// <summary> 
         /// Required designer variable.

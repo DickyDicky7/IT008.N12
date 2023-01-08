@@ -10,9 +10,9 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public partial class ZingMP3SearchResult : UserControl
+    public partial class ZingMP3IntegrationSearchResult : UserControl
     {
-        public ZingMP3SearchResult
+        public ZingMP3IntegrationSearchResult
         (string EncodeId, string Title, string ArtistsNames, string ImageURL, int Duration)
         {
             InitializeComponent();

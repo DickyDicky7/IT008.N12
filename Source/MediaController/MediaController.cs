@@ -110,7 +110,7 @@ namespace MyMediaPlayer
 
             BtnPlay.Image = Properties.Resources.pause;
 
-            GlobalReferences.MediaLyrics.GetLyrics(URL);
+            GlobalReferences.TrackLyrics.GetLyrics(URL);
 
             OnLoadMedia(new MediaControllerArgs() { URL = URL }); // Đừng xóa dòng này
         }
@@ -128,7 +128,7 @@ namespace MyMediaPlayer
 
             BtnPlay.Image = Properties.Resources.pause;
 
-            GlobalReferences.MediaLyrics.ParseStreamingLyrics
+            GlobalReferences.TrackLyrics.ParseStreamingLyrics
             (await GlobalReferences.OnlineStoreIntegration.GetLyrics(EncodeId, true));
 
             OnLoadMedia(new MediaControllerArgs()
@@ -245,10 +245,6 @@ namespace MyMediaPlayer
             if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 Player.controls.currentPosition += 10;
-
-                #region Testing
-                GlobalReferences.MediaLyrics.SkipCurrentIndex((int)Player.controls.currentPosition);
-                #endregion
             }
         }
 
@@ -257,10 +253,6 @@ namespace MyMediaPlayer
             if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 Player.controls.currentPosition -= 10;
-
-                #region Testing
-                GlobalReferences.MediaLyrics.BackCurrentIndex((int)Player.controls.currentPosition);
-                #endregion
             }
         }
 
@@ -268,11 +260,6 @@ namespace MyMediaPlayer
         {
             if (Player.currentMedia != null)
                 Player.controls.currentPosition = TrackBar.Value;
-
-            #region Testing
-            GlobalReferences.MediaLyrics.SkipCurrentIndex((int)Player.controls.currentPosition);
-            GlobalReferences.MediaLyrics.BackCurrentIndex((int)Player.controls.currentPosition);
-            #endregion
         }
 
         private void VolumeMeter_Scroll(object sender, ScrollEventArgs e)
@@ -422,28 +409,20 @@ namespace MyMediaPlayer
             GlobalReferences.MainForm.BringVisualizeToFront();
         }
 
-        public Task<bool> CheckIfRightTime(int TimeInSeconds)
+        public int PlayerControlsCurrentPosition
         {
-            return Task<bool>.Factory.StartNew(() =>
+            get
             {
                 try
                 {
-                    Console.WriteLine($"{TimeInSeconds} - {Player.controls.currentPosition}");
-                    return TimeInSeconds == (int)Player.controls.currentPosition;
+                    return (int)Player.controls.currentPosition;
                 }
-                catch
+                catch (Exception)
                 {
-                    return false;
+                    return -1;
                 }
-            });
+            }
         }
-
-        //public enum Ordering
-        //{
-        //    EQ, 
-        //    LT, 
-        //    GT,
-        //}
     }
 
     public class MediaControllerArgs

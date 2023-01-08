@@ -1,6 +1,6 @@
 ﻿namespace MyMediaPlayer
 {
-    partial class ZingMP3SearchResultList
+    partial class ZingMP3IntegrationSearchResultList
     {
         /// <summary> 
         /// Required designer variable.

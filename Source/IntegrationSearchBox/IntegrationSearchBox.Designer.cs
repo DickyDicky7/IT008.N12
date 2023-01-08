@@ -1,6 +1,6 @@
 ﻿namespace MyMediaPlayer
 {
-    partial class SearchBox
+    partial class IntegrationSearchBox
     {
         /// <summary> 
         /// Required designer variable.

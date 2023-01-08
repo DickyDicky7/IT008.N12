@@ -66,8 +66,8 @@
             this.librariesLb = new System.Windows.Forms.Label();
             this.onlineStoreTabPage = new System.Windows.Forms.TabPage();
             this.onlineStoreBodyPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.onlineStoreSearchBox = new MyMediaPlayer.SearchBox();
-            this.searchResultList = new MyMediaPlayer.ZingMP3SearchResultList();
+            this.onlineStoreIntegrationSearchBox = new MyMediaPlayer.IntegrationSearchBox();
+            this.integrationSearchResultList = new MyMediaPlayer.ZingMP3IntegrationSearchResultList();
             this.onlineStoreHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.onlineStoreHeaderLabel = new System.Windows.Forms.Label();
             this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
@@ -81,8 +81,8 @@
             this.tabControlBorder = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.visualizeContainer = new System.Windows.Forms.Panel();
             this.exitButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.mediaVisualizer = new MyMediaPlayer.MediaVisualizer();
-            this.mediaLyrics = new MyMediaPlayer.MediaLyrics();
+            this.trackVisualizer = new MyMediaPlayer.TrackVisualizer();
+            this.trackLyrics = new MyMediaPlayer.TrackLyrics();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -708,8 +708,8 @@
             // 
             // onlineStoreBodyPanel
             // 
-            this.onlineStoreBodyPanel.Controls.Add(this.onlineStoreSearchBox);
-            this.onlineStoreBodyPanel.Controls.Add(this.searchResultList);
+            this.onlineStoreBodyPanel.Controls.Add(this.onlineStoreIntegrationSearchBox);
+            this.onlineStoreBodyPanel.Controls.Add(this.integrationSearchResultList);
             this.onlineStoreBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onlineStoreBodyPanel.Location = new System.Drawing.Point(3, 66);
             this.onlineStoreBodyPanel.Name = "onlineStoreBodyPanel";
@@ -717,28 +717,28 @@
             this.onlineStoreBodyPanel.Size = new System.Drawing.Size(816, 382);
             this.onlineStoreBodyPanel.TabIndex = 6;
             // 
-            // onlineStoreSearchBox
+            // onlineStoreIntegrationSearchBox
             // 
-            this.onlineStoreSearchBox.BackColor = System.Drawing.Color.White;
-            this.onlineStoreSearchBox.Integration = null;
-            this.onlineStoreSearchBox.Location = new System.Drawing.Point(108, 0);
-            this.onlineStoreSearchBox.Margin = new System.Windows.Forms.Padding(4);
-            this.onlineStoreSearchBox.Name = "onlineStoreSearchBox";
-            this.onlineStoreSearchBox.SearchResultList = null;
-            this.onlineStoreSearchBox.Size = new System.Drawing.Size(600, 78);
-            this.onlineStoreSearchBox.TabIndex = 2;
+            this.onlineStoreIntegrationSearchBox.BackColor = System.Drawing.Color.White;
+            this.onlineStoreIntegrationSearchBox.Integration = null;
+            this.onlineStoreIntegrationSearchBox.IntegrationSearchResultList = null;
+            this.onlineStoreIntegrationSearchBox.Location = new System.Drawing.Point(108, 0);
+            this.onlineStoreIntegrationSearchBox.Margin = new System.Windows.Forms.Padding(4);
+            this.onlineStoreIntegrationSearchBox.Name = "onlineStoreIntegrationSearchBox";
+            this.onlineStoreIntegrationSearchBox.Size = new System.Drawing.Size(600, 78);
+            this.onlineStoreIntegrationSearchBox.TabIndex = 2;
             // 
-            // searchResultList
+            // integrationSearchResultList
             // 
-            this.searchResultList.AutoScroll = true;
-            this.searchResultList.BackColor = System.Drawing.Color.White;
-            this.searchResultList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchResultList.Location = new System.Drawing.Point(0, 83);
-            this.searchResultList.Margin = new System.Windows.Forms.Padding(4);
-            this.searchResultList.Name = "searchResultList";
-            this.searchResultList.NumberOfItems = null;
-            this.searchResultList.Size = new System.Drawing.Size(816, 299);
-            this.searchResultList.TabIndex = 1;
+            this.integrationSearchResultList.AutoScroll = true;
+            this.integrationSearchResultList.BackColor = System.Drawing.Color.White;
+            this.integrationSearchResultList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.integrationSearchResultList.Location = new System.Drawing.Point(0, 83);
+            this.integrationSearchResultList.Margin = new System.Windows.Forms.Padding(4);
+            this.integrationSearchResultList.Name = "integrationSearchResultList";
+            this.integrationSearchResultList.NumberOfItems = null;
+            this.integrationSearchResultList.Size = new System.Drawing.Size(816, 299);
+            this.integrationSearchResultList.TabIndex = 1;
             // 
             // onlineStoreHeaderPanel
             // 
@@ -857,8 +857,8 @@
             // visualizeContainer
             // 
             this.visualizeContainer.Controls.Add(this.exitButton);
-            this.visualizeContainer.Controls.Add(this.mediaVisualizer);
-            this.visualizeContainer.Controls.Add(this.mediaLyrics);
+            this.visualizeContainer.Controls.Add(this.trackVisualizer);
+            this.visualizeContainer.Controls.Add(this.trackLyrics);
             this.visualizeContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.visualizeContainer.Location = new System.Drawing.Point(0, 31);
             this.visualizeContainer.Margin = new System.Windows.Forms.Padding(2);
@@ -888,28 +888,28 @@
             this.exitButton.TabIndex = 2;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // mediaVisualizer
+            // trackVisualizer
             // 
-            this.mediaVisualizer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mediaVisualizer.Location = new System.Drawing.Point(0, 0);
-            this.mediaVisualizer.Margin = new System.Windows.Forms.Padding(4);
-            this.mediaVisualizer.Name = "mediaVisualizer";
-            this.mediaVisualizer.Size = new System.Drawing.Size(640, 459);
-            this.mediaVisualizer.TabIndex = 1;
+            this.trackVisualizer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackVisualizer.Location = new System.Drawing.Point(0, 0);
+            this.trackVisualizer.Margin = new System.Windows.Forms.Padding(4);
+            this.trackVisualizer.Name = "trackVisualizer";
+            this.trackVisualizer.Size = new System.Drawing.Size(640, 459);
+            this.trackVisualizer.TabIndex = 1;
             // 
-            // mediaLyrics
+            // trackLyrics
             // 
-            this.mediaLyrics.AutoScroll = true;
-            this.mediaLyrics.BackColor = System.Drawing.Color.White;
-            this.mediaLyrics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.mediaLyrics.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mediaLyrics.Location = new System.Drawing.Point(640, 0);
-            this.mediaLyrics.Margin = new System.Windows.Forms.Padding(4);
-            this.mediaLyrics.MaximumSize = new System.Drawing.Size(300, 270);
-            this.mediaLyrics.MinimumSize = new System.Drawing.Size(400, 353);
-            this.mediaLyrics.Name = "mediaLyrics";
-            this.mediaLyrics.Size = new System.Drawing.Size(400, 353);
-            this.mediaLyrics.TabIndex = 3;
+            this.trackLyrics.AutoScroll = true;
+            this.trackLyrics.BackColor = System.Drawing.Color.White;
+            this.trackLyrics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.trackLyrics.Dock = System.Windows.Forms.DockStyle.Right;
+            this.trackLyrics.Location = new System.Drawing.Point(640, 0);
+            this.trackLyrics.Margin = new System.Windows.Forms.Padding(4);
+            this.trackLyrics.MaximumSize = new System.Drawing.Size(300, 270);
+            this.trackLyrics.MinimumSize = new System.Drawing.Size(400, 353);
+            this.trackLyrics.Name = "trackLyrics";
+            this.trackLyrics.Size = new System.Drawing.Size(400, 353);
+            this.trackLyrics.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -1001,21 +1001,21 @@
         private System.Windows.Forms.FlowLayoutPanel playlistsPanel;
         private System.Windows.Forms.Panel visualizeContainer;
         private Siticone.Desktop.UI.WinForms.SiticoneButton exitButton;
-        private MediaVisualizer mediaVisualizer;
+        private TrackVisualizer trackVisualizer;
         private MusicList PlayQMusicList;
         private Siticone.Desktop.UI.WinForms.SiticonePanel playQueueHeaderPanel;
         private Siticone.Desktop.UI.WinForms.SiticoneButton playQueueClearButton;
         private System.Windows.Forms.Label playQueueHeaderLabel;
         private System.Windows.Forms.Panel musicFolderPanel;
-        private MediaLyrics mediaLyrics;
+        private TrackLyrics trackLyrics;
         private Siticone.Desktop.UI.WinForms.SiticonePanel playlistsHeaderPanel;
         private System.Windows.Forms.Label playlistsHeaderLabel;
         private System.Windows.Forms.TabPage onlineStoreTabPage;
         private Siticone.Desktop.UI.WinForms.SiticonePanel onlineStoreHeaderPanel;
         private System.Windows.Forms.Label onlineStoreHeaderLabel;
         private Siticone.Desktop.UI.WinForms.SiticonePanel onlineStoreBodyPanel;
-        private ZingMP3SearchResultList searchResultList;
-        private SearchBox onlineStoreSearchBox;
+        private ZingMP3IntegrationSearchResultList integrationSearchResultList;
+        private IntegrationSearchBox onlineStoreIntegrationSearchBox;
     }
 }
 

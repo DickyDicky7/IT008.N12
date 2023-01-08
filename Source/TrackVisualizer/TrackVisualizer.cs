@@ -11,14 +11,14 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public partial class MediaVisualizer : UserControl
+    public partial class TrackVisualizer : UserControl
     {
-        public MediaVisualizer()
+        public TrackVisualizer()
         {
             InitializeComponent();
 
-            MediaTitle.ForeColor = Common.Black;
-            MediaTitle.Text = "♫♫♫ Waiting... ♪♪♪";
+            TrackTitle.ForeColor = Common.Black;
+            TrackTitle.Text = "♫♫♫ Waiting... ♪♪♪";
 
             ColorTransitionB.ColorArray = new string[]
             { "#182cd4"
@@ -104,14 +104,14 @@ namespace MyMediaPlayer
                     foreach (Label Label in Controls.OfType<Label>())
                         Label.ForeColor = Color.Transparent;
 
-                    MediaStatus.Text = "On Track";
-                    MediaTitle.Text = "   " + Common.GetTitle(MediaControllerArgs.URL);
-                    MediaArtist.Text = Common.GetPerformers(MediaControllerArgs.URL);
+                    TrackStatus.Text = "On Track";
+                    TrackTitle.Text = "   " + Common.GetTitle(MediaControllerArgs.URL);
+                    TrackArtist.Text = Common.GetPerformers(MediaControllerArgs.URL);
 
                     FluentTransitions.Transition
-                    .With(MediaStatus, nameof(ForeColor), Common.LightRed)
-                    .With(MediaTitle, nameof(ForeColor), Common.Black)
-                    .With(MediaArtist, nameof(ForeColor), Common.Black)
+                    .With(TrackStatus, nameof(ForeColor), Common.LightRed)
+                    .With(TrackTitle, nameof(ForeColor), Common.Black)
+                    .With(TrackArtist, nameof(ForeColor), Common.Black)
                     .EaseInEaseOut(TimeSpan.FromSeconds(1));
                 }));
             }
@@ -131,14 +131,14 @@ namespace MyMediaPlayer
                     foreach (Label Label in Controls.OfType<Label>())
                         Label.ForeColor = Color.Transparent;
 
-                    MediaStatus.Text = "On Track";
-                    MediaTitle.Text = "   " + MediaControllerArgs.Title;
-                    MediaArtist.Text = MediaControllerArgs.ArtistsNames;
+                    TrackStatus.Text = "On Track";
+                    TrackTitle.Text = "   " + MediaControllerArgs.Title;
+                    TrackArtist.Text = MediaControllerArgs.ArtistsNames;
 
                     FluentTransitions.Transition
-                    .With(MediaStatus, nameof(ForeColor), Common.LightRed)
-                    .With(MediaTitle, nameof(ForeColor), Common.Black)
-                    .With(MediaArtist, nameof(ForeColor), Common.Black)
+                    .With(TrackStatus, nameof(ForeColor), Common.LightRed)
+                    .With(TrackTitle, nameof(ForeColor), Common.Black)
+                    .With(TrackArtist, nameof(ForeColor), Common.Black)
                     .EaseInEaseOut(TimeSpan.FromSeconds(1));
                 }));
             }

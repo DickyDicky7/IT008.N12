@@ -1,6 +1,6 @@
 ﻿namespace MyMediaPlayer
 {
-    partial class MediaVisualizer
+    partial class TrackVisualizer
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,10 +33,10 @@
             this.Visualizer = new CSAudioVisualization.AudioVisualization();
             this.ColorTransitionB = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
             this.ColorTransitionM = new Siticone.Desktop.UI.WinForms.SiticoneColorTransition(this.components);
-            this.MediaStatus = new System.Windows.Forms.Label();
-            this.MediaArtist = new System.Windows.Forms.Label();
+            this.TrackStatus = new System.Windows.Forms.Label();
+            this.TrackArtist = new System.Windows.Forms.Label();
             this.Panel = new System.Windows.Forms.Panel();
-            this.MediaTitle = new MyMediaPlayer.AnimateLabel();
+            this.TrackTitle = new MyMediaPlayer.AnimateLabel();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
@@ -92,35 +92,35 @@
         System.Drawing.Color.Blue,
         System.Drawing.Color.Orange};
             // 
-            // MediaStatus
+            // TrackStatus
             // 
-            this.MediaStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MediaStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Italic);
-            this.MediaStatus.ForeColor = System.Drawing.Color.Transparent;
-            this.MediaStatus.Location = new System.Drawing.Point(100, 0);
-            this.MediaStatus.Name = "MediaStatus";
-            this.MediaStatus.Size = new System.Drawing.Size(350, 26);
-            this.MediaStatus.TabIndex = 3;
-            this.MediaStatus.Text = "MediaStatus";
-            this.MediaStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TrackStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TrackStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Italic);
+            this.TrackStatus.ForeColor = System.Drawing.Color.Transparent;
+            this.TrackStatus.Location = new System.Drawing.Point(100, 0);
+            this.TrackStatus.Name = "TrackStatus";
+            this.TrackStatus.Size = new System.Drawing.Size(350, 26);
+            this.TrackStatus.TabIndex = 3;
+            this.TrackStatus.Text = "MediaStatus";
+            this.TrackStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // MediaArtist
+            // TrackArtist
             // 
-            this.MediaArtist.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MediaArtist.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Underline);
-            this.MediaArtist.ForeColor = System.Drawing.Color.Transparent;
-            this.MediaArtist.Location = new System.Drawing.Point(100, 70);
-            this.MediaArtist.Name = "MediaArtist";
-            this.MediaArtist.Size = new System.Drawing.Size(350, 30);
-            this.MediaArtist.TabIndex = 5;
-            this.MediaArtist.Text = "-- MediaArtist --";
-            this.MediaArtist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TrackArtist.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TrackArtist.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Underline);
+            this.TrackArtist.ForeColor = System.Drawing.Color.Transparent;
+            this.TrackArtist.Location = new System.Drawing.Point(100, 70);
+            this.TrackArtist.Name = "TrackArtist";
+            this.TrackArtist.Size = new System.Drawing.Size(350, 30);
+            this.TrackArtist.TabIndex = 5;
+            this.TrackArtist.Text = "-- MediaArtist --";
+            this.TrackArtist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Panel
             // 
-            this.Panel.Controls.Add(this.MediaTitle);
-            this.Panel.Controls.Add(this.MediaStatus);
-            this.Panel.Controls.Add(this.MediaArtist);
+            this.Panel.Controls.Add(this.TrackTitle);
+            this.Panel.Controls.Add(this.TrackStatus);
+            this.Panel.Controls.Add(this.TrackArtist);
             this.Panel.Controls.Add(this.PictureBox);
             this.Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Panel.Font = new System.Drawing.Font("Tahoma", 8.25F);
@@ -130,26 +130,26 @@
             this.Panel.Size = new System.Drawing.Size(450, 100);
             this.Panel.TabIndex = 6;
             // 
-            // MediaTitle
+            // TrackTitle
             // 
-            this.MediaTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 13F);
-            this.MediaTitle.ForeColor = System.Drawing.Color.Transparent;
-            this.MediaTitle.Location = new System.Drawing.Point(100, 26);
-            this.MediaTitle.Name = "MediaTitle";
-            this.MediaTitle.Size = new System.Drawing.Size(350, 44);
-            this.MediaTitle.Slide = true;
-            this.MediaTitle.SlideTime = 15;
-            this.MediaTitle.TabIndex = 4;
-            this.MediaTitle.Text = "MediaTitle";
+            this.TrackTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TrackTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 13F);
+            this.TrackTitle.ForeColor = System.Drawing.Color.Transparent;
+            this.TrackTitle.Location = new System.Drawing.Point(100, 26);
+            this.TrackTitle.Name = "TrackTitle";
+            this.TrackTitle.Size = new System.Drawing.Size(350, 44);
+            this.TrackTitle.Slide = true;
+            this.TrackTitle.SlideTime = 15;
+            this.TrackTitle.TabIndex = 4;
+            this.TrackTitle.Text = "MediaTitle";
             // 
-            // MediaVisualizer
+            // TrackVisualizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Visualizer);
             this.Controls.Add(this.Panel);
-            this.Name = "MediaVisualizer";
+            this.Name = "TrackVisualizer";
             this.Size = new System.Drawing.Size(450, 325);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.Panel.ResumeLayout(false);
@@ -162,9 +162,9 @@
         private CSAudioVisualization.AudioVisualization Visualizer;
         private Siticone.Desktop.UI.WinForms.SiticoneColorTransition ColorTransitionB;
         private Siticone.Desktop.UI.WinForms.SiticoneColorTransition ColorTransitionM;
-        private System.Windows.Forms.Label MediaStatus;
-        private AnimateLabel MediaTitle;
-        private System.Windows.Forms.Label MediaArtist;
+        private System.Windows.Forms.Label TrackStatus;
+        private AnimateLabel TrackTitle;
+        private System.Windows.Forms.Label TrackArtist;
         private System.Windows.Forms.Panel Panel;
     }
 }

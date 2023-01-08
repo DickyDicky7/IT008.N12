@@ -11,23 +11,23 @@ using Siticone.Desktop.UI.WinForms;
 
 namespace MyMediaPlayer
 {
-    public partial class SearchBox : UserControl
+    public partial class IntegrationSearchBox : UserControl
     {
-        public SearchBox()
+        public IntegrationSearchBox()
         {
             InitializeComponent();
 
             Watcher.Interval = TimeSpan.FromMilliseconds(100);
-            Watcher.Action = UpdateSearchBox;
+            Watcher.Action = UpdateIntegrationSearchBox;
 
             TextBox.TextChanged += new EventHandler(TextBox_TextChanged);
-            Load += new EventHandler(SearchBox_Load);
+            Load += new EventHandler(IntegrationSearchBox_Load);
 
             Pagination.BackPageButton_Click = new EventHandler(Pagination_BackPageButton_Click);
             Pagination.NextPageButton_Click = new EventHandler(Pagination_NextPageButton_Click);
         }
 
-        private void UpdateSearchBox()
+        private void UpdateIntegrationSearchBox()
         {
             if (LastMod != null)
             {
@@ -49,11 +49,11 @@ namespace MyMediaPlayer
 
                         if (Integration == null)
                         {
-                            SearchResultList?.LoadSearchResults();
+                            IntegrationSearchResultList?.LoadIntegrationSearchResults();
                         }
                         else
                         {
-                            SearchResultList?.LoadSearchResults
+                            IntegrationSearchResultList?.LoadIntegrationSearchResults
                             (await Integration.Search(TextBox.Text, 1, true));
                         }
                         TextBox.Text = "";
@@ -84,7 +84,7 @@ namespace MyMediaPlayer
                 {
                     if (Integration == null)
                     {
-                        SearchResultList?.LoadSearchResults();
+                        IntegrationSearchResultList?.LoadIntegrationSearchResults();
                     }
                     else
                     {
@@ -95,7 +95,7 @@ namespace MyMediaPlayer
 
                         #endregion
 
-                        SearchResultList?.LoadSearchResults
+                        IntegrationSearchResultList?.LoadIntegrationSearchResults
                         (await Integration.Search(TextBox.Text, 1, true));
                     }
                     TextBox.BeginInvoke((MethodInvoker)delegate ()
@@ -113,7 +113,7 @@ namespace MyMediaPlayer
             LastMod = DateTime.Now;
         }
 
-        private void SearchBox_Load(object sender, EventArgs e)
+        private void IntegrationSearchBox_Load(object sender, EventArgs e)
         {
             Watcher.Start();
         }
@@ -138,7 +138,7 @@ namespace MyMediaPlayer
             }
         }
 
-        public ISearchResultList SearchResultList { get; set; } = null;
+        public IIntegrationSearchResultList IntegrationSearchResultList { get; set; } = null;
 
         private void IntegrationButton_Click(object sender, EventArgs e)
         {
@@ -183,22 +183,24 @@ namespace MyMediaPlayer
                 Pagination.CurrentPageNumber -= 1;
                 Task.Factory.StartNew(async () =>
                 {
-                    SearchResultList?.LoadSearchResults(await Integration.Search
-                    (Integration.SearchQueryHistory, Pagination.CurrentPageNumber, true));
+                    IntegrationSearchResultList?.LoadIntegrationSearchResults
+                    (await Integration.Search(Integration.SearchQueryHistory
+                    , Pagination.CurrentPageNumber, true));
                 });
             }
         }
 
         private void Pagination_NextPageButton_Click(object sender, EventArgs e)
         {
-            if (SearchResultList.NumberOfItems != null)
-                if (Pagination.CurrentPageNumber * 18 <= SearchResultList.NumberOfItems)
+            if (IntegrationSearchResultList.NumberOfItems != null)
+                if (Pagination.CurrentPageNumber * 18 <= IntegrationSearchResultList.NumberOfItems)
                 {
                     Pagination.CurrentPageNumber += 1;
                     Task.Factory.StartNew(async () =>
                     {
-                        SearchResultList?.LoadSearchResults(await Integration.Search
-                        (Integration.SearchQueryHistory, Pagination.CurrentPageNumber, true));
+                        IntegrationSearchResultList?.LoadIntegrationSearchResults
+                        (await Integration.Search(Integration.SearchQueryHistory
+                        , Pagination.CurrentPageNumber, true));
                     });
                 }
         }

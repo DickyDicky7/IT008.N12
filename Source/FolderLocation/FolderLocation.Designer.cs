@@ -35,47 +35,55 @@
             // folderURL
             // 
             this.folderURL.AutoSize = true;
-            this.folderURL.Location = new System.Drawing.Point(33, 11);
+            this.folderURL.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.folderURL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.folderURL.Location = new System.Drawing.Point(25, 9);
+            this.folderURL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.folderURL.Name = "folderURL";
-            this.folderURL.Size = new System.Drawing.Size(68, 16);
+            this.folderURL.Size = new System.Drawing.Size(59, 15);
             this.folderURL.TabIndex = 0;
             this.folderURL.Text = "folderURL";
             // 
             // removeBtn
             // 
             this.removeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.removeBtn.BorderColor = System.Drawing.Color.Gainsboro;
+            this.removeBtn.Animated = true;
+            this.removeBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.removeBtn.BorderRadius = 2;
             this.removeBtn.BorderThickness = 1;
             this.removeBtn.CheckedState.Parent = this.removeBtn;
             this.removeBtn.CustomImages.Parent = this.removeBtn;
-            this.removeBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.removeBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.removeBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.removeBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.removeBtn.DisabledState.Parent = this.removeBtn;
             this.removeBtn.FillColor = System.Drawing.Color.White;
-            this.removeBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.removeBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.removeBtn.ForeColor = System.Drawing.Color.White;
+            this.removeBtn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.removeBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.removeBtn.HoverState.FillColor = System.Drawing.Color.White;
+            this.removeBtn.HoverState.ForeColor = System.Drawing.Color.White;
             this.removeBtn.HoverState.Parent = this.removeBtn;
             this.removeBtn.Image = global::MyMediaPlayer.Properties.Resources.close;
             this.removeBtn.ImageSize = new System.Drawing.Size(14, 14);
-            this.removeBtn.Location = new System.Drawing.Point(645, 7);
+            this.removeBtn.Location = new System.Drawing.Point(484, 6);
+            this.removeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.removeBtn.Name = "removeBtn";
+            this.removeBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.removeBtn.ShadowDecoration.Parent = this.removeBtn;
-            this.removeBtn.Size = new System.Drawing.Size(33, 23);
+            this.removeBtn.Size = new System.Drawing.Size(25, 19);
             this.removeBtn.TabIndex = 1;
             this.removeBtn.Click += new System.EventHandler(this.removeBtn_Click);
             // 
             // FolderLocation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.removeBtn);
             this.Controls.Add(this.folderURL);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FolderLocation";
-            this.Padding = new System.Windows.Forms.Padding(30, 4, 60, 4);
-            this.Size = new System.Drawing.Size(800, 38);
+            this.Padding = new System.Windows.Forms.Padding(22, 3, 45, 3);
+            this.Size = new System.Drawing.Size(600, 31);
             this.ResumeLayout(false);
             this.PerformLayout();
 
