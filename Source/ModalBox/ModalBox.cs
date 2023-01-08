@@ -16,6 +16,7 @@ namespace MyMediaPlayer
         public ModalBox()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.icon;
         }
 
         public ModalBox(string MessageTitle, string MessageContent)
@@ -23,6 +24,7 @@ namespace MyMediaPlayer
             InitializeComponent();
             this.MessageTitle = MessageTitle;
             this.MessageContent = MessageContent;
+            this.Icon = Properties.Resources.icon;
         }
 
         public string MessageTitle
