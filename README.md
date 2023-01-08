@@ -32,13 +32,13 @@
  - Volume up/down
  - Specify the playing track's position
 
-**5. MediaItem**
+**5. TrackItem**
 
  - Load tracks data from disks then display (basic information)
  - Click to play the track (pass its URL to MediaController)
  - etc.
 
-**6. MediaLyrics**
+**6. TrackLyrics**
 
  - Display the playing track's lyrics if there is one
 
@@ -51,12 +51,12 @@
  - Load playlists data from disks then display (their names and there corresponding tracks)
  - etc.
 
-**9. SearchBox**
+**9. IntegrationSearchBox**
 
  - Search the track's name on the other servers (the client interface of the server must be an Integration kind - implemented using the interface IIntegration)
  - Able to switch among different IIntegration(s)
 
-**10. SearchResult**
+**10. IntegrationSearchResult**
 
 
 
