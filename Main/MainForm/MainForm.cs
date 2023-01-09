@@ -62,7 +62,7 @@ namespace MyMediaPlayer
                 if (args.Length != 0)
                 {
                     BringVisualizeToFront();
-                    mediaController.LoadMedia(args[0]);
+                    mediaController.LoadLocalTrack(args[0]);
                 }
             });
             return LoadHandler;

@@ -99,6 +99,7 @@
             this.OkButton.Size = new System.Drawing.Size(70, 30);
             this.OkButton.TabIndex = 3;
             this.OkButton.Text = "Ok";
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // BorderlessForm
             // 

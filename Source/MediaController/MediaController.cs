@@ -53,11 +53,13 @@ namespace MyMediaPlayer
                         CurrentMusicList.PlayNext();
                 }
 
-                #region do not touch
+                #region Testing
+
                 if (Player.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
                 {
-                    MessageBox.Show("oh yeah");
+                    ModalBox.Show("Info", "Media Ended");
                 }
+
                 #endregion
             };
             timer.Start();
@@ -99,7 +101,7 @@ namespace MyMediaPlayer
             Player.controls.pause();
         }
 
-        public void LoadMedia(string URL)
+        public void LoadLocalTrack(string URL)
         {
             Player.currentMedia = Player.newMedia(URL);
 
@@ -115,7 +117,7 @@ namespace MyMediaPlayer
             OnLoadMedia(new MediaControllerArgs() { URL = URL }); // Đừng xóa dòng này
         }
 
-        public async void LoadStreaming
+        public async void LoadStreamingTrack
         (string EncodeId, string Title, string ArtistsNames, string ImageURL, int Duration)
         {
             Player.currentMedia = Player.newMedia
@@ -160,7 +162,7 @@ namespace MyMediaPlayer
                 else
                 if (Player.controls.currentPosition == 0)
                 {
-                    MessageBox.Show("Media Ended", "Info");
+                    ModalBox.Show("Info", "Media Ended");
                     //BtnPlay.Text = "PLAY";
                     BtnPlay.Image = Properties.Resources.black_play;
                 }
@@ -168,7 +170,7 @@ namespace MyMediaPlayer
             else
             {
                 //BtnPlay.Text = "PLAY";
-                MessageBox.Show("Media not found", "Error");
+                ModalBox.Show("Error", "Media Not Found");
             }
         }
 

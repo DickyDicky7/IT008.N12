@@ -232,19 +232,19 @@
             this.tabControl.Size = new System.Drawing.Size(1040, 459);
             this.tabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.tabControl.TabButtonHoverState.FillColor = System.Drawing.Color.LightGray;
-            this.tabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.tabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.tabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.tabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
             this.tabControl.TabButtonIdleState.FillColor = System.Drawing.Color.White;
-            this.tabControl.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tabControl.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.tabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.tabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.White;
             this.tabControl.TabButtonImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tabControl.TabButtonImageOffset = new System.Drawing.Point(8, 0);
             this.tabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
             this.tabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.LightGray;
-            this.tabControl.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tabControl.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.tabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.tabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.tabControl.TabButtonSize = new System.Drawing.Size(210, 50);
@@ -259,7 +259,6 @@
             this.musicLibraryTabPage.BackColor = System.Drawing.Color.White;
             this.musicLibraryTabPage.Controls.Add(this.musicList);
             this.musicLibraryTabPage.Controls.Add(this.musicHeaderPanel);
-            this.musicLibraryTabPage.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.musicLibraryTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.musicLibraryTabPage.ImageIndex = 0;
             this.musicLibraryTabPage.Location = new System.Drawing.Point(214, 4);
@@ -396,6 +395,7 @@
             // videoLibraryTabPage
             // 
             this.videoLibraryTabPage.BackColor = System.Drawing.Color.White;
+            this.videoLibraryTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.videoLibraryTabPage.ImageIndex = 4;
             this.videoLibraryTabPage.Location = new System.Drawing.Point(214, 4);
             this.videoLibraryTabPage.Margin = new System.Windows.Forms.Padding(2);
@@ -410,6 +410,7 @@
             this.playQueueTabPage.BackColor = System.Drawing.Color.White;
             this.playQueueTabPage.Controls.Add(this.PlayQMusicList);
             this.playQueueTabPage.Controls.Add(this.playQueueHeaderPanel);
+            this.playQueueTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playQueueTabPage.ImageIndex = 2;
             this.playQueueTabPage.Location = new System.Drawing.Point(214, 4);
             this.playQueueTabPage.Margin = new System.Windows.Forms.Padding(2);
@@ -486,6 +487,7 @@
             this.playlistsTabPage.BackColor = System.Drawing.Color.White;
             this.playlistsTabPage.Controls.Add(this.playlistsPanel);
             this.playlistsTabPage.Controls.Add(this.playlistsHeaderPanel);
+            this.playlistsTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playlistsTabPage.ImageIndex = 1;
             this.playlistsTabPage.Location = new System.Drawing.Point(214, 4);
             this.playlistsTabPage.Margin = new System.Windows.Forms.Padding(2);
@@ -535,6 +537,7 @@
             this.settingsTabPage.BackColor = System.Drawing.Color.White;
             this.settingsTabPage.Controls.Add(this.musicFolderContainer);
             this.settingsTabPage.Controls.Add(this.settingHeaderPanel);
+            this.settingsTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.settingsTabPage.ImageIndex = 3;
             this.settingsTabPage.Location = new System.Drawing.Point(214, 4);
             this.settingsTabPage.Margin = new System.Windows.Forms.Padding(2);
@@ -658,6 +661,7 @@
             this.onlineStoreTabPage.BackColor = System.Drawing.Color.White;
             this.onlineStoreTabPage.Controls.Add(this.onlineStoreBodyPanel);
             this.onlineStoreTabPage.Controls.Add(this.onlineStoreHeaderPanel);
+            this.onlineStoreTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.onlineStoreTabPage.ImageIndex = 5;
             this.onlineStoreTabPage.Location = new System.Drawing.Point(214, 4);
             this.onlineStoreTabPage.Name = "onlineStoreTabPage";

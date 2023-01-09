@@ -26,15 +26,15 @@ namespace MyMediaPlayer
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            if(TextBox.Text == "")
+            if (string.IsNullOrEmpty(TextBox.Text) || string.IsNullOrWhiteSpace(TextBox.Text))
             {
-                MessageBox.Show("Vui lòng nhập tên playlist");
+                ModalBox.Show("Info", "Playlist's name is blank");
             }
             else
             {
                 Result = TextBox.Text;
                 Close();
-            }    
+            }
         }
 
     }

@@ -212,7 +212,7 @@ namespace MyMediaPlayer
                 PlayItem.ChangeLabelColor(Color.Black);
             }
             PlayItem = this;
-            GlobalReferences.MediaController.LoadMedia(URL);
+            GlobalReferences.MediaController.LoadLocalTrack(URL);
         }
 
         private void ChangeLabelColor(Color color)

@@ -152,6 +152,12 @@
     <Compile Include="Source\TrackLyrics\TrackLyrics.Designer.cs">
       <DependentUpon>TrackLyrics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\VideoForm\VideoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\VideoForm\VideoForm.Designer.cs">
+      <DependentUpon>VideoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\ZingMP3IntegrationSearchResultList\ZingMP3IntegrationSearchResultList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\IntegrationSearchBox\IntegrationSearchBox.resx">
       <DependentUpon>IntegrationSearchBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\VideoForm\VideoForm.resx">
+      <DependentUpon>VideoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\ZingMP3IntegrationSearchResultList\ZingMP3IntegrationSearchResultList.resx">
       <DependentUpon>ZingMP3IntegrationSearchResultList.cs</DependentUpon>

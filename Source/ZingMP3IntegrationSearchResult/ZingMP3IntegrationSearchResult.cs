@@ -28,7 +28,7 @@ namespace MyMediaPlayer
 
         private void Panel_Click(object sender, EventArgs e)
         {
-            GlobalReferences.MediaController.LoadStreaming
+            GlobalReferences.MediaController.LoadStreamingTrack
             (EncodeId, Title, ArtistsNames, ImageURL, Duration);
             GlobalReferences.MainForm.BringVisualizeToFront();
         }

@@ -48,5 +48,10 @@ namespace MyMediaPlayer
             Thread.SetApartmentState(ApartmentState.STA);
             Thread.Start();
         }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
