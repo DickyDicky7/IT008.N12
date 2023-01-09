@@ -31,9 +31,8 @@ namespace MyMediaPlayer
         {
             return Task<string>.Factory.StartNew(() =>
             {
-                //try
-                //{
-                    //throw new Exception("@@@####$$$$");
+                try
+                {
                     SearchQueryHistory = Query;
                     Requests["Search"].AddOrUpdateParameter("q", Query);
                     CTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
@@ -47,13 +46,12 @@ namespace MyMediaPlayer
                     , SecretKey));
                     string Result = (Client.Get(Requests["Search"])).Content;
                     return ReturnResult ? Result : null;
-                //}
-                //catch (Exception Error)
-                //{
-                //    throw Error;
-                //    ModalBox.Show("Error", Error.Message);
-                //    return null;
-                //}
+                }
+                catch (Exception Error)
+                {
+                    ModalBox.Show("Error", Error.Message);
+                    return null;
+                }
             });
         }
 

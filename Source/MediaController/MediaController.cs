@@ -233,10 +233,10 @@ namespace MyMediaPlayer
                     });
                 }
             }
-            catch //(Exception Error)
+            catch (Exception Error)
             {
-                //if (Error.HResult != unchecked((int)0x8001010A))
-                //    MessageBox.Show(Error.Message);
+                if (Error.HResult != unchecked((int)0x8001010A)) 
+                    ModalBox.Show("Error", Error.Message);
             }
         }
 
@@ -417,9 +417,14 @@ namespace MyMediaPlayer
                 {
                     return (int)Player.controls.currentPosition;
                 }
-                catch (Exception)
+                catch (Exception Error)
                 {
-                    return -1;
+                    if (Error.HResult != unchecked((int)0x8001010A))
+                    {
+                        MessageBox.Show("Error", Error.Message);
+                        throw Error;
+                    }
+                    else return -1;
                 }
             }
         }

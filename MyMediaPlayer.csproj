@@ -122,8 +122,8 @@
     <Reference Include="TagLibSharp, Version=2.3.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
       <HintPath>packages\TagLibSharp.2.3.0\lib\net462\TagLibSharp.dll</HintPath>
     </Reference>
-    <Reference Include="WinFormAnimation_NET5, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Unofficial.WinFormAnimation-NET.2.0.1\lib\net48\WinFormAnimation_NET5.dll</HintPath>
+    <Reference Include="WinFormAnimation, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Unofficial.WinFormAnimation.2.0.0\lib\net48\WinFormAnimation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

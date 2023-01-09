@@ -15,11 +15,19 @@ namespace MyMediaPlayer
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();
+
             Application.SetCompatibleTextRenderingDefault(false);
 
-            AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
             {
-                ModalBox.Show("Error", e.Exception.Message);
+                if (((Exception)e.ExceptionObject).HResult != unchecked((int)0x8001010A))
+                    ModalBox.Show("Error", ((Exception)e.ExceptionObject).Message);
+            };
+
+            Application.ThreadException += (s, e) =>
+            {
+                if (e.Exception.HResult != unchecked((int)0x8001010A))
+                    ModalBox.Show("Error", e.Exception.Message);
             };
 
             Application.Run(new MainForm(args));

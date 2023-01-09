@@ -4,13 +4,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using WinFormAnimation;
 using System.Threading;
 using PlaylistsNET.Utils;
 using PlaylistsNET.Models;
 using PlaylistsNET.Content;
 using System.Windows.Forms;
 using System.ComponentModel;
-using WinFormAnimation_NET5;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 

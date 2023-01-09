@@ -29,6 +29,8 @@ namespace MyMediaPlayer
             //    this.Refresh();
             //    MessageBox.Show("2");
             //};
+
+
         }
 
         public void LoadIntegrationSearchResults(string JSONResult)
