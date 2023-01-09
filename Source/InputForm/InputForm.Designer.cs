@@ -39,6 +39,9 @@
             // BorderlessForm
             // 
             this.BorderlessForm.ContainerControl = this;
+            this.BorderlessForm.DockIndicatorTransparencyValue = 0.6D;
+            this.BorderlessForm.DragStartTransparencyValue = 0.6D;
+            this.BorderlessForm.TransparentWhileDrag = true;
             // 
             // Title
             // 
@@ -60,19 +63,16 @@
             this.TextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.TextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBox.DisabledState.Parent = this.TextBox;
             this.TextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.FocusedState.FillColor = System.Drawing.Color.LightGray;
             this.TextBox.FocusedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.FocusedState.Parent = this.TextBox;
             this.TextBox.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.TextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.HoverState.FillColor = System.Drawing.Color.LightGray;
             this.TextBox.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.HoverState.Parent = this.TextBox;
             this.TextBox.HoverState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.Location = new System.Drawing.Point(50, 100);
             this.TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -81,7 +81,6 @@
             this.TextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.PlaceholderText = "...";
             this.TextBox.SelectedText = "";
-            this.TextBox.ShadowDecoration.Parent = this.TextBox;
             this.TextBox.Size = new System.Drawing.Size(300, 50);
             this.TextBox.TabIndex = 1;
             this.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -91,13 +90,10 @@
             this.OkButton.Animated = true;
             this.OkButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.OkButton.BorderRadius = 10;
-            this.OkButton.CheckedState.Parent = this.OkButton;
-            this.OkButton.CustomImages.Parent = this.OkButton;
             this.OkButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.OkButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.OkButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.OkButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.OkButton.DisabledState.Parent = this.OkButton;
             this.OkButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.OkButton.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -105,11 +101,9 @@
             this.OkButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.OkButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
             this.OkButton.HoverState.ForeColor = System.Drawing.Color.White;
-            this.OkButton.HoverState.Parent = this.OkButton;
             this.OkButton.Location = new System.Drawing.Point(150, 185);
             this.OkButton.Name = "OkButton";
             this.OkButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.OkButton.ShadowDecoration.Parent = this.OkButton;
             this.OkButton.Size = new System.Drawing.Size(100, 40);
             this.OkButton.TabIndex = 2;
             this.OkButton.Text = "♫ OK ♪";
@@ -125,12 +119,10 @@
             this.ExitControlBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ExitControlBox.HoverState.FillColor = System.Drawing.Color.White;
             this.ExitControlBox.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.ExitControlBox.HoverState.Parent = this.ExitControlBox;
             this.ExitControlBox.IconColor = System.Drawing.Color.LightGray;
             this.ExitControlBox.Location = new System.Drawing.Point(350, 0);
             this.ExitControlBox.Name = "ExitControlBox";
             this.ExitControlBox.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.ExitControlBox.ShadowDecoration.Parent = this.ExitControlBox;
             this.ExitControlBox.Size = new System.Drawing.Size(50, 30);
             this.ExitControlBox.TabIndex = 3;
             // 

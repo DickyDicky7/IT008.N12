@@ -16,6 +16,12 @@ namespace MyMediaPlayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
+            {
+                ModalBox.Show("Error", e.Exception.Message);
+            };
+
             Application.Run(new MainForm(args));
         }
     }

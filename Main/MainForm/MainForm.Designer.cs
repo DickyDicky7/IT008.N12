@@ -115,7 +115,6 @@
             this.mediaControllerFooter.MaximumSize = new System.Drawing.Size(3000, 150);
             this.mediaControllerFooter.Name = "mediaControllerFooter";
             this.mediaControllerFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.mediaControllerFooter.ShadowDecoration.Parent = this.mediaControllerFooter;
             this.mediaControllerFooter.Size = new System.Drawing.Size(1040, 150);
             this.mediaControllerFooter.TabIndex = 0;
             // 
@@ -145,7 +144,6 @@
             this.controlHeader.Location = new System.Drawing.Point(0, 0);
             this.controlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.controlHeader.Name = "controlHeader";
-            this.controlHeader.ShadowDecoration.Parent = this.controlHeader;
             this.controlHeader.Size = new System.Drawing.Size(1040, 31);
             this.controlHeader.TabIndex = 2;
             // 
@@ -157,7 +155,6 @@
             this.nameContainer.Location = new System.Drawing.Point(0, 0);
             this.nameContainer.Margin = new System.Windows.Forms.Padding(2);
             this.nameContainer.Name = "nameContainer";
-            this.nameContainer.ShadowDecoration.Parent = this.nameContainer;
             this.nameContainer.Size = new System.Drawing.Size(158, 31);
             this.nameContainer.TabIndex = 3;
             // 
@@ -171,13 +168,11 @@
             this.minimizeControlBox.FillColor = System.Drawing.Color.Transparent;
             this.minimizeControlBox.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.minimizeControlBox.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(0)))));
-            this.minimizeControlBox.HoverState.Parent = this.minimizeControlBox;
             this.minimizeControlBox.IconColor = System.Drawing.Color.LightGray;
             this.minimizeControlBox.Location = new System.Drawing.Point(905, 0);
             this.minimizeControlBox.Margin = new System.Windows.Forms.Padding(2);
             this.minimizeControlBox.Name = "minimizeControlBox";
             this.minimizeControlBox.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(0)))));
-            this.minimizeControlBox.ShadowDecoration.Parent = this.minimizeControlBox;
             this.minimizeControlBox.Size = new System.Drawing.Size(45, 31);
             this.minimizeControlBox.TabIndex = 2;
             // 
@@ -190,13 +185,11 @@
             this.exitControlBox.FillColor = System.Drawing.Color.Transparent;
             this.exitControlBox.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.exitControlBox.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.exitControlBox.HoverState.Parent = this.exitControlBox;
             this.exitControlBox.IconColor = System.Drawing.Color.LightGray;
             this.exitControlBox.Location = new System.Drawing.Point(995, 0);
             this.exitControlBox.Margin = new System.Windows.Forms.Padding(2);
             this.exitControlBox.Name = "exitControlBox";
             this.exitControlBox.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.exitControlBox.ShadowDecoration.Parent = this.exitControlBox;
             this.exitControlBox.Size = new System.Drawing.Size(45, 31);
             this.exitControlBox.TabIndex = 0;
             // 
@@ -210,13 +203,11 @@
             this.maximizeControlBox.FillColor = System.Drawing.Color.Transparent;
             this.maximizeControlBox.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.maximizeControlBox.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(160)))), ((int)(((byte)(164)))));
-            this.maximizeControlBox.HoverState.Parent = this.maximizeControlBox;
             this.maximizeControlBox.IconColor = System.Drawing.Color.LightGray;
             this.maximizeControlBox.Location = new System.Drawing.Point(950, 0);
             this.maximizeControlBox.Margin = new System.Windows.Forms.Padding(2);
             this.maximizeControlBox.Name = "maximizeControlBox";
             this.maximizeControlBox.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(160)))), ((int)(((byte)(164)))));
-            this.maximizeControlBox.ShadowDecoration.Parent = this.maximizeControlBox;
             this.maximizeControlBox.Size = new System.Drawing.Size(45, 31);
             this.maximizeControlBox.TabIndex = 1;
             // 
@@ -301,7 +292,6 @@
             this.musicHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.musicHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.musicHeaderPanel.Name = "musicHeaderPanel";
-            this.musicHeaderPanel.ShadowDecoration.Parent = this.musicHeaderPanel;
             this.musicHeaderPanel.Size = new System.Drawing.Size(822, 125);
             this.musicHeaderPanel.TabIndex = 1;
             // 
@@ -312,19 +302,15 @@
             this.shuffleAndPlayBtn.BorderColor = System.Drawing.Color.Transparent;
             this.shuffleAndPlayBtn.BorderRadius = 5;
             this.shuffleAndPlayBtn.BorderThickness = 1;
-            this.shuffleAndPlayBtn.CheckedState.Parent = this.shuffleAndPlayBtn;
-            this.shuffleAndPlayBtn.CustomImages.Parent = this.shuffleAndPlayBtn;
             this.shuffleAndPlayBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.shuffleAndPlayBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.shuffleAndPlayBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.shuffleAndPlayBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.shuffleAndPlayBtn.DisabledState.Parent = this.shuffleAndPlayBtn;
             this.shuffleAndPlayBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.shuffleAndPlayBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
             this.shuffleAndPlayBtn.ForeColor = System.Drawing.Color.White;
             this.shuffleAndPlayBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.shuffleAndPlayBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.shuffleAndPlayBtn.HoverState.Parent = this.shuffleAndPlayBtn;
             this.shuffleAndPlayBtn.Image = ((System.Drawing.Image)(resources.GetObject("shuffleAndPlayBtn.Image")));
             this.shuffleAndPlayBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.shuffleAndPlayBtn.Location = new System.Drawing.Point(32, 63);
@@ -332,7 +318,6 @@
             this.shuffleAndPlayBtn.MinimumSize = new System.Drawing.Size(0, 37);
             this.shuffleAndPlayBtn.Name = "shuffleAndPlayBtn";
             this.shuffleAndPlayBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.shuffleAndPlayBtn.ShadowDecoration.Parent = this.shuffleAndPlayBtn;
             this.shuffleAndPlayBtn.Size = new System.Drawing.Size(138, 37);
             this.shuffleAndPlayBtn.TabIndex = 3;
             this.shuffleAndPlayBtn.Text = "Shuffle And Play";
@@ -346,19 +331,15 @@
             this.sortBtn.BorderColor = System.Drawing.Color.Transparent;
             this.sortBtn.BorderRadius = 5;
             this.sortBtn.BorderThickness = 1;
-            this.sortBtn.CheckedState.Parent = this.sortBtn;
-            this.sortBtn.CustomImages.Parent = this.sortBtn;
             this.sortBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.sortBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.sortBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.sortBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.sortBtn.DisabledState.Parent = this.sortBtn;
             this.sortBtn.FillColor = System.Drawing.Color.Transparent;
             this.sortBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
             this.sortBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.sortBtn.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.sortBtn.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.sortBtn.HoverState.Parent = this.sortBtn;
             this.sortBtn.Image = global::MyMediaPlayer.Properties.Resources.down;
             this.sortBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.sortBtn.ImageSize = new System.Drawing.Size(15, 15);
@@ -367,7 +348,6 @@
             this.sortBtn.MinimumSize = new System.Drawing.Size(0, 37);
             this.sortBtn.Name = "sortBtn";
             this.sortBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.sortBtn.ShadowDecoration.Parent = this.sortBtn;
             this.sortBtn.Size = new System.Drawing.Size(101, 37);
             this.sortBtn.TabIndex = 2;
             this.sortBtn.Text = "Sort By: A-Z";
@@ -382,25 +362,20 @@
             this.addFolder.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addFolder.BorderRadius = 5;
             this.addFolder.BorderThickness = 1;
-            this.addFolder.CheckedState.Parent = this.addFolder;
-            this.addFolder.CustomImages.Parent = this.addFolder;
             this.addFolder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addFolder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addFolder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.addFolder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addFolder.DisabledState.Parent = this.addFolder;
             this.addFolder.FillColor = System.Drawing.Color.Transparent;
             this.addFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.addFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addFolder.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addFolder.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.addFolder.HoverState.Parent = this.addFolder;
             this.addFolder.Image = ((System.Drawing.Image)(resources.GetObject("addFolder.Image")));
             this.addFolder.Location = new System.Drawing.Point(690, 18);
             this.addFolder.Margin = new System.Windows.Forms.Padding(2);
             this.addFolder.Name = "addFolder";
             this.addFolder.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.addFolder.ShadowDecoration.Parent = this.addFolder;
             this.addFolder.Size = new System.Drawing.Size(105, 37);
             this.addFolder.TabIndex = 1;
             this.addFolder.Text = "Add Folder";
@@ -464,7 +439,6 @@
             this.playQueueHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.playQueueHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.playQueueHeaderPanel.Name = "playQueueHeaderPanel";
-            this.playQueueHeaderPanel.ShadowDecoration.Parent = this.playQueueHeaderPanel;
             this.playQueueHeaderPanel.Size = new System.Drawing.Size(822, 125);
             this.playQueueHeaderPanel.TabIndex = 3;
             // 
@@ -475,26 +449,21 @@
             this.playQueueClearButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playQueueClearButton.BorderRadius = 5;
             this.playQueueClearButton.BorderThickness = 1;
-            this.playQueueClearButton.CheckedState.Parent = this.playQueueClearButton;
-            this.playQueueClearButton.CustomImages.Parent = this.playQueueClearButton;
             this.playQueueClearButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.playQueueClearButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.playQueueClearButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.playQueueClearButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.playQueueClearButton.DisabledState.Parent = this.playQueueClearButton;
             this.playQueueClearButton.FillColor = System.Drawing.Color.Transparent;
             this.playQueueClearButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
             this.playQueueClearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playQueueClearButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playQueueClearButton.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.playQueueClearButton.HoverState.Parent = this.playQueueClearButton;
             this.playQueueClearButton.Image = global::MyMediaPlayer.Properties.Resources.trash_can;
             this.playQueueClearButton.ImageSize = new System.Drawing.Size(25, 25);
             this.playQueueClearButton.Location = new System.Drawing.Point(32, 71);
             this.playQueueClearButton.Margin = new System.Windows.Forms.Padding(2);
             this.playQueueClearButton.Name = "playQueueClearButton";
             this.playQueueClearButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.playQueueClearButton.ShadowDecoration.Parent = this.playQueueClearButton;
             this.playQueueClearButton.Size = new System.Drawing.Size(70, 35);
             this.playQueueClearButton.TabIndex = 2;
             this.playQueueClearButton.Text = "Clear";
@@ -546,7 +515,6 @@
             this.playlistsHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.playlistsHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.playlistsHeaderPanel.Name = "playlistsHeaderPanel";
-            this.playlistsHeaderPanel.ShadowDecoration.Parent = this.playlistsHeaderPanel;
             this.playlistsHeaderPanel.Size = new System.Drawing.Size(822, 63);
             this.playlistsHeaderPanel.TabIndex = 4;
             // 
@@ -589,7 +557,6 @@
             this.musicFolderContainer.Location = new System.Drawing.Point(34, 123);
             this.musicFolderContainer.Name = "musicFolderContainer";
             this.musicFolderContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.musicFolderContainer.ShadowDecoration.Parent = this.musicFolderContainer;
             this.musicFolderContainer.Size = new System.Drawing.Size(738, 182);
             this.musicFolderContainer.TabIndex = 6;
             // 
@@ -610,13 +577,10 @@
             this.addMusicFolderSTBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addMusicFolderSTBtn.BorderRadius = 5;
             this.addMusicFolderSTBtn.BorderThickness = 1;
-            this.addMusicFolderSTBtn.CheckedState.Parent = this.addMusicFolderSTBtn;
-            this.addMusicFolderSTBtn.CustomImages.Parent = this.addMusicFolderSTBtn;
             this.addMusicFolderSTBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addMusicFolderSTBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addMusicFolderSTBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.addMusicFolderSTBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addMusicFolderSTBtn.DisabledState.Parent = this.addMusicFolderSTBtn;
             this.addMusicFolderSTBtn.FillColor = System.Drawing.Color.White;
             this.addMusicFolderSTBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.addMusicFolderSTBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
@@ -624,13 +588,11 @@
             this.addMusicFolderSTBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addMusicFolderSTBtn.HoverState.FillColor = System.Drawing.Color.White;
             this.addMusicFolderSTBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.addMusicFolderSTBtn.HoverState.Parent = this.addMusicFolderSTBtn;
             this.addMusicFolderSTBtn.Image = ((System.Drawing.Image)(resources.GetObject("addMusicFolderSTBtn.Image")));
             this.addMusicFolderSTBtn.Location = new System.Drawing.Point(627, 12);
             this.addMusicFolderSTBtn.Margin = new System.Windows.Forms.Padding(2);
             this.addMusicFolderSTBtn.Name = "addMusicFolderSTBtn";
             this.addMusicFolderSTBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.addMusicFolderSTBtn.ShadowDecoration.Parent = this.addMusicFolderSTBtn;
             this.addMusicFolderSTBtn.Size = new System.Drawing.Size(98, 32);
             this.addMusicFolderSTBtn.TabIndex = 8;
             this.addMusicFolderSTBtn.Text = "Add Folder";
@@ -654,7 +616,6 @@
             this.settingsIconPictureBox.Location = new System.Drawing.Point(11, 12);
             this.settingsIconPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.settingsIconPictureBox.Name = "settingsIconPictureBox";
-            this.settingsIconPictureBox.ShadowDecoration.Parent = this.settingsIconPictureBox;
             this.settingsIconPictureBox.Size = new System.Drawing.Size(24, 26);
             this.settingsIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.settingsIconPictureBox.TabIndex = 6;
@@ -667,7 +628,6 @@
             this.settingHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingHeaderPanel.Location = new System.Drawing.Point(34, 0);
             this.settingHeaderPanel.Name = "settingHeaderPanel";
-            this.settingHeaderPanel.ShadowDecoration.Parent = this.settingHeaderPanel;
             this.settingHeaderPanel.Size = new System.Drawing.Size(738, 123);
             this.settingHeaderPanel.TabIndex = 4;
             // 
@@ -713,7 +673,6 @@
             this.onlineStoreBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onlineStoreBodyPanel.Location = new System.Drawing.Point(3, 66);
             this.onlineStoreBodyPanel.Name = "onlineStoreBodyPanel";
-            this.onlineStoreBodyPanel.ShadowDecoration.Parent = this.onlineStoreBodyPanel;
             this.onlineStoreBodyPanel.Size = new System.Drawing.Size(816, 382);
             this.onlineStoreBodyPanel.TabIndex = 6;
             // 
@@ -750,7 +709,6 @@
             this.onlineStoreHeaderPanel.Location = new System.Drawing.Point(3, 3);
             this.onlineStoreHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.onlineStoreHeaderPanel.Name = "onlineStoreHeaderPanel";
-            this.onlineStoreHeaderPanel.ShadowDecoration.Parent = this.onlineStoreHeaderPanel;
             this.onlineStoreHeaderPanel.Size = new System.Drawing.Size(816, 63);
             this.onlineStoreHeaderPanel.TabIndex = 5;
             // 
@@ -779,14 +737,18 @@
             // 
             // dragControl
             // 
+            this.dragControl.DockIndicatorTransparencyValue = 0.6D;
             this.dragControl.TargetControl = this.controlHeader;
+            this.dragControl.UseTransparentDrag = true;
             // 
             // borderlessForm
             // 
             this.borderlessForm.AnimateWindow = true;
             this.borderlessForm.AnimationType = Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm.AnimateWindowType.AW_HOR_POSITIVE;
             this.borderlessForm.ContainerControl = this;
-            this.borderlessForm.DockIndicatorColor = System.Drawing.SystemColors.Window;
+            this.borderlessForm.DockIndicatorTransparencyValue = 0.6D;
+            this.borderlessForm.DragStartTransparencyValue = 0.6D;
+            this.borderlessForm.TransparentWhileDrag = true;
             // 
             // sortByMenu
             // 
@@ -850,7 +812,6 @@
             this.tabControlBorder.Location = new System.Drawing.Point(0, 0);
             this.tabControlBorder.Margin = new System.Windows.Forms.Padding(2);
             this.tabControlBorder.Name = "tabControlBorder";
-            this.tabControlBorder.ShadowDecoration.Parent = this.tabControlBorder;
             this.tabControlBorder.Size = new System.Drawing.Size(0, 0);
             this.tabControlBorder.TabIndex = 4;
             // 
@@ -868,22 +829,17 @@
             // 
             // exitButton
             // 
-            this.exitButton.CheckedState.Parent = this.exitButton;
-            this.exitButton.CustomImages.Parent = this.exitButton;
             this.exitButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.exitButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.exitButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.exitButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.exitButton.DisabledState.Parent = this.exitButton;
             this.exitButton.FillColor = System.Drawing.Color.Transparent;
             this.exitButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.HoverState.Parent = this.exitButton;
             this.exitButton.Image = global::MyMediaPlayer.Properties.Resources.close;
             this.exitButton.Location = new System.Drawing.Point(0, 0);
             this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.ShadowDecoration.Parent = this.exitButton;
             this.exitButton.Size = new System.Drawing.Size(39, 37);
             this.exitButton.TabIndex = 2;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
