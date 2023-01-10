@@ -1,8 +1,5 @@
-﻿using WMPLib;
-using System;
+﻿using System;
 using System.IO;
-using System.Net;
-using NAudio.Wave;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -22,14 +19,16 @@ namespace MyMediaPlayer
         {
             InitializeComponent();
 
+            //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+
+            //Timer.Interval = 100;
+            //Timer.Tick += new EventHandler(UpdateMediaController);
             Watcher.Interval = TimeSpan.FromMilliseconds(100);
             Watcher.Action = UpdateMediaController;
 
             TrackBar.Value = 0;
-            VolumeMeter.Minimum = 0;
-            VolumeMeter.Maximum = 100;
-            VolumeMeter.Value = 50;
-            OutputDevice.Volume = (float)VolumeMeter.Value / (float)100;
+
+            Player.settings.volume = VolumeMeter.Value;
 
             TimeStamp.Hide();
             TimeStamp.BackColor = Common.White;
@@ -37,85 +36,103 @@ namespace MyMediaPlayer
 
             Load += new EventHandler(MediaController_Load);
 
-            OutputDevice.PlaybackStopped += (sender, e) =>
-            {
-                if (OutputDevice.PlaybackState == PlaybackState.Stopped)
-                {
-                    CurrentMusicList?.PlayNext();
-                }
-            };
+            #region Testing
 
-            MediaTitle.Text = string.Empty;
-            DurationLabel.Text = "00 : 00";
+            //Common.SetTimeout(() =>
+            //{
+            //    Watcher.Stop();
+            //}, TimeSpan.FromSeconds(20));
+
+            Timer timer = new Timer();
+            timer.Interval = 1;
+            timer.Tick += (sender, e) =>
+            {
+                if (Player.playState == WMPLib.WMPPlayState.wmppsStopped)
+                {
+                    if (CurrentMusicList != null)
+                        CurrentMusicList.PlayNext();
+                }
+
+                #region Testing
+
+                if (Player.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
+                {
+                    ModalBox.Show("Info", "Media Ended");
+                }
+
+                #endregion
+            };
+            timer.Start();
+
+            //Watcher watcher = new Watcher();
+            //watcher.Interval = TimeSpan.FromMilliseconds(100);
+            //watcher.Action = () =>
+            //{
+            //    if (Player.playState == WMPLib.WMPPlayState.wmppsStopped)
+            //    {
+            //        if (CurrentMusicList != null)
+            //            CurrentMusicList.PlayNext();
+            //    }
+            //};
+            //watcher.Start();
+
+            //Common.SetTimeout(() =>
+            //{
+            //    Watcher.Action = UpdateMediaController;
+            //    Watcher.Start();
+            //}, TimeSpan.FromSeconds(30));
+
+            #endregion
         }
 
         private void MediaController_Load(object sender, EventArgs e)
         {
+            //Timer.Start();
             Watcher.Start();
         }
 
-        private void PlayLocalTrack(string MediaURL)
+        private void PlayMedia()
         {
-            LocalAudioFile?.Dispose();
-            LocalAudioFile = null;
-            LocalAudioFile = new AudioFileReader(MediaURL);
-            OutputDevice.Stop();
-            OutputDevice.Init(LocalAudioFile);
-            OutputDevice.Play();
+            Player.controls.play();
         }
 
-        private void ResumeTrack()
+        private void PauseMedia()
         {
-            OutputDevice.Play();
+            Player.controls.pause();
         }
 
-        private void PauseTrack()
+        public void LoadLocalTrack(string URL)
         {
-            OutputDevice.Pause();
-        }
+            Player.currentMedia = Player.newMedia(URL);
 
-        private void RewindTrack()
-        {
-            if (IsStreaming && StreamingAudioFile != null)
-            {
-                StreamingAudioFile.Position = 0;
-                OutputDevice.Play();
-            }
-            else
-            if (LocalAudioFile != null)
-            {
-                LocalAudioFile.Position = 0;
-                OutputDevice.Play();
-            }
-        }
-
-        public void LoadLocalTrack(string TrackURL)
-        {
-            CurrentMediaControllerMode = MediaControllerMode.Audio;
-            IsStreaming = false;
-            PlayLocalTrack(TrackURL);
             TrackBar.Value = 0;
             TrackBar.Minimum = 0;
-            TrackBar.Maximum = (int)LocalAudioFile.TotalTime.TotalSeconds;
-            MediaTitle.Text = Common.GetTitle(TrackURL);
+            TrackBar.Maximum = Common.GetDurationInSeconds(URL);
+            MediaTitle.Text = Common.GetTitle(URL);
+
             BtnPlay.Image = Properties.Resources.pause;
-            GlobalReferences.TrackLyrics.GetLyrics(TrackURL);
-            OnLoadMedia(new MediaControllerArgs() { URL = TrackURL });
+
+            GlobalReferences.TrackLyrics.GetLyrics(URL);
+
+            OnLoadMedia(new MediaControllerArgs() { URL = URL }); // Đừng xóa dòng này
         }
 
         public async void LoadStreamingTrack
         (string EncodeId, string Title, string ArtistsNames, string ImageURL, int Duration)
         {
-            CurrentMediaControllerMode = MediaControllerMode.Audio;
-            IsStreaming = true;
-            PlayStreamingTrack(EncodeId);
+            Player.currentMedia = Player.newMedia
+            (GlobalReferences.OnlineStoreIntegration.GetBetterStreamingURL(EncodeId));
+
             TrackBar.Value = 0;
             TrackBar.Minimum = 0;
             TrackBar.Maximum = Duration;
             MediaTitle.Text = $"{ArtistsNames} - {Title}";
+
             BtnPlay.Image = Properties.Resources.pause;
+
             GlobalReferences.TrackLyrics.ParseStreamingLyrics
             (await GlobalReferences.OnlineStoreIntegration.GetLyrics(EncodeId, true));
+
             OnLoadMedia(new MediaControllerArgs()
             {
                 EncodeId = EncodeId,
@@ -123,161 +140,158 @@ namespace MyMediaPlayer
                 ArtistsNames = ArtistsNames,
                 ImageURL = ImageURL,
                 Duration = Duration
-            });
+            }); // Đừng xóa dòng này
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
-            if (LocalAudioFile != null || StreamingAudioFile != null)
+            if (Player.currentMedia != null)
             {
-                if (OutputDevice.PlaybackState == PlaybackState.Playing)
+                //MessageBox.Show(Player.currentMedia.sourceURL, "Media");
+
+                if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     BtnPlay.Image = Properties.Resources.black_play;
                     BtnPlay.ImageSize = new Size(40, 40);
-                    PauseTrack();
+                    PauseMedia();
                 }
                 else
-                if (OutputDevice.PlaybackState == PlaybackState.Paused)
+                if (Player.playState == WMPLib.WMPPlayState.wmppsPaused)
                 {
                     BtnPlay.Image = Properties.Resources.pause;
                     BtnPlay.ImageSize = new Size(40, 40);
-                    ResumeTrack();
+                    PlayMedia();
+                }
+                else
+                if (Player.controls.currentPosition == 0)
+                {
+                    ModalBox.Show("Info", "Media Ended");
+                    //BtnPlay.Text = "PLAY";
+                    BtnPlay.Image = Properties.Resources.black_play;
                 }
             }
             else
             {
+                //BtnPlay.Text = "PLAY";
                 ModalBox.Show("Error", "Media Not Found");
             }
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            CurrentMusicList?.PlayNext();
+            if (CurrentMusicList != null)
+                CurrentMusicList.PlayNext();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            CurrentMusicList?.PlayBack();
+            if (CurrentMusicList != null)
+                CurrentMusicList.PlayBack();
         }
 
         private void UpdateMediaController()
         {
-            if (StreamingAudioFile != null || LocalAudioFile != null)
+            try
             {
-                if (IsHandleCreated)
+                //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+
+                if (Player.controls.currentPosition < TrackBar.Minimum
+                 || Player.controls.currentPosition > TrackBar.Maximum)
                 {
-                    TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                    if (IsHandleCreated)
                     {
-                        TrackBar.Value = IsStreaming
-                        ? (int)StreamingAudioFile.CurrentTime.TotalSeconds
-                        : (int)LocalAudioFile.CurrentTime.TotalSeconds;
-                    });
+                        //TrackBar.Value = 0;
+                        TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            TrackBar.Value = 0;
+                        });
+                    }
+                }
+                else
+                {
+                    if (IsHandleCreated)
+                    {
+                        //TrackBar.Value = (int)Player.controls.currentPosition;
+                        TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            TrackBar.Value = (int)Player.controls.currentPosition;
+                        });
+                    }
                 }
 
-                TimeSpan timeSpan = TimeSpan.FromSeconds(IsStreaming && StreamingAudioFile != null
-                ? StreamingAudioFile.CurrentTime.TotalSeconds : LocalAudioFile != null
-                ? LocalAudioFile.CurrentTime.TotalSeconds : 0);
+                TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
                 int Minutes = (int)(timeSpan.TotalSeconds / 60);
                 int Seconds = (int)(timeSpan.TotalSeconds % 60);
                 string currentMediaTime =
                 (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
                 + " : " +
                 (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
+                //DurationLabel.Text = currentMediaTime;
                 if (IsHandleCreated)
                 {
                     DurationLabel.BeginInvoke((MethodInvoker)delegate ()
                     {
+
+                        //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+
                         DurationLabel.Text = currentMediaTime;
                     });
                 }
+            }
+            catch (Exception Error)
+            {
+                if (Error.HResult != unchecked((int)0x8001010A))
+                    ModalBox.Show("Error", Error.Message);
             }
         }
 
         private void BtnNext10s_Click(object sender, EventArgs e)
         {
-            if (CurrentMediaControllerMode is MediaControllerMode.Audio)
+            if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                if (OutputDevice.PlaybackState == PlaybackState.Playing
-                 || OutputDevice.PlaybackState == PlaybackState.Paused)
-                {
-                    if (IsStreaming && StreamingAudioFile != null)
-                        StreamingAudioFile.CurrentTime =
-                        StreamingAudioFile.CurrentTime.Add(TimeSpan.FromSeconds(10));
-                    else
-                    if (LocalAudioFile != null)
-                        LocalAudioFile.CurrentTime =
-                        LocalAudioFile.CurrentTime.Add(TimeSpan.FromSeconds(10));
-                }
-            }
-            else
-            if (CurrentMediaControllerMode is MediaControllerMode.Video)
-            {
-                VideoForm.VideoCurrentPosition += 10;
+                Player.controls.currentPosition += 10;
             }
         }
 
         private void BtnBack10s_Click(object sender, EventArgs e)
         {
-            if (OutputDevice.PlaybackState == PlaybackState.Playing
-             || OutputDevice.PlaybackState == PlaybackState.Paused)
+            if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                if (IsStreaming && StreamingAudioFile != null)
-                    StreamingAudioFile.CurrentTime =
-                    StreamingAudioFile.CurrentTime.Subtract(TimeSpan.FromSeconds(10));
-                else
-                if (LocalAudioFile != null)
-                    LocalAudioFile.CurrentTime =
-                    LocalAudioFile.CurrentTime.Subtract(TimeSpan.FromSeconds(10));
+                Player.controls.currentPosition -= 10;
             }
         }
 
         private void TrackBar_Scroll(object sender, ScrollEventArgs e)
         {
-            if (OutputDevice.PlaybackState == PlaybackState.Playing
-             || OutputDevice.PlaybackState == PlaybackState.Paused)
-            {
-                if (IsStreaming && StreamingAudioFile != null)
-                    StreamingAudioFile.CurrentTime = TimeSpan.FromSeconds(TrackBar.Value);
-                else
-                if (LocalAudioFile != null)
-                    LocalAudioFile.CurrentTime = TimeSpan.FromSeconds(TrackBar.Value);
-            }
+            if (Player.currentMedia != null)
+                Player.controls.currentPosition = TrackBar.Value;
         }
 
         private void VolumeMeter_Scroll(object sender, ScrollEventArgs e)
         {
-            OutputDevice.Volume = (float)VolumeMeter.Value / (float)100;
+            Player.settings.volume = VolumeMeter.Value;
         }
 
         private void VolumeMeter_ValueChanged(object sender, EventArgs e)
         {
-            OutputDevice.Volume = (float)VolumeMeter.Value / (float)100;
+            Player.settings.volume = VolumeMeter.Value;
         }
 
         private void TrackBar_MouseMove(object sender, MouseEventArgs e)
         {
-            Task.Factory.StartNew(() =>
-            {
-                float Time = (float)TrackBar.Maximum / (float)TrackBar.Size.Width;
-                TimeSpan timeSpan =
-                TimeSpan.FromSeconds(Time * (e.X - (TimeStamp.Size.Width / 2)) + 7);
-                int Minutes = (int)(timeSpan.TotalSeconds / 60);
-                int Seconds = (int)(timeSpan.TotalSeconds % 60);
-                string currentTimeStamp =
-                (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
-                + " : " +
-                (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
+            float Time = (float)TrackBar.Maximum / (float)TrackBar.Size.Width;
+            TimeSpan timeSpan =
+            TimeSpan.FromSeconds(Time * (e.X - (TimeStamp.Size.Width / 2)) + 7);
+            int Minutes = (int)(timeSpan.TotalSeconds / 60);
+            int Seconds = (int)(timeSpan.TotalSeconds % 60);
+            string currentTimeStamp =
+            (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
+            + " : " +
+            (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
 
-                if (IsHandleCreated)
-                {
-                    TimeStamp.BeginInvoke((MethodInvoker)delegate ()
-                    {
-                        TimeStamp.Location = new Point
-                        (e.X - (TimeStamp.Size.Width / 2), 0);
-                        TimeStamp.Text = currentTimeStamp;
-                    });
-                }
-            });
+            TimeStamp.Location = new Point
+            (e.X - (TimeStamp.Size.Width / 2), 0);
+            TimeStamp.Text = currentTimeStamp;
         }
 
         private void TrackBar_MouseHover(object sender, EventArgs e)
@@ -301,22 +315,14 @@ namespace MyMediaPlayer
 
         public void Stop()
         {
+            //Timer.Stop();
             Watcher.Stop();
-
-            OutputDevice.Stop();
-            OutputDevice.Dispose();
-
-            LocalAudioFile?.Dispose();
-            LocalAudioFile = null;
-
-            StreamingAudioFile?.Dispose();
-            StreamingAudioFile = null;
-
-            PlaylistsController.close();
         }
 
         public void LoadMusicList(MusicList musicList, bool shuffleMode = false)
         {
+
+            //MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
             if (CurrentMusicList != null && CurrentMusicList != musicList)
                 CurrentMusicList.Stop();
             CurrentMusicList = musicList;
@@ -330,7 +336,7 @@ namespace MyMediaPlayer
 
         public static void CreatePlaylist(string PlaylistName)
         {
-            PlaylistsController.playlistCollection.newPlaylist(PlaylistName);
+            Player.playlistCollection.newPlaylist(PlaylistName);
         }
 
         public static void AddToPlaylist(string PlaylistName, string TrackURL)
@@ -347,7 +353,6 @@ namespace MyMediaPlayer
                 string NewContent = Content.ToText(Playlist);
 
                 Stream.Dispose();
-                Stream = null;
 
                 File.WriteAllText
                 ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
@@ -376,7 +381,6 @@ namespace MyMediaPlayer
                 string NewContent = Content.ToText(Playlist);
 
                 Stream.Dispose();
-                Stream = null;
 
                 File.WriteAllText
                 ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
@@ -386,17 +390,14 @@ namespace MyMediaPlayer
             }
         }
 
-        private bool IsStreaming = false;
-        private AudioFileReader LocalAudioFile;
-        private Mp3FileReader StreamingAudioFile;
-        private readonly Watcher Watcher = new Watcher();
-        private readonly VideoForm VideoForm = new VideoForm();
-        private readonly WaveOutEvent OutputDevice = new WaveOutEvent();
-        private MediaControllerMode CurrentMediaControllerMode = MediaControllerMode.Audio;
-        private readonly static WindowsMediaPlayer PlaylistsController = new WindowsMediaPlayer();
+        private static readonly WMPLib.WindowsMediaPlayer Player
+                          = new WMPLib.WindowsMediaPlayer();
+
+        //private static readonly Timer Timer = new Timer();
+        private static readonly Watcher Watcher = new Watcher();
 
         /// <summary>
-        /// Handle the user's custom event when MediaController use LoadLocalTrack or LoadStreamingTrack
+        /// Handle the user's custom event when MediaController use LoadMedia or LoadStreaming
         /// </summary>
         /// <param name="MediaControllerArgs">Consist of URL; EncodeId; Title; ArtistsNames; ImageURL; Duration</param>
         public delegate void OnLoadMediaHandler(MediaControllerArgs MediaControllerArgs);
@@ -415,61 +416,22 @@ namespace MyMediaPlayer
 
         public int TrackCurrentTimeInSeconds
         {
-            get => IsStreaming && StreamingAudioFile != null ?
-            (int)StreamingAudioFile.CurrentTime.TotalSeconds :
-            LocalAudioFile != null ? (int)LocalAudioFile.CurrentTime.TotalSeconds : -1;
-        }
-
-        public void LoadLocalVideo(string VideoURL)
-        {
-            CurrentMediaControllerMode = MediaControllerMode.Video;
-            VideoForm.Show();
-            VideoForm.LoadVideo(VideoURL);
-            MediaTitle.Text = VideoForm.VideoTitle;
-        }
-
-        public void PlayStreamingTrack(string EncodeId)
-        {
-            Task.Factory.StartNew(() =>
+            get
             {
-                using (Stream LocalStream = new MemoryStream())
+                try
                 {
-                    using (Stream OnlineStream = WebRequest.Create
-                    (GlobalReferences.OnlineStoreIntegration.GetBetterStreamingURL
-                    (EncodeId)).GetResponse().GetResponseStream())
-                    {
-                        byte[] Buffer = new byte[32768]; int NumberOfBytesReaded;
-                        while
-                        ((NumberOfBytesReaded = OnlineStream.Read(Buffer, 0, Buffer.Length)) > 0)
-                        {
-                            LocalStream.Write(Buffer, 0, NumberOfBytesReaded);
-                        }
-                    }
-
-                    LocalStream.Position = 0;
-                    StreamingAudioFile?.Dispose();
-                    StreamingAudioFile = null;
-                    StreamingAudioFile = new Mp3FileReader(LocalStream);
-                    using (WaveStream BlockAlignReductionStream = new BlockAlignReductionStream
-                    (WaveFormatConversionStream.CreatePcmStream(StreamingAudioFile)))
-                    {
-                        OutputDevice.Stop();
-                        OutputDevice.Init(BlockAlignReductionStream);
-                        OutputDevice.Play();
-                        while (OutputDevice.PlaybackState == PlaybackState.Playing
-                            || OutputDevice.PlaybackState == PlaybackState.Paused)
-                        {
-                            System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(100));
-                        }
-                    }
+                    return (int)Player.controls.currentPosition;
                 }
-            });
-        }
-
-        public enum MediaControllerMode
-        {
-            Audio,
-            Video,
+                catch (Exception Error)
+                {
+                    if (Error.HResult != unchecked((int)0x8001010A))
+                    {
+                        MessageBox.Show("Error", Error.Message);
+                        throw Error;
+                    }
+                    else return -1;
+                }
+            }
         }
     }
 

@@ -21,7 +21,8 @@ namespace MyMediaPlayer
             Application.ThreadException += (sender, e) =>
             {
                 if (e.Exception.HResult != unchecked((int)0x8001010A))
-                    ModalBox.Show("Error", e.Exception.Message);
+                    ModalBox.Show("Error", $@"{e.Exception.Message},
+                    {e.Exception.StackTrace}");
             };
 
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.Automatic);
@@ -29,7 +30,8 @@ namespace MyMediaPlayer
             AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
             {
                 if (((Exception)e.ExceptionObject).HResult != unchecked((int)0x8001010A))
-                    ModalBox.Show("Error", ((Exception)e.ExceptionObject).Message);
+                    ModalBox.Show("Error", @$"{((Exception)e.ExceptionObject).Message}
+                    , {((Exception)e.ExceptionObject).StackTrace}");
             };
 
             AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>

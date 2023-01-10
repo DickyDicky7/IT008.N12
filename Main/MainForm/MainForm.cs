@@ -53,7 +53,10 @@ namespace MyMediaPlayer
 
             #endregion
 
-            //GlobalReferences.MediaController.LoadLocalVideo("C:\\Users\\User\\Videos\\vid.avi");
+            musicLabel.Click += (s, e) =>
+            {
+                //GlobalReferences.MediaController.LoadLocalVideo("C:\\Users\\User\\Videos\\IT005.N11.2-Lab06_21520147.mp4");
+            };
         }
 
         private Action<object, EventArgs> MainForm_Load(string[] args)
