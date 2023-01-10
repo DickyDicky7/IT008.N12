@@ -52,6 +52,8 @@ namespace MyMediaPlayer
             trackVisualizer.InteractMediaController(mediaController);
 
             #endregion
+
+            //GlobalReferences.MediaController.LoadLocalVideo("C:\\Users\\User\\Videos\\vid.avi");
         }
 
         private Action<object, EventArgs> MainForm_Load(string[] args)
@@ -71,6 +73,7 @@ namespace MyMediaPlayer
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             trackVisualizer.Stop();
+            mediaController.Stop();
         }
 
         #region Initialize

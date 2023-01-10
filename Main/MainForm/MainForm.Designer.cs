@@ -742,6 +742,7 @@
             // dragControl
             // 
             this.dragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.dragControl.DragStartTransparencyValue = 0.6D;
             this.dragControl.TargetControl = this.controlHeader;
             this.dragControl.UseTransparentDrag = true;
             // 
@@ -884,6 +885,7 @@
             this.Controls.Add(this.controlHeader);
             this.Controls.Add(this.mediaControllerFooter);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(600, 528);
             this.Name = "MainForm";

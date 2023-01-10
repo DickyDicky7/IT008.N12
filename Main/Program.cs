@@ -18,16 +18,26 @@ namespace MyMediaPlayer
 
             Application.SetCompatibleTextRenderingDefault(false);
 
-            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            Application.ThreadException += (sender, e) =>
+            {
+                if (e.Exception.HResult != unchecked((int)0x8001010A))
+                    ModalBox.Show("Error", e.Exception.Message);
+            };
+
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.Automatic);
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
             {
                 if (((Exception)e.ExceptionObject).HResult != unchecked((int)0x8001010A))
                     ModalBox.Show("Error", ((Exception)e.ExceptionObject).Message);
             };
 
-            Application.ThreadException += (s, e) =>
+            AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>
             {
-                if (e.Exception.HResult != unchecked((int)0x8001010A))
-                    ModalBox.Show("Error", e.Exception.Message);
+                Console.WriteLine(@$"{e.Exception.Message}
+                , {e.Exception.StackTrace}
+                , {e.Exception.Source}
+                , {e.Exception.HResult}");
             };
 
             Application.Run(new MainForm(args));

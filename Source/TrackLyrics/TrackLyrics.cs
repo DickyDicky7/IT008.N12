@@ -184,7 +184,7 @@ namespace MyMediaPlayer
         {
             if (IsSync)
             {
-                TempTimeInSeconds = GlobalReferences.MediaController.PlayerControlsCurrentPosition;
+                TempTimeInSeconds = GlobalReferences.MediaController.TrackCurrentTimeInSeconds;
                 if (Lyrics.ContainsKey(TempTimeInSeconds))
                 {
                     Task.Factory.StartNew(() =>
