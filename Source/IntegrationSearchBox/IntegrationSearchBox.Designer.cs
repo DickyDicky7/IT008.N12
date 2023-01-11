@@ -48,7 +48,6 @@
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
-            this.Panel.ShadowDecoration.Parent = this.Panel;
             this.Panel.Size = new System.Drawing.Size(520, 60);
             this.Panel.TabIndex = 2;
             // 
@@ -67,10 +66,7 @@
             this.IntegrationButton.BorderColor = System.Drawing.Color.White;
             this.IntegrationButton.BorderRadius = 5;
             this.IntegrationButton.BorderThickness = 1;
-            this.IntegrationButton.CheckedState.Parent = this.IntegrationButton;
             this.IntegrationButton.ContextMenuStrip = this.ContextMenuStrip;
-            this.IntegrationButton.CustomImages.Parent = this.IntegrationButton;
-            this.IntegrationButton.DisabledState.Parent = this.IntegrationButton;
             this.IntegrationButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.IntegrationButton.FillColor = System.Drawing.Color.White;
             this.IntegrationButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -79,13 +75,11 @@
             this.IntegrationButton.HoverState.CustomBorderColor = System.Drawing.Color.White;
             this.IntegrationButton.HoverState.FillColor = System.Drawing.Color.White;
             this.IntegrationButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.IntegrationButton.HoverState.Parent = this.IntegrationButton;
             this.IntegrationButton.Image = global::MyMediaPlayer.Properties.Resources.down;
             this.IntegrationButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.IntegrationButton.Location = new System.Drawing.Point(420, 30);
             this.IntegrationButton.Name = "IntegrationButton";
             this.IntegrationButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.IntegrationButton.ShadowDecoration.Parent = this.IntegrationButton;
             this.IntegrationButton.Size = new System.Drawing.Size(100, 30);
             this.IntegrationButton.TabIndex = 3;
             this.IntegrationButton.Click += new System.EventHandler(this.IntegrationButton_Click);
@@ -149,19 +143,16 @@
             this.TextBox.BorderRadius = 10;
             this.TextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.TextBox.DefaultText = "";
-            this.TextBox.DisabledState.Parent = this.TextBox;
             this.TextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.TextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.FocusedState.FillColor = System.Drawing.Color.LightGray;
             this.TextBox.FocusedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.FocusedState.Parent = this.TextBox;
             this.TextBox.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Italic);
             this.TextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.HoverState.FillColor = System.Drawing.Color.LightGray;
             this.TextBox.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.HoverState.Parent = this.TextBox;
             this.TextBox.HoverState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.IconLeft = global::MyMediaPlayer.Properties.Resources.searching;
             this.TextBox.IconLeftOffset = new System.Drawing.Point(5, 0);
@@ -174,21 +165,20 @@
             this.TextBox.Name = "TextBox";
             this.TextBox.PasswordChar = '\0';
             this.TextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.PlaceholderText = "What will it be? ...";
+            this.TextBox.PlaceholderText = "";
             this.TextBox.SelectedText = "";
-            this.TextBox.ShadowDecoration.Parent = this.TextBox;
             this.TextBox.Size = new System.Drawing.Size(520, 30);
             this.TextBox.TabIndex = 2;
             this.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
-            // SearchBox
+            // IntegrationSearchBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.Panel);
-            this.Name = "SearchBox";
+            this.Name = "IntegrationSearchBox";
             this.Size = new System.Drawing.Size(520, 60);
             this.Panel.ResumeLayout(false);
             this.ContextMenuStrip.ResumeLayout(false);

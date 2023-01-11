@@ -330,6 +330,9 @@
     <Content Include="Libraries\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\rewind.png" />
+    <None Include="Resources\normal.png" />
+    <None Include="Resources\auto_play.png" />
     <None Include="Resources\arrow_right.png" />
     <None Include="Resources\arrow_left.png" />
     <None Include="Resources\spotify_bg.png" />
