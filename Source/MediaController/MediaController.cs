@@ -1,4 +1,5 @@
-﻿using System;
+﻿using WMPLib;
+using System;
 using System.IO;
 using System.Data;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace MyMediaPlayer
 {
@@ -19,10 +21,6 @@ namespace MyMediaPlayer
         {
             InitializeComponent();
 
-            //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
-
-            //Timer.Interval = 100;
-            //Timer.Tick += new EventHandler(UpdateMediaController);
             Watcher.Interval = TimeSpan.FromMilliseconds(100);
             Watcher.Action = UpdateMediaController;
 
@@ -36,127 +34,101 @@ namespace MyMediaPlayer
 
             Load += new EventHandler(MediaController_Load);
 
-            #region Testing
-
-            //Common.SetTimeout(() =>
-            //{
-            //    Watcher.Stop();
-            //}, TimeSpan.FromSeconds(20));
-
-            Timer timer = new Timer();
-            timer.Interval = 1;
-            timer.Tick += (sender, e) =>
+            Timer Timer = new Timer
             {
-                if (Player.playState == WMPLib.WMPPlayState.wmppsStopped)
+                Interval = 1
+            };
+            Timer.Tick += (sender, e) =>
+            {
+                if (Player.playState == WMPPlayState.wmppsStopped)
                 {
-                    if (CurrentMusicList != null)
-                        CurrentMusicList.PlayNext();
+                    if (CurrentMode is Mode.Audio)
+                        CurrentMusicList?.PlayNext();
                 }
 
-                #region Testing
-
-                if (Player.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
+                if (Player.playState == WMPPlayState.wmppsMediaEnded)
                 {
                     ModalBox.Show("Info", "Media Ended");
                 }
-
-                #endregion
             };
-            timer.Start();
+            Timer.Start();
 
-            //Watcher watcher = new Watcher();
-            //watcher.Interval = TimeSpan.FromMilliseconds(100);
-            //watcher.Action = () =>
-            //{
-            //    if (Player.playState == WMPLib.WMPPlayState.wmppsStopped)
-            //    {
-            //        if (CurrentMusicList != null)
-            //            CurrentMusicList.PlayNext();
-            //    }
-            //};
-            //watcher.Start();
-
-            //Common.SetTimeout(() =>
-            //{
-            //    Watcher.Action = UpdateMediaController;
-            //    Watcher.Start();
-            //}, TimeSpan.FromSeconds(30));
-
-            #endregion
+            CurrentMode = Mode.None;
         }
 
         private void MediaController_Load(object sender, EventArgs e)
         {
-            //Timer.Start();
             Watcher.Start();
         }
 
-        private void PlayMedia()
-        {
-            Player.controls.play();
-        }
+        private void PlayMedia() { Player.controls.play(); }
 
-        private void PauseMedia()
-        {
-            Player.controls.pause();
-        }
+        private void PauseMedia() { Player.controls.pause(); }
 
         public void LoadLocalTrack(string URL)
         {
+            if (VideoForm != null)
+            {
+                VideoForm.Stop();
+                VideoForm = null;
+            }
+
+            CurrentMode = Mode.Audio;
             Player.currentMedia = Player.newMedia(URL);
 
             TrackBar.Value = 0;
             TrackBar.Minimum = 0;
             TrackBar.Maximum = Common.GetDurationInSeconds(URL);
+
             MediaTitle.Text = Common.GetTitle(URL);
-
             BtnPlay.Image = Properties.Resources.pause;
-
             GlobalReferences.TrackLyrics.GetLyrics(URL);
-
-            OnLoadMedia(new MediaControllerArgs() { URL = URL }); // Đừng xóa dòng này
+            OnLoadMedia(new MediaControllerArgs() { URL = URL });
         }
 
         public async void LoadStreamingTrack
         (string EncodeId, string Title, string ArtistsNames, string ImageURL, int Duration)
         {
+            if (VideoForm != null)
+            {
+                VideoForm.Stop();
+                VideoForm = null;
+            }
+
+            CurrentMode = Mode.Audio;
             Player.currentMedia = Player.newMedia
             (GlobalReferences.OnlineStoreIntegration.GetBetterStreamingURL(EncodeId));
 
             TrackBar.Value = 0;
             TrackBar.Minimum = 0;
             TrackBar.Maximum = Duration;
-            MediaTitle.Text = $"{ArtistsNames} - {Title}";
 
             BtnPlay.Image = Properties.Resources.pause;
-
+            MediaTitle.Text = $"{ArtistsNames} - {Title}";
             GlobalReferences.TrackLyrics.ParseStreamingLyrics
             (await GlobalReferences.OnlineStoreIntegration.GetLyrics(EncodeId, true));
-
             OnLoadMedia(new MediaControllerArgs()
             {
-                EncodeId = EncodeId,
                 Title = Title,
-                ArtistsNames = ArtistsNames,
+                EncodeId = EncodeId,
                 ImageURL = ImageURL,
-                Duration = Duration
-            }); // Đừng xóa dòng này
+                Duration = Duration,
+                ArtistsNames = ArtistsNames,
+            });
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
             if (Player.currentMedia != null)
             {
-                //MessageBox.Show(Player.currentMedia.sourceURL, "Media");
-
-                if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                if (Player.playState == WMPPlayState.wmppsPlaying)
                 {
                     BtnPlay.Image = Properties.Resources.black_play;
                     BtnPlay.ImageSize = new Size(40, 40);
                     PauseMedia();
                 }
                 else
-                if (Player.playState == WMPLib.WMPPlayState.wmppsPaused)
+                if (Player.playState == WMPPlayState.wmppsPaused)
                 {
                     BtnPlay.Image = Properties.Resources.pause;
                     BtnPlay.ImageSize = new Size(40, 40);
@@ -165,133 +137,222 @@ namespace MyMediaPlayer
                 else
                 if (Player.controls.currentPosition == 0)
                 {
-                    ModalBox.Show("Info", "Media Ended");
-                    //BtnPlay.Text = "PLAY";
                     BtnPlay.Image = Properties.Resources.black_play;
+                    ModalBox.Show("Info", "Media Ended");
                 }
             }
             else
             {
-                //BtnPlay.Text = "PLAY";
                 ModalBox.Show("Error", "Media Not Found");
             }
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            if (CurrentMusicList != null)
-                CurrentMusicList.PlayNext();
+            CurrentMusicList?.PlayNext();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            if (CurrentMusicList != null)
-                CurrentMusicList.PlayBack();
+            CurrentMusicList?.PlayBack();
         }
 
         private void UpdateMediaController()
         {
-            try
+            if (CurrentMode is Mode.Audio)
             {
-                //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
-
-                if (Player.controls.currentPosition < TrackBar.Minimum
-                 || Player.controls.currentPosition > TrackBar.Maximum)
+                try
                 {
+                    if (Player.controls.currentPosition < TrackBar.Minimum
+                     || Player.controls.currentPosition > TrackBar.Maximum)
+                    {
+                        if (IsHandleCreated)
+                        {
+                            TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                            {
+                                TrackBar.Value = 0;
+                            });
+                        }
+                    }
+                    else
+                    {
+                        if (IsHandleCreated)
+                        {
+                            TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                            {
+                                TrackBar.Value = (int)Player.controls.currentPosition;
+                            });
+                        }
+                    }
+
+                    TimeSpan TimeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
+                    int Minutes = (int)(TimeSpan.TotalSeconds / 60);
+                    int Seconds = (int)(TimeSpan.TotalSeconds % 60);
+                    string CurrentMediaTime =
+                    (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
+                    + " : " +
+                    (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
                     if (IsHandleCreated)
                     {
-                        //TrackBar.Value = 0;
-                        TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                        DurationLabel.BeginInvoke((MethodInvoker)delegate ()
                         {
-                            TrackBar.Value = 0;
+                            DurationLabel.Text = CurrentMediaTime;
                         });
                     }
                 }
-                else
+                catch (Exception Error)
                 {
-                    if (IsHandleCreated)
-                    {
-                        //TrackBar.Value = (int)Player.controls.currentPosition;
-                        TrackBar.BeginInvoke((MethodInvoker)delegate ()
-                        {
-                            TrackBar.Value = (int)Player.controls.currentPosition;
-                        });
-                    }
-                }
-
-                TimeSpan timeSpan = TimeSpan.FromSeconds(Player.controls.currentPosition);
-                int Minutes = (int)(timeSpan.TotalSeconds / 60);
-                int Seconds = (int)(timeSpan.TotalSeconds % 60);
-                string currentMediaTime =
-                (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
-                + " : " +
-                (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
-                //DurationLabel.Text = currentMediaTime;
-                if (IsHandleCreated)
-                {
-                    DurationLabel.BeginInvoke((MethodInvoker)delegate ()
-                    {
-
-                        //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
-
-                        DurationLabel.Text = currentMediaTime;
-                    });
+                    if (Error.HResult != unchecked((int)0x8001010A))
+                        ModalBox.Show("Error", Error.Message);
                 }
             }
-            catch (Exception Error)
+            else
+            if (CurrentMode is Mode.Video)
             {
-                if (Error.HResult != unchecked((int)0x8001010A))
-                    ModalBox.Show("Error", Error.Message);
+                try
+                {
+                    if (VideoForm.VideoCurrentPosition < TrackBar.Minimum
+                     || VideoForm.VideoCurrentPosition > TrackBar.Maximum)
+                    {
+                        if (IsHandleCreated)
+                        {
+                            TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                            {
+                                TrackBar.Value = 0;
+                            });
+                        }
+                    }
+                    else
+                    {
+                        if (IsHandleCreated)
+                        {
+                            TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                            {
+                                TrackBar.Value = (int)VideoForm.VideoCurrentPosition;
+                            });
+                        }
+                    }
+
+                    TimeSpan TimeSpan = TimeSpan.FromSeconds(VideoForm.VideoCurrentPosition);
+                    int Minutes = (int)(TimeSpan.TotalSeconds / 60);
+                    int Seconds = (int)(TimeSpan.TotalSeconds % 60);
+                    string CurrentMediaTime =
+                    (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
+                    + " : " +
+                    (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
+                    if (IsHandleCreated)
+                    {
+                        DurationLabel.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            DurationLabel.Text = CurrentMediaTime;
+                        });
+                    }
+                }
+                catch (Exception Error)
+                {
+                    if (Error.HResult != unchecked((int)0x8001010A))
+                        ModalBox.Show("Error", Error.Message);
+                }
             }
         }
 
         private void BtnNext10s_Click(object sender, EventArgs e)
         {
-            if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            if (CurrentMode is Mode.Audio)
             {
-                Player.controls.currentPosition += 10;
+                if (Player.playState == WMPPlayState.wmppsPlaying
+                 || Player.playState == WMPPlayState.wmppsPaused)
+                {
+                    Player.controls.currentPosition += 10;
+                }
+            }
+            else
+            if (CurrentMode is Mode.Video)
+            {
+                if (VideoForm.VideoPlayState == WMPPlayState.wmppsPlaying
+                 || VideoForm.VideoPlayState == WMPPlayState.wmppsPaused)
+                {
+                    VideoForm.VideoCurrentPosition += 10;
+                }
             }
         }
 
         private void BtnBack10s_Click(object sender, EventArgs e)
         {
-            if (Player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            if (CurrentMode is Mode.Audio)
             {
-                Player.controls.currentPosition -= 10;
+                if (Player.playState == WMPPlayState.wmppsPlaying
+                 || Player.playState == WMPPlayState.wmppsPaused)
+                {
+                    Player.controls.currentPosition -= 10;
+                }
+            }
+            else
+            if (CurrentMode is Mode.Video)
+            {
+                if (VideoForm.VideoPlayState == WMPPlayState.wmppsPlaying
+                 || VideoForm.VideoPlayState == WMPPlayState.wmppsPaused)
+                {
+                    VideoForm.VideoCurrentPosition -= 10;
+                }
             }
         }
 
         private void TrackBar_Scroll(object sender, ScrollEventArgs e)
         {
-            if (Player.currentMedia != null)
-                Player.controls.currentPosition = TrackBar.Value;
+            if (CurrentMode is Mode.Audio)
+            {
+                if (Player.currentMedia != null)
+                    Player.controls.currentPosition = TrackBar.Value;
+            }
+            else
+            if (CurrentMode is Mode.Video)
+            {
+                if (VideoForm.VideoCurrentMedia != null)
+                    VideoForm.VideoCurrentPosition = TrackBar.Value;
+            }
         }
 
         private void VolumeMeter_Scroll(object sender, ScrollEventArgs e)
         {
-            Player.settings.volume = VolumeMeter.Value;
+            if (CurrentMode is Mode.Audio)
+            {
+                Player.settings.volume = VolumeMeter.Value;
+            }
+            else
+            if (CurrentMode is Mode.Video)
+            {
+                VideoForm.VideoCurrentSettingsVolume = VolumeMeter.Value;
+            }
         }
 
         private void VolumeMeter_ValueChanged(object sender, EventArgs e)
         {
-            Player.settings.volume = VolumeMeter.Value;
+            if (CurrentMode is Mode.Audio)
+            {
+                Player.settings.volume = VolumeMeter.Value;
+            }
+            else
+            if (CurrentMode is Mode.Video)
+            {
+                VideoForm.VideoCurrentSettingsVolume = VolumeMeter.Value;
+            }
         }
 
         private void TrackBar_MouseMove(object sender, MouseEventArgs e)
         {
             float Time = (float)TrackBar.Maximum / (float)TrackBar.Size.Width;
-            TimeSpan timeSpan =
+            TimeSpan TimeSpan =
             TimeSpan.FromSeconds(Time * (e.X - (TimeStamp.Size.Width / 2)) + 7);
-            int Minutes = (int)(timeSpan.TotalSeconds / 60);
-            int Seconds = (int)(timeSpan.TotalSeconds % 60);
-            string currentTimeStamp =
+            int Minutes = (int)(TimeSpan.TotalSeconds / 60);
+            int Seconds = (int)(TimeSpan.TotalSeconds % 60);
+            string CurrentTimeStamp =
             (Minutes < 10 ? $"0{Minutes}" : Minutes.ToString())
             + " : " +
             (Seconds < 10 ? $"0{Seconds}" : Seconds.ToString());
 
-            TimeStamp.Location = new Point
-            (e.X - (TimeStamp.Size.Width / 2), 0);
-            TimeStamp.Text = currentTimeStamp;
+            TimeStamp.Location = new Point(e.X - (TimeStamp.Size.Width / 2), 0);
+            TimeStamp.Text = CurrentTimeStamp;
         }
 
         private void TrackBar_MouseHover(object sender, EventArgs e)
@@ -315,14 +376,11 @@ namespace MyMediaPlayer
 
         public void Stop()
         {
-            //Timer.Stop();
             Watcher.Stop();
         }
 
         public void LoadMusicList(MusicList musicList, bool shuffleMode = false)
         {
-
-            //MessageBox.Show($"{PlaylistName}, {PlaylistPath}");
             if (CurrentMusicList != null && CurrentMusicList != musicList)
                 CurrentMusicList.Stop();
             CurrentMusicList = musicList;
@@ -390,14 +448,13 @@ namespace MyMediaPlayer
             }
         }
 
-        private static readonly WMPLib.WindowsMediaPlayer Player
-                          = new WMPLib.WindowsMediaPlayer();
-
-        //private static readonly Timer Timer = new Timer();
+        private static Mode CurrentMode;
+        private static VideoForm VideoForm;
         private static readonly Watcher Watcher = new Watcher();
+        private static readonly WindowsMediaPlayer Player = new WindowsMediaPlayer();
 
         /// <summary>
-        /// Handle the user's custom event when MediaController use LoadMedia or LoadStreaming
+        /// Handle the user's custom event when MediaController use LoadLocalTrack or LoadStreamingTrack
         /// </summary>
         /// <param name="MediaControllerArgs">Consist of URL; EncodeId; Title; ArtistsNames; ImageURL; Duration</param>
         public delegate void OnLoadMediaHandler(MediaControllerArgs MediaControllerArgs);
@@ -426,12 +483,48 @@ namespace MyMediaPlayer
                 {
                     if (Error.HResult != unchecked((int)0x8001010A))
                     {
-                        MessageBox.Show("Error", Error.Message);
+                        ModalBox.Show("Error", Error.Message);
                         throw Error;
                     }
                     else return -1;
                 }
             }
+        }
+
+        public void LoadLocalVideo(string VideoURL)
+        {
+            if (VideoForm != null)
+            {
+                VideoForm.Stop();
+                VideoForm = null;
+            }
+
+            if (Player.currentMedia != null)
+            {
+                CurrentMode = Mode.None;
+                Player.controls.stop();
+            }
+
+            TrackBar.Value = 0;
+            TrackBar.Minimum = 0;
+            TrackBar.Maximum = Common.GetDurationInSeconds(VideoURL);
+
+            VideoForm = new VideoForm();
+            VideoForm.LoadVideo(VideoURL);
+
+            CurrentMode = Mode.Video;
+            BtnPlay.Image = Properties.Resources.pause;
+            MediaTitle.Text = VideoForm.VideoCurrentMedia.name;
+
+            VideoForm.Show();
+            VideoForm.FormClosing += (sender, e) => { CurrentMode = Mode.None; };
+        }
+
+        public enum Mode
+        {
+            None,
+            Audio,
+            Video,
         }
     }
 

@@ -122,7 +122,7 @@
             this.ExitControlBox.IconColor = System.Drawing.Color.LightGray;
             this.ExitControlBox.Location = new System.Drawing.Point(450, 0);
             this.ExitControlBox.Name = "ExitControlBox";
-            this.ExitControlBox.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
+            this.ExitControlBox.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.ExitControlBox.Size = new System.Drawing.Size(50, 30);
             this.ExitControlBox.TabIndex = 4;
             // 

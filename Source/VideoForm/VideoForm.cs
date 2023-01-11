@@ -47,7 +47,7 @@ namespace MyMediaPlayer
             Player.Ctlcontrols.play();
         }
 
-        public static void LoadLocalVideo(string VideoURL)
+        public static void RunVideoFormInAnotherThread(string VideoURL)
         {
             Thread Thread = new Thread(() =>
             {
@@ -78,6 +78,30 @@ namespace MyMediaPlayer
         public string VideoTitle
         {
             get => Player.currentMedia.name;
+        }
+
+        public WMPPlayState VideoPlayState
+        {
+            get => Player.playState;
+        }
+
+        public IWMPMedia VideoCurrentMedia
+        {
+            get => Player.currentMedia;
+        }
+
+        private void Player_PlayStateChange(object sender, _WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if (e.newState == (int)WMPPlayState.wmppsMediaEnded)
+            {
+                this.Close();
+            }
+        }
+
+        public void Stop()
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }
