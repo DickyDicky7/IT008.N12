@@ -86,6 +86,9 @@ namespace MyMediaPlayer
 
             CurrentMode = Mode.None;
             CurrentPlayingMode = PlayingMode.Normal;
+
+            MediaTitle.Text = string.Empty;
+            DurationLabel.Text = "00 : 00";
         }
 
         private void MediaController_Load(object sender, EventArgs e)
