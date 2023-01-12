@@ -61,6 +61,7 @@ namespace MyMediaPlayer
             //    //GlobalReferences.MediaController.LoadLocalVideo("C:\\Users\\User\\Videos\\Pokémon Reborn- Elite 4 Battle Theme.mp4");
             //};
             //
+            //
         }
 
         private Action<object, EventArgs> MainForm_Load(string[] args)
