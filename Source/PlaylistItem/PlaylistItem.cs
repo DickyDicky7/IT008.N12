@@ -60,7 +60,7 @@ namespace MyMediaPlayer
             //PictureBox.Image = Properties.Resources.icons8_music_library_64;
             playButton.Click += (sender, e) =>
             {
-                GlobalReferences.MediaController.LoadMusicList(this.musicList);
+                GlobalReferences.MediaController.LoadMediaItemList(this.musicList);
             };
 
             foreach (string Path in Paths)
@@ -69,7 +69,7 @@ namespace MyMediaPlayer
                 mediaItem.Height = 30;
                 mediaItem.AddDeleteToMenu();
                 mediaItem.PlaylistName = Panel.Text;
-                musicList.addMusic(mediaItem);
+                musicList.AddMusic(mediaItem);
             }
             //MessageBox.Show(musicList.Size.Height.ToString());
             Common.RoundedCorner(Menu);
@@ -122,7 +122,7 @@ namespace MyMediaPlayer
                 TrackItem mediaItem = new TrackItem(Path);
                 mediaItem.Height = 30;
                 mediaItem.AddDeleteToMenu();
-                musicList.addMusic(mediaItem);
+                musicList.AddMusic(mediaItem);
                 mediaItem.PlaylistName = Panel.Text;
             }
             //MessageBox.Show(musicList.Size.Height.ToString());

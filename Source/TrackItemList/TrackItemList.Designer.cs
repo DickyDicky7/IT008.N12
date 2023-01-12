@@ -1,6 +1,6 @@
 ﻿namespace MyMediaPlayer
 {
-    partial class MusicList
+    partial class TrackItemList
     {
         /// <summary> 
         /// Required designer variable.
@@ -46,7 +46,7 @@
             this.Controls.Add(this.mediaItemContainer);
             this.Name = "MusicList";
             this.Size = new System.Drawing.Size(777, 527);
-            this.Load += new System.EventHandler(this.MusicList_Load);
+            this.Load += new System.EventHandler(this.TrackItemList_Load);
             this.Resize += new System.EventHandler(this.mediaItemContainer_Resize);
             this.ResumeLayout(false);
 

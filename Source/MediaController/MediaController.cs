@@ -56,7 +56,7 @@ namespace MyMediaPlayer
                         else
                         if (CurrentPlayingMode is PlayingMode.AutoPlayNext)
                         {
-                            CurrentMusicList?.PlayNext();
+                            CurrentMediaItemList?.PlayNext();
                         }
                     }
                 }
@@ -234,12 +234,12 @@ namespace MyMediaPlayer
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            CurrentMusicList?.PlayNext();
+            CurrentMediaItemList?.PlayNext();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            CurrentMusicList?.PlayBack();
+            CurrentMediaItemList?.PlayBack();
         }
 
         private void UpdateMediaController()
@@ -464,17 +464,19 @@ namespace MyMediaPlayer
             Watcher.Stop();
         }
 
-        public void LoadMusicList(MusicList musicList, bool shuffleMode = false)
+        public void LoadMediaItemList(IMediaItemList MediaItemList, bool IsShuffle = false)
         {
-            if (CurrentMusicList != null && CurrentMusicList != musicList)
-                CurrentMusicList.Stop();
-            CurrentMusicList = musicList;
-            CurrentMusicList.shuffleMode = shuffleMode;
-            if (shuffleMode == true)
+            if (CurrentMediaItemList != null && CurrentMediaItemList != MediaItemList)
             {
-                CurrentMusicList.GenShuffleList();
+                CurrentMediaItemList.Stop();
             }
-            CurrentMusicList.PlayNext();
+            CurrentMediaItemList = MediaItemList;
+            CurrentMediaItemList.IsShuffle = IsShuffle;
+            if (IsShuffle)
+            {
+                CurrentMediaItemList.GenerateShuffleList();
+            }
+            CurrentMediaItemList.PlayNext();
         }
 
         public static void CreatePlaylist(string PlaylistName)
@@ -482,60 +484,65 @@ namespace MyMediaPlayer
             Player.playlistCollection.newPlaylist(PlaylistName);
         }
 
-        public static void AddToPlaylist(string PlaylistName, string TrackURL)
+        public static async void AddToPlaylist(string PlaylistName, string TrackURL)
         {
-            if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
+            await Task.Run(() =>
             {
-                Stream Stream = File.OpenRead
-                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
+                if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
+                {
+                    using (Stream Stream = File.OpenRead
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
+                    {
+                        WplContent Content = new WplContent();
+                        WplPlaylist Playlist = Content.GetFromStream(Stream);
+                        Playlist.PlaylistEntries
+                        .Add(new WplPlaylistEntry() { Path = TrackURL });
+                        string NewContent = Content.ToText(Playlist);
 
-                WplContent Content = new WplContent();
-                WplPlaylist Playlist = Content.GetFromStream(Stream);
-                Playlist.PlaylistEntries
-                .Add(new WplPlaylistEntry() { Path = TrackURL });
-                string NewContent = Content.ToText(Playlist);
+                        File.WriteAllText
+                        ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+                    }
+                }
+            });
 
-                Stream.Dispose();
-
-                File.WriteAllText
-                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
-
-                GlobalReferences.MainForm.UpdatePlaylistItem
-                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
-            }
+            GlobalReferences.MainForm.UpdatePlaylistItem
+            ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
         }
 
-        public static void RemoveFromPlaylist(string PlaylistName, string TrackURL)
+        public static async void RemoveFromPlaylist(string PlaylistName, string TrackURL)
         {
-            if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
+            await Task.Run(() =>
             {
-                Stream Stream = File.OpenRead
-                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
-
-                WplContent Content = new WplContent();
-                WplPlaylist Playlist = Content.GetFromStream(Stream);
-                int Index = Playlist.PlaylistEntries
-                .FindIndex((Item) =>
+                if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                 {
-                    return Item.Path == TrackURL;
-                });
-                if (Index >= 0)
-                    Playlist.PlaylistEntries.RemoveAt(Index);
-                string NewContent = Content.ToText(Playlist);
+                    using (Stream Stream = File.OpenRead
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
+                    {
+                        WplContent Content = new WplContent();
+                        WplPlaylist Playlist = Content.GetFromStream(Stream);
+                        int Index = Playlist.PlaylistEntries
+                        .FindIndex((Item) =>
+                        {
+                            return Item.Path == TrackURL;
+                        });
+                        if (Index >= 0)
+                            Playlist.PlaylistEntries.RemoveAt(Index);
+                        string NewContent = Content.ToText(Playlist);
 
-                Stream.Dispose();
+                        File.WriteAllText
+                        ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+                    }
+                }
+            });
 
-                File.WriteAllText
-                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
-
-                GlobalReferences.MainForm.UpdatePlaylistItem
-                ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
-            }
+            GlobalReferences.MainForm.UpdatePlaylistItem
+            ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
         }
 
         private static Mode CurrentMode;
         private static VideoForm VideoForm;
         private static PlayingMode CurrentPlayingMode;
+        private static IMediaItemList CurrentMediaItemList;
         private static readonly Watcher Watcher = new Watcher();
         private static readonly WindowsMediaPlayer Player = new WindowsMediaPlayer();
 
@@ -549,8 +556,6 @@ namespace MyMediaPlayer
         /// Entry for a custom OnLoadMediaHandler
         /// </summary>
         public event OnLoadMediaHandler OnLoadMedia;
-
-        private static MusicList CurrentMusicList;
 
         private void MediaTitle_Click(object sender, EventArgs e)
         {

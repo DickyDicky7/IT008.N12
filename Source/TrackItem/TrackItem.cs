@@ -197,10 +197,10 @@ namespace MyMediaPlayer
         private void TrackItem_Click(object sender, EventArgs e)
         {
             GlobalReferences.MainForm.BringVisualizeToFront();
-            if (ParentMusicList != null)
+            if (ParentTrackItemList != null)
             {
-                ParentMusicList.CurrentIndex = ParentMusicList.GetMediaIndex(this) - 1;
-                GlobalReferences.MediaController.LoadMusicList(ParentMusicList);
+                ParentTrackItemList.CurrentIndex = ParentTrackItemList.GetMediaItemIndex(this) - 1;
+                GlobalReferences.MediaController.LoadMediaItemList(ParentTrackItemList);
             }
         }
 
@@ -263,7 +263,7 @@ namespace MyMediaPlayer
 
         public static TrackItem PlayItem { get; set; }
 
-        public MusicList ParentMusicList { get; set; }
+        public TrackItemList ParentTrackItemList { get; set; }
 
         private static readonly List<WeakReference> instances = new List<WeakReference>();
 
@@ -377,7 +377,7 @@ namespace MyMediaPlayer
             inputForm.ShowDialog();
 
             if (string.IsNullOrEmpty(inputForm.Result)
-             || string.IsNullOrWhiteSpace(inputForm.Result)) 
+             || string.IsNullOrWhiteSpace(inputForm.Result))
             {
                 return;
             }

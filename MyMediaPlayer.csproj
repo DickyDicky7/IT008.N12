@@ -128,10 +128,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Abstractions\AMediaItemList.cs" />
+    <Compile Include="Source\Abstractions\IMediaItemList.cs" />
     <Compile Include="Source\AnimateLabel\AnimateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Source\Interfaces\IMediaItem.cs" />
+    <Compile Include="Source\Abstractions\IMediaItem.cs" />
     <Compile Include="Source\ModalBox\ModalBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,8 +147,8 @@
       <DependentUpon>Pagination.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Utilities\GlobalReferences.cs" />
-    <Compile Include="Source\Interfaces\IIntegration.cs" />
-    <Compile Include="Source\Interfaces\IIntegrationSearchResultList.cs" />
+    <Compile Include="Source\Abstractions\IIntegration.cs" />
+    <Compile Include="Source\Abstractions\IIntegrationSearchResultList.cs" />
     <Compile Include="Source\TrackLyrics\TrackLyrics.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,11 +186,11 @@
     <Compile Include="Source\InputForm\InputForm.Designer.cs">
       <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MusicList\MusicList.cs">
+    <Compile Include="Source\TrackItemList\TrackItemList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\MusicList\MusicList.Designer.cs">
-      <DependentUpon>MusicList.cs</DependentUpon>
+    <Compile Include="Source\TrackItemList\TrackItemList.Designer.cs">
+      <DependentUpon>TrackItemList.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\FolderLocation\FolderLocation.cs">
       <SubType>UserControl</SubType>
@@ -252,8 +254,8 @@
     <EmbeddedResource Include="Source\ModalBox\ModalBox.resx">
       <DependentUpon>ModalBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MusicList\MusicList.resx">
-      <DependentUpon>MusicList.cs</DependentUpon>
+    <EmbeddedResource Include="Source\TrackItemList\TrackItemList.resx">
+      <DependentUpon>TrackItemList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MediaController\MediaController.resx">
       <DependentUpon>MediaController.cs</DependentUpon>

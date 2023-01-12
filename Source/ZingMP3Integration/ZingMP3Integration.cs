@@ -129,9 +129,9 @@ namespace MyMediaPlayer
         private readonly string ApiKey = "88265e23d4284f25963e6eedac8fbfa3";
         private readonly string SecretKey = "2aa2d1c561e809b267f3638c4a307aab";
 
-        private RestClient Client = new RestClient("https://zingmp3.vn");
+        private readonly RestClient Client = new RestClient("https://zingmp3.vn");
 
-        private Dictionary<string, RestRequest> Requests =
+        private readonly Dictionary<string, RestRequest> Requests =
             new Dictionary<string, RestRequest>()
             {
                 //{ "Search", new RestRequest("/api/v2/search/multi", Method.Get) }

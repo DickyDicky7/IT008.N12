@@ -104,7 +104,7 @@ namespace MyMediaPlayer
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
                 if (Directory.Exists(URL))
-                    musicList.addMusicFolder(URL);
+                    musicList.AddMusicFolder(URL);
                 else
                 {
                     removeL.Add(URL);
@@ -186,7 +186,7 @@ namespace MyMediaPlayer
                         Properties.Settings.Default.Save();
                         FolderLocation folderLocation = new FolderLocation(fbd.SelectedPath);
                         musicFolderPanel.Controls.Add(folderLocation);
-                        musicList.addMusicFolder(fbd.SelectedPath);
+                        musicList.AddMusicFolder(fbd.SelectedPath);
                     }
                 }
             }
@@ -194,7 +194,7 @@ namespace MyMediaPlayer
 
         public void AddMusicToPlayQ(TrackItem media)
         {
-            PlayQMusicList.addMusic(media);
+            PlayQMusicList.AddMusic(media);
         }
 
         #endregion
@@ -265,7 +265,7 @@ namespace MyMediaPlayer
 
         private void ArtistsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList.sortBy(MusicList.SORTBY.ARTIST);
+            musicList.sortBy(TrackItemList.SORTBY.ARTIST);
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Artist).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
@@ -274,7 +274,7 @@ namespace MyMediaPlayer
 
         private void AZToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList.sortBy(MusicList.SORTBY.AZ);
+            musicList.sortBy(TrackItemList.SORTBY.AZ);
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
@@ -283,7 +283,7 @@ namespace MyMediaPlayer
 
         private void GenreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList.sortBy(MusicList.SORTBY.GENRE);
+            musicList.sortBy(TrackItemList.SORTBY.GENRE);
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
@@ -292,7 +292,7 @@ namespace MyMediaPlayer
 
         private void AlbumToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList.sortBy(MusicList.SORTBY.ALBUM);
+            musicList.sortBy(TrackItemList.SORTBY.ALBUM);
             //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
             //mediaItemContainer.Controls.Clear();
             //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
@@ -310,7 +310,7 @@ namespace MyMediaPlayer
 
         private void ShuffleAndPlayBtn_Click(object sender, EventArgs e)
         {
-            mediaController.LoadMusicList(musicList, true);
+            mediaController.LoadMediaItemList(musicList, true);
         }
 
         private void PlayQueueClearButton_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace MyMediaPlayer
 {
     public partial class VideoItem : UserControl
     {
-        private string URL = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\test.mp4";
+        private string URL = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\Pokémon Reborn- Elite 4 Battle Theme.mp4";
         public VideoItem()
         {
             InitializeComponent();

@@ -35,7 +35,7 @@ namespace MyMediaPlayer
             this.renamePlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.musicList = new MyMediaPlayer.MusicList();
+            this.musicList = new MyMediaPlayer.TrackItemList();
             this.playButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.showButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.Menu.SuspendLayout();
@@ -184,7 +184,7 @@ namespace MyMediaPlayer
         private Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem renamePlaylistToolStripMenuItem;
         private Siticone.Desktop.UI.WinForms.SiticoneButton Panel;
-        private MusicList musicList;
+        private TrackItemList musicList;
         private ToolStripMenuItem removeToolStripMenuItem;
         private Siticone.Desktop.UI.WinForms.SiticoneButton playButton;
         private Siticone.Desktop.UI.WinForms.SiticoneButton showButton;

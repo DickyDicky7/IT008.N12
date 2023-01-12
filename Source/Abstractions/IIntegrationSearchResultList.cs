@@ -8,8 +8,8 @@ namespace MyMediaPlayer
 {
     public interface IIntegrationSearchResultList
     {
-        public void LoadIntegrationSearchResults(string JSONResult);
-        public void LoadIntegrationSearchResults();
-        public int? NumberOfItems { get; set; }
+        public abstract void LoadIntegrationSearchResults(string JSONResult);
+        public abstract void LoadIntegrationSearchResults();
+        public abstract int? NumberOfItems { get; set; }
     }
 }
