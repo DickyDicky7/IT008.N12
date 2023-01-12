@@ -29,7 +29,7 @@ namespace MyMediaPlayer
 
         public Task<string> Search(string Query, int PageNumber, bool ReturnResult = false)
         {
-            return Task<string>.Factory.StartNew(() =>
+            return Task<string>.Run(() =>
             {
                 try
                 {
@@ -57,7 +57,7 @@ namespace MyMediaPlayer
 
         public Task<string> GetLyrics(string EncodeId, bool ReturnResult = false)
         {
-            return Task<string>.Factory.StartNew(() =>
+            return Task<string>.Run(() =>
             {
                 try
                 {
@@ -80,7 +80,7 @@ namespace MyMediaPlayer
 
         public Task<string> GetInformation(string EncodeId, bool ReturnResult = false)
         {
-            return Task<string>.Factory.StartNew(() =>
+            return Task<string>.Run(() =>
             {
                 try
                 {
@@ -103,7 +103,7 @@ namespace MyMediaPlayer
 
         public Task<string> GetStreaming(string EncodeId, bool ReturnResult = false)
         {
-            return Task<string>.Factory.StartNew(() =>
+            return Task<string>.Run(() =>
             {
                 try
                 {

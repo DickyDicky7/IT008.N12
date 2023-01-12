@@ -161,6 +161,12 @@
     <Compile Include="Source\VideoForm\VideoForm.Designer.cs">
       <DependentUpon>VideoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\VideoItemList\VideoItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\VideoItemList\VideoItemList.Designer.cs">
+      <DependentUpon>VideoItemList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\VideoItem\VideoItem.cs">
       <SubType>UserControl</SubType>
     </Compile>

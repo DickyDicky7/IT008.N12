@@ -80,7 +80,7 @@ namespace MyMediaPlayer
 
                 #endregion
 
-                Task.Factory.StartNew(async () =>
+                Task.Run(async () =>
                 {
                     if (Integration == null)
                     {
@@ -181,7 +181,7 @@ namespace MyMediaPlayer
             if (Pagination.CurrentPageNumber - 1 >= 1)
             {
                 Pagination.CurrentPageNumber -= 1;
-                Task.Factory.StartNew(async () =>
+                Task.Run(async () =>
                 {
                     IntegrationSearchResultList?.LoadIntegrationSearchResults
                     (await Integration.Search(Integration.SearchQueryHistory
@@ -196,7 +196,7 @@ namespace MyMediaPlayer
                 if (Pagination.CurrentPageNumber * 18 <= IntegrationSearchResultList.NumberOfItems)
                 {
                     Pagination.CurrentPageNumber += 1;
-                    Task.Factory.StartNew(async () =>
+                    Task.Run(async () =>
                     {
                         IntegrationSearchResultList?.LoadIntegrationSearchResults
                         (await Integration.Search(Integration.SearchQueryHistory

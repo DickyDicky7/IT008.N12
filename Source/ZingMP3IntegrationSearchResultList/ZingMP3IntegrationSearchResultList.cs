@@ -42,7 +42,7 @@ namespace MyMediaPlayer
 
             //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
 
-            Task.Factory.StartNew(() =>
+            Task.Run(() =>
             {
                 //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
 

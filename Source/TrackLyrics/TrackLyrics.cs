@@ -133,7 +133,7 @@ namespace MyMediaPlayer
 
         public async void ParseStreamingLyrics(string JSONResult)
         {
-            await Task.Factory.StartNew(() =>
+            await Task.Run(() =>
             {
                 Lyrics.Clear();
 
@@ -187,7 +187,7 @@ namespace MyMediaPlayer
                 TempTimeInSeconds = GlobalReferences.MediaController.TrackCurrentTimeInSeconds;
                 if (Lyrics.ContainsKey(TempTimeInSeconds))
                 {
-                    Task.Factory.StartNew(() =>
+                    Task.Run(() =>
                     {
                         if (IsHandleCreated)
                         {
