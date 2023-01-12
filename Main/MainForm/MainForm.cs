@@ -53,13 +53,13 @@ namespace MyMediaPlayer
 
             #endregion
 
-            musicLabel.Click += (s, e) =>
-            {
-                TagLib.Mpeg4.File file = (TagLib.Mpeg4.File)TagLib.File.Create($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\sample-mp4-file.mp4");
-                MessageBox.Show(file.Tag.Title);
-                MessageBox.Show(Common.GetTitle($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\sample-mp4-file.mp4"));
-                //GlobalReferences.MediaController.LoadLocalVideo("C:\\Users\\User\\Videos\\Pokémon Reborn- Elite 4 Battle Theme.mp4");
-            };
+            //musicLabel.Click += (s, e) =>
+            //{
+            //    TagLib.Mpeg4.File file = (TagLib.Mpeg4.File)TagLib.File.Create($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\sample-mp4-file.mp4");
+            //    MessageBox.Show(file.Tag.Title);
+            //    MessageBox.Show(Common.GetTitle($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\sample-mp4-file.mp4"));
+            //    //GlobalReferences.MediaController.LoadLocalVideo("C:\\Users\\User\\Videos\\Pokémon Reborn- Elite 4 Battle Theme.mp4");
+            //};
         }
 
         private Action<object, EventArgs> MainForm_Load(string[] args)

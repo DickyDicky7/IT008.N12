@@ -1,4 +1,4 @@
-﻿namespace MyMediaPlayer.Source.VideoItem
+﻿namespace MyMediaPlayer
 {
     partial class VideoItem
     {

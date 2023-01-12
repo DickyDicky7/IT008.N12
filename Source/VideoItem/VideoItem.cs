@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
+using System.Data;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Drawing;
 using System.Windows.Forms;
-using TagLib;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-namespace MyMediaPlayer.Source.VideoItem
+namespace MyMediaPlayer
 {
     public partial class VideoItem : UserControl
     {
-        private string URL = @"C:\Users\Admin\Videos\test.mp4";
+        private string URL = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\test.mp4";
         public VideoItem()
         {
             InitializeComponent();
