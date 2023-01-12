@@ -83,7 +83,7 @@
             this.exitButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.trackVisualizer = new MyMediaPlayer.TrackVisualizer();
             this.trackLyrics = new MyMediaPlayer.TrackLyrics();
-            this.videoItem1 = new MyMediaPlayer.Source.VideoItem.VideoItem();
+            this.videoItem1 = new MyMediaPlayer.VideoItem();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -1001,7 +1001,7 @@
         private Siticone.Desktop.UI.WinForms.SiticonePanel onlineStoreBodyPanel;
         private ZingMP3IntegrationSearchResultList integrationSearchResultList;
         private IntegrationSearchBox onlineStoreIntegrationSearchBox;
-        private Source.VideoItem.VideoItem videoItem1;
+        private VideoItem videoItem1;
     }
 }
 
