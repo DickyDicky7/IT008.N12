@@ -38,6 +38,7 @@
             // 
             // MessageTitleLabel
             // 
+            this.MessageTitleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MessageTitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MessageTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.MessageTitleLabel.Location = new System.Drawing.Point(100, 30);
@@ -49,6 +50,7 @@
             // 
             // MessageContentTextBox
             // 
+            this.MessageContentTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MessageContentTextBox.AutoScroll = true;
             this.MessageContentTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.MessageContentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -82,6 +84,7 @@
             // 
             // OkButton
             // 
+            this.OkButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OkButton.Animated = true;
             this.OkButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.OkButton.BorderRadius = 10;

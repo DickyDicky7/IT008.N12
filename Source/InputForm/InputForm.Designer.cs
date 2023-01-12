@@ -45,17 +45,20 @@
             // 
             // Title
             // 
+            this.Title.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Title.AutoSize = false;
             this.Title.BackColor = System.Drawing.Color.Transparent;
             this.Title.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(129, 30);
+            this.Title.Location = new System.Drawing.Point(100, 30);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(128, 27);
+            this.Title.Size = new System.Drawing.Size(200, 30);
             this.Title.TabIndex = 0;
             this.Title.Text = "Title goes here";
             this.Title.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TextBox
             // 
+            this.TextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBox.Animated = true;
             this.TextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.TextBox.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -79,7 +82,7 @@
             this.TextBox.Name = "TextBox";
             this.TextBox.PasswordChar = '\0';
             this.TextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.TextBox.PlaceholderText = "...";
+            this.TextBox.PlaceholderText = "";
             this.TextBox.SelectedText = "";
             this.TextBox.Size = new System.Drawing.Size(300, 50);
             this.TextBox.TabIndex = 1;
@@ -87,6 +90,7 @@
             // 
             // OkButton
             // 
+            this.OkButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OkButton.Animated = true;
             this.OkButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.OkButton.BorderRadius = 10;
@@ -144,7 +148,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputForm";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -4,6 +4,7 @@ using System.IO;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Drawing;
 using PlaylistsNET.Models;
 using PlaylistsNET.Content;
@@ -11,7 +12,6 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Windows;
 
 namespace MyMediaPlayer
 {
@@ -40,20 +40,52 @@ namespace MyMediaPlayer
             };
             Timer.Tick += (sender, e) =>
             {
-                if (Player.playState == WMPPlayState.wmppsStopped)
+                if (CurrentMode is Mode.Audio)
                 {
-                    if (CurrentMode is Mode.Audio)
-                        CurrentMusicList?.PlayNext();
+                    if (Player.playState == WMPPlayState.wmppsStopped)
+                    {
+                        if (CurrentPlayingMode is PlayingMode.Normal)
+                        {
+                            BtnPlay.Image = Properties.Resources.rewind;
+                        }
+                        else
+                        if (CurrentPlayingMode is PlayingMode.Repeat)
+                        {
+                            Player.controls.play();
+                        }
+                        else
+                        if (CurrentPlayingMode is PlayingMode.AutoPlayNext)
+                        {
+                            CurrentMusicList?.PlayNext();
+                        }
+                    }
                 }
-
-                if (Player.playState == WMPPlayState.wmppsMediaEnded)
+                else
+                if (CurrentMode is Mode.Video)
                 {
-                    ModalBox.Show("Info", "Media Ended");
+                    if (VideoForm.VideoPlayState == WMPPlayState.wmppsStopped)
+                    {
+                        if (CurrentPlayingMode is PlayingMode.Normal)
+                        {
+                            BtnPlay.Image = Properties.Resources.rewind;
+                        }
+                        else
+                        if (CurrentPlayingMode is PlayingMode.Repeat)
+                        {
+                            VideoForm.VideoControlsPlay();
+                        }
+                        else
+                        if (CurrentPlayingMode is PlayingMode.AutoPlayNext)
+                        {
+                            //CurrentMusicList?.PlayNext();
+                        }
+                    }
                 }
             };
             Timer.Start();
 
             CurrentMode = Mode.None;
+            CurrentPlayingMode = PlayingMode.Normal;
         }
 
         private void MediaController_Load(object sender, EventArgs e)
@@ -61,9 +93,9 @@ namespace MyMediaPlayer
             Watcher.Start();
         }
 
-        private void PlayMedia() { Player.controls.play(); }
+        //private void PlayMedia() { Player.controls.play(); }
 
-        private void PauseMedia() { Player.controls.pause(); }
+        //private void PauseMedia() { Player.controls.pause(); }
 
         public void LoadLocalTrack(string URL)
         {
@@ -119,26 +151,79 @@ namespace MyMediaPlayer
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
-            if (Player.currentMedia != null)
+            if (CurrentMode == Mode.Audio)
             {
-                if (Player.playState == WMPPlayState.wmppsPlaying)
+                if (Player.currentMedia != null)
                 {
-                    BtnPlay.Image = Properties.Resources.black_play;
-                    BtnPlay.ImageSize = new Size(40, 40);
-                    PauseMedia();
+                    if (Player.playState == WMPPlayState.wmppsPlaying)
+                    {
+                        Player.controls.pause();
+                        BtnPlay.ImageSize = new Size(40, 40);
+                        BtnPlay.Image = Properties.Resources.black_play;
+                    }
+                    else
+                    if (Player.playState == WMPPlayState.wmppsPaused)
+                    {
+                        Player.controls.play();
+                        BtnPlay.ImageSize = new Size(40, 40);
+                        BtnPlay.Image = Properties.Resources.pause;
+                    }
+                    else
+                    if (Player.playState == WMPPlayState.wmppsStopped)
+                    {
+                        if (CurrentPlayingMode is PlayingMode.Normal)
+                        {
+                            Player.controls.play();
+                            BtnPlay.Image = Properties.Resources.pause;
+                        }
+                        else
+                        {
+                            ModalBox.Show("Info", "Media Ended");
+                            BtnPlay.Image = Properties.Resources.black_play;
+                        }
+                    }
                 }
                 else
-                if (Player.playState == WMPPlayState.wmppsPaused)
                 {
-                    BtnPlay.Image = Properties.Resources.pause;
-                    BtnPlay.ImageSize = new Size(40, 40);
-                    PlayMedia();
+                    ModalBox.Show("Error", "Media Not Found");
+                }
+            }
+            else
+            if (CurrentMode is Mode.Video)
+            {
+                if (VideoForm.VideoCurrentMedia != null)
+                {
+                    if (VideoForm.VideoPlayState == WMPPlayState.wmppsPlaying)
+                    {
+                        VideoForm.VideoControlsPause();
+                        BtnPlay.ImageSize = new Size(40, 40);
+                        BtnPlay.Image = Properties.Resources.black_play;
+                    }
+                    else
+                    if (VideoForm.VideoPlayState == WMPPlayState.wmppsPaused)
+                    {
+                        VideoForm.VideoControlsPlay();
+                        BtnPlay.ImageSize = new Size(40, 40);
+                        BtnPlay.Image = Properties.Resources.pause;
+                    }
+                    else
+                    if (VideoForm.VideoPlayState == WMPPlayState.wmppsStopped)
+                    {
+                        if (CurrentPlayingMode is PlayingMode.Normal)
+                        {
+                            VideoForm.VideoControlsPlay();
+                            BtnPlay.Image = Properties.Resources.pause;
+                        }
+                        else
+                        {
+                            ModalBox.Show("Info", "Media Ended");
+                            BtnPlay.Image = Properties.Resources.black_play;
+                        }
+                    }
                 }
                 else
-                if (Player.controls.currentPosition == 0)
                 {
-                    BtnPlay.Image = Properties.Resources.black_play;
-                    ModalBox.Show("Info", "Media Ended");
+                    ModalBox.Show("Error", "Media Not Found");
                 }
             }
             else
@@ -450,6 +535,7 @@ namespace MyMediaPlayer
 
         private static Mode CurrentMode;
         private static VideoForm VideoForm;
+        private static PlayingMode CurrentPlayingMode;
         private static readonly Watcher Watcher = new Watcher();
         private static readonly WindowsMediaPlayer Player = new WindowsMediaPlayer();
 
@@ -525,6 +611,37 @@ namespace MyMediaPlayer
             None,
             Audio,
             Video,
+        }
+
+        private void BtnPlayingMode_Click(object sender, EventArgs e)
+        {
+            if (CurrentPlayingMode is PlayingMode.Normal)
+            {
+                CurrentPlayingMode = PlayingMode.Repeat;
+                BtnPlayingMode.Image = Properties.Resources.repeat_one;
+                //if (CurrentMode is Mode.Video) VideoForm.ShouldClose = false;
+            }
+            else
+            if (CurrentPlayingMode is PlayingMode.Repeat)
+            {
+                CurrentPlayingMode = PlayingMode.AutoPlayNext;
+                BtnPlayingMode.Image = Properties.Resources.auto_play;
+                //if (CurrentMode is Mode.Video) VideoForm.ShouldClose = false;
+            }
+            else
+            if (CurrentPlayingMode is PlayingMode.AutoPlayNext)
+            {
+                CurrentPlayingMode = PlayingMode.Normal;
+                BtnPlayingMode.Image = Properties.Resources.normal;
+                //if (CurrentMode is Mode.Video) VideoForm.ShouldClose = true;
+            }
+        }
+
+        public enum PlayingMode
+        {
+            Normal,
+            Repeat,
+            AutoPlayNext,
         }
     }
 

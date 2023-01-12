@@ -90,18 +90,38 @@ namespace MyMediaPlayer
             get => Player.currentMedia;
         }
 
+        //public bool ShouldClose { get; set; } = true;
+
         private void Player_PlayStateChange(object sender, _WMPOCXEvents_PlayStateChangeEvent e)
         {
-            if (e.newState == (int)WMPPlayState.wmppsMediaEnded)
-            {
-                this.Close();
-            }
+            //if (e.newState == (int)WMPPlayState.wmppsMediaEnded)
+            //{
+            //    if (ShouldClose)
+            //    {
+            //        this.Close();
+            //    }
+            //}
         }
 
         public void Stop()
         {
             this.Close();
             this.Dispose();
+        }
+
+        public Action VideoControlsPlay
+        {
+            get => Player.Ctlcontrols.play;
+        }
+
+        public Action VideoControlsPause
+        {
+            get => Player.Ctlcontrols.pause;
+        }
+
+        public Action VideoControlsStop
+        {
+            get => Player.Ctlcontrols.stop;
         }
     }
 }
