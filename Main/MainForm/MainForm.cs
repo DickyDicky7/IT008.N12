@@ -60,6 +60,7 @@ namespace MyMediaPlayer
             //    MessageBox.Show(Common.GetTitle($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\sample-mp4-file.mp4"));
             //    //GlobalReferences.MediaController.LoadLocalVideo("C:\\Users\\User\\Videos\\Pokémon Reborn- Elite 4 Battle Theme.mp4");
             //};
+            //
         }
 
         private Action<object, EventArgs> MainForm_Load(string[] args)
