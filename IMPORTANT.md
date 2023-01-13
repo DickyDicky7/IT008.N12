@@ -1,8 +1,12 @@
 ﻿## Chương 1. Tổng Quan
 1.1. Giới thiệu đề tài đồ án
+
 1.2. Giới thiệu bài toán cần giải quyết
+
 1.3. Quy trình thực hiện các công việc
+
 1.4. Khái quát một số chức năng nổi bật
+
 ## Chương 2. Phân Tích Yêu Cầu Phần Mềm Và Mô Hình Hóa
 2.1. Yêu cầu phần mềm
 
@@ -32,13 +36,20 @@
 ***(Phần này đưa ảnh các giao diện)***
 ## Chương 5. Cài Đặt Và Kiểm Thử
 5.1. Công nghệ, thư viện sử dụng
+
 5.2. Hướng dẫn cài đặt
+
 5.3. Kiểm thử
+
 ## Chương 6. Tổng Kết
 6.1. Kết quả đạt được
+
 6.2. Hạn chế
+
 6.3. Hướng phát triển
+
 6.4. Bảng phân công công việc
+
 > **Người 1: Làm chương 1, 4, 5, 6**
 
 > **Người 2: Làm từ đầu chương 2 cho đến phần 2.2.1**
