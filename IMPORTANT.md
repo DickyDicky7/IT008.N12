@@ -40,6 +40,9 @@
 6.3. Hướng phát triển
 6.4. Bảng phân công công việc
 > **Người 1: Làm chương 1, 4, 5, 6**
+
 > **Người 2: Làm từ đầu chương 2 cho đến phần 2.2.1**
+
 > **Ngưởi 3: Làm từ phần 2.2.2 cho đến hết phần 3.1**
+
 > **Người 4: Làm phần 3.2**
