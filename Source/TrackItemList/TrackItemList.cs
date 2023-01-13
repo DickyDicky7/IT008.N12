@@ -20,14 +20,9 @@ namespace MyMediaPlayer
 
         private readonly AMediaItemList<TrackItem> Self = new AMediaItemList<TrackItem>();
 
-        public void AddMusicFolder(string folderPath)
+        public Action<string> AddMusicFolder
         {
-            string[] fileArray = Directory.GetFiles(folderPath, "*.mp3");
-            foreach (string file in fileArray)
-            {
-                TrackItem media = new TrackItem(file);
-                AddMusic(media);
-            }
+            get => Self.AddFolderWith(AddMusic, Common.AudioFileExtensions);
         }
 
         public void AddMusic(TrackItem mediaItem)

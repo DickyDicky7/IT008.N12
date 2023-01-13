@@ -28,87 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ThumbnailBox = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.TitleLB = new System.Windows.Forms.Label();
-            this.siticonePanel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ThumbnailBox)).BeginInit();
+            this.Panel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.Label = new System.Windows.Forms.Label();
+            this.ToolTip = new Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip();
+            this.PictureBox = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // siticonePanel1
+            // Panel
             // 
-            this.siticonePanel1.BorderColor = System.Drawing.Color.Black;
-            this.siticonePanel1.BorderRadius = 10;
-            this.siticonePanel1.BorderThickness = 1;
-            this.siticonePanel1.Controls.Add(this.tableLayoutPanel1);
-            this.siticonePanel1.Location = new System.Drawing.Point(10, 10);
-            this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.Size = new System.Drawing.Size(290, 290);
-            this.siticonePanel1.TabIndex = 0;
+            this.Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Panel.BackColor = System.Drawing.Color.White;
+            this.Panel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.Panel.BorderThickness = 1;
+            this.Panel.Controls.Add(this.PictureBox);
+            this.Panel.Controls.Add(this.Label);
+            this.Panel.FillColor = System.Drawing.Color.White;
+            this.Panel.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.Panel.Location = new System.Drawing.Point(1, 1);
+            this.Panel.Name = "Panel";
+            this.Panel.ShadowDecoration.BorderRadius = 0;
+            this.Panel.ShadowDecoration.Enabled = true;
+            this.Panel.Size = new System.Drawing.Size(98, 143);
+            this.Panel.TabIndex = 0;
             // 
-            // tableLayoutPanel1
+            // Label
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.ThumbnailBox, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.TitleLB, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 290);
-            this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseClick);
+            this.Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label.BackColor = System.Drawing.Color.White;
+            this.Label.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.Label.Location = new System.Drawing.Point(1, 90);
+            this.Label.Name = "Label";
+            this.Label.Size = new System.Drawing.Size(96, 52);
+            this.Label.TabIndex = 1;
+            this.Label.Text = "Title";
+            this.Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ThumbnailBox
+            // ToolTip
             // 
-            this.ThumbnailBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThumbnailBox.ImageRotate = 0F;
-            this.ThumbnailBox.InitialImage = null;
-            this.ThumbnailBox.Location = new System.Drawing.Point(3, 3);
-            this.ThumbnailBox.Name = "ThumbnailBox";
-            this.ThumbnailBox.Size = new System.Drawing.Size(284, 197);
-            this.ThumbnailBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ThumbnailBox.TabIndex = 2;
-            this.ThumbnailBox.TabStop = false;
+            this.ToolTip.AllowLinksHandling = true;
+            this.ToolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ToolTip.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.ToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ToolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.ToolTip.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.ToolTip.TitleFont = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.ToolTip.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             // 
-            // TitleLB
+            // PictureBox
             // 
-            this.TitleLB.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleLB.AutoSize = true;
-            this.TitleLB.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.TitleLB.Location = new System.Drawing.Point(120, 234);
-            this.TitleLB.Name = "TitleLB";
-            this.TitleLB.Size = new System.Drawing.Size(49, 25);
-            this.TitleLB.TabIndex = 1;
-            this.TitleLB.Text = "Title";
-            this.TitleLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureBox.BackColor = System.Drawing.Color.White;
+            this.PictureBox.Image = global::MyMediaPlayer.Properties.Resources.video_thumbnail;
+            this.PictureBox.ImageRotate = 0F;
+            this.PictureBox.Location = new System.Drawing.Point(1, 1);
+            this.PictureBox.Name = "PictureBox";
+            this.PictureBox.Size = new System.Drawing.Size(96, 87);
+            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox.TabIndex = 0;
+            this.PictureBox.TabStop = false;
             // 
             // VideoItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.siticonePanel1);
+            this.Controls.Add(this.Panel);
+            this.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VideoItem";
-            this.Size = new System.Drawing.Size(310, 310);
-            this.siticonePanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ThumbnailBox)).EndInit();
+            this.Size = new System.Drawing.Size(100, 145);
+            this.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Siticone.Desktop.UI.WinForms.SiticonePictureBox ThumbnailBox;
-        private System.Windows.Forms.Label TitleLB;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel Panel;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox PictureBox;
+        private System.Windows.Forms.Label Label;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip ToolTip;
     }
 }

@@ -71,7 +71,6 @@
             this.removeBtn.ShadowDecoration.Parent = this.removeBtn;
             this.removeBtn.Size = new System.Drawing.Size(25, 19);
             this.removeBtn.TabIndex = 1;
-            this.removeBtn.Click += new System.EventHandler(this.removeBtn_Click);
             // 
             // FolderLocation
             // 

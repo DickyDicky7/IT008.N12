@@ -289,6 +289,9 @@
     <EmbeddedResource Include="Source\VideoForm\VideoForm.resx">
       <DependentUpon>VideoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\VideoItemList\VideoItemList.resx">
+      <DependentUpon>VideoItemList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\VideoItem\VideoItem.resx">
       <DependentUpon>VideoItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -347,6 +350,7 @@
     <Content Include="Libraries\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\video_thumbnail.png" />
     <None Include="Resources\rewind.png" />
     <None Include="Resources\normal.png" />
     <None Include="Resources\auto_play.png" />

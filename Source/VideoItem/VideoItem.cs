@@ -12,43 +12,139 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public partial class VideoItem : UserControl//, IMediaItem
+    public partial class VideoItem : UserControl, IMediaItem
     {
-        private string URL = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\Pokémon Reborn- Elite 4 Battle Theme.mp4";
-        public VideoItem()
+        public VideoItem(string URL)
         {
             InitializeComponent();
-            if (Common.GetImage(URL) == null)
-            {
-                ThumbnailBox.Image = Common.GetImage(URL);
-            }
-            else
-            {
-                ThumbnailBox.Image = null;
-            }
-            TitleLB.Text = Path.GetFileNameWithoutExtension(URL);
+            this.URL = URL;
+            this.Title = this.URL.Split('\\').Last();
+            this.Click += new EventHandler(VideoItem_Click);
+            this.MouseEnter += new EventHandler(VideoItem_MouseEnter);
+            this.MouseLeave += new EventHandler(VideoItem_MouseLeave);
         }
+
+        public string URL { get; set; }
+        public string Album { get; set; }
+        public string Genre { get; set; }
+        public string Artist { get; set; }
+        public Image Thumbnail { get; set; }
+        public TimeSpan? Duration { get; set; }
+        public string PlaylistName { get; set; }
+        public string Title { get => Label.Text; set => Label.Text = value; }
+
+        public Action Play { get => VideoItem_Play; }
+        public UserControl UserControl { get => this; }
+        public EventHandler IMediaItem_Click { get => VideoItem_Click; }
 
         private void VideoItem_Play()
         {
-            ChangeLabelColor(Color.FromArgb(186, 24, 27));
-            if (PlayItem != null && PlayItem != this)
+            GlobalReferences.MediaController.LoadLocalVideo(this.URL);
+        }
+
+        private void VideoItem_Click(object sender, EventArgs e)
+        {
+            this.VideoItem_Play();
+        }
+
+        private void VideoItem_MouseEnter(object sender, EventArgs e)
+        {
+            ToolTip.Show(this.Title, Label);
+        }
+
+        private void VideoItem_MouseLeave(object sender, EventArgs e)
+        {
+            ToolTip.Hide(Label);
+        }
+
+        public new event EventHandler Click
+        {
+            add
             {
-                PlayItem.ChangeLabelColor(Color.Black);
+                base.Click += value;
+                static void Recursive(Control control, EventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.Click += e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
             }
-            PlayItem = this;
-            GlobalReferences.MediaController.LoadLocalVideo(URL);
+            remove
+            {
+                base.Click -= value;
+                static void Recursive(Control control, EventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.Click -= e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
         }
 
-        private void ChangeLabelColor(Color color)
+        public new event EventHandler MouseEnter
         {
-            TitleLB.ForeColor = color;
+            add
+            {
+                base.MouseEnter += value;
+                static void Recursive(Control control, EventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.MouseEnter += e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
+            remove
+            {
+                base.MouseEnter -= value;
+                static void Recursive(Control control, EventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.MouseEnter -= e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
         }
-        public static VideoItem PlayItem { get; set; }
 
-        private void tableLayoutPanel1_MouseClick(object sender, MouseEventArgs e)
+        public new event EventHandler MouseLeave
         {
-            GlobalReferences.MediaController.LoadLocalVideo(URL);
+            add
+            {
+                base.MouseLeave += value;
+                static void Recursive(Control control, EventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.MouseLeave += e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
+            remove
+            {
+                base.MouseLeave -= value;
+                static void Recursive(Control control, EventHandler e)
+                {
+                    foreach (Control c in control.Controls)
+                    {
+                        c.MouseLeave -= e;
+                        Recursive(c, e);
+                    }
+                }
+                Recursive(this, value);
+            }
         }
     }
 }

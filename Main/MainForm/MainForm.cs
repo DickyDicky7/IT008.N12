@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Siticone.Desktop.UI.WinForms;
+using System.Security.Policy;
 
 namespace MyMediaPlayer
 {
@@ -22,6 +23,7 @@ namespace MyMediaPlayer
             Common.RoundedCorner(this);
             SettingPageInit();
             MusicPageInit();
+            VideoPageInit();
             PlaylistPageInit();
             Responsive();
             DesignInit();
@@ -62,7 +64,20 @@ namespace MyMediaPlayer
             //};
             //
             //
-            //
+            //        //private string URL = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\Pokémon Reborn- Elite 4 Battle Theme.mp4";
+            //Console.WriteLine(Common.MediaFileExtensions.Count);
+            //var v = new VideoItemList()
+            //{
+            //    Dock = DockStyle.Fill
+            //};
+            //videoLibraryTabPage.Controls.Add(v);
+            //v.AddVideosFolder(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos));
+            //videoLibraryTabPage.Controls.Add(new VideoItem($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\Pokémon Reborn- Elite 4 Battle Theme.mp4"));
+            //musicFolderPanel.HorizontalScroll.Maximum = 0;
+            //musicFolderPanel.AutoScroll = false;
+            //musicFolderPanel.VerticalScroll.Visible = false;
+            musicFolderPanel.AutoScroll = true;
+            videosFolderPanel.AutoScroll = true;
         }
 
         private Action<object, EventArgs> MainForm_Load(string[] args)
@@ -120,6 +135,27 @@ namespace MyMediaPlayer
             }
         }
 
+        private void VideoPageInit()
+        {
+            List<string> ToRemove = new List<string>();
+            foreach (string VideosFolderURL in Properties.Settings.Default.videosFolder)
+            {
+                if (Directory.Exists(VideosFolderURL))
+                {
+                    videoItemList.AddVideosFolder(VideosFolderURL);
+                }
+                else
+                {
+                    ToRemove.Add(VideosFolderURL);
+                }
+            }
+            ToRemove.ForEach(Item =>
+            {
+                Properties.Settings.Default.videosFolder.Remove(Item);
+                Properties.Settings.Default.Save();
+            });
+        }
+
         private void SettingPageInit()
         {
             string musicPath = Common.MusicFolder;
@@ -130,9 +166,22 @@ namespace MyMediaPlayer
             }
             foreach (string URL in Properties.Settings.Default.musicFolder)
             {
-                FolderLocation musicFolder = new FolderLocation(URL);
+                FolderLocation musicFolder = new FolderLocation(URL, FolderLocation.Mode.Audio);
                 musicFolder.Dock = DockStyle.Top;
                 musicFolderPanel.Controls.Add(musicFolder);
+            }
+
+            if (!Properties.Settings.Default.videosFolder.Contains(Common.VideosFolder))
+            {
+                Properties.Settings.Default.videosFolder.Add(Common.VideosFolder);
+                Properties.Settings.Default.Save();
+            }
+            foreach (string VideosFolderURL in Properties.Settings.Default.videosFolder)
+            {
+                videosFolderPanel.Controls.Add(new FolderLocation(VideosFolderURL, FolderLocation.Mode.Video)
+                {
+                    Dock = DockStyle.Top,
+                });
             }
         }
 
@@ -173,9 +222,9 @@ namespace MyMediaPlayer
 
         #endregion
 
-        #region Add_Music
+        #region Add_Music_Videos
 
-        private void AddFolder_Click(object sender, EventArgs e)
+        private void AddMusicFolder_Click(object sender, EventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
             {
@@ -187,9 +236,31 @@ namespace MyMediaPlayer
                     {
                         Properties.Settings.Default.musicFolder.Add(fbd.SelectedPath);
                         Properties.Settings.Default.Save();
-                        FolderLocation folderLocation = new FolderLocation(fbd.SelectedPath);
+                        FolderLocation folderLocation = new FolderLocation(fbd.SelectedPath, FolderLocation.Mode.Audio);
+                        folderLocation.Dock = DockStyle.Top;
                         musicFolderPanel.Controls.Add(folderLocation);
                         musicList.AddMusicFolder(fbd.SelectedPath);
+                    }
+                }
+            }
+        }
+
+        private void AddVideosFolder_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    if (Properties.Settings.Default.videosFolder.Contains(fbd.SelectedPath) == false)
+                    {
+                        Properties.Settings.Default.videosFolder.Add(fbd.SelectedPath);
+                        Properties.Settings.Default.Save();
+                        FolderLocation folderLocation = new FolderLocation(fbd.SelectedPath, FolderLocation.Mode.Video);
+                        folderLocation.Dock = DockStyle.Top;
+                        videosFolderPanel.Controls.Add(folderLocation);
+                        videoItemList.AddVideosFolder(fbd.SelectedPath);
                     }
                 }
             }

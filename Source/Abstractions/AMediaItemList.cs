@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,23 @@ namespace MyMediaPlayer
     public class AMediaItemList<IMediaItemType> where IMediaItemType : IMediaItem
     {
         public List<IMediaItemType> MediaItems = new List<IMediaItemType>();
+
+        public Action<string> AddFolderWith
+        (Action<IMediaItemType> AddMediaItem, List<string> FileExtensions)
+        {
+            return (FolderPath) =>
+            {
+                FileExtensions.ForEach(FileExtension =>
+                {
+                    Directory.GetFiles(FolderPath, FileExtension).ToList().ForEach
+                    (FileURL =>
+                    {
+                        AddMediaItem
+                        ((IMediaItemType)Activator.CreateInstance(typeof(IMediaItemType), FileURL));
+                    });
+                });
+            };
+        }
 
         public int GetMediaItemIndex(IMediaItemType MediaItem)
         {

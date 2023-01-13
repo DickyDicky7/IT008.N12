@@ -73,7 +73,7 @@ namespace MyMediaPlayer
         /// <param name="MediaURL">Media's file path</param>
         /// <returns></returns>
         public static int GetDurationInSeconds(string MediaURL)
-        {
+        { 
             TagLib.File Media = TagLib.File.Create(MediaURL);
             return (int)Media.Properties.Duration.TotalSeconds;
         }
@@ -177,5 +177,23 @@ namespace MyMediaPlayer
         /// Playlists Folder's path: %HOMEPATH%\Music\Playlists
         /// </summary>
         public static string PlaylistsFolder = $"{MusicFolder}\\Playlists";
+
+        /// <summary>
+        /// Videos Folder's path: %HOMEPATH%\Videos
+        /// </summary>
+        public static string VideosFolder =
+        Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
+
+        public static List<string> MediaFileExtensions =
+        "*.wav;*.flac;*.aac;*.wma;*.wmv;*.avi;*.mpg;*.mpeg;*.m1v;*.mp2;*.mp3;*.mpa;*.mpe;*.m3u;*.mp4;*.mov;*.3g2;*.3gp2;*.3gp;*.3gpp;*.m4a;*.cda;*.aif;*.aifc;*.aiff;*.mid;*.midi;*.rmi;*.mkv;*.WAV;*.AAC;*.WMA;*.WMV;*.AVI;*.MPG;*.MPEG;*.M1V;*.MP2;*.MP3;*.MPA;*.MPE;*.M3U;*.MP4;*.MOV;*.3G2;*.3GP2;*.3GP;*.3GPP;*.M4A;*.CDA;*.AIF;*.AIFC;*.AIFF;*.MID;*.MIDI;*.RMI;*.MKV"
+        .Split(';').ToList();
+
+        public static List<string> AudioFileExtensions =
+        "*.pcm;*.wav;*.aiff;*.mp3;*.aac;.*.ogg;*.wma;*.flac;*.alac"
+        .Split(';').ToList();
+
+        public static List<string> VideoFileExtensions =
+        "*.mp4;*.mov;*.avi;*.flv;*.mkv;*.wmv;*.avchd;*.webm;*.h264;*.mpeg4"
+        .Split(';').ToList();
     }
 }
