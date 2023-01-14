@@ -493,6 +493,8 @@ namespace MyMediaPlayer
             {
                 if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                 {
+                    string NewContent;
+
                     using (Stream Stream = File.OpenRead
                     ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                     {
@@ -500,11 +502,11 @@ namespace MyMediaPlayer
                         WplPlaylist Playlist = Content.GetFromStream(Stream);
                         Playlist.PlaylistEntries
                         .Add(new WplPlaylistEntry() { Path = TrackURL });
-                        string NewContent = Content.ToText(Playlist);
-
-                        File.WriteAllText
-                        ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+                        NewContent = Content.ToText(Playlist);
                     }
+
+                    File.WriteAllText
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
                 }
             });
 
@@ -518,6 +520,8 @@ namespace MyMediaPlayer
             {
                 if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                 {
+                    string NewContent;
+
                     using (Stream Stream = File.OpenRead
                     ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                     {
@@ -530,11 +534,11 @@ namespace MyMediaPlayer
                         });
                         if (Index >= 0)
                             Playlist.PlaylistEntries.RemoveAt(Index);
-                        string NewContent = Content.ToText(Playlist);
-
-                        File.WriteAllText
-                        ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+                        NewContent = Content.ToText(Playlist);
                     }
+
+                    File.WriteAllText
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
                 }
             });
 
