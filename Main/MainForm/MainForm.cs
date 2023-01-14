@@ -392,9 +392,13 @@ namespace MyMediaPlayer
             PlayQMusicList.Controls.Clear();
         }
 
-        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private async void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //this.Hide();
+            //await Common.SetTimeout(() =>
+            //{
+            //    this.Show();
+            //}, TimeSpan.FromSeconds(5));
         }
     }
 }

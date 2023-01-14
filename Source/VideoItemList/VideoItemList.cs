@@ -18,6 +18,17 @@ namespace MyMediaPlayer
         {
             InitializeComponent();
             this.AutoScroll = true;
+            //this.DoubleBuffered = true;
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams CP = base.CreateParams;
+                CP.ExStyle = CP.ExStyle | 0x02000000;
+                return CP;
+            }
         }
 
         private readonly AMediaItemList<VideoItem> Self = new AMediaItemList<VideoItem>();
