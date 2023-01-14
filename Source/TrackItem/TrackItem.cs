@@ -199,8 +199,9 @@ namespace MyMediaPlayer
             GlobalReferences.MainForm.BringVisualizeToFront();
             if (ParentTrackItemList != null)
             {
-                ParentTrackItemList.CurrentIndex = ParentTrackItemList.GetMediaItemIndex(this) - 1;
                 GlobalReferences.MediaController.LoadMediaItemList(ParentTrackItemList);
+                ParentTrackItemList.UpdateCurrentIndex(this);
+                TrackItem_Play();
             }
         }
 

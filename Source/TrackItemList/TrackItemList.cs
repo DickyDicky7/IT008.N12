@@ -100,30 +100,19 @@ namespace MyMediaPlayer
             mediaItemContainer.Controls.Clear();
         }
 
-        public bool IsShuffle
-        {
-            get => Self.IsShuffle;
-            set => Self.IsShuffle = value;
-        }
-
-        public int CurrentIndex
-        {
-            get => Self.CurrentIndex;
-            set => Self.CurrentIndex = value;
-        }
-
+        public Action Stop { get => Self.Stop; }
+        public Action PlayNext { get => Self.PlayNext; }
+        public Action PlayBack { get => Self.PlayBack; }
         public Action GenerateShuffleList { get => Self.GenerateShuffleList; }
 
-        public AMediaItemList<TrackItem>.GetMediaItemIndexHandler GetMediaItemIndex
-        { get => Self.GetMediaItemIndex; }
+        public void UpdateCurrentIndex(IMediaItem MediaItem)
+        {
+            TrackItem TrackItem = (TrackItem)MediaItem;
+            if (TrackItem != null)
+                Self.UpdateCurrentIndex(TrackItem);
+        }
 
-        public Action Stop { get => Self.Stop; }
-
-        public Action PlayNext { get => Self.PlayNext; }
-
-        public Action PlayBack { get => Self.PlayBack; }
-
-        private void mediaItemContainer_Resize(object sender, EventArgs e)
+        private void MediaItemContainer_Resize(object sender, EventArgs e)
         {
 
         }

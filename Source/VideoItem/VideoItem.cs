@@ -44,7 +44,12 @@ namespace MyMediaPlayer
 
         private void VideoItem_Click(object sender, EventArgs e)
         {
-            this.VideoItem_Play();
+            if ((VideoItemList)this.Parent != null)
+            {
+                GlobalReferences.MediaController.LoadMediaItemList((VideoItemList)this.Parent);
+                ((VideoItemList)this.Parent).UpdateCurrentIndex(this);
+                this.VideoItem_Play();
+            }
         }
 
         private void VideoItem_MouseEnter(object sender, EventArgs e)

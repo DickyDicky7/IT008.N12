@@ -284,9 +284,7 @@
             // 
             this.musicList.AutoSize = true;
             this.musicList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.musicList.CurrentIndex = -1;
             this.musicList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.musicList.IsShuffle = false;
             this.musicList.Location = new System.Drawing.Point(0, 125);
             this.musicList.Margin = new System.Windows.Forms.Padding(2);
             this.musicList.Name = "musicList";
@@ -439,9 +437,7 @@
             // 
             this.PlayQMusicList.AutoSize = true;
             this.PlayQMusicList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.PlayQMusicList.CurrentIndex = -1;
             this.PlayQMusicList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlayQMusicList.IsShuffle = false;
             this.PlayQMusicList.Location = new System.Drawing.Point(0, 125);
             this.PlayQMusicList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PlayQMusicList.Name = "PlayQMusicList";
@@ -1002,7 +998,6 @@
             this.videoItemList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoItemList.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.videoItemList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.videoItemList.IsShuffle = false;
             this.videoItemList.Location = new System.Drawing.Point(2, 65);
             this.videoItemList.Name = "videoItemList";
             this.videoItemList.Size = new System.Drawing.Size(818, 384);

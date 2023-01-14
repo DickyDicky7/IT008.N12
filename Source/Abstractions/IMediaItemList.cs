@@ -11,7 +11,7 @@ namespace MyMediaPlayer
         public abstract Action Stop { get; }
         public abstract Action PlayNext { get; }
         public abstract Action PlayBack { get; }
-        public abstract bool IsShuffle { get; set; }
         public abstract Action GenerateShuffleList { get; }
+        public abstract void UpdateCurrentIndex(IMediaItem MediaItem);
     }
 }

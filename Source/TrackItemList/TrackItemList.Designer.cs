@@ -47,7 +47,7 @@
             this.Name = "MusicList";
             this.Size = new System.Drawing.Size(777, 527);
             this.Load += new System.EventHandler(this.TrackItemList_Load);
-            this.Resize += new System.EventHandler(this.mediaItemContainer_Resize);
+            this.Resize += new System.EventHandler(this.MediaItemContainer_Resize);
             this.ResumeLayout(false);
 
         }

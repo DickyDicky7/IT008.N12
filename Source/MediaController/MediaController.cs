@@ -77,7 +77,7 @@ namespace MyMediaPlayer
                         else
                         if (CurrentPlayingMode is PlayingMode.AutoPlayNext)
                         {
-                            //CurrentMusicList?.PlayNext();
+                            CurrentMediaItemList?.PlayNext();
                         }
                     }
                 }
@@ -467,18 +467,17 @@ namespace MyMediaPlayer
             Watcher.Stop();
         }
 
-        public void LoadMediaItemList(IMediaItemList MediaItemList, bool IsShuffle = false)
+        public void LoadMediaItemList(IMediaItemList MediaItemList)
         {
-            if (CurrentMediaItemList != null && CurrentMediaItemList != MediaItemList)
-            {
-                CurrentMediaItemList.Stop();
-            }
+            CurrentMediaItemList?.Stop();
             CurrentMediaItemList = MediaItemList;
-            CurrentMediaItemList.IsShuffle = IsShuffle;
-            if (IsShuffle)
-            {
-                CurrentMediaItemList.GenerateShuffleList();
-            }
+        }
+
+        public void LoadMediaItemListWithShuffle(IMediaItemList MediaItemList)
+        {
+            CurrentMediaItemList?.Stop();
+            CurrentMediaItemList = MediaItemList;
+            CurrentMediaItemList.GenerateShuffleList();
             CurrentMediaItemList.PlayNext();
         }
 

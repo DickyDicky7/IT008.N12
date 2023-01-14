@@ -61,6 +61,7 @@ namespace MyMediaPlayer
             playButton.Click += (sender, e) =>
             {
                 GlobalReferences.MediaController.LoadMediaItemList(this.musicList);
+                this.musicList.PlayNext();
             };
 
             foreach (string Path in Paths)

@@ -28,26 +28,26 @@ namespace MyMediaPlayer
             };
         }
 
-        public int GetMediaItemIndex(IMediaItemType MediaItem)
-        {
-            return MediaItems.IndexOf(MediaItem);
-        }
-
         public void Clear()
         {
             MediaItems.Clear();
         }
 
-        public int CurrentIndex = -1;
-        public bool IsShuffle = false;
-        public List<int> ShuffleList = new List<int>();
-        public delegate int GetMediaItemIndexHandler(IMediaItemType MediaItem);
+        private int CurrentIndex = -1;
+        private List<int> ShuffleList;
+        private bool IsShuffle = false;
+        private static readonly Random Random = new Random();
 
         public void GenerateShuffleList()
         {
-            Random Random = new Random();
-            ShuffleList = Enumerable.Range
-            (0, MediaItems.Count).OrderBy(x => Random.Next()).ToList();
+            ShuffleList = Enumerable.Range(0, MediaItems.Count)
+            .OrderBy(x => Random.Next()).ToList();
+            IsShuffle = true;
+        }
+
+        public void UpdateCurrentIndex(IMediaItemType MediaItem)
+        {
+            CurrentIndex = MediaItems.IndexOf(MediaItem);
         }
 
         protected void Signal(int Index)
@@ -57,6 +57,7 @@ namespace MyMediaPlayer
 
         public void Stop()
         {
+            IsShuffle = false;
             CurrentIndex = -1;
         }
 

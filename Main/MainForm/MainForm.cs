@@ -384,12 +384,12 @@ namespace MyMediaPlayer
 
         private void ShuffleAndPlayBtn_Click(object sender, EventArgs e)
         {
-            mediaController.LoadMediaItemList(musicList, true);
+            mediaController.LoadMediaItemListWithShuffle(musicList);
         }
 
         private void PlayQueueClearButton_Click(object sender, EventArgs e)
         {
-            PlayQMusicList.Controls.Clear();
+            PlayQMusicList.Clear();
         }
 
         private async void TabControl_SelectedIndexChanged(object sender, EventArgs e)

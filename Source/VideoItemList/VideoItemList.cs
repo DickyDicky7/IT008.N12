@@ -72,15 +72,16 @@ namespace MyMediaPlayer
             }
         }
 
-        public bool IsShuffle
-        {
-            get => Self.IsShuffle;
-            set => Self.IsShuffle = value;
-        }
-
         public Action Stop { get => Self.Stop; }
         public Action PlayNext { get => Self.PlayNext; }
         public Action PlayBack { get => Self.PlayBack; }
         public Action GenerateShuffleList { get => Self.GenerateShuffleList; }
+
+        public void UpdateCurrentIndex(IMediaItem MediaItem)
+        {
+            VideoItem VideoItem = (VideoItem)MediaItem;
+            if (VideoItem != null)
+                Self.UpdateCurrentIndex(VideoItem);
+        }
     }
 }
