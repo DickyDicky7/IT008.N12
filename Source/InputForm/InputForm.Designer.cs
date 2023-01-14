@@ -49,9 +49,9 @@
             this.Title.AutoSize = false;
             this.Title.BackColor = System.Drawing.Color.Transparent;
             this.Title.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(100, 30);
+            this.Title.Location = new System.Drawing.Point(50, 30);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(200, 30);
+            this.Title.Size = new System.Drawing.Size(300, 30);
             this.Title.TabIndex = 0;
             this.Title.Text = "Title goes here";
             this.Title.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
