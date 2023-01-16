@@ -7,8 +7,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Security.Policy;
+using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
@@ -73,6 +73,14 @@ namespace MyMediaPlayer
         }
 
         public Action Stop { get => Self.Stop; }
+        public Action Clear
+        {
+            get => () =>
+            {
+                Self.Clear();
+                this.Controls.Clear();
+            };
+        }
         public Action PlayNext { get => Self.PlayNext; }
         public Action PlayBack { get => Self.PlayBack; }
         public Action GenerateShuffleList { get => Self.GenerateShuffleList; }

@@ -146,6 +146,12 @@
     <Compile Include="Source\Pagination\Pagination.Designer.cs">
       <DependentUpon>Pagination.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\PlaylistItemList\PlaylistItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\PlaylistItemList\PlaylistItemList.Designer.cs">
+      <DependentUpon>PlaylistItemList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Utilities\GlobalReferences.cs" />
     <Compile Include="Source\Abstractions\IIntegration.cs" />
     <Compile Include="Source\Abstractions\IIntegrationSearchResultList.cs" />
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\InputForm\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\PlaylistItemList\PlaylistItemList.resx">
+      <DependentUpon>PlaylistItemList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\TrackLyrics\TrackLyrics.resx">
       <DependentUpon>TrackLyrics.cs</DependentUpon>

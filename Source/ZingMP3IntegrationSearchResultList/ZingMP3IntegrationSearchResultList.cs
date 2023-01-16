@@ -12,7 +12,8 @@ using Siticone.Desktop.UI.WinForms;
 
 namespace MyMediaPlayer
 {
-    public partial class ZingMP3IntegrationSearchResultList : UserControl, IIntegrationSearchResultList
+    public partial class ZingMP3IntegrationSearchResultList : UserControl
+    , IIntegrationSearchResultList, IMediaItemList
     {
         public ZingMP3IntegrationSearchResultList()
         {
@@ -33,6 +34,19 @@ namespace MyMediaPlayer
 
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams CP = base.CreateParams;
+                CP.ExStyle = CP.ExStyle | 0x02000000;
+                return CP;
+            }
+        }
+
+        private readonly AMediaItemList<ZingMP3IntegrationSearchResult> Self =
+                     new AMediaItemList<ZingMP3IntegrationSearchResult>();
+
         public void LoadIntegrationSearchResults(string JSONResult)
         {
             if (JSONResult == null)
@@ -48,11 +62,18 @@ namespace MyMediaPlayer
 
                 JSONResultObject = JObject.Parse(JSONResult);
 
-                List<ZingMP3IntegrationSearchResult> IntegrationSearchResults = JSONResultObject["data"]?["items"]
-                .Select(Item => new ZingMP3IntegrationSearchResult(Item["encodeId"].Value<string>()
-                , Item["title"].Value<string>(), Item["artistsNames"].Value<string>()
-                , Item["thumbnailM"].Value<string>(), Item["duration"].Value<int>()))
-                .ToList();
+                List<ZingMP3IntegrationSearchResult> IntegrationSearchResults =
+                JSONResultObject["data"]?["items"].Select
+                (
+                    Item => new ZingMP3IntegrationSearchResult
+                    (
+                      Item["duration"].Value<int>()
+                    , Item["title"].Value<string>()
+                    , Item["encodeId"].Value<string>()
+                    , Item["thumbnailM"].Value<string>()
+                    , Item["artistsNames"].Value<string>()
+                    )
+                ).ToList();
 
                 NumberOfItems = JSONResultObject["data"]?["total"]?.Value<int?>();
 
@@ -83,6 +104,9 @@ namespace MyMediaPlayer
                             this.Controls.Add(Separator);
                         }));
                     }
+
+                    Self.MediaItems.Add(IntegrationSearchResult);
+
                 });
             });
         }
@@ -97,5 +121,25 @@ namespace MyMediaPlayer
         private int CurrentLocationY = 0;
 
         public int? NumberOfItems { get; set; } = null;
+
+        public Action Stop => Self.Stop;
+        public Action Clear => () =>
+        {
+            Self.Clear();
+            this.Controls.Clear();
+        };
+        public Action PlayNext => Self.PlayNext;
+        public Action PlayBack => Self.PlayBack;
+        public Action GenerateShuffleList => Self.GenerateShuffleList;
+
+        public void UpdateCurrentIndex(IMediaItem MediaItem)
+        {
+            ZingMP3IntegrationSearchResult ZingMP3IntegrationSearchResult = MediaItem as
+            ZingMP3IntegrationSearchResult;
+            if (ZingMP3IntegrationSearchResult != null)
+            {
+                Self.UpdateCurrentIndex(ZingMP3IntegrationSearchResult);
+            }
+        }
     }
 }

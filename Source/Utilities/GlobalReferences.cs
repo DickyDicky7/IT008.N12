@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -13,5 +14,8 @@ namespace MyMediaPlayer
         public static TrackLyrics TrackLyrics { get; set; }
         public static MediaController MediaController { get; set; }
         public static IIntegration OnlineStoreIntegration { get; set; }
+
+        public static readonly FileSystemWatcher PlaylistsFolderWatcher =
+                           new FileSystemWatcher(Common.PlaylistsFolder);
     }
 }

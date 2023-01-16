@@ -8,9 +8,9 @@ using System.Xml.Linq;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Security.Policy;
 using System.Collections.Generic;
 using Siticone.Desktop.UI.WinForms;
-using System.Security.Policy;
 
 namespace MyMediaPlayer
 {
@@ -24,7 +24,6 @@ namespace MyMediaPlayer
             SettingPageInit();
             MusicPageInit();
             VideoPageInit();
-            PlaylistPageInit();
             Responsive();
             DesignInit();
 
@@ -55,27 +54,27 @@ namespace MyMediaPlayer
 
             #endregion
 
-            //musicLabel.Click += (s, e) =>
-            //{
-            //    TagLib.Mpeg4.File file = (TagLib.Mpeg4.File)TagLib.File.Create($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\sample-mp4-file.mp4");
-            //    MessageBox.Show(file.Tag.Title);
-            //    MessageBox.Show(Common.GetTitle($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\sample-mp4-file.mp4"));
-            //    //GlobalReferences.MediaController.LoadLocalVideo("C:\\Users\\User\\Videos\\Pokémon Reborn- Elite 4 Battle Theme.mp4");
-            //};
-            //
-            //
-            //        //private string URL = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\Pokémon Reborn- Elite 4 Battle Theme.mp4";
-            //Console.WriteLine(Common.MediaFileExtensions.Count);
-            //var v = new VideoItemList()
-            //{
-            //    Dock = DockStyle.Fill
-            //};
-            //videoLibraryTabPage.Controls.Add(v);
-            //v.AddVideosFolder(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos));
-            //videoLibraryTabPage.Controls.Add(new VideoItem($"{Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)}\\Pokémon Reborn- Elite 4 Battle Theme.mp4"));
-            //musicFolderPanel.HorizontalScroll.Maximum = 0;
-            //musicFolderPanel.AutoScroll = false;
-            //musicFolderPanel.VerticalScroll.Visible = false;
+            if (!Directory.Exists(Common.MusicFolder))
+            {
+                Directory.CreateDirectory(Common.MusicFolder);
+            }
+
+            if (!Directory.Exists(Common.PlaylistsFolder))
+            {
+                Directory.CreateDirectory(Common.PlaylistsFolder);
+            }
+
+            GlobalReferences.PlaylistsFolderWatcher.EnableRaisingEvents = true;
+            GlobalReferences.PlaylistsFolderWatcher.NotifyFilter
+            = NotifyFilters.DirectoryName
+            | NotifyFilters.CreationTime
+            | NotifyFilters.Attributes
+            | NotifyFilters.LastAccess
+            | NotifyFilters.LastWrite
+            | NotifyFilters.Security
+            | NotifyFilters.FileName
+            | NotifyFilters.Size;
+
             musicFolderPanel.AutoScroll = true;
             videosFolderPanel.AutoScroll = true;
         }
@@ -185,39 +184,11 @@ namespace MyMediaPlayer
             }
         }
 
-        private void PlaylistPageInit()
-        {
-            var fileArray = Directory.GetFiles(Common.PlaylistsFolder, "*.wpl");
-            foreach (string file in fileArray)
-            {
-                PlaylistItem item = new PlaylistItem(file);
-                AddPlaylistToPanel(item);
-            }
-        }
-
         public void BringVisualizeToFront()
         {
             visualizeContainer.Visible = true;
             visualizeContainer.BringToFront();
             tabControlBorder.SendToBack();
-        }
-
-        public void AddPlaylistToPanel(Control c)
-        {
-            PlaylistItem Head =
-            playlistsPanel.Controls.OfType<PlaylistItem>().LastOrDefault();
-            if (Head != null)
-            {
-                //MessageBox.Show(Head.Name);
-                Head.AdjacentOne = (PlaylistItem)c;
-            }
-            playlistsPanel.Controls.Add(c);
-        }
-
-        public void UpdatePlaylistItem(string PlaylistURL)
-        {
-            ((PlaylistItem)playlistsPanel.Controls
-            .Find(PlaylistURL, false).FirstOrDefault()).Reset();
         }
 
         #endregion
@@ -305,23 +276,6 @@ namespace MyMediaPlayer
         private void MainForm_ResizeEnd(object sender, EventArgs e)
         {
             Responsive();
-            //siticoneTabControl1.Visible = true;
-        }
-
-        private void MainForm_ResizeBegin(object sender, EventArgs e)
-        {
-            //siticoneTabControl1.Visible = false;
-            //Responsive();
-        }
-
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-            //Responsive();
-            if (WindowState == FormWindowState.Maximized
-             || WindowState == FormWindowState.Normal)
-            {
-                //Responsive();
-            }
         }
 
         #endregion
@@ -340,36 +294,24 @@ namespace MyMediaPlayer
         private void ArtistsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             musicList.sortBy(TrackItemList.SORTBY.ARTIST);
-            //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Artist).ToList();
-            //mediaItemContainer.Controls.Clear();
-            //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
             sortBtn.Text = "Sort By: Artist";
         }
 
         private void AZToolStripMenuItem_Click(object sender, EventArgs e)
         {
             musicList.sortBy(TrackItemList.SORTBY.AZ);
-            //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Title).ToList();
-            //mediaItemContainer.Controls.Clear();
-            //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
             sortBtn.Text = "Sort By: A-Z";
         }
 
         private void GenreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             musicList.sortBy(TrackItemList.SORTBY.GENRE);
-            //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Genre).ToList();
-            //mediaItemContainer.Controls.Clear();
-            //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
             sortBtn.Text = "Sort By: Genre";
         }
 
         private void AlbumToolStripMenuItem_Click(object sender, EventArgs e)
         {
             musicList.sortBy(TrackItemList.SORTBY.ALBUM);
-            //var sortedList = mediaItems.OrderBy(mediaItem => mediaItem.Album).ToList();
-            //mediaItemContainer.Controls.Clear();
-            //mediaItemContainer.Controls.AddRange(sortedList.ToArray());
             sortBtn.Text = "Sort By: Album";
         }
 
@@ -390,15 +332,6 @@ namespace MyMediaPlayer
         private void PlayQueueClearButton_Click(object sender, EventArgs e)
         {
             PlayQMusicList.Clear();
-        }
-
-        private async void TabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //await Common.SetTimeout(() =>
-            //{
-            //    this.Show();
-            //}, TimeSpan.FromSeconds(5));
         }
     }
 }

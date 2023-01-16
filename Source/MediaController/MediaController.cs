@@ -486,9 +486,9 @@ namespace MyMediaPlayer
             Player.playlistCollection.newPlaylist(PlaylistName);
         }
 
-        public static async void AddToPlaylist(string PlaylistName, string TrackURL)
+        public static void AddToPlaylist(string PlaylistName, string TrackURL)
         {
-            await Task.Run(() =>
+            Task.Run(() =>
             {
                 if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                 {
@@ -508,14 +508,11 @@ namespace MyMediaPlayer
                     ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
                 }
             });
-
-            GlobalReferences.MainForm.UpdatePlaylistItem
-            ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
         }
 
-        public static async void RemoveFromPlaylist(string PlaylistName, string TrackURL)
+        public static void RemoveFromPlaylist(string PlaylistName, string TrackURL)
         {
-            await Task.Run(() =>
+            Task.Run(() =>
             {
                 if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                 {
@@ -540,9 +537,6 @@ namespace MyMediaPlayer
                     ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
                 }
             });
-
-            GlobalReferences.MainForm.UpdatePlaylistItem
-            ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl");
         }
 
         private static Mode CurrentMode;

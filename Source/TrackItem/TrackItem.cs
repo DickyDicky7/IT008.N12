@@ -13,20 +13,15 @@ namespace MyMediaPlayer
 {
     public partial class TrackItem : UserControl, IMediaItem
     {
-
-        #region .. code for Flucuring ..
-
         protected override CreateParams CreateParams
         {
             get
             {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;
-                return cp;
+                CreateParams CP = base.CreateParams;
+                CP.ExStyle |= 0x02000000;
+                return CP;
             }
         }
-
-        #endregion
 
         private TimeSpan StripMilliseconds(TimeSpan time)
         {
@@ -40,13 +35,48 @@ namespace MyMediaPlayer
         #region Propreties
 
         private string url;
-        private Image thumbnail;
         private string title;
-        private string artist;
         private string album;
         private string genre;
-        private string playlistName;
+        private string artist;
+        private Image thumbnail;
         private TimeSpan duration;
+
+        public string URL
+        {
+            get => url;
+            set => url = value;
+        }
+
+        public string Genre
+        {
+            get => genre;
+            set => genre = genreLB.Text = value;
+        }
+
+        public string Album
+        {
+            get => album;
+            set => album = albumLB.Text = value;
+        }
+
+        public string Title
+        {
+            get => title;
+            set => title = titleLB.Text = value;
+        }
+
+        public string Artist
+        {
+            get => artist;
+            set => artist = artistLB.Text = value;
+        }
+
+        public Image Thumbnail
+        {
+            get => thumbnail;
+            set => thumbnail = value;
+        }
 
         public TimeSpan? Duration
         {
@@ -58,57 +88,15 @@ namespace MyMediaPlayer
             }
         }
 
-        public string PlaylistName
-        {
-            get => playlistName;
-            set => playlistName = value;
-        }
-
-        public string Genre
-        {
-            get => genre;
-            set => genre = genreLB.Text = value;
-        }
-
-        public string URL
-        {
-            get => url;
-            set => url = value;
-        }
-
-        public string Album
-        {
-            get => album;
-            set => album = albumLB.Text = value;
-        }
-
-        public string Artist
-        {
-            get => artist;
-            set => artist = artistLB.Text = value;
-        }
-
-        public string Title
-        {
-            get => title;
-            set => title = titleLB.Text = value;
-        }
-
-        public Image Thumbnail
-        {
-            get => thumbnail;
-            set => thumbnail = value;
-        }
-
         #endregion
 
         public TrackItem()
         {
             InitializeComponent();
             this.Title = "test";
-            this.Artist = "test";
             this.Album = "test";
             this.Genre = "test";
+            this.Artist = "test";
             this.Duration = new TimeSpan(0, 0, 0);
         }
 
@@ -117,9 +105,9 @@ namespace MyMediaPlayer
         {
             InitializeComponent();
             this.Title = title;
-            this.Artist = artist;
             this.Album = album;
             this.Genre = genre;
+            this.Artist = artist;
             this.Duration = duration;
         }
 
@@ -139,7 +127,33 @@ namespace MyMediaPlayer
             InitializeTrackItem(URL);
             this.Click += new EventHandler(TrackItem_Click);
 
-            instances.Add(new WeakReference(this));
+            GlobalReferences.PlaylistsFolderWatcher.Created += (sender, e) =>
+            {
+                ToolStripMenuItem ToolStripMenuItem = new ToolStripMenuItem();
+                ToolStripMenuItem.BackColor = Common.Gray;
+                ToolStripMenuItem.Text = Path.GetFileNameWithoutExtension(e.FullPath);
+                ToolStripMenuItem.Name = Path.GetFileNameWithoutExtension(e.FullPath);
+                ToolStripMenuItem.Click += AddToPlaylist;
+                if (IsHandleCreated)
+                {
+                    this.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        addToMenuItem.DropDownItems.Add(ToolStripMenuItem);
+                    });
+                }
+            };
+
+            GlobalReferences.PlaylistsFolderWatcher.Deleted += (sender, e) =>
+            {
+                if (IsHandleCreated)
+                {
+                    this.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        addToMenuItem.DropDownItems.RemoveByKey
+                        (Path.GetFileNameWithoutExtension(e.FullPath));
+                    });
+                }
+            };
         }
 
         /// <summary>
@@ -148,35 +162,34 @@ namespace MyMediaPlayer
         /// <param name="URL">Track's URL</param>
         private void InitializeTrackItem(string URL)
         {
-            try
+            TagLib.File file = TagLib.File.Create(URL);
+            var mStream = new MemoryStream();
+            var firstPicture = file.Tag.Pictures.FirstOrDefault();
+            if (firstPicture != null)
             {
-                TagLib.File file = TagLib.File.Create(URL);
-                var mStream = new MemoryStream();
-                var firstPicture = file.Tag.Pictures.FirstOrDefault();
-                if (firstPicture != null)
-                {
-                    byte[] pData = firstPicture.Data.Data;
-                    mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-                    var bm = new Bitmap(mStream, false);
-                    mStream.Dispose();
-                    this.Thumbnail = bm;
-                }
-                else
-                {
-                    this.Thumbnail = Properties.Resources.mp3;
-                }
-                this.Genre = file.Tag.Genres.FirstOrDefault();
-                this.Title = file.Tag.Title;
-                this.Title = file.Tag.Title != null ? file.Tag.Title
-                : URL.Substring(URL.LastIndexOf('\\') + 1);
-                this.Artist = file.Tag.Performers.FirstOrDefault();
-                this.Album = file.Tag.Album;
-                this.Duration = StripMilliseconds(file.Properties.Duration);
+                byte[] pData = firstPicture.Data.Data;
+                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                var bm = new Bitmap(mStream, false);
+                mStream.Dispose();
+                this.Thumbnail = bm;
             }
-            catch
+            else
             {
+                this.Thumbnail = Properties.Resources.mp3;
+            }
+            this.Genre = file.Tag.Genres.FirstOrDefault();
+            this.Title = file.Tag.Title;
+            this.Title = file.Tag.Title != null ? file.Tag.Title
+            : URL.Substring(URL.LastIndexOf('\\') + 1);
+            this.Artist = file.Tag.Performers.FirstOrDefault();
+            this.Album = file.Tag.Album;
+            this.Duration = StripMilliseconds(file.Properties.Duration);
+        }
 
-            }
+        private void AddToPlaylist(object sender, EventArgs e)
+        {
+            ToolStripMenuItem ToolStripMenuItem = (ToolStripMenuItem)sender;
+            MediaController.AddToPlaylist(ToolStripMenuItem.Text, URL);
         }
 
         public EventHandler IMediaItem_Click
@@ -234,15 +247,8 @@ namespace MyMediaPlayer
                 {
                     foreach (Control c in control.Controls)
                     {
-                        if (c is CheckBox)
-                        {
-
-                        }
-                        else
-                        {
-                            c.Click += e;
-                            Recursive(c, e);
-                        }
+                        c.Click += e;
+                        Recursive(c, e);
                     }
                 }
                 Recursive(this, value);
@@ -266,53 +272,6 @@ namespace MyMediaPlayer
 
         public TrackItemList ParentTrackItemList { get; set; }
 
-        private static readonly List<WeakReference> instances = new List<WeakReference>();
-
-        public static void AddToAllMenu(string playlistName)
-        {
-            var items = GetInstances();
-            foreach (var item in items)
-            {
-                item.AddItemToMenu(playlistName);
-            }
-        }
-
-        public static void RemoveFromAllMenu(string playlistName)
-        {
-            var instances = GetInstances();
-            foreach (var item in instances)
-            {
-                item.RemoveItemFromMenu(playlistName);
-            }
-        }
-
-        public void RemoveItemFromMenu(string playlistName)
-        {
-            addToMenuItem.DropDownItems.RemoveByKey(playlistName);
-        }
-
-        public static IList<TrackItem> GetInstances()
-        {
-            List<TrackItem> realInstances = new List<TrackItem>();
-            List<WeakReference> toDelete = new List<WeakReference>();
-
-            foreach (WeakReference reference in instances)
-            {
-                if (reference.IsAlive)
-                {
-                    realInstances.Add((TrackItem)reference.Target);
-                }
-                else
-                {
-                    toDelete.Add(reference);
-                }
-            }
-
-            foreach (WeakReference reference in toDelete) instances.Remove(reference);
-
-            return realInstances;
-        }
-
         private void TrackItem_MouseEnter(object sender, EventArgs e)
         {
             containerPanel.FillColor = Color.FromArgb(211, 211, 211);
@@ -323,77 +282,51 @@ namespace MyMediaPlayer
             containerPanel.FillColor = Color.FromArgb(255, 255, 255);
         }
 
-        private void TrackItem_Load(object sender, EventArgs e)
+        private async void TrackItem_Load(object sender, EventArgs e)
         {
-            AddPlaylistToMenu();
             Common.SetDoubleBuffered(inforPanel);
             Common.SetDoubleBuffered(containerPanel);
-        }
 
-        public void AddItemToMenu(string playlistName)
-        {
-            ToolStripMenuItem playlist = new ToolStripMenuItem();
-            playlist.Text = playlistName;
-            playlist.Name = playlistName;
-            playlist.Click += AddToPlaylist;
-            addToMenuItem.DropDownItems.Add(playlist);
-        }
-
-        private void AddPlaylistToMenu()
-        {
-            var fileArray = Directory.GetFiles(Common.PlaylistsFolder, "*.wpl")
-            .Select(filename => Path.GetFileNameWithoutExtension(filename));
-            foreach (var file in fileArray)
+            await Task.Run(() =>
             {
-                AddItemToMenu(file);
-            }
-        }
-
-        public void AddDeleteToMenu()
-        {
-            ToolStripMenuItem delete = new ToolStripMenuItem();
-            delete.Text = "Remove";
-            delete.Name = "delete"; ;
-            delete.ForeColor = Color.FromArgb(22, 26, 29);
-            delete.Image = Properties.Resources.close;
-            delete.Click += (object sender, EventArgs e) =>
-            {
-                this.Parent.Controls.Remove(this);
-                MessageBox.Show(this.PlaylistName + " " + URL);
-                MediaController.RemoveFromPlaylist(this.PlaylistName, URL);
-            };
-            contextMenu.Items.Add(delete);
-        }
-
-        private void AddToPlaylist(object sender, EventArgs e)
-        {
-            ToolStripMenuItem item = (ToolStripMenuItem)(sender);
-            MediaController.AddToPlaylist(item.Text, URL);
-
+                Directory.GetFiles(Common.PlaylistsFolder, "*.wpl").ToList().ForEach(FilePath =>
+                {
+                    ToolStripMenuItem ToolStripMenuItem = new ToolStripMenuItem();
+                    ToolStripMenuItem.BackColor = Common.Gray;
+                    ToolStripMenuItem.Text = Path.GetFileNameWithoutExtension(FilePath);
+                    ToolStripMenuItem.Name = Path.GetFileNameWithoutExtension(FilePath);
+                    ToolStripMenuItem.Click += AddToPlaylist;
+                    if (IsHandleCreated)
+                    {
+                        this.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            addToMenuItem.DropDownItems.Add(ToolStripMenuItem);
+                        });
+                    }
+                });
+            });
         }
 
         private void NewPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var inputForm = new InputForm("Enter playlist's name");
-            inputForm.ShowDialog();
+            InputForm InputForm = new InputForm("Enter playlist's name");
+            InputForm.ShowDialog();
 
-            if (string.IsNullOrEmpty(inputForm.Result)
-             || string.IsNullOrWhiteSpace(inputForm.Result))
+            if (string.IsNullOrEmpty(InputForm.Result)
+             || string.IsNullOrWhiteSpace(InputForm.Result))
             {
                 return;
             }
 
-            AddToAllMenu(inputForm.Result);
-            if (!File.Exists($"{Common.PlaylistsFolder}\\{inputForm.Result}.wpl"))
+            if (!File.Exists($"{Common.PlaylistsFolder}\\{InputForm.Result}.wpl"))
             {
-                MediaController.CreatePlaylist(inputForm.Result);
-                PlaylistItem item = new PlaylistItem
-                ($"{Common.PlaylistsFolder}\\{inputForm.Result}.wpl");
-                GlobalReferences.MainForm.AddPlaylistToPanel(item);
-                MediaController.AddToPlaylist(inputForm.Result, URL);
+                MediaController.CreatePlaylist(InputForm.Result);
+                MediaController.AddToPlaylist(InputForm.Result, URL);
             }
             else
-                MessageBox.Show("Playlist exists!");
+            {
+                ModalBox.Show("Error", "Playlist exists!");
+            }
         }
 
         private void PlayQueueToolStripMenuItem_Click(object sender, EventArgs e)

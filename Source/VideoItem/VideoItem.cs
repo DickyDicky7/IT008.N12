@@ -24,14 +24,8 @@ namespace MyMediaPlayer
             this.MouseLeave += new EventHandler(VideoItem_MouseLeave);
         }
 
-        public string URL { get; set; }
-        public string Album { get; set; }
-        public string Genre { get; set; }
-        public string Artist { get; set; }
-        public Image Thumbnail { get; set; }
-        public TimeSpan? Duration { get; set; }
-        public string PlaylistName { get; set; }
-        public string Title { get => Label.Text; set => Label.Text = value; }
+        public readonly string URL;
+        private string Title { get => Label.Text; set => Label.Text = value; }
 
         public Action Play { get => VideoItem_Play; }
         public UserControl UserControl { get => this; }

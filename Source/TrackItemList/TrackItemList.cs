@@ -13,6 +13,16 @@ namespace MyMediaPlayer
 {
     public partial class TrackItemList : UserControl, IMediaItemList
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams CP = base.CreateParams;
+                CP.ExStyle |= 0x02000000;
+                return CP;
+            }
+        }
+
         public TrackItemList()
         {
             InitializeComponent();
@@ -94,13 +104,15 @@ namespace MyMediaPlayer
             : Self.MediaItems.Count * Self.MediaItems.First().UserControl.Height;
         }
 
-        public void Clear()
-        {
-            Self.Clear();
-            mediaItemContainer.Controls.Clear();
-        }
-
         public Action Stop { get => Self.Stop; }
+        public Action Clear
+        {
+            get => () =>
+            {
+                Self.Clear();
+                mediaItemContainer.Controls.Clear();
+            };
+        }
         public Action PlayNext { get => Self.PlayNext; }
         public Action PlayBack { get => Self.PlayBack; }
         public Action GenerateShuffleList { get => Self.GenerateShuffleList; }

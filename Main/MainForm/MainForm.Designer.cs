@@ -46,13 +46,16 @@
             this.addMusicFolderBtn1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.musicLabel = new System.Windows.Forms.Label();
             this.videoLibraryTabPage = new System.Windows.Forms.TabPage();
+            this.videoItemList = new MyMediaPlayer.VideoItemList();
+            this.videoHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.videoHeaderLabel = new System.Windows.Forms.Label();
             this.playQueueTabPage = new System.Windows.Forms.TabPage();
             this.PlayQMusicList = new MyMediaPlayer.TrackItemList();
             this.playQueueHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.playQueueClearButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.playQueueHeaderLabel = new System.Windows.Forms.Label();
             this.playlistsTabPage = new System.Windows.Forms.TabPage();
-            this.playlistsPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.playlistItemList = new MyMediaPlayer.PlaylistItemList();
             this.playlistsHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.playlistsHeaderLabel = new System.Windows.Forms.Label();
             this.settingsTabPage = new System.Windows.Forms.TabPage();
@@ -71,8 +74,8 @@
             this.librariesLb = new System.Windows.Forms.Label();
             this.onlineStoreTabPage = new System.Windows.Forms.TabPage();
             this.onlineStoreBodyPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.onlineStoreIntegrationSearchBox = new MyMediaPlayer.IntegrationSearchBox();
             this.integrationSearchResultList = new MyMediaPlayer.ZingMP3IntegrationSearchResultList();
+            this.onlineStoreIntegrationSearchBox = new MyMediaPlayer.IntegrationSearchBox();
             this.onlineStoreHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.onlineStoreHeaderLabel = new System.Windows.Forms.Label();
             this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
@@ -88,15 +91,13 @@
             this.exitButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.trackVisualizer = new MyMediaPlayer.TrackVisualizer();
             this.trackLyrics = new MyMediaPlayer.TrackLyrics();
-            this.videoHeaderPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.videoHeaderLabel = new System.Windows.Forms.Label();
-            this.videoItemList = new MyMediaPlayer.VideoItemList();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.musicLibraryTabPage.SuspendLayout();
             this.musicHeaderPanel.SuspendLayout();
             this.videoLibraryTabPage.SuspendLayout();
+            this.videoHeaderPanel.SuspendLayout();
             this.playQueueTabPage.SuspendLayout();
             this.playQueueHeaderPanel.SuspendLayout();
             this.playlistsTabPage.SuspendLayout();
@@ -112,7 +113,6 @@
             this.onlineStoreHeaderPanel.SuspendLayout();
             this.sortByMenu.SuspendLayout();
             this.visualizeContainer.SuspendLayout();
-            this.videoHeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mediaControllerFooter
@@ -264,7 +264,6 @@
             this.tabControl.TabButtonTextOffset = new System.Drawing.Point(13, 0);
             this.tabControl.TabIndex = 3;
             this.tabControl.TabMenuBackColor = System.Drawing.Color.White;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
             // 
             // musicLibraryTabPage
             // 
@@ -419,6 +418,43 @@
             this.videoLibraryTabPage.TabIndex = 1;
             this.videoLibraryTabPage.Text = "Video library";
             // 
+            // videoItemList
+            // 
+            this.videoItemList.AutoScroll = true;
+            this.videoItemList.BackColor = System.Drawing.Color.White;
+            this.videoItemList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoItemList.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.videoItemList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.videoItemList.Location = new System.Drawing.Point(2, 65);
+            this.videoItemList.Name = "videoItemList";
+            this.videoItemList.Size = new System.Drawing.Size(818, 384);
+            this.videoItemList.TabIndex = 7;
+            // 
+            // videoHeaderPanel
+            // 
+            this.videoHeaderPanel.BackColor = System.Drawing.Color.White;
+            this.videoHeaderPanel.BorderColor = System.Drawing.Color.Black;
+            this.videoHeaderPanel.Controls.Add(this.videoHeaderLabel);
+            this.videoHeaderPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.videoHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.videoHeaderPanel.Location = new System.Drawing.Point(2, 2);
+            this.videoHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.videoHeaderPanel.Name = "videoHeaderPanel";
+            this.videoHeaderPanel.Size = new System.Drawing.Size(818, 63);
+            this.videoHeaderPanel.TabIndex = 6;
+            // 
+            // videoHeaderLabel
+            // 
+            this.videoHeaderLabel.AutoSize = true;
+            this.videoHeaderLabel.BackColor = System.Drawing.Color.White;
+            this.videoHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
+            this.videoHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.videoHeaderLabel.Location = new System.Drawing.Point(23, -2);
+            this.videoHeaderLabel.Name = "videoHeaderLabel";
+            this.videoHeaderLabel.Size = new System.Drawing.Size(128, 54);
+            this.videoHeaderLabel.TabIndex = 0;
+            this.videoHeaderLabel.Text = "Video";
+            // 
             // playQueueTabPage
             // 
             this.playQueueTabPage.BackColor = System.Drawing.Color.White;
@@ -499,7 +535,7 @@
             // playlistsTabPage
             // 
             this.playlistsTabPage.BackColor = System.Drawing.Color.White;
-            this.playlistsTabPage.Controls.Add(this.playlistsPanel);
+            this.playlistsTabPage.Controls.Add(this.playlistItemList);
             this.playlistsTabPage.Controls.Add(this.playlistsHeaderPanel);
             this.playlistsTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.playlistsTabPage.ImageIndex = 1;
@@ -510,16 +546,17 @@
             this.playlistsTabPage.TabIndex = 3;
             this.playlistsTabPage.Text = "Playlists";
             // 
-            // playlistsPanel
+            // playlistItemList
             // 
-            this.playlistsPanel.AutoScroll = true;
-            this.playlistsPanel.BackColor = System.Drawing.Color.White;
-            this.playlistsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playlistsPanel.Location = new System.Drawing.Point(0, 63);
-            this.playlistsPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.playlistsPanel.Name = "playlistsPanel";
-            this.playlistsPanel.Size = new System.Drawing.Size(822, 388);
-            this.playlistsPanel.TabIndex = 0;
+            this.playlistItemList.AutoScroll = true;
+            this.playlistItemList.BackColor = System.Drawing.Color.White;
+            this.playlistItemList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playlistItemList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.playlistItemList.Location = new System.Drawing.Point(0, 63);
+            this.playlistItemList.Margin = new System.Windows.Forms.Padding(4);
+            this.playlistItemList.Name = "playlistItemList";
+            this.playlistItemList.Size = new System.Drawing.Size(822, 388);
+            this.playlistItemList.TabIndex = 5;
             // 
             // playlistsHeaderPanel
             // 
@@ -577,7 +614,7 @@
             this.videosFolderContainer.Location = new System.Drawing.Point(35, 320);
             this.videosFolderContainer.Name = "videosFolderContainer";
             this.videosFolderContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.videosFolderContainer.Size = new System.Drawing.Size(703, 182);
+            this.videosFolderContainer.Size = new System.Drawing.Size(618, 182);
             this.videosFolderContainer.TabIndex = 7;
             // 
             // videosFolderPanel
@@ -586,7 +623,7 @@
             this.videosFolderPanel.Location = new System.Drawing.Point(10, 48);
             this.videosFolderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.videosFolderPanel.Name = "videosFolderPanel";
-            this.videosFolderPanel.Size = new System.Drawing.Size(683, 124);
+            this.videosFolderPanel.Size = new System.Drawing.Size(598, 124);
             this.videosFolderPanel.TabIndex = 9;
             // 
             // addVideosFolderBtn2
@@ -609,7 +646,7 @@
             this.addVideosFolderBtn2.HoverState.FillColor = System.Drawing.Color.White;
             this.addVideosFolderBtn2.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addVideosFolderBtn2.Image = ((System.Drawing.Image)(resources.GetObject("addVideosFolderBtn2.Image")));
-            this.addVideosFolderBtn2.Location = new System.Drawing.Point(591, 12);
+            this.addVideosFolderBtn2.Location = new System.Drawing.Point(506, 12);
             this.addVideosFolderBtn2.Margin = new System.Windows.Forms.Padding(2);
             this.addVideosFolderBtn2.Name = "addVideosFolderBtn2";
             this.addVideosFolderBtn2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
@@ -655,7 +692,7 @@
             this.musicFolderContainer.Location = new System.Drawing.Point(34, 123);
             this.musicFolderContainer.Name = "musicFolderContainer";
             this.musicFolderContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.musicFolderContainer.Size = new System.Drawing.Size(703, 182);
+            this.musicFolderContainer.Size = new System.Drawing.Size(618, 182);
             this.musicFolderContainer.TabIndex = 6;
             // 
             // musicFolderPanel
@@ -664,7 +701,7 @@
             this.musicFolderPanel.Location = new System.Drawing.Point(10, 48);
             this.musicFolderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.musicFolderPanel.Name = "musicFolderPanel";
-            this.musicFolderPanel.Size = new System.Drawing.Size(683, 124);
+            this.musicFolderPanel.Size = new System.Drawing.Size(598, 124);
             this.musicFolderPanel.TabIndex = 9;
             // 
             // addMusicFolderBtn2
@@ -687,7 +724,7 @@
             this.addMusicFolderBtn2.HoverState.FillColor = System.Drawing.Color.White;
             this.addMusicFolderBtn2.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addMusicFolderBtn2.Image = ((System.Drawing.Image)(resources.GetObject("addMusicFolderBtn2.Image")));
-            this.addMusicFolderBtn2.Location = new System.Drawing.Point(591, 12);
+            this.addMusicFolderBtn2.Location = new System.Drawing.Point(506, 12);
             this.addMusicFolderBtn2.Margin = new System.Windows.Forms.Padding(2);
             this.addMusicFolderBtn2.Name = "addMusicFolderBtn2";
             this.addMusicFolderBtn2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
@@ -767,36 +804,38 @@
             // 
             // onlineStoreBodyPanel
             // 
-            this.onlineStoreBodyPanel.Controls.Add(this.onlineStoreIntegrationSearchBox);
             this.onlineStoreBodyPanel.Controls.Add(this.integrationSearchResultList);
+            this.onlineStoreBodyPanel.Controls.Add(this.onlineStoreIntegrationSearchBox);
             this.onlineStoreBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onlineStoreBodyPanel.Location = new System.Drawing.Point(3, 66);
             this.onlineStoreBodyPanel.Name = "onlineStoreBodyPanel";
             this.onlineStoreBodyPanel.Size = new System.Drawing.Size(816, 382);
             this.onlineStoreBodyPanel.TabIndex = 6;
             // 
-            // onlineStoreIntegrationSearchBox
-            // 
-            this.onlineStoreIntegrationSearchBox.BackColor = System.Drawing.Color.White;
-            this.onlineStoreIntegrationSearchBox.Integration = null;
-            this.onlineStoreIntegrationSearchBox.IntegrationSearchResultList = null;
-            this.onlineStoreIntegrationSearchBox.Location = new System.Drawing.Point(108, 0);
-            this.onlineStoreIntegrationSearchBox.Margin = new System.Windows.Forms.Padding(4);
-            this.onlineStoreIntegrationSearchBox.Name = "onlineStoreIntegrationSearchBox";
-            this.onlineStoreIntegrationSearchBox.Size = new System.Drawing.Size(600, 78);
-            this.onlineStoreIntegrationSearchBox.TabIndex = 2;
-            // 
             // integrationSearchResultList
             // 
             this.integrationSearchResultList.AutoScroll = true;
             this.integrationSearchResultList.BackColor = System.Drawing.Color.White;
             this.integrationSearchResultList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.integrationSearchResultList.Location = new System.Drawing.Point(0, 83);
+            this.integrationSearchResultList.Location = new System.Drawing.Point(0, 92);
             this.integrationSearchResultList.Margin = new System.Windows.Forms.Padding(4);
             this.integrationSearchResultList.Name = "integrationSearchResultList";
             this.integrationSearchResultList.NumberOfItems = null;
-            this.integrationSearchResultList.Size = new System.Drawing.Size(816, 299);
+            this.integrationSearchResultList.Size = new System.Drawing.Size(816, 290);
             this.integrationSearchResultList.TabIndex = 1;
+            // 
+            // onlineStoreIntegrationSearchBox
+            // 
+            this.onlineStoreIntegrationSearchBox.BackColor = System.Drawing.Color.White;
+            this.onlineStoreIntegrationSearchBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.onlineStoreIntegrationSearchBox.Integration = null;
+            this.onlineStoreIntegrationSearchBox.IntegrationSearchResultList = null;
+            this.onlineStoreIntegrationSearchBox.Location = new System.Drawing.Point(0, 0);
+            this.onlineStoreIntegrationSearchBox.Margin = new System.Windows.Forms.Padding(4);
+            this.onlineStoreIntegrationSearchBox.Name = "onlineStoreIntegrationSearchBox";
+            this.onlineStoreIntegrationSearchBox.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.onlineStoreIntegrationSearchBox.Size = new System.Drawing.Size(816, 78);
+            this.onlineStoreIntegrationSearchBox.TabIndex = 2;
             // 
             // onlineStoreHeaderPanel
             // 
@@ -967,42 +1006,6 @@
             this.trackLyrics.Size = new System.Drawing.Size(400, 353);
             this.trackLyrics.TabIndex = 3;
             // 
-            // videoHeaderPanel
-            // 
-            this.videoHeaderPanel.BackColor = System.Drawing.Color.White;
-            this.videoHeaderPanel.BorderColor = System.Drawing.Color.Black;
-            this.videoHeaderPanel.Controls.Add(this.videoHeaderLabel);
-            this.videoHeaderPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
-            this.videoHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.videoHeaderPanel.Location = new System.Drawing.Point(2, 2);
-            this.videoHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.videoHeaderPanel.Name = "videoHeaderPanel";
-            this.videoHeaderPanel.Size = new System.Drawing.Size(818, 63);
-            this.videoHeaderPanel.TabIndex = 6;
-            // 
-            // videoHeaderLabel
-            // 
-            this.videoHeaderLabel.AutoSize = true;
-            this.videoHeaderLabel.BackColor = System.Drawing.Color.White;
-            this.videoHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
-            this.videoHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.videoHeaderLabel.Location = new System.Drawing.Point(23, -2);
-            this.videoHeaderLabel.Name = "videoHeaderLabel";
-            this.videoHeaderLabel.Size = new System.Drawing.Size(128, 54);
-            this.videoHeaderLabel.TabIndex = 0;
-            this.videoHeaderLabel.Text = "Video";
-            // 
-            // videoItemList
-            // 
-            this.videoItemList.BackColor = System.Drawing.Color.White;
-            this.videoItemList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoItemList.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.videoItemList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.videoItemList.Location = new System.Drawing.Point(2, 65);
-            this.videoItemList.Name = "videoItemList";
-            this.videoItemList.Size = new System.Drawing.Size(818, 384);
-            this.videoItemList.TabIndex = 7;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1022,9 +1025,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Media Player";
-            this.ResizeBegin += new System.EventHandler(this.MainForm_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.mediaControllerFooter.ResumeLayout(false);
             this.controlHeader.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
@@ -1033,6 +1034,8 @@
             this.musicHeaderPanel.ResumeLayout(false);
             this.musicHeaderPanel.PerformLayout();
             this.videoLibraryTabPage.ResumeLayout(false);
+            this.videoHeaderPanel.ResumeLayout(false);
+            this.videoHeaderPanel.PerformLayout();
             this.playQueueTabPage.ResumeLayout(false);
             this.playQueueTabPage.PerformLayout();
             this.playQueueHeaderPanel.ResumeLayout(false);
@@ -1055,8 +1058,6 @@
             this.onlineStoreHeaderPanel.PerformLayout();
             this.sortByMenu.ResumeLayout(false);
             this.visualizeContainer.ResumeLayout(false);
-            this.videoHeaderPanel.ResumeLayout(false);
-            this.videoHeaderPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1097,7 +1098,6 @@
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox settingsIconPictureBox1;
         private System.Windows.Forms.Label musicLocationLb;
         private Siticone.Desktop.UI.WinForms.SiticoneButton addMusicFolderBtn2;
-        private System.Windows.Forms.FlowLayoutPanel playlistsPanel;
         private System.Windows.Forms.Panel visualizeContainer;
         private Siticone.Desktop.UI.WinForms.SiticoneButton exitButton;
         private TrackVisualizer trackVisualizer;
@@ -1123,6 +1123,7 @@
         private Siticone.Desktop.UI.WinForms.SiticonePanel videoHeaderPanel;
         private System.Windows.Forms.Label videoHeaderLabel;
         private VideoItemList videoItemList;
+        private PlaylistItemList playlistItemList;
     }
 }
 
