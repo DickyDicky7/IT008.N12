@@ -71,6 +71,18 @@ namespace MyMediaPlayer
                 Directory.CreateDirectory(Common.PlaylistsFolder);
             }
 
+            Directory.GetFiles(Common.PlaylistsFolder, "*.wpl", SearchOption.TopDirectoryOnly)
+            .ToList().ForEach(PlaylistURL =>
+            {
+                ToolStripMenuItem ToolStripMenuItem = new
+                ToolStripMenuItem(Path.GetFileNameWithoutExtension(PlaylistURL));
+                ToolStripMenuItem.Name = Path.GetFileNameWithoutExtension(PlaylistURL);
+                ToolStripMenuItem.BackColor = Common.Gray;
+                ToolStripMenuItem.ForeColor = Common.Black;
+                ToolStripMenuItem.Click += ToolStripMenuItem_Click;
+                AddToToolStripMenuItem.DropDownItems.Add(ToolStripMenuItem);
+            });
+
             PlaylistsFolderWatcher.Changed += PlaylistsFolderWatcher_Changed;
             PlaylistsFolderWatcher.Created += PlaylistsFolderWatcher_Created;
             PlaylistsFolderWatcher.Deleted += PlaylistsFolderWatcher_Deleted;
