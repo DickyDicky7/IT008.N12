@@ -16,7 +16,7 @@ namespace MyMediaPlayer
     /// <summary>
     /// Common functions, ultilities
     /// </summary>
-    class Common
+    public static class Common
     {
         /// <summary>
         /// Get image from a media file 
@@ -73,7 +73,7 @@ namespace MyMediaPlayer
         /// <param name="MediaURL">Media's file path</param>
         /// <returns></returns>
         public static int GetDurationInSeconds(string MediaURL)
-        { 
+        {
             TagLib.File Media = TagLib.File.Create(MediaURL);
             return (int)Media.Properties.Duration.TotalSeconds;
         }

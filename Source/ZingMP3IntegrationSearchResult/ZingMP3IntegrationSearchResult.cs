@@ -50,6 +50,7 @@ namespace MyMediaPlayer
         GlobalReferences.MediaController.LoadStreamingTrack
         (EncodeId, Title, ArtistsNames, ImageURL, Duration);
 
+        public string URL { get; set; }
         public UserControl UserControl => this;
         public EventHandler IMediaItem_Click => Panel_Click;
     }

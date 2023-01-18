@@ -20,38 +20,23 @@ namespace MyMediaPlayer
             this.AutoScroll = true;
             Render();
 
-            GlobalReferences.PlaylistsFolderWatcher.Changed += (sender, e) =>
+            Watcher Watcher = new Watcher();
+            Watcher.Interval = TimeSpan.FromMilliseconds(100);
+            Watcher.Action = () =>
             {
-                if (IsHandleCreated)
+                if (GlobalReferences.IsGoodToRerender)
                 {
-                    this.BeginInvoke((MethodInvoker)delegate ()
+                    if (IsHandleCreated)
                     {
-                        Render();
-                    });
+                        this.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            this.Render();
+                        });
+                    }
+                    GlobalReferences.IsGoodToRerender = false;
                 }
             };
-
-            GlobalReferences.PlaylistsFolderWatcher.Created += (sender, e) =>
-            {
-                if (IsHandleCreated)
-                {
-                    this.BeginInvoke((MethodInvoker)delegate ()
-                    {
-                        Render();
-                    });
-                }
-            };
-
-            GlobalReferences.PlaylistsFolderWatcher.Deleted += (sender, e) =>
-            {
-                if (IsHandleCreated)
-                {
-                    this.BeginInvoke((MethodInvoker)delegate ()
-                    {
-                        Render();
-                    });
-                }
-            };
+            Watcher.Start();
         }
 
         protected override CreateParams CreateParams

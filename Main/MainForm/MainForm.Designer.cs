@@ -91,6 +91,12 @@
             this.exitButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.trackVisualizer = new MyMediaPlayer.TrackVisualizer();
             this.trackLyrics = new MyMediaPlayer.TrackLyrics();
+            this.PlaylistContextMenuStrip = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
+            this.PlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlayQueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewPlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PropertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mediaControllerFooter.SuspendLayout();
             this.controlHeader.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -113,6 +119,7 @@
             this.onlineStoreHeaderPanel.SuspendLayout();
             this.sortByMenu.SuspendLayout();
             this.visualizeContainer.SuspendLayout();
+            this.PlaylistContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // mediaControllerFooter
@@ -614,7 +621,7 @@
             this.videosFolderContainer.Location = new System.Drawing.Point(35, 320);
             this.videosFolderContainer.Name = "videosFolderContainer";
             this.videosFolderContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.videosFolderContainer.Size = new System.Drawing.Size(618, 182);
+            this.videosFolderContainer.Size = new System.Drawing.Size(448, 182);
             this.videosFolderContainer.TabIndex = 7;
             // 
             // videosFolderPanel
@@ -623,7 +630,7 @@
             this.videosFolderPanel.Location = new System.Drawing.Point(10, 48);
             this.videosFolderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.videosFolderPanel.Name = "videosFolderPanel";
-            this.videosFolderPanel.Size = new System.Drawing.Size(598, 124);
+            this.videosFolderPanel.Size = new System.Drawing.Size(428, 124);
             this.videosFolderPanel.TabIndex = 9;
             // 
             // addVideosFolderBtn2
@@ -646,7 +653,7 @@
             this.addVideosFolderBtn2.HoverState.FillColor = System.Drawing.Color.White;
             this.addVideosFolderBtn2.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addVideosFolderBtn2.Image = ((System.Drawing.Image)(resources.GetObject("addVideosFolderBtn2.Image")));
-            this.addVideosFolderBtn2.Location = new System.Drawing.Point(506, 12);
+            this.addVideosFolderBtn2.Location = new System.Drawing.Point(336, 12);
             this.addVideosFolderBtn2.Margin = new System.Windows.Forms.Padding(2);
             this.addVideosFolderBtn2.Name = "addVideosFolderBtn2";
             this.addVideosFolderBtn2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
@@ -692,7 +699,7 @@
             this.musicFolderContainer.Location = new System.Drawing.Point(34, 123);
             this.musicFolderContainer.Name = "musicFolderContainer";
             this.musicFolderContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.musicFolderContainer.Size = new System.Drawing.Size(618, 182);
+            this.musicFolderContainer.Size = new System.Drawing.Size(448, 182);
             this.musicFolderContainer.TabIndex = 6;
             // 
             // musicFolderPanel
@@ -701,7 +708,7 @@
             this.musicFolderPanel.Location = new System.Drawing.Point(10, 48);
             this.musicFolderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.musicFolderPanel.Name = "musicFolderPanel";
-            this.musicFolderPanel.Size = new System.Drawing.Size(598, 124);
+            this.musicFolderPanel.Size = new System.Drawing.Size(428, 124);
             this.musicFolderPanel.TabIndex = 9;
             // 
             // addMusicFolderBtn2
@@ -724,7 +731,7 @@
             this.addMusicFolderBtn2.HoverState.FillColor = System.Drawing.Color.White;
             this.addMusicFolderBtn2.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addMusicFolderBtn2.Image = ((System.Drawing.Image)(resources.GetObject("addMusicFolderBtn2.Image")));
-            this.addMusicFolderBtn2.Location = new System.Drawing.Point(506, 12);
+            this.addMusicFolderBtn2.Location = new System.Drawing.Point(336, 12);
             this.addMusicFolderBtn2.Margin = new System.Windows.Forms.Padding(2);
             this.addMusicFolderBtn2.Name = "addMusicFolderBtn2";
             this.addMusicFolderBtn2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
@@ -1006,6 +1013,75 @@
             this.trackLyrics.Size = new System.Drawing.Size(400, 353);
             this.trackLyrics.TabIndex = 3;
             // 
+            // PlaylistContextMenuStrip
+            // 
+            this.PlaylistContextMenuStrip.BackColor = System.Drawing.Color.White;
+            this.PlaylistContextMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.PlaylistContextMenuStrip.ImageScalingSize = new System.Drawing.Size(15, 15);
+            this.PlaylistContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PlayToolStripMenuItem,
+            this.AddToToolStripMenuItem,
+            this.PropertiesToolStripMenuItem});
+            this.PlaylistContextMenuStrip.Name = "PlaylistContextMenuStrip";
+            this.PlaylistContextMenuStrip.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PlaylistContextMenuStrip.RenderStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PlaylistContextMenuStrip.RenderStyle.ColorTable = null;
+            this.PlaylistContextMenuStrip.RenderStyle.RoundedEdges = true;
+            this.PlaylistContextMenuStrip.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.PlaylistContextMenuStrip.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PlaylistContextMenuStrip.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.PlaylistContextMenuStrip.RenderStyle.SeparatorColor = System.Drawing.Color.White;
+            this.PlaylistContextMenuStrip.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.PlaylistContextMenuStrip.Size = new System.Drawing.Size(128, 70);
+            // 
+            // PlayToolStripMenuItem
+            // 
+            this.PlayToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PlayToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.white_play;
+            this.PlayToolStripMenuItem.Name = "PlayToolStripMenuItem";
+            this.PlayToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.PlayToolStripMenuItem.Text = "Play";
+            this.PlayToolStripMenuItem.Click += new System.EventHandler(this.PlayToolStripMenuItem_Click);
+            // 
+            // AddToToolStripMenuItem
+            // 
+            this.AddToToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PlayQueueToolStripMenuItem,
+            this.NewPlaylistToolStripMenuItem});
+            this.AddToToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.AddToToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.plus;
+            this.AddToToolStripMenuItem.Name = "AddToToolStripMenuItem";
+            this.AddToToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.AddToToolStripMenuItem.Text = "Add To";
+            // 
+            // PlayQueueToolStripMenuItem
+            // 
+            this.PlayQueueToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.PlayQueueToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PlayQueueToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.playlist;
+            this.PlayQueueToolStripMenuItem.Name = "PlayQueueToolStripMenuItem";
+            this.PlayQueueToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.PlayQueueToolStripMenuItem.Text = "Play Queue";
+            this.PlayQueueToolStripMenuItem.Click += new System.EventHandler(this.PlayQueueToolStripMenuItem_Click);
+            // 
+            // NewPlaylistToolStripMenuItem
+            // 
+            this.NewPlaylistToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.NewPlaylistToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.NewPlaylistToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.plus;
+            this.NewPlaylistToolStripMenuItem.Name = "NewPlaylistToolStripMenuItem";
+            this.NewPlaylistToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.NewPlaylistToolStripMenuItem.Text = "New Playlist";
+            this.NewPlaylistToolStripMenuItem.Click += new System.EventHandler(this.NewPlaylistToolStripMenuItem_Click);
+            // 
+            // PropertiesToolStripMenuItem
+            // 
+            this.PropertiesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PropertiesToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.information;
+            this.PropertiesToolStripMenuItem.Name = "PropertiesToolStripMenuItem";
+            this.PropertiesToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.PropertiesToolStripMenuItem.Text = "Properties";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1058,6 +1134,7 @@
             this.onlineStoreHeaderPanel.PerformLayout();
             this.sortByMenu.ResumeLayout(false);
             this.visualizeContainer.ResumeLayout(false);
+            this.PlaylistContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1124,6 +1201,12 @@
         private System.Windows.Forms.Label videoHeaderLabel;
         private VideoItemList videoItemList;
         private PlaylistItemList playlistItemList;
+        private Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip PlaylistContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem PlayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PropertiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PlayQueueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NewPlaylistToolStripMenuItem;
     }
 }
 

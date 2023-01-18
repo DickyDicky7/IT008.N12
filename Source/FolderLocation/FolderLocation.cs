@@ -15,12 +15,18 @@ namespace MyMediaPlayer
         public FolderLocation(string URL, Mode mode)
         {
             InitializeComponent();
-            folderURL.Text = URL;
+            FolderURL = URL;
             if (mode is Mode.Audio)
                 removeBtn.Click += removeBtn_Click_1;
             else
             if (mode is Mode.Video)
                 removeBtn.Click += removeBtn_Click_2;
+        }
+
+        public string FolderURL
+        {
+                    get => folderURL.Text;
+            private set => folderURL.Text = value;
         }
 
         private void removeBtn_Click_1(object sender, EventArgs e)

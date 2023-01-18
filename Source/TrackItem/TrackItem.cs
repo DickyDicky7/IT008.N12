@@ -119,41 +119,10 @@ namespace MyMediaPlayer
         {
             InitializeComponent();
 
-            Common.RoundedCorner(contextMenu);
-            Common.RoundedCorner(addToMenuItem.DropDown);
-
             this.URL = URL;
 
             InitializeTrackItem(URL);
             this.Click += new EventHandler(TrackItem_Click);
-
-            GlobalReferences.PlaylistsFolderWatcher.Created += (sender, e) =>
-            {
-                ToolStripMenuItem ToolStripMenuItem = new ToolStripMenuItem();
-                ToolStripMenuItem.BackColor = Common.Gray;
-                ToolStripMenuItem.Text = Path.GetFileNameWithoutExtension(e.FullPath);
-                ToolStripMenuItem.Name = Path.GetFileNameWithoutExtension(e.FullPath);
-                ToolStripMenuItem.Click += AddToPlaylist;
-                if (IsHandleCreated)
-                {
-                    this.BeginInvoke((MethodInvoker)delegate ()
-                    {
-                        addToMenuItem.DropDownItems.Add(ToolStripMenuItem);
-                    });
-                }
-            };
-
-            GlobalReferences.PlaylistsFolderWatcher.Deleted += (sender, e) =>
-            {
-                if (IsHandleCreated)
-                {
-                    this.BeginInvoke((MethodInvoker)delegate ()
-                    {
-                        addToMenuItem.DropDownItems.RemoveByKey
-                        (Path.GetFileNameWithoutExtension(e.FullPath));
-                    });
-                }
-            };
         }
 
         /// <summary>
@@ -186,12 +155,6 @@ namespace MyMediaPlayer
             this.Duration = StripMilliseconds(file.Properties.Duration);
         }
 
-        private void AddToPlaylist(object sender, EventArgs e)
-        {
-            ToolStripMenuItem ToolStripMenuItem = (ToolStripMenuItem)sender;
-            MediaController.AddToPlaylist(ToolStripMenuItem.Text, URL);
-        }
-
         public EventHandler IMediaItem_Click
         {
             get => TrackItem_Click;
@@ -209,13 +172,24 @@ namespace MyMediaPlayer
 
         private void TrackItem_Click(object sender, EventArgs e)
         {
-            GlobalReferences.MainForm.BringVisualizeToFront();
-            if (ParentTrackItemList != null)
+            if (((MouseEventArgs)e).Button is MouseButtons.Left)
             {
-                GlobalReferences.MediaController.LoadMediaItemList(ParentTrackItemList);
-                ParentTrackItemList.UpdateCurrentIndex(this);
-                TrackItem_Play();
+                GlobalReferences.MainForm.BringVisualizeToFront();
+                if (ParentTrackItemList != null)
+                {
+                    GlobalReferences.MediaController.LoadMediaItemList(ParentTrackItemList);
+                    ParentTrackItemList.UpdateCurrentIndex(this);
+                    TrackItem_Play();
+                }
             }
+            else
+            if (((MouseEventArgs)e).Button is MouseButtons.Right)
+            {
+                GlobalReferences.PlaylistContextMenuStrip.Show
+                (this, ((MouseEventArgs)e).X, ((MouseEventArgs)e).Y);
+                GlobalReferences.PlaylistContextMenuStripRecentMediaItem = this;
+            }
+
         }
 
         private void TrackItem_Play()
@@ -282,60 +256,10 @@ namespace MyMediaPlayer
             containerPanel.FillColor = Color.FromArgb(255, 255, 255);
         }
 
-        private async void TrackItem_Load(object sender, EventArgs e)
+        private void TrackItem_Load(object sender, EventArgs e)
         {
             Common.SetDoubleBuffered(inforPanel);
             Common.SetDoubleBuffered(containerPanel);
-
-            await Task.Run(() =>
-            {
-                Directory.GetFiles(Common.PlaylistsFolder, "*.wpl").ToList().ForEach(FilePath =>
-                {
-                    ToolStripMenuItem ToolStripMenuItem = new ToolStripMenuItem();
-                    ToolStripMenuItem.BackColor = Common.Gray;
-                    ToolStripMenuItem.Text = Path.GetFileNameWithoutExtension(FilePath);
-                    ToolStripMenuItem.Name = Path.GetFileNameWithoutExtension(FilePath);
-                    ToolStripMenuItem.Click += AddToPlaylist;
-                    if (IsHandleCreated)
-                    {
-                        this.BeginInvoke((MethodInvoker)delegate ()
-                        {
-                            addToMenuItem.DropDownItems.Add(ToolStripMenuItem);
-                        });
-                    }
-                });
-            });
-        }
-
-        private void NewPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            InputForm InputForm = new InputForm("Enter playlist's name");
-            InputForm.ShowDialog();
-
-            if (string.IsNullOrEmpty(InputForm.Result)
-             || string.IsNullOrWhiteSpace(InputForm.Result))
-            {
-                return;
-            }
-
-            if (!File.Exists($"{Common.PlaylistsFolder}\\{InputForm.Result}.wpl"))
-            {
-                MediaController.CreatePlaylist(InputForm.Result);
-                MediaController.AddToPlaylist(InputForm.Result, URL);
-            }
-            else
-            {
-                ModalBox.Show("Error", "Playlist exists!");
-            }
-        }
-
-        private void PlayQueueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TrackItem item = new TrackItem(URL)
-            {
-                Width = this.Width
-            };
-            GlobalReferences.MainForm.AddMusicToPlayQ(item);
         }
     }
 }

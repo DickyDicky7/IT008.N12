@@ -11,6 +11,7 @@ namespace MyMediaPlayer
     public interface IMediaItem
     {
         public abstract Action Play { get; }
+        public abstract string URL { get; set; }
         public abstract UserControl UserControl { get; }
         public abstract EventHandler IMediaItem_Click { get; }
     }

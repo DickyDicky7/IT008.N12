@@ -42,6 +42,7 @@ namespace MyMediaPlayer
         private int j = 0;
         public void AddVideos(VideoItem VideoItem)
         {
+            if (this.Controls.Count == 0) { i = j = 0; }
             //VideoItem.ParentVideoItemList = this;
             Self.MediaItems.Add(VideoItem);
             if (VideoItem.Size.Width * i + 20 * (i + 1) + VideoItem.Size.Width

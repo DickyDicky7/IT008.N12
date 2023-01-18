@@ -24,7 +24,7 @@ namespace MyMediaPlayer
             this.MouseLeave += new EventHandler(VideoItem_MouseLeave);
         }
 
-        public readonly string URL;
+        public string URL { get; set; }
         private string Title { get => Label.Text; set => Label.Text = value; }
 
         public Action Play { get => VideoItem_Play; }
@@ -38,11 +38,21 @@ namespace MyMediaPlayer
 
         private void VideoItem_Click(object sender, EventArgs e)
         {
-            if ((VideoItemList)this.Parent != null)
+            if (((MouseEventArgs)e).Button is MouseButtons.Left)
             {
-                GlobalReferences.MediaController.LoadMediaItemList((VideoItemList)this.Parent);
-                ((VideoItemList)this.Parent).UpdateCurrentIndex(this);
-                this.VideoItem_Play();
+                if ((VideoItemList)this.Parent != null)
+                {
+                    GlobalReferences.MediaController.LoadMediaItemList((VideoItemList)this.Parent);
+                    ((VideoItemList)this.Parent).UpdateCurrentIndex(this);
+                    this.VideoItem_Play();
+                }
+            }
+            else
+            if (((MouseEventArgs)e).Button is MouseButtons.Right)
+            {
+                GlobalReferences.PlaylistContextMenuStrip.Show
+                (this, ((MouseEventArgs)e).X, ((MouseEventArgs)e).Y);
+                GlobalReferences.PlaylistContextMenuStripRecentMediaItem = this;
             }
         }
 

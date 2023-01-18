@@ -65,13 +65,13 @@ namespace MyMediaPlayer
             this.Menu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Menu.RenderStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Menu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.Menu.Size = new System.Drawing.Size(118, 48);
+            this.Menu.Size = new System.Drawing.Size(181, 70);
             // 
             // RenamePlaylistToolStripMenuItem
             // 
             this.RenamePlaylistToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.RenamePlaylistToolStripMenuItem.Name = "RenamePlaylistToolStripMenuItem";
-            this.RenamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.RenamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RenamePlaylistToolStripMenuItem.Text = "Rename";
             this.RenamePlaylistToolStripMenuItem.Click += new System.EventHandler(this.RenamePlaylist);
             // 
@@ -79,7 +79,7 @@ namespace MyMediaPlayer
             // 
             this.RemoveToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.RemoveToolStripMenuItem.Name = "RemoveToolStripMenuItem";
-            this.RemoveToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.RemoveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RemoveToolStripMenuItem.Text = "Remove";
             this.RemoveToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click);
             // 

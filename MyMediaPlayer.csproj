@@ -152,6 +152,7 @@
     <Compile Include="Source\PlaylistItemList\PlaylistItemList.Designer.cs">
       <DependentUpon>PlaylistItemList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Utilities\FileSystemWatcherService.cs" />
     <Compile Include="Source\Utilities\GlobalReferences.cs" />
     <Compile Include="Source\Abstractions\IIntegration.cs" />
     <Compile Include="Source\Abstractions\IIntegrationSearchResultList.cs" />

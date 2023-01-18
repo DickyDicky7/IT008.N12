@@ -47,12 +47,19 @@ namespace MyMediaPlayer
             GlobalReferences.MainForm = this;
             GlobalReferences.TrackLyrics = trackLyrics;
             GlobalReferences.MediaController = mediaController;
+            GlobalReferences.PlaylistContextMenuStrip = PlaylistContextMenuStrip;
 
             this.Icon = Properties.Resources.icon;
 
             trackVisualizer.InteractMediaController(mediaController);
 
             #endregion
+
+            Common.RoundedCorner(PlaylistContextMenuStrip);
+            Common.RoundedCorner(AddToToolStripMenuItem.DropDown);
+
+            musicFolderPanel.AutoScroll = true;
+            videosFolderPanel.AutoScroll = true;
 
             if (!Directory.Exists(Common.MusicFolder))
             {
@@ -64,8 +71,14 @@ namespace MyMediaPlayer
                 Directory.CreateDirectory(Common.PlaylistsFolder);
             }
 
-            GlobalReferences.PlaylistsFolderWatcher.EnableRaisingEvents = true;
-            GlobalReferences.PlaylistsFolderWatcher.NotifyFilter
+            PlaylistsFolderWatcher.Changed += PlaylistsFolderWatcher_Changed;
+            PlaylistsFolderWatcher.Created += PlaylistsFolderWatcher_Created;
+            PlaylistsFolderWatcher.Deleted += PlaylistsFolderWatcher_Deleted;
+            PlaylistsFolderWatcher.Error += PlaylistsFolderWatcher_Error;
+            PlaylistsFolderWatcher.IncludeSubdirectories = false;
+            PlaylistsFolderWatcher.EnableRaisingEvents = true;
+            PlaylistsFolderWatcher.Filter = "*.wpl";
+            PlaylistsFolderWatcher.NotifyFilter
             = NotifyFilters.DirectoryName
             | NotifyFilters.CreationTime
             | NotifyFilters.Attributes
@@ -74,9 +87,81 @@ namespace MyMediaPlayer
             | NotifyFilters.Security
             | NotifyFilters.FileName
             | NotifyFilters.Size;
+        }
 
-            musicFolderPanel.AutoScroll = true;
-            videosFolderPanel.AutoScroll = true;
+        private FileSystemWatcher PlaylistsFolderWatcher =
+            new FileSystemWatcher(Common.PlaylistsFolder);
+
+        private void ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MediaController.AddToPlaylist(((ToolStripMenuItem)sender).Name
+            , GlobalReferences.PlaylistContextMenuStripRecentMediaItem.URL);
+            GlobalReferences.PlaylistContextMenuStripRecentMediaItem = null;
+        }
+
+        private void PlaylistsFolderWatcher_Error(object sender, ErrorEventArgs e)
+        {
+            Exception Error = e.GetException();
+            ModalBox.Show("Error", $@"
+            - {Error.Message}
+            - {Error.HResult}
+            - {Error.StackTrace}
+            - .");
+        }
+
+        private void NewPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (InputForm InputForm = new InputForm("Playlist's name"))
+            {
+                InputForm.ShowDialog();
+                if (string.IsNullOrWhiteSpace(InputForm.Result)) return;
+                if (!File.Exists($"{Common.PlaylistsFolder}\\{InputForm.Result}.wpl"))
+                {
+                    MediaController.CreatePlaylist(InputForm.Result);
+                    MediaController.AddToPlaylist(InputForm.Result,
+                    GlobalReferences.PlaylistContextMenuStripRecentMediaItem.URL);
+                }
+                else
+                {
+                    ModalBox.Show("Error", "Playlist exists!");
+                }
+            }
+            GlobalReferences.PlaylistContextMenuStripRecentMediaItem = null;
+        }
+
+        private void PlaylistsFolderWatcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            GlobalReferences.IsGoodToRerender = true;
+        }
+
+        private void PlaylistsFolderWatcher_Created(object sender, FileSystemEventArgs e)
+        {
+            ToolStripMenuItem ToolStripMenuItem = new
+            ToolStripMenuItem(Path.GetFileNameWithoutExtension(e.Name));
+            ToolStripMenuItem.Name = Path.GetFileNameWithoutExtension(e.Name);
+            ToolStripMenuItem.Click += ToolStripMenuItem_Click;
+            ToolStripMenuItem.BackColor = Common.Gray;
+            ToolStripMenuItem.ForeColor = Common.Black;
+            if (IsHandleCreated)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    AddToToolStripMenuItem.DropDownItems.Add(ToolStripMenuItem);
+                });
+            }
+        }
+
+        private void PlaylistsFolderWatcher_Deleted(object sender, FileSystemEventArgs e)
+        {
+            if (IsHandleCreated)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    AddToToolStripMenuItem.DropDownItems
+                    .RemoveByKey(Path.GetFileNameWithoutExtension(e.Name));
+                });
+            }
+            GlobalReferences.IsGoodToRerender = true;
         }
 
         private Action<object, EventArgs> MainForm_Load(string[] args)
@@ -97,6 +182,8 @@ namespace MyMediaPlayer
         {
             trackVisualizer.Stop();
             mediaController.Stop();
+            PlaylistsFolderWatcher.Dispose();
+            PlaylistsFolderWatcher = null;
         }
 
         #region Initialize
@@ -237,11 +324,6 @@ namespace MyMediaPlayer
             }
         }
 
-        public void AddMusicToPlayQ(TrackItem media)
-        {
-            PlayQMusicList.AddMusic(media);
-        }
-
         #endregion
 
         #region Responsive
@@ -332,6 +414,30 @@ namespace MyMediaPlayer
         private void PlayQueueClearButton_Click(object sender, EventArgs e)
         {
             PlayQMusicList.Clear();
+        }
+
+        private void PlayQueueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (Common.AudioFileExtensions.Any(FileExtension => Path.GetExtension
+            (GlobalReferences.PlaylistContextMenuStripRecentMediaItem.URL) ==
+            FileExtension.Substring(1)))
+            {
+                TrackItem TrackItem = new TrackItem
+                (GlobalReferences.PlaylistContextMenuStripRecentMediaItem.URL)
+                {
+                    Width = ((TrackItem)GlobalReferences.PlaylistContextMenuStripRecentMediaItem).
+                    Width,
+                };
+                PlayQMusicList.AddMusic(TrackItem);
+            }
+            GlobalReferences.PlaylistContextMenuStripRecentMediaItem = null;
+        }
+
+        private void PlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GlobalReferences.PlaylistContextMenuStripRecentMediaItem.Play();
+            GlobalReferences.PlaylistContextMenuStripRecentMediaItem = null;
         }
     }
 }
