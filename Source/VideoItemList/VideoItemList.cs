@@ -58,8 +58,10 @@ namespace MyMediaPlayer
                 i = 0;
                 VideoItem.Location = new Point
                 (VideoItem.Size.Width * i + 20 * (i + 1), VideoItem.Size.Height * j + 20 * (j + 1));
+                i++;
             }
             this.Controls.Add(VideoItem);
+            //ModalBox.Show("", $"{VideoItem.Location.X} - {VideoItem.Location.Y} - {this.Controls.Count}");
         }
 
         public void AddVideos(string VideoURL)
@@ -78,6 +80,10 @@ namespace MyMediaPlayer
         {
             get => () =>
             {
+                for (int k = 0; k < this.Controls.Count; k++)
+                {
+                    this.Controls[k].Dispose();
+                }
                 Self.Clear();
                 this.Controls.Clear();
             };

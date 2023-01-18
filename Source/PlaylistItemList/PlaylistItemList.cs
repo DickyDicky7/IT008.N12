@@ -51,6 +51,11 @@ namespace MyMediaPlayer
 
         public void Render()
         {
+            for (int k = 0; k < this.Controls.Count; k++)
+            {
+                ((IMediaItemList)this.Controls[k]).Clear();
+                this.Controls[k].Dispose();
+            }
             this.Controls.Clear();
             Directory.GetFiles(Common.PlaylistsFolder, "*.wpl").ToList()
             .ForEach(Path =>

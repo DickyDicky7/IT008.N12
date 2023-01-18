@@ -621,7 +621,7 @@
             this.videosFolderContainer.Location = new System.Drawing.Point(35, 320);
             this.videosFolderContainer.Name = "videosFolderContainer";
             this.videosFolderContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.videosFolderContainer.Size = new System.Drawing.Size(448, 182);
+            this.videosFolderContainer.Size = new System.Drawing.Size(704, 182);
             this.videosFolderContainer.TabIndex = 7;
             // 
             // videosFolderPanel
@@ -630,7 +630,7 @@
             this.videosFolderPanel.Location = new System.Drawing.Point(10, 48);
             this.videosFolderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.videosFolderPanel.Name = "videosFolderPanel";
-            this.videosFolderPanel.Size = new System.Drawing.Size(428, 124);
+            this.videosFolderPanel.Size = new System.Drawing.Size(684, 124);
             this.videosFolderPanel.TabIndex = 9;
             // 
             // addVideosFolderBtn2
@@ -653,7 +653,7 @@
             this.addVideosFolderBtn2.HoverState.FillColor = System.Drawing.Color.White;
             this.addVideosFolderBtn2.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addVideosFolderBtn2.Image = ((System.Drawing.Image)(resources.GetObject("addVideosFolderBtn2.Image")));
-            this.addVideosFolderBtn2.Location = new System.Drawing.Point(336, 12);
+            this.addVideosFolderBtn2.Location = new System.Drawing.Point(592, 12);
             this.addVideosFolderBtn2.Margin = new System.Windows.Forms.Padding(2);
             this.addVideosFolderBtn2.Name = "addVideosFolderBtn2";
             this.addVideosFolderBtn2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
@@ -699,7 +699,7 @@
             this.musicFolderContainer.Location = new System.Drawing.Point(34, 123);
             this.musicFolderContainer.Name = "musicFolderContainer";
             this.musicFolderContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.musicFolderContainer.Size = new System.Drawing.Size(448, 182);
+            this.musicFolderContainer.Size = new System.Drawing.Size(704, 182);
             this.musicFolderContainer.TabIndex = 6;
             // 
             // musicFolderPanel
@@ -708,7 +708,7 @@
             this.musicFolderPanel.Location = new System.Drawing.Point(10, 48);
             this.musicFolderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.musicFolderPanel.Name = "musicFolderPanel";
-            this.musicFolderPanel.Size = new System.Drawing.Size(428, 124);
+            this.musicFolderPanel.Size = new System.Drawing.Size(684, 124);
             this.musicFolderPanel.TabIndex = 9;
             // 
             // addMusicFolderBtn2
@@ -731,7 +731,7 @@
             this.addMusicFolderBtn2.HoverState.FillColor = System.Drawing.Color.White;
             this.addMusicFolderBtn2.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.addMusicFolderBtn2.Image = ((System.Drawing.Image)(resources.GetObject("addMusicFolderBtn2.Image")));
-            this.addMusicFolderBtn2.Location = new System.Drawing.Point(336, 12);
+            this.addMusicFolderBtn2.Location = new System.Drawing.Point(592, 12);
             this.addMusicFolderBtn2.Margin = new System.Windows.Forms.Padding(2);
             this.addMusicFolderBtn2.Name = "addMusicFolderBtn2";
             this.addMusicFolderBtn2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));

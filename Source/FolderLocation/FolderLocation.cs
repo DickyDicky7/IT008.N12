@@ -34,6 +34,7 @@ namespace MyMediaPlayer
             Properties.Settings.Default.musicFolder.Remove(folderURL.Text);
             Properties.Settings.Default.Save();
             this.Parent.Controls.Remove(this);
+            //this.Dispose();
         }
 
         private void removeBtn_Click_2(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace MyMediaPlayer
             Properties.Settings.Default.videosFolder.Remove(folderURL.Text);
             Properties.Settings.Default.Save();
             this.Parent.Controls.Remove(this);
+            //this.Dispose();
         }
 
         public enum Mode

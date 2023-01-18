@@ -81,6 +81,7 @@ namespace MyMediaPlayer
                 {
                     this.BeginInvoke(new Action(() =>
                     {
+                        for (int k = 0; k < this.Controls.Count; k++) this.Controls[k].Dispose();
                         this.Controls.Clear();
                     }));
                 }
@@ -113,6 +114,7 @@ namespace MyMediaPlayer
 
         public void LoadIntegrationSearchResults()
         {
+            for (int k = 0; k < this.Controls.Count; k++) this.Controls[k].Dispose();
             this.Controls.Clear();
         }
 
@@ -125,6 +127,10 @@ namespace MyMediaPlayer
         public Action Stop => Self.Stop;
         public Action Clear => () =>
         {
+            for (int k = 0; k < this.Controls.Count; k++)
+            {
+                this.Controls[k].Dispose();
+            }
             Self.Clear();
             this.Controls.Clear();
         };

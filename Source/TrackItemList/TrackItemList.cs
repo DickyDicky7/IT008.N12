@@ -109,6 +109,10 @@ namespace MyMediaPlayer
         {
             get => () =>
             {
+                for (int k = 0; k < mediaItemContainer.Controls.Count; k++)
+                {
+                    mediaItemContainer.Controls[k].Dispose();
+                }
                 Self.Clear();
                 mediaItemContainer.Controls.Clear();
             };

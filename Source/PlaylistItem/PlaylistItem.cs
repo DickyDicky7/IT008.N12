@@ -50,6 +50,7 @@ namespace MyMediaPlayer
                 Panel.Text = Playlist.Title;
             }
 
+            for (int k = 0; k < DataGridView.Rows.Count; k++) DataGridView.Rows[k].Dispose();
             DataGridView.Rows.Clear();
 
             Paths.ForEach(Path =>
@@ -114,6 +115,7 @@ namespace MyMediaPlayer
 
         public Action Clear => () =>
         {
+            for (int k = 0; k < DataGridView.Rows.Count; k++) DataGridView.Rows[k].Dispose();
             DataGridView.Rows.Clear();
         };
 
