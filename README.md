@@ -1,10 +1,10 @@
-# Đồ Án Lập Trình Trực Quan - IT008.N12
+# 📚 Đồ Án Lập Trình Trực Quan - IT008.N12
 
-## Đề tài
+## ✒️ Đề tài
 
  > Trình Phát Audio Và Video
 
-## Mô tả
+## 📄 Mô tả
 
  > **Thành viên nhóm:**
  > 1. 21520147	- [Phạm Tuấn Anh](https://github.com/DickyDicky7) 
@@ -12,6 +12,7 @@
  > 3. 21521682	- [Nguyễn Văn Vũ](https://github.com/JustVvu)
  > 4. 21521055	- [Nguyễn Chí Lâm](https://github.com/Loading1369)
 
+## ⚙️ Hướng Dẫn Cài Đặt
 
 <p align="center">
   <img src="https://github.com/DickyDicky7/IT008.N12/blob/master/README/SETUPGUIDE/1.png?raw=true" width="450" height="350" />
