@@ -361,6 +361,8 @@
     <Content Include="Libraries\CSCore.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\rename.png" />
+    <None Include="Resources\remove.png" />
     <None Include="Resources\video_thumbnail.png" />
     <None Include="Resources\rewind.png" />
     <None Include="Resources\normal.png" />

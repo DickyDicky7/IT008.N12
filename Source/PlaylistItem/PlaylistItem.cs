@@ -31,14 +31,25 @@ namespace MyMediaPlayer
                 if (e.Button is MouseButtons.Left)
                 {
                     GlobalReferences.MediaController.LoadMediaItemList(this);
-                    UpdateCurrentIndex(null);
+                    #region Testing
+                    //Old code
+                    //UpdateCurrentIndex(null);
+                    CurrentIndex = e.RowIndex;
+                    #endregion
                     Play();
+                }
+                else
+                if (e.Button is MouseButtons.Right)
+                {
+                    RowIndex = e.RowIndex;
+                    ChildMenu.Show(MousePosition);
                 }
             };
         }
 
         private List<string> Paths;
         private readonly string URL;
+        private int? RowIndex = null;
 
         private void Render()
         {
@@ -87,11 +98,20 @@ namespace MyMediaPlayer
             }
         }
 
+        private void ChildRemoveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (RowIndex != null)
+            {
+                MediaController.RemoveFromPlaylist(Panel.Text, Paths[RowIndex.Value]);
+                RowIndex = null;
+            }
+        }
+
         private void Panel_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
-                Menu.Show(this, new Point(e.X, e.Y));
+                Menu.Show(MousePosition);
             }
         }
 
@@ -110,6 +130,9 @@ namespace MyMediaPlayer
 
         public Action Stop => () =>
         {
+            #region Testing
+            DataGridView.ClearSelection();
+            #endregion
             CurrentIndex = -1;
         };
 
@@ -117,6 +140,12 @@ namespace MyMediaPlayer
         {
             for (int k = 0; k < DataGridView.Rows.Count; k++) DataGridView.Rows[k].Dispose();
             DataGridView.Rows.Clear();
+
+            ChildRemoveToolStripMenuItem.Click += null;
+            RemoveToolStripMenuItem.Click += null;
+            DataGridView.CellMouseClick += null;
+            PlayButton.Click += null;
+            Panel.MouseClick += null;
         };
 
         public Action PlayBack => () =>

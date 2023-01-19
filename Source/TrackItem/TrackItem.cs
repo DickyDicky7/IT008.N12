@@ -185,8 +185,7 @@ namespace MyMediaPlayer
             else
             if (((MouseEventArgs)e).Button is MouseButtons.Right)
             {
-                GlobalReferences.PlaylistContextMenuStrip.Show
-                (this, ((MouseEventArgs)e).X, ((MouseEventArgs)e).Y);
+                GlobalReferences.PlaylistContextMenuStrip.Show(MousePosition);
                 GlobalReferences.PlaylistContextMenuStripRecentMediaItem = this;
             }
 
