@@ -106,6 +106,7 @@ namespace MyMediaPlayer
             await Task.Delay(timeout).ConfigureAwait(false);
             action();
         }
+
         public static void SetDoubleBuffered(System.Windows.Forms.Control c)
         {
             if (System.Windows.Forms.SystemInformation.TerminalServerSession)

@@ -605,25 +605,25 @@ namespace MyMediaPlayer
 
         private void ArtistsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList.sortBy(TrackItemList.SORTBY.ARTIST);
+            musicList.SortBy(TrackItemList.SORTBY.ARTIST);
             sortBtn.Text = "Sort By: Artist";
         }
 
         private void AZToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList.sortBy(TrackItemList.SORTBY.AZ);
+            musicList.SortBy(TrackItemList.SORTBY.AZ);
             sortBtn.Text = "Sort By: A-Z";
         }
 
         private void GenreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList.sortBy(TrackItemList.SORTBY.GENRE);
+            musicList.SortBy(TrackItemList.SORTBY.GENRE);
             sortBtn.Text = "Sort By: Genre";
         }
 
         private void AlbumToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            musicList.sortBy(TrackItemList.SORTBY.ALBUM);
+            musicList.SortBy(TrackItemList.SORTBY.ALBUM);
             sortBtn.Text = "Sort By: Album";
         }
 

@@ -18,7 +18,8 @@ namespace MyMediaPlayer
         {
             InitializeComponent();
             this.AutoScroll = true;
-            //this.DoubleBuffered = true;
+            this.HorizontalScroll.Maximum = 0;
+            this.Resize += new EventHandler(VideoItemList_Resize);
         }
 
         protected override CreateParams CreateParams
@@ -72,6 +73,29 @@ namespace MyMediaPlayer
                 VideoItem VideoItem = new VideoItem(VideoURL);
                 //VideoItem.ParentVideoItemList = this;
                 AddVideos(VideoItem);
+            }
+        }
+
+        private void VideoItemList_Resize(object sender, EventArgs e)
+        {
+            i = j = 0;
+            foreach (Control Control in this.Controls)
+            {
+                if (Control.Size.Width * i + 20 * (i + 1) + Control.Size.Width
+                <= this.Size.Width - 20)
+                {
+                    Control.Location = new Point
+                    (Control.Size.Width * i + 20 * (i + 1), Control.Size.Height * j + 20 * (j + 1));
+                    i++;
+                }
+                else
+                {
+                    j++;
+                    i = 0;
+                    Control.Location = new Point
+                    (Control.Size.Width * i + 20 * (i + 1), Control.Size.Height * j + 20 * (j + 1));
+                    i++;
+                }
             }
         }
 

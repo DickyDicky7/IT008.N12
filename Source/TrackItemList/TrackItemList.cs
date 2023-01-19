@@ -26,7 +26,30 @@ namespace MyMediaPlayer
         public TrackItemList()
         {
             InitializeComponent();
+
+            Watcher Watcher = new Watcher();
+            Watcher.Interval = TimeSpan.FromMilliseconds(500);
+            Watcher.Action = () =>
+            {
+                if (LastTimeModified != null)
+                {
+                    if (DateTime.Now.Subtract(LastTimeModified.Value) >= TimeSpan.FromSeconds(2))
+                    {
+                        if (IsHandleCreated)
+                        {
+                            mediaItemContainer.BeginInvoke((MethodInvoker)delegate ()
+                            {
+                                SortBy(sortState);
+                            });
+                        }
+                        LastTimeModified = null;
+                    }
+                }
+            };
+            Watcher.Start();
         }
+
+        private DateTime? LastTimeModified = null;
 
         private readonly AMediaItemList<TrackItem> Self = new AMediaItemList<TrackItem>();
 
@@ -37,11 +60,12 @@ namespace MyMediaPlayer
 
         public void AddMusic(TrackItem mediaItem)
         {
+            LastTimeModified = DateTime.Now;
             mediaItem.ParentTrackItemList = this;
             Self.MediaItems.Add(mediaItem);
             mediaItem.Dock = DockStyle.Top;
             mediaItemContainer.Controls.Add(mediaItem);
-            sortBy(sortState);
+            //SortBy(sortState);
         }
 
         public void AddMusic(string URL)
@@ -55,7 +79,7 @@ namespace MyMediaPlayer
             }
         }
 
-        public void sortBy(SORTBY sort)
+        public void SortBy(SORTBY sort)
         {
             switch (sort)
             {
