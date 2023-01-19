@@ -30,6 +30,7 @@
  - 3.2.1. Xây dụng class MediaController như bộ điều khiển trung tâm của ứng dụng
  - 3.2.2. Xây dựng các interface IMediaItem, IMediaItemList, abstract class AMediaItemList giúp trừu tượng hóa các class TrackItem, TrackItemList, VideoItem, VideoItemList
  - 3.2.3. Xây dựng các interface IIntegration, IIntegrationSearchResultList giúp trừu tượng hóa các class ZingMP3Integration, ZingMP3IntegrationSearchResultList
+ - 3.2.4. Sử dụng class FileSystemWatcher để thực hiện động bộ hóa dữ liệu
  - ***(Tạm thời là chừng này, dư thời gian thì tính thêm)***
 
 ## Chương 4. Thiết Kế Giao Diện
