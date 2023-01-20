@@ -31,7 +31,7 @@ namespace MyMediaPlayer
             //    MessageBox.Show("2");
             //};
 
-
+            this.Resize += new EventHandler(ZingMP3IntegrationSearchResultList_Resize);
         }
 
         protected override CreateParams CreateParams
@@ -41,6 +41,15 @@ namespace MyMediaPlayer
                 CreateParams CP = base.CreateParams;
                 CP.ExStyle = CP.ExStyle | 0x02000000;
                 return CP;
+            }
+        }
+
+        private void ZingMP3IntegrationSearchResultList_Resize(object sender, EventArgs e)
+        {
+            foreach (Control Control in this.Controls)
+            {
+                Control.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+                Control.Size = new Size(((Control)sender).Size.Width - 70, Control.Size.Height);
             }
         }
 

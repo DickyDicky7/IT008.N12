@@ -96,6 +96,7 @@ namespace MyMediaPlayer
                     (Control.Size.Width * i + 20 * (i + 1), Control.Size.Height * j + 20 * (j + 1));
                     i++;
                 }
+                Control.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             }
         }
 
