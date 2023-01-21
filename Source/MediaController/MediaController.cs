@@ -608,7 +608,15 @@ namespace MyMediaPlayer
             MediaTitle.Text = VideoForm.VideoCurrentMedia.name;
 
             VideoForm.Show();
-            VideoForm.FormClosing += (sender, e) => { CurrentMode = Mode.None; };
+            VideoForm.FormClosing += (sender, e) =>
+            {
+                CurrentMode = Mode.None;
+                VolumeMeter.DataBindings.Clear();
+            };
+
+            VolumeMeter.DataBindings.Clear();
+            VolumeMeter.DataBindings.Add("Value", VideoForm
+            , "VideoCurrentSettingsVolume", true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         public enum Mode

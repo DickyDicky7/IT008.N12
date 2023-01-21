@@ -35,6 +35,8 @@
             this.ExitControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.MaximizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.MinimizeControlBox = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
+            this.VolumeTrackBar = new Siticone.Desktop.UI.WinForms.SiticoneTrackBar();
+            this.TrackBar = new Siticone.Desktop.UI.WinForms.SiticoneTrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +59,7 @@
             this.Player.Size = new System.Drawing.Size(800, 420);
             this.Player.TabIndex = 0;
             this.Player.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.Player_PlayStateChange);
+            this.Player.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.Player_ClickEvent);
             // 
             // ExitControlBox
             // 
@@ -92,6 +95,7 @@
             this.MaximizeControlBox.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(160)))), ((int)(((byte)(164)))));
             this.MaximizeControlBox.Size = new System.Drawing.Size(50, 30);
             this.MaximizeControlBox.TabIndex = 2;
+            this.MaximizeControlBox.Click += new System.EventHandler(this.MaximizeControlBox_Click);
             // 
             // MinimizeControlBox
             // 
@@ -111,12 +115,39 @@
             this.MinimizeControlBox.Size = new System.Drawing.Size(50, 30);
             this.MinimizeControlBox.TabIndex = 3;
             // 
+            // VolumeTrackBar
+            // 
+            this.VolumeTrackBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.VolumeTrackBar.FillColor = System.Drawing.Color.LightGray;
+            this.VolumeTrackBar.Location = new System.Drawing.Point(20, 10);
+            this.VolumeTrackBar.Name = "VolumeTrackBar";
+            this.VolumeTrackBar.Size = new System.Drawing.Size(100, 10);
+            this.VolumeTrackBar.Style = Siticone.Desktop.UI.WinForms.Enums.TrackBarStyle.Metro;
+            this.VolumeTrackBar.TabIndex = 4;
+            this.VolumeTrackBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.VolumeTrackBar.ValueChanged += new System.EventHandler(this.VolumeTrackBar_ValueChanged);
+            this.VolumeTrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.VolumeTrackBar_Scroll);
+            // 
+            // TrackBar
+            // 
+            this.TrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TrackBar.FillColor = System.Drawing.Color.LightGray;
+            this.TrackBar.Location = new System.Drawing.Point(130, 0);
+            this.TrackBar.Name = "TrackBar";
+            this.TrackBar.Size = new System.Drawing.Size(500, 30);
+            this.TrackBar.TabIndex = 5;
+            this.TrackBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.TrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TrackBar_Scroll);
+            // 
             // VideoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TrackBar);
+            this.Controls.Add(this.VolumeTrackBar);
             this.Controls.Add(this.MinimizeControlBox);
             this.Controls.Add(this.MaximizeControlBox);
             this.Controls.Add(this.ExitControlBox);
@@ -126,6 +157,8 @@
             this.Name = "VideoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Video";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VideoForm_FormClosing);
+            this.Load += new System.EventHandler(this.VideoForm_Load);
             this.SizeChanged += new System.EventHandler(this.VideoForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ResumeLayout(false);
@@ -139,5 +172,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox ExitControlBox;
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox MaximizeControlBox;
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox MinimizeControlBox;
+        private Siticone.Desktop.UI.WinForms.SiticoneTrackBar VolumeTrackBar;
+        private Siticone.Desktop.UI.WinForms.SiticoneTrackBar TrackBar;
     }
 }

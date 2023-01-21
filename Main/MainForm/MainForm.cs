@@ -21,16 +21,6 @@ namespace MyMediaPlayer
         {
             InitializeComponent();
 
-            if (!Directory.Exists(Common.MusicFolder))
-            {
-                Directory.CreateDirectory(Common.MusicFolder);
-            }
-
-            if (!Directory.Exists(Common.PlaylistsFolder))
-            {
-                Directory.CreateDirectory(Common.PlaylistsFolder);
-            }
-
             musicFolderPanel.ControlAdded += MusicFolderPanel_ControlAdded;
             musicFolderPanel.ControlRemoved += MusicFolderPanel_ControlRemoved;
 

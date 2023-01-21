@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Threading.Tasks;
@@ -14,6 +15,21 @@ namespace MyMediaPlayer
         [STAThread]
         static void Main(string[] args)
         {
+            if (!Directory.Exists(Common.MusicFolder))
+            {
+                Directory.CreateDirectory(Common.MusicFolder);
+            }
+
+            if (!Directory.Exists(Common.VideosFolder))
+            {
+                Directory.CreateDirectory(Common.VideosFolder);
+            }
+
+            if (!Directory.Exists(Common.PlaylistsFolder))
+            {
+                Directory.CreateDirectory(Common.PlaylistsFolder);
+            }
+
             Application.EnableVisualStyles();
 
             Application.SetCompatibleTextRenderingDefault(false);

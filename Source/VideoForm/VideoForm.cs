@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Threading;
+using FluentTransitions;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using System.Collections.Generic;
 
 namespace MyMediaPlayer
 {
-    public partial class VideoForm : Form
+    public partial class VideoForm : Form, INotifyPropertyChanged
     {
         public VideoForm()
         {
@@ -23,6 +24,9 @@ namespace MyMediaPlayer
 
             Player.uiMode = "none";
             Player.enableContextMenu = false;
+
+            TrackBar.Top = -30;
+            VolumeTrackBar.Top = -10;
         }
 
         public VideoForm(string VideoURL)
@@ -33,6 +37,11 @@ namespace MyMediaPlayer
 
             Player.uiMode = "none";
             Player.enableContextMenu = false;
+
+            TrackBar.Top = -30;
+            VolumeTrackBar.Top = -10;
+
+            TrackBar.Maximum = Common.GetDurationInSeconds(VideoURL);
 
             this.Load += (sender, e) =>
             {
@@ -45,6 +54,8 @@ namespace MyMediaPlayer
         {
             Player.URL = VideoURL;
             Player.Ctlcontrols.play();
+
+            TrackBar.Maximum = Common.GetDurationInSeconds(VideoURL);
         }
 
         public static void RunVideoFormInAnotherThread(string VideoURL)
@@ -72,7 +83,12 @@ namespace MyMediaPlayer
         public int VideoCurrentSettingsVolume
         {
             get => Player.settings.volume;
-            set => Player.settings.volume = value;
+            set
+            {
+                Player.settings.volume = value;
+                PropertyChanged?.Invoke
+                (this, new PropertyChangedEventArgs("VideoCurrentSettingsVolume"));
+            }
         }
 
         public string VideoTitle
@@ -122,6 +138,84 @@ namespace MyMediaPlayer
         public Action VideoControlsStop
         {
             get => Player.Ctlcontrols.stop;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void VolumeTrackBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            VideoCurrentSettingsVolume = VolumeTrackBar.Value;
+        }
+
+        private void VolumeTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            VideoCurrentSettingsVolume = VolumeTrackBar.Value;
+        }
+
+        private void MaximizeControlBox_Click(object sender, EventArgs e)
+        {
+            VolumeTrackBar.Value = VideoCurrentSettingsVolume;
+            if (TrackBar.Top < 0)
+            {
+                Transition.With(TrackBar, "Top", 0)
+                .Decelerate(TimeSpan.FromSeconds(0.25));
+            }
+            else
+            {
+                Transition.With(TrackBar, "Top", -30)
+                .Decelerate(TimeSpan.FromSeconds(0.25));
+            }
+            if (VolumeTrackBar.Top < 0)
+            {
+                Transition.With(VolumeTrackBar, "Top", 10)
+                .Decelerate(TimeSpan.FromSeconds(0.25));
+            }
+            else
+            {
+                Transition.With(VolumeTrackBar, "Top", -10)
+                .Decelerate(TimeSpan.FromSeconds(0.25));
+            }
+        }
+
+        private readonly Watcher Watcher = new Watcher();
+
+        private void VideoForm_Load(object sender, EventArgs e)
+        {
+            Watcher.Interval = TimeSpan.FromMilliseconds(100);
+            Watcher.Action = () =>
+            {
+                if (IsHandleCreated)
+                {
+                    TrackBar.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        TrackBar.Value = (int)VideoCurrentPosition;
+                    });
+                }
+            };
+            Watcher.Start();
+        }
+
+        private void VideoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Watcher.Stop();
+        }
+
+        private void TrackBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            VideoCurrentPosition = TrackBar.Value;
+        }
+
+        private void Player_ClickEvent(object sender, _WMPOCXEvents_ClickEvent e)
+        {
+            if (VideoPlayState is WMPPlayState.wmppsPlaying)
+            {
+                VideoControlsPause();
+            }
+            else
+            if (VideoPlayState is WMPPlayState.wmppsPaused)
+            {
+                VideoControlsPlay();
+            }
         }
     }
 }
