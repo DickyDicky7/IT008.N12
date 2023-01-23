@@ -162,10 +162,16 @@ namespace MyMediaPlayer
             RenamePlaylistToolStripMenuItem.Dispose();
             ChildRemoveToolStripMenuItem.Dispose();
             RemoveToolStripMenuItem.Dispose();
+            DataGridView.Dispose();
+            PlayButton.Dispose();
+            Panel.Dispose();
 
             RenamePlaylistToolStripMenuItem = null;
             ChildRemoveToolStripMenuItem = null;
             RemoveToolStripMenuItem = null;
+            DataGridView = null;
+            PlayButton = null;
+            Panel = null;
 
             Menu.Dispose();
             ChildMenu.Dispose();
