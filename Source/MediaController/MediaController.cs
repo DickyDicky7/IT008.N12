@@ -539,6 +539,33 @@ namespace MyMediaPlayer
             });
         }
 
+        public static void RenamePlaylist(string PlaylistName, string NewPlaylistName)
+        {
+            Task.Run(() =>
+            {
+                if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
+                {
+                    string NewContent;
+
+                    using (Stream Stream = File.OpenRead
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
+                    {
+                        WplContent Content = new WplContent();
+                        WplPlaylist Playlist = Content.GetFromStream(Stream);
+                        Playlist.Title = NewPlaylistName;
+                        NewContent = Content.ToText(Playlist);
+                    }
+
+                    File.WriteAllText
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+
+                    File.Move
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl",
+                     $"{Common.PlaylistsFolder}\\{NewPlaylistName}.wpl");
+                }
+            });
+        }
+
         private static Mode CurrentMode;
         private static VideoForm VideoForm;
         private static PlayingMode CurrentPlayingMode;

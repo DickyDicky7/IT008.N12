@@ -81,8 +81,15 @@ namespace MyMediaPlayer
             DataGridView.ClearSelection();
         }
 
-        public void RenamePlaylist(object sender, EventArgs e)
+        private void RenamePlaylistToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            using (InputForm InputForm = new InputForm("New Playlist's name"))
+            {
+                InputForm.ShowDialog();
+                if (string.IsNullOrEmpty(InputForm.Result)
+                 || string.IsNullOrWhiteSpace(InputForm.Result)) return;
+                MediaController.RenamePlaylist(Panel.Text, InputForm.Result);
+            }
         }
 
         private void RemoveToolStripMenuItem_Click(object sender, EventArgs e)

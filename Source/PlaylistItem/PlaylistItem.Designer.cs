@@ -68,23 +68,23 @@ namespace MyMediaPlayer
             this.Menu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Menu.RenderStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.Menu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.Menu.Size = new System.Drawing.Size(118, 48);
+            this.Menu.Size = new System.Drawing.Size(181, 70);
             // 
             // RenamePlaylistToolStripMenuItem
             // 
             this.RenamePlaylistToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.RenamePlaylistToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.rename;
             this.RenamePlaylistToolStripMenuItem.Name = "RenamePlaylistToolStripMenuItem";
-            this.RenamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.RenamePlaylistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RenamePlaylistToolStripMenuItem.Text = "Rename";
-            this.RenamePlaylistToolStripMenuItem.Click += new System.EventHandler(this.RenamePlaylist);
+            this.RenamePlaylistToolStripMenuItem.Click += new System.EventHandler(this.RenamePlaylistToolStripMenuItem_Click);
             // 
             // RemoveToolStripMenuItem
             // 
             this.RemoveToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.RemoveToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.remove;
             this.RemoveToolStripMenuItem.Name = "RemoveToolStripMenuItem";
-            this.RemoveToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.RemoveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RemoveToolStripMenuItem.Text = "Remove";
             this.RemoveToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click);
             // 
@@ -237,14 +237,14 @@ namespace MyMediaPlayer
             this.ChildMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.ChildMenu.RenderStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ChildMenu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.ChildMenu.Size = new System.Drawing.Size(181, 48);
+            this.ChildMenu.Size = new System.Drawing.Size(118, 26);
             // 
             // ChildRemoveToolStripMenuItem
             // 
             this.ChildRemoveToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ChildRemoveToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.remove;
             this.ChildRemoveToolStripMenuItem.Name = "ChildRemoveToolStripMenuItem";
-            this.ChildRemoveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ChildRemoveToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.ChildRemoveToolStripMenuItem.Text = "Remove";
             this.ChildRemoveToolStripMenuItem.Click += new System.EventHandler(this.ChildRemoveToolStripMenuItem_Click);
             // 

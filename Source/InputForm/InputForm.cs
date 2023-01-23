@@ -28,7 +28,7 @@ namespace MyMediaPlayer
         {
             if (string.IsNullOrEmpty(TextBox.Text) || string.IsNullOrWhiteSpace(TextBox.Text))
             {
-                ModalBox.Show("Info", "Playlist's name is blank");
+                ModalBox.Show("Info", "Input field is blank");
             }
             else
             {
