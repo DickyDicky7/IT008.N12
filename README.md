@@ -8,12 +8,12 @@
 
 *Thành viên nhóm*
 
-| MSSV | Họ Và Tên |
-| ---- | --------- |
-| 21520147 | [Phạm Tuấn Anh](https://github.com/DickyDicky7)  |
-| 21521682 | [Nguyễn Văn Vũ](https://github.com/JustVvu)      |
-| 21521055 | [Nguyễn Chí Lâm](https://github.com/Loading1369) |
-| 21520579 | [Nguyễn Tiến Anh](https://github.com/4nh3k)      |
+| MSSV | Họ Và Tên |   |
+| ---- | --------- | - |
+| 21520147 | [Phạm Tuấn Anh](https://github.com/DickyDicky7)  | Nhóm trưởng |
+| 21521682 | [Nguyễn Văn Vũ](https://github.com/JustVvu)      | Thành viên  |
+| 21521055 | [Nguyễn Chí Lâm](https://github.com/Loading1369) | Thành viên  |
+| 21520579 | [Nguyễn Tiến Anh](https://github.com/4nh3k)      | Thành viên  |
 
 ## ⚙️ Hướng Dẫn Cài Đặt
 
