@@ -27,6 +27,13 @@
 </p>
 <br/>
 
+<br/>
+<p align="center">
+  <b>Hoặc sử dụng đường dẫn trực tiếp sau để download:</b>
+  https://github.com/DickyDicky7/IT008.N12/raw/master/MyMediaPlayerInstaller/MyMediaPlayerInstaller-SetupFiles/MyMediaPlayerInstaller.msi
+</p>
+<br/>
+
 **3. Khởi động file .msi**
 
 <br/>
