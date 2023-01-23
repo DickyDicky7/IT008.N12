@@ -19,7 +19,7 @@
 
 **1. Truy cập đường dẫn sau:** https://github.com/DickyDicky7/IT008.N12/releases/latest
 
-**2. Trong mục Assets, chọn *"MyMediaPlayerInstaller.msi"***
+**2. Trong mục Assets, chọn "MyMediaPlayerInstaller.msi"**
 
 <br/>
 <p align="center">
@@ -31,6 +31,8 @@
 <p align="center">
   <b>Hoặc sử dụng đường dẫn trực tiếp sau để download:</b>
   https://github.com/DickyDicky7/IT008.N12/raw/master/MyMediaPlayerInstaller/MyMediaPlayerInstaller-SetupFiles/MyMediaPlayerInstaller.msi
+  <br/>
+  <b>(File .msi nằm theo đường dẫn "\IT008.N12\MyMediaPlayerInstaller\MyMediaPlayerInstaller-SetupFiles\")</b>
 </p>
 <br/>
 
