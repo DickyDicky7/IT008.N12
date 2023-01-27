@@ -144,8 +144,8 @@ namespace MyMediaPlayer
         {
             SiticoneButton SenderButton = (SiticoneButton)sender;
             Point Point = new Point(0, SenderButton.Height);
-            Point = SenderButton.PointToScreen(Point);
             ContextMenuStrip.Width = SenderButton.Width;
+            Point = SenderButton.PointToScreen(Point);
             ContextMenuStrip.Show(Point);
         }
 
@@ -156,6 +156,11 @@ namespace MyMediaPlayer
             IntegrationButton.TextAlign = HorizontalAlignment.Left;
             IntegrationButton.Image = Properties.Resources.zing_mp3;
             IntegrationButton.ImageAlign = HorizontalAlignment.Right;
+
+            #region Temporary
+            ((Control)IntegrationSearchResultList).BackgroundImage = null;
+            ((Control)IntegrationSearchResultList).BackgroundImageLayout = ImageLayout.Zoom;
+            #endregion
         }
 
         private void SoundCloudToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,6 +170,11 @@ namespace MyMediaPlayer
             IntegrationButton.TextAlign = HorizontalAlignment.Left;
             IntegrationButton.ImageAlign = HorizontalAlignment.Right;
             IntegrationButton.Image = Properties.Resources.sound_cloud;
+
+            #region Temporary
+            ((Control)IntegrationSearchResultList).BackgroundImageLayout = ImageLayout.Zoom;
+            ((Control)IntegrationSearchResultList).BackgroundImage = Properties.Resources.coming_soon;
+            #endregion
         }
 
         private void SpotifyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -174,6 +184,11 @@ namespace MyMediaPlayer
             IntegrationButton.TextAlign = HorizontalAlignment.Left;
             IntegrationButton.Image = Properties.Resources.spotify;
             IntegrationButton.ImageAlign = HorizontalAlignment.Right;
+
+            #region Temporary
+            ((Control)IntegrationSearchResultList).BackgroundImageLayout = ImageLayout.Zoom;
+            ((Control)IntegrationSearchResultList).BackgroundImage = Properties.Resources.coming_soon;
+            #endregion
         }
 
         private void Pagination_BackPageButton_Click(object sender, EventArgs e)

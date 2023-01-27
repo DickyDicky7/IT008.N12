@@ -95,7 +95,7 @@
             this.SpotifyToolStripMenuItem});
             this.ContextMenuStrip.Name = "ContextMenuStrip";
             this.ContextMenuStrip.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.ContextMenuStrip.RenderStyle.BorderColor = System.Drawing.Color.White;
+            this.ContextMenuStrip.RenderStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ContextMenuStrip.RenderStyle.ColorTable = null;
             this.ContextMenuStrip.RenderStyle.RoundedEdges = true;
             this.ContextMenuStrip.RenderStyle.SelectionArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
@@ -103,7 +103,7 @@
             this.ContextMenuStrip.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.ContextMenuStrip.RenderStyle.SeparatorColor = System.Drawing.Color.White;
             this.ContextMenuStrip.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.ContextMenuStrip.Size = new System.Drawing.Size(179, 82);
+            this.ContextMenuStrip.Size = new System.Drawing.Size(185, 104);
             // 
             // ZingMP3ToolStripMenuItem
             // 
@@ -111,7 +111,7 @@
             this.ZingMP3ToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ZingMP3ToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.zing_mp3;
             this.ZingMP3ToolStripMenuItem.Name = "ZingMP3ToolStripMenuItem";
-            this.ZingMP3ToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.ZingMP3ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.ZingMP3ToolStripMenuItem.Text = "      ZingMP3";
             this.ZingMP3ToolStripMenuItem.Click += new System.EventHandler(this.ZingMP3ToolStripMenuItem_Click);
             // 
@@ -121,7 +121,7 @@
             this.SoundCloudToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.SoundCloudToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.sound_cloud;
             this.SoundCloudToolStripMenuItem.Name = "SoundCloudToolStripMenuItem";
-            this.SoundCloudToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.SoundCloudToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.SoundCloudToolStripMenuItem.Text = "      SoundCloud";
             this.SoundCloudToolStripMenuItem.Click += new System.EventHandler(this.SoundCloudToolStripMenuItem_Click);
             // 
@@ -131,7 +131,7 @@
             this.SpotifyToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.SpotifyToolStripMenuItem.Image = global::MyMediaPlayer.Properties.Resources.spotify;
             this.SpotifyToolStripMenuItem.Name = "SpotifyToolStripMenuItem";
-            this.SpotifyToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.SpotifyToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.SpotifyToolStripMenuItem.Text = "      Spotify";
             this.SpotifyToolStripMenuItem.Click += new System.EventHandler(this.SpotifyToolStripMenuItem_Click);
             // 
