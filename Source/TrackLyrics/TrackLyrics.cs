@@ -102,6 +102,9 @@ namespace MyMediaPlayer
         {
             Lyrics.Clear();
 
+            foreach (Label Line in Controls.OfType<Label>())
+                Line.Text = string.Empty;
+
             TagLib.File File = TagLib.File.Create(MediaURL);
             if (File.Tag.Lyrics == null)
             {

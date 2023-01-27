@@ -58,18 +58,29 @@ namespace MyMediaPlayer
 
         public void LoadIntegrationSearchResults(string JSONResult)
         {
-            if (JSONResult == null)
-            {
-                return;
-            }
-
-            //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
-
             Task.Run(() =>
             {
-                //MessageBox.Show(System.Threading.Thread.CurrentThread.IsThreadPoolThread.ToString());
+                if (JSONResult == null)
+                {
+                    return;
+                }
 
                 JSONResultObject = JObject.Parse(JSONResult);
+
+                if (JSONResultObject["data"]?["items"] == null)
+                {
+                    NumberOfItems = 0;
+                    if (IsHandleCreated)
+                    {
+                        this.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            for (int k = 0; k < this.Controls.Count; k++) this.Controls[k].Dispose();
+                            this.Controls.Clear();
+                        });
+                    }
+                    Self.Clear();
+                    return;
+                }
 
                 List<ZingMP3IntegrationSearchResult> IntegrationSearchResults =
                 JSONResultObject["data"]?["items"].Select
@@ -88,11 +99,11 @@ namespace MyMediaPlayer
 
                 if (IsHandleCreated)
                 {
-                    this.BeginInvoke(new Action(() =>
+                    this.BeginInvoke((MethodInvoker)delegate ()
                     {
                         for (int k = 0; k < this.Controls.Count; k++) this.Controls[k].Dispose();
                         this.Controls.Clear();
-                    }));
+                    });
                 }
 
                 CurrentLocationY = 0;
@@ -108,11 +119,11 @@ namespace MyMediaPlayer
                     Separator.FillColor = Color.White;
                     if (IsHandleCreated)
                     {
-                        this.BeginInvoke(new Action(() =>
+                        this.BeginInvoke((MethodInvoker)delegate ()
                         {
                             this.Controls.Add(IntegrationSearchResult);
                             this.Controls.Add(Separator);
-                        }));
+                        });
                     }
 
                     Self.MediaItems.Add(IntegrationSearchResult);
