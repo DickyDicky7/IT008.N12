@@ -24,8 +24,17 @@ namespace MyMediaPlayer
             {
                 if (IsHandleCreated)
                 {
-                    DisplayPanel.BeginInvoke
-                    ((MethodInvoker)delegate () { DisplayPanel.Text = value.ToString(); });
+                    if (InvokeRequired)
+                    {
+                        DisplayPanel.Invoke
+                        ((MethodInvoker)delegate () { DisplayPanel.Text = value.ToString(); });
+                        Console.WriteLine("1");
+                    }
+                    else
+                    {
+                        DisplayPanel.Text = value.ToString();
+                        Console.WriteLine("2");
+                    }
                 }
             }
         }

@@ -57,9 +57,9 @@ namespace MyMediaPlayer
                             (await Integration.Search(TextBox.Text, 1, true));
                         }
                         TextBox.Text = "";
+                        Pagination.CurrentPageNumber = 1;
+                        LastMod = null;
                     });
-                    Pagination.CurrentPageNumber = 1;
-                    LastMod = null;
                 }
             }
         }
