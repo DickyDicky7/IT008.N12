@@ -1,12 +1,12 @@
 # 📚 Đồ Án Lập Trình Trực Quan - IT008.N12
 
-## ✒️ Đề tài
+## ✒️ Đề Tài
 
 > Trình Phát Audio Và Video
 
-## 📄 Mô tả
+## 📄 Mô Tả
 
-*Thành viên nhóm*
+*Thành viên nhóm:*
 
 | MSSV | Họ Và Tên |   |
 | ---- | --------- | - |
@@ -14,6 +14,9 @@
 | 21521682 | [Nguyễn Văn Vũ](https://github.com/JustVvu)      | Thành viên  |
 | 21521055 | [Nguyễn Chí Lâm](https://github.com/Loading1369) | Thành viên  |
 | 21520579 | [Nguyễn Tiến Anh](https://github.com/4nh3k)      | Thành viên  |
+
+*Công nghệ sử dụng:*
+- Windows Forms
 
 ## ⚙️ Hướng Dẫn Cài Đặt
 
