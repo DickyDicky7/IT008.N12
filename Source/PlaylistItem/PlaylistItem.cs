@@ -99,6 +99,7 @@ namespace MyMediaPlayer
 
         private void RemoveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GlobalReferences.MediaController.LoadMediaItemList(null);
             this.Clear();
             this.Dispose();
             if (File.Exists(URL))

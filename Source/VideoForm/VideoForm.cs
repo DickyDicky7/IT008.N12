@@ -72,6 +72,26 @@ namespace MyMediaPlayer
         {
             Player.Location = new Point(1, 30);
             Player.Size = new Size(this.Size.Width - 2, this.Size.Height - 31);
+
+            if (this.WindowState is FormWindowState.Maximized)
+            {
+                VolumeTrackBar.Value = VideoCurrentSettingsVolume;
+
+                Transition.With(TrackBar, "Top", 0)
+                .Decelerate(TimeSpan.FromSeconds(0.25));
+
+                Transition.With(VolumeTrackBar, "Top", 10)
+                .Decelerate(TimeSpan.FromSeconds(0.25));
+            }
+            else
+            if (this.WindowState is FormWindowState.Normal)
+            {
+                Transition.With(TrackBar, "Top", -30)
+                .Decelerate(TimeSpan.FromSeconds(0.25));
+
+                Transition.With(VolumeTrackBar, "Top", -10)
+                .Decelerate(TimeSpan.FromSeconds(0.25));
+            }
         }
 
         public double VideoCurrentPosition
@@ -154,27 +174,27 @@ namespace MyMediaPlayer
 
         private void MaximizeControlBox_Click(object sender, EventArgs e)
         {
-            VolumeTrackBar.Value = VideoCurrentSettingsVolume;
-            if (TrackBar.Top < 0)
-            {
-                Transition.With(TrackBar, "Top", 0)
-                .Decelerate(TimeSpan.FromSeconds(0.25));
-            }
-            else
-            {
-                Transition.With(TrackBar, "Top", -30)
-                .Decelerate(TimeSpan.FromSeconds(0.25));
-            }
-            if (VolumeTrackBar.Top < 0)
-            {
-                Transition.With(VolumeTrackBar, "Top", 10)
-                .Decelerate(TimeSpan.FromSeconds(0.25));
-            }
-            else
-            {
-                Transition.With(VolumeTrackBar, "Top", -10)
-                .Decelerate(TimeSpan.FromSeconds(0.25));
-            }
+            //VolumeTrackBar.Value = VideoCurrentSettingsVolume;
+            //if (TrackBar.Top < 0)
+            //{
+            //    Transition.With(TrackBar, "Top", 0)
+            //    .Decelerate(TimeSpan.FromSeconds(0.25));
+            //}
+            //else
+            //{
+            //    Transition.With(TrackBar, "Top", -30)
+            //    .Decelerate(TimeSpan.FromSeconds(0.25));
+            //}
+            //if (VolumeTrackBar.Top < 0)
+            //{
+            //    Transition.With(VolumeTrackBar, "Top", 10)
+            //    .Decelerate(TimeSpan.FromSeconds(0.25));
+            //}
+            //else
+            //{
+            //    Transition.With(VolumeTrackBar, "Top", -10)
+            //    .Decelerate(TimeSpan.FromSeconds(0.25));
+            //}
         }
 
         private readonly Watcher Watcher = new Watcher();

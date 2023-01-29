@@ -106,6 +106,7 @@ namespace MyMediaPlayer
             {
                 VideoForm.Stop();
                 VideoForm = null;
+                Player.settings.volume = VolumeMeter.Value;
             }
 
             CurrentMode = Mode.Audio;
@@ -128,6 +129,7 @@ namespace MyMediaPlayer
             {
                 VideoForm.Stop();
                 VideoForm = null;
+                Player.settings.volume = VolumeMeter.Value;
             }
 
             CurrentMode = Mode.Audio;
@@ -403,7 +405,7 @@ namespace MyMediaPlayer
 
         private void VolumeMeter_Scroll(object sender, ScrollEventArgs e)
         {
-            if (CurrentMode is Mode.Audio)
+            if (CurrentMode is Mode.Audio || CurrentMode is Mode.None)
             {
                 Player.settings.volume = VolumeMeter.Value;
             }
@@ -416,7 +418,7 @@ namespace MyMediaPlayer
 
         private void VolumeMeter_ValueChanged(object sender, EventArgs e)
         {
-            if (CurrentMode is Mode.Audio)
+            if (CurrentMode is Mode.Audio || CurrentMode is Mode.None)
             {
                 Player.settings.volume = VolumeMeter.Value;
             }
@@ -640,6 +642,7 @@ namespace MyMediaPlayer
                 CurrentMode = Mode.None;
                 VolumeMeter.DataBindings.Clear();
             };
+            VideoForm.VideoCurrentSettingsVolume = VolumeMeter.Value;
 
             VolumeMeter.DataBindings.Clear();
             VolumeMeter.DataBindings.Add("Value", VideoForm
