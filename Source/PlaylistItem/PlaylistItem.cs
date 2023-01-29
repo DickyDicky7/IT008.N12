@@ -22,6 +22,7 @@ namespace MyMediaPlayer
         {
             InitializeComponent();
             this.URL = URL;
+            this.Name = URL;
             Render();
             DataGridView.CellMouseClick += DataGridView_CellMouseClick;
         }
@@ -55,7 +56,7 @@ namespace MyMediaPlayer
         private readonly string URL;
         private int? RowIndex = null;
 
-        private void Render()
+        public void Render()
         {
             using (Stream Stream = File.OpenRead(URL))
             {
@@ -98,14 +99,11 @@ namespace MyMediaPlayer
 
         private void RemoveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Clear();
+            this.Dispose();
             if (File.Exists(URL))
             {
                 File.Delete(URL);
-            }
-            else
-            {
-                this.Parent.Controls.Remove(this);
-                this.Dispose();
             }
         }
 

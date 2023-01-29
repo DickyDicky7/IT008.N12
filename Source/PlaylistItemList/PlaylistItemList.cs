@@ -19,24 +19,6 @@ namespace MyMediaPlayer
             this.HorizontalScroll.Maximum = 0;
             this.AutoScroll = true;
             Render();
-
-            Watcher Watcher = new Watcher();
-            Watcher.Interval = TimeSpan.FromMilliseconds(100);
-            Watcher.Action = () =>
-            {
-                if (GlobalReferences.IsGoodToRerender)
-                {
-                    if (IsHandleCreated)
-                    {
-                        this.BeginInvoke((MethodInvoker)delegate ()
-                        {
-                            this.Render();
-                        });
-                    }
-                    GlobalReferences.IsGoodToRerender = false;
-                }
-            };
-            Watcher.Start();
         }
 
         protected override CreateParams CreateParams
@@ -58,12 +40,16 @@ namespace MyMediaPlayer
             }
             this.Controls.Clear();
             Directory.GetFiles(Common.PlaylistsFolder, "*.wpl").ToList()
-            .ForEach(Path =>
+            .ForEach(this.Add);
+        }
+
+        public void Add(string URL)
+        {
+            this.Controls.Add
+            (new PlaylistItem(URL)
             {
-                PlaylistItem PlaylistItem = new PlaylistItem(Path);
-                PlaylistItem.Padding = new Padding(20, 7, 20, 7);
-                PlaylistItem.Dock = DockStyle.Top;
-                this.Controls.Add(PlaylistItem);
+                Dock = DockStyle.Top,
+                Padding = new Padding(20, 7, 20, 7),
             });
         }
     }

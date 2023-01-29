@@ -342,6 +342,11 @@ namespace MyMediaPlayer
                 if (!File.Exists($"{Common.PlaylistsFolder}\\{InputForm.Result}.wpl"))
                 {
                     MediaController.CreatePlaylist(InputForm.Result);
+                    if (playlistItemList.Controls.Find
+                       ($"{Common.PlaylistsFolder}\\{InputForm.Result}.wpl", false).Length == 0)
+                    {
+                        playlistItemList.Add($"{Common.PlaylistsFolder}\\{InputForm.Result}.wpl");
+                    }
                     MediaController.AddToPlaylist(InputForm.Result,
                     GlobalReferences.PlaylistContextMenuStripRecentMediaItem.URL);
                 }
@@ -355,7 +360,17 @@ namespace MyMediaPlayer
 
         private void PlaylistsFolderWatcher_Changed(object sender, FileSystemEventArgs e)
         {
-            GlobalReferences.IsGoodToRerender = true;
+            if (IsHandleCreated)
+            {
+                playlistItemList.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    if (playlistItemList.Controls.Find(e.FullPath, false).Length != 0)
+                    {
+                        ((PlaylistItem)
+                        playlistItemList.Controls.Find(e.FullPath, false).First()).Render();
+                    }
+                });
+            }
         }
 
         private void PlaylistsFolderWatcher_Created(object sender, FileSystemEventArgs e)
@@ -372,6 +387,13 @@ namespace MyMediaPlayer
                 {
                     AddToToolStripMenuItem.DropDownItems.Add(ToolStripMenuItem);
                 });
+                playlistItemList.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    if (playlistItemList.Controls.Find(e.FullPath, false).Length == 0)
+                    {
+                        playlistItemList.Add(e.FullPath);
+                    }
+                });
             }
         }
 
@@ -384,8 +406,14 @@ namespace MyMediaPlayer
                     AddToToolStripMenuItem.DropDownItems
                     .RemoveByKey(Path.GetFileNameWithoutExtension(e.Name));
                 });
+                playlistItemList.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    if (playlistItemList.Controls.Find(e.FullPath, false).Length != 0)
+                    {
+                        playlistItemList.Controls.Find(e.FullPath, false).First().Dispose();
+                    }
+                });
             }
-            GlobalReferences.IsGoodToRerender = true;
         }
 
         private Action<object, EventArgs> MainForm_Load(string[] args)
@@ -395,8 +423,25 @@ namespace MyMediaPlayer
             {
                 if (args.Length != 0)
                 {
-                    BringVisualizeToFront();
-                    mediaController.LoadLocalTrack(args[0]);
+                    if (Common.AudioFileExtensions.Any
+                       (FileExtension => args[0].EndsWith(FileExtension.Substring(1))))
+                    {
+                        BringVisualizeToFront();
+                        mediaController.LoadLocalTrack(args[0]);
+                    }
+                    else
+                    if (Common.VideoFileExtensions.Any
+                       (FileExtension => args[0].EndsWith(FileExtension.Substring(1))))
+                    {
+                        mediaController.LoadLocalVideo(args[0]);
+                    }
+                    else
+                    if (args[0].EndsWith(".wpl"))
+                    {
+                        PlaylistItem PlaylistItem = new PlaylistItem(args[0]);
+                        mediaController.LoadMediaItemList(PlaylistItem);
+                        PlaylistItem.PlayNext();
+                    }
                 }
             });
             return LoadHandler;

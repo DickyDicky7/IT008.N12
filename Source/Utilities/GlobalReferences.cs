@@ -11,7 +11,6 @@ namespace MyMediaPlayer
 {
     public static class GlobalReferences
     {
-        public static bool IsGoodToRerender = false;
         public static MainForm MainForm { get; set; }
         public static TrackLyrics TrackLyrics { get; set; }
         public static MediaController MediaController { get; set; }
