@@ -33,6 +33,7 @@
             this.BtnPlayingMode = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.DurationLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.VolumeMeter = new Siticone.Desktop.UI.WinForms.SiticoneTrackBar();
+            this.MediaTitle = new MyMediaPlayer.AnimateLabel();
             this.BtnNext10s = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnBack10s = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.BtnNext = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -40,7 +41,7 @@
             this.BtnPlay = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.TimeStamp = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.ToolTip = new Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip();
-            this.MediaTitle = new MyMediaPlayer.AnimateLabel();
+            this.PlayingModeToolTip = new Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,6 +112,8 @@
             this.BtnPlayingMode.Size = new System.Drawing.Size(60, 40);
             this.BtnPlayingMode.TabIndex = 9;
             this.BtnPlayingMode.Click += new System.EventHandler(this.BtnPlayingMode_Click);
+            this.BtnPlayingMode.MouseEnter += new System.EventHandler(this.BtnPlayingMode_MouseEnter);
+            this.BtnPlayingMode.MouseLeave += new System.EventHandler(this.BtnPlayingMode_MouseLeave);
             // 
             // DurationLabel
             // 
@@ -140,6 +143,20 @@
             this.VolumeMeter.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.VolumeMeter.ValueChanged += new System.EventHandler(this.VolumeMeter_ValueChanged);
             this.VolumeMeter.Scroll += new System.Windows.Forms.ScrollEventHandler(this.VolumeMeter_Scroll);
+            // 
+            // MediaTitle
+            // 
+            this.MediaTitle.BackColor = System.Drawing.Color.Transparent;
+            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.MediaTitle.Location = new System.Drawing.Point(280, 28);
+            this.MediaTitle.Name = "MediaTitle";
+            this.MediaTitle.Size = new System.Drawing.Size(440, 40);
+            this.MediaTitle.Slide = true;
+            this.MediaTitle.SlideTime = 15;
+            this.MediaTitle.TabIndex = 5;
+            this.MediaTitle.Text = "MediaTitle";
+            this.MediaTitle.Click += new System.EventHandler(this.MediaTitle_Click);
             // 
             // BtnNext10s
             // 
@@ -282,21 +299,24 @@
             // ToolTip
             // 
             this.ToolTip.AllowLinksHandling = true;
+            this.ToolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.ToolTip.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.ToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ToolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.ToolTip.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.ToolTip.TitleFont = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.ToolTip.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             // 
-            // MediaTitle
+            // PlayingModeToolTip
             // 
-            this.MediaTitle.BackColor = System.Drawing.Color.Transparent;
-            this.MediaTitle.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MediaTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.MediaTitle.Location = new System.Drawing.Point(280, 28);
-            this.MediaTitle.Name = "MediaTitle";
-            this.MediaTitle.Size = new System.Drawing.Size(440, 40);
-            this.MediaTitle.Slide = true;
-            this.MediaTitle.SlideTime = 15;
-            this.MediaTitle.TabIndex = 5;
-            this.MediaTitle.Text = "MediaTitle";
-            this.MediaTitle.Click += new System.EventHandler(this.MediaTitle_Click);
+            this.PlayingModeToolTip.AllowLinksHandling = true;
+            this.PlayingModeToolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PlayingModeToolTip.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.PlayingModeToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PlayingModeToolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.PlayingModeToolTip.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.PlayingModeToolTip.TitleFont = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.PlayingModeToolTip.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             // 
             // MediaController
             // 
@@ -330,5 +350,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel TimeStamp;
         private Siticone.Desktop.UI.WinForms.SiticoneButton BtnPlayingMode;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip ToolTip;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip PlayingModeToolTip;
     }
 }

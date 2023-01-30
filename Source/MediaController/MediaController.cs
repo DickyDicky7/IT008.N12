@@ -678,6 +678,7 @@ namespace MyMediaPlayer
                 BtnPlayingMode.Image = Properties.Resources.normal;
                 //if (CurrentMode is Mode.Video) VideoForm.ShouldClose = true;
             }
+            BtnPlayingMode_MouseEnter(null, null);
         }
 
         public enum PlayingMode
@@ -685,6 +686,16 @@ namespace MyMediaPlayer
             Normal,
             Repeat,
             AutoPlayNext,
+        }
+
+        private void BtnPlayingMode_MouseEnter(object sender, EventArgs e)
+        {
+            PlayingModeToolTip.Show($"Playing Mode: {CurrentPlayingMode}", BtnPlayingMode, 40, 45);
+        }
+
+        private void BtnPlayingMode_MouseLeave(object sender, EventArgs e)
+        {
+            PlayingModeToolTip.Hide(BtnPlayingMode);
         }
     }
 
