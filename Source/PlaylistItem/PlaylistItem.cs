@@ -53,37 +53,48 @@ namespace MyMediaPlayer
         }
 
         private List<string> Paths;
-        private readonly string URL;
         private int? RowIndex = null;
+        public string URL { get; set; }
 
-        public void Render()
+        public /* async */ void Render()
         {
-            using (Stream Stream = File.OpenRead(URL))
+            try
             {
                 WplContent Content = new WplContent();
-                WplPlaylist Playlist = Content.GetFromStream(Stream);
-                Paths = Playlist.GetTracksPaths().ToList();
+                WplPlaylist Playlist = Content.GetFromString(File.ReadAllText(URL));
+
                 Panel.Text = Playlist.Title;
+                Paths = Playlist.GetTracksPaths().ToList();
+
+                for (int k = 0; k < DataGridView.Rows.Count; k++) DataGridView.Rows[k].Dispose();
+                DataGridView.Rows.Clear();
+
+                Paths.ForEach(Path =>
+                {
+                    string FileType =
+                    Common.AudioFileExtensions.Any
+                    (Extension => Path.Contains(Extension.Substring(1))) ? "Audio" :
+                    Common.VideoFileExtensions.Any
+                    (Extension => Path.Contains(Extension.Substring(1))) ? "Video" : "_____";
+
+                    string FileName =
+                    FileType is "Audio" ? Common.GetTitle(Path) : Path.Split('\\').Last();
+
+                    DataGridView.Rows.Add(new string[] { FileName, FileType });
+                });
+
+                DataGridView.ClearSelection();
             }
-
-            for (int k = 0; k < DataGridView.Rows.Count; k++) DataGridView.Rows[k].Dispose();
-            DataGridView.Rows.Clear();
-
-            Paths.ForEach(Path =>
+            catch (IOException IOError)
             {
-                string FileType =
-                Common.AudioFileExtensions.Any
-                (Extension => Path.Contains(Extension.Substring(1))) ? "Audio" :
-                Common.VideoFileExtensions.Any
-                (Extension => Path.Contains(Extension.Substring(1))) ? "Video" : "_____";
-
-                string FileName =
-                FileType is "Audio" ? Common.GetTitle(Path) : Path.Split('\\').Last();
-
-                DataGridView.Rows.Add(new string[] { FileName, FileType });
-            });
-
-            DataGridView.ClearSelection();
+                //await Task.Delay(TimeSpan.FromMilliseconds(100));
+                //this.Render();
+                Console.WriteLine($@"
+                - {IOError.Message}
+                - {IOError.HResult}
+                - {IOError.StackTrace}
+                - .");
+            }
         }
 
         private void RenamePlaylistToolStripMenuItem_Click(object sender, EventArgs e)

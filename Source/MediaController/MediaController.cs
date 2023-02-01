@@ -494,20 +494,13 @@ namespace MyMediaPlayer
             {
                 if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                 {
-                    string NewContent;
-
-                    using (Stream Stream = File.OpenRead
-                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
-                    {
-                        WplContent Content = new WplContent();
-                        WplPlaylist Playlist = Content.GetFromStream(Stream);
-                        Playlist.PlaylistEntries
-                        .Add(new WplPlaylistEntry() { Path = TrackURL });
-                        NewContent = Content.ToText(Playlist);
-                    }
+                    WplContent Content = new WplContent();
+                    WplPlaylist Playlist = Content.GetFromString
+                    (File.ReadAllText($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"));
+                    Playlist.PlaylistEntries.Add(new WplPlaylistEntry() { Path = TrackURL });
 
                     File.WriteAllText
-                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", Content.ToText(Playlist));
                 }
             });
         }
@@ -518,25 +511,16 @@ namespace MyMediaPlayer
             {
                 if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                 {
-                    string NewContent;
+                    WplContent Content = new WplContent();
+                    WplPlaylist Playlist = Content.GetFromString
+                    (File.ReadAllText($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"));
 
-                    using (Stream Stream = File.OpenRead
-                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
-                    {
-                        WplContent Content = new WplContent();
-                        WplPlaylist Playlist = Content.GetFromStream(Stream);
-                        int Index = Playlist.PlaylistEntries
-                        .FindIndex((Item) =>
-                        {
-                            return Item.Path == TrackURL;
-                        });
-                        if (Index >= 0)
-                            Playlist.PlaylistEntries.RemoveAt(Index);
-                        NewContent = Content.ToText(Playlist);
-                    }
+                    int Index = Playlist.PlaylistEntries.FindIndex
+                    ((Item) => { return Item.Path == TrackURL; });
+                    if (Index >= 0) Playlist.PlaylistEntries.RemoveAt(Index);
 
                     File.WriteAllText
-                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", Content.ToText(Playlist));
                 }
             });
         }
@@ -547,23 +531,24 @@ namespace MyMediaPlayer
             {
                 if (File.Exists($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
                 {
-                    string NewContent;
-
-                    using (Stream Stream = File.OpenRead
-                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl"))
-                    {
-                        WplContent Content = new WplContent();
-                        WplPlaylist Playlist = Content.GetFromStream(Stream);
-                        Playlist.Title = NewPlaylistName;
-                        NewContent = Content.ToText(Playlist);
-                    }
-
-                    File.WriteAllText
-                    ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl", NewContent);
+                    GlobalReferences.IsMySemaphore = true;
 
                     File.Move
                     ($"{Common.PlaylistsFolder}\\{PlaylistName}.wpl",
                      $"{Common.PlaylistsFolder}\\{NewPlaylistName}.wpl");
+
+                    GlobalReferences.RenamePlaylistSemaphore.WaitOne();
+
+                    GlobalReferences.IsMySemaphore = false;
+
+                    WplContent Content = new WplContent();
+                    WplPlaylist Playlist = Content.GetFromString
+                    (File.ReadAllText($"{Common.PlaylistsFolder}\\{NewPlaylistName}.wpl"));
+
+                    Playlist.Title = NewPlaylistName;
+
+                    File.WriteAllText
+                    ($"{Common.PlaylistsFolder}\\{NewPlaylistName}.wpl", Content.ToText(Playlist));
                 }
             });
         }

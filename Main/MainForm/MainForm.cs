@@ -119,6 +119,7 @@ namespace MyMediaPlayer
             PlaylistsFolderWatcher.Changed += PlaylistsFolderWatcher_Changed;
             PlaylistsFolderWatcher.Created += PlaylistsFolderWatcher_Created;
             PlaylistsFolderWatcher.Deleted += PlaylistsFolderWatcher_Deleted;
+            PlaylistsFolderWatcher.Renamed += PlaylistsFolderWatcher_Renamed;
         }
 
         private async void MusicFolderPanel_ControlAdded(object sender, ControlEventArgs e)
@@ -366,6 +367,7 @@ namespace MyMediaPlayer
                 {
                     if (playlistItemList.Controls.Find(e.FullPath, false).Length != 0)
                     {
+                        //ModalBox.Show("", e.ChangeType.ToString());
                         ((PlaylistItem)
                         playlistItemList.Controls.Find(e.FullPath, false).First()).Render();
                     }
@@ -411,6 +413,33 @@ namespace MyMediaPlayer
                     if (playlistItemList.Controls.Find(e.FullPath, false).Length != 0)
                     {
                         playlistItemList.Controls.Find(e.FullPath, false).First().Dispose();
+                    }
+                });
+            }
+        }
+
+        private void PlaylistsFolderWatcher_Renamed(object sender, RenamedEventArgs e)
+        {
+            //ModalBox.Show("", $"{e.OldFullPath}, {e.FullPath}");
+            if (IsHandleCreated)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    AddToToolStripMenuItem.DropDownItems[Path.GetFileNameWithoutExtension(e.OldName)]
+                    .Text = Path.GetFileNameWithoutExtension(e.Name);
+                    AddToToolStripMenuItem.DropDownItems[Path.GetFileNameWithoutExtension(e.OldName)]
+                    .Name = Path.GetFileNameWithoutExtension(e.Name);
+                    //if (AddToToolStripMenuItem.DropDownItems.ContainsKey
+                    //   (Path.GetFileNameWithoutExtension(e.OldName))) ModalBox.Show("", "@@@");
+                });
+                playlistItemList.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    if (playlistItemList.Controls.ContainsKey(e.OldFullPath))
+                    {
+                        ((PlaylistItem)playlistItemList.Controls[e.OldFullPath]).URL = e.FullPath;
+                        playlistItemList.Controls[e.OldFullPath].Name = e.FullPath;
+                        if (GlobalReferences.IsMySemaphore)
+                            GlobalReferences.RenamePlaylistSemaphore.Release();
                     }
                 });
             }
