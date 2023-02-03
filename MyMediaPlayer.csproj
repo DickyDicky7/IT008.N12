@@ -312,8 +312,6 @@
     <EmbeddedResource Include="Source\ZingMP3IntegrationSearchResult\ZingMP3IntegrationSearchResult.resx">
       <DependentUpon>ZingMP3IntegrationSearchResult.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagramDetail.cd" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
