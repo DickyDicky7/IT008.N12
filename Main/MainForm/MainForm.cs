@@ -625,7 +625,7 @@ namespace MyMediaPlayer
         private void Responsive()
         {
             List<string> list = new List<string>()
-            { "Music library", "Video library", "Play queue"
+            { "Music Library", "Video Library", "Play Queue"
             , "Playlists", "Settings", "Online Store" };
             if (this.Width <= 1000)
             {
